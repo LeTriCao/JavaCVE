@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ commons-io ---
+[INFO] No dependencies found.
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmpukn3mcye/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.251 s
+[INFO] Finished at: 2026-11-24T07:05:16Z
+[INFO] ------------------------------------------------------------------------

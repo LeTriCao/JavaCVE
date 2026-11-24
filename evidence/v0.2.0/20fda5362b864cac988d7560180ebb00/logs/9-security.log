@@ -1,0 +1,3 @@
+good.txt => accepted; written=true
+../outside.txt => rejected:Exception; written=false
+../out-sibling.txt => accepted; written=true

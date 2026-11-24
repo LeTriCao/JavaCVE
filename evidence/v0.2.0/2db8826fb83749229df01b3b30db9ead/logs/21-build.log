@@ -1,0 +1,53 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 41 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 41 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] nifi                                                               [pom]
+[INFO] nifi-commons                                                       [pom]
+[INFO] nifi-api                                                           [jar]
+[INFO] nifi-framework-api                                                 [jar]
+[INFO] nifi-utils                                                         [jar]
+[INFO] nifi-data-provenance-utils                                         [jar]
+[INFO] nifi-parameter                                                     [jar]
+[INFO] nifi-uuid5                                                         [jar]
+[INFO] nifi-expression-language                                           [jar]
+[INFO] nifi-security-utils-api                                            [jar]
+[INFO] nifi-property-utils                                                [jar]
+[INFO] nifi-properties                                                    [jar]
+[INFO] nifi-security-utils                                                [jar]
+[INFO] nifi-xml-processing                                                [jar]
+[INFO] nifi-registry                                                      [pom]
+[INFO] nifi-registry-core                                                 [pom]
+[INFO] nifi-registry-revision                                             [pom]
+[INFO] nifi-registry-revision-entity-model                                [jar]
+[INFO] nifi-manifest                                                      [pom]
+[INFO] nifi-extension-manifest-model                                      [jar]
+[INFO] nifi-registry-data-model                                           [jar]
+[INFO] c2                                                                 [pom]
+[INFO] c2-protocol                                                        [pom]
+[INFO] c2-protocol-component-api                                          [jar]
+[INFO] nifi-nar-bundles                                                   [pom]
+[INFO] nifi-framework-bundle                                              [pom]
+[INFO] nifi-framework                                                     [pom]
+[INFO] nifi-client-dto                                                    [jar]
+[INFO] nifi-site-to-site-client                                           [jar]
+[INFO] nifi-server-api                                                    [jar]
+[INFO] nifi-nar-utils                                                     [jar]
+[INFO] nifi-extension-manifest-parser                                     [jar]
+[INFO] nifi-runtime-manifest-core                                         [jar]
+[INFO] nifi-framework-nar-utils                                           [jar]
+[INFO] nifi-mock-authorizer                                               [jar]
+[INFO] nifi-framework-authorization                                       [jar]
+[INFO] nifi-registry-security-utils                                       [jar]
+[INFO] nifi-registry-client                                               [jar]
+[INFO] nifi-framework-core-api                                            [jar]
+[INFO] nifi-mock                                                          [jar]
+[INFO] nifi-shell-authorizer                                              [jar]
+[INFO] 
+[INFO] ------------------------< org.apache.nifi:nifi >------------------------
+[INFO] Building nifi 1.16.3-SNAPSHOT                                     [1/41]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------

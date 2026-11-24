@@ -1,0 +1,15 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.codehaus.plexus:plexus-archiver >-----------------
+[INFO] Building Plexus Archiver Component 3.6.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:get (default-cli) @ plexus-archiver ---
+[INFO] Resolving org.codehaus.plexus:plexus-container-default:jar:1.5.5
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.097 s
+[INFO] Finished at: 2026-11-24T06:57:02Z
+[INFO] ------------------------------------------------------------------------

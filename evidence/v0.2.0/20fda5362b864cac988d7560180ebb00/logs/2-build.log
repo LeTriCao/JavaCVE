@@ -1,0 +1,59 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.codehaus.plexus:plexus-utils >------------------
+[INFO] Building Plexus Common Utilities 3.0.24-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Artifact org.apache.maven.plugins:maven-jar-plugin:pom:2.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.maven.plugins:maven-jar-plugin:pom:2.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.maven.plugins:maven-jar-plugin:jar:2.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.maven.plugins:maven-jar-plugin:jar:2.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] 
+[INFO] --- enforcer:1.1.1:enforce (enforce-java) @ plexus-utils ---
+[INFO] 
+[INFO] --- resources:2.7:resources (default-resources) @ plexus-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ plexus-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 83 source files to /tmp/javacve-h1z26kgn/tmpemnj15h8/source/target/classes
+[INFO] /tmp/javacve-h1z26kgn/tmpemnj15h8/source/src/main/java/org/codehaus/plexus/util/xml/XmlStreamWriter.java: Some input files use or override a deprecated API.
+[INFO] /tmp/javacve-h1z26kgn/tmpemnj15h8/source/src/main/java/org/codehaus/plexus/util/xml/XmlStreamWriter.java: Recompile with -Xlint:deprecation for details.
+[INFO] /tmp/javacve-h1z26kgn/tmpemnj15h8/source/src/main/java/org/codehaus/plexus/util/reflection/Reflector.java: Some input files use unchecked or unsafe operations.
+[INFO] /tmp/javacve-h1z26kgn/tmpemnj15h8/source/src/main/java/org/codehaus/plexus/util/reflection/Reflector.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:2.7:testResources (default-testResources) @ plexus-utils ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ plexus-utils ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ plexus-utils ---
+[WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:2.5:jar (default-jar) @ plexus-utils ---
+[INFO] Artifact org.codehaus.plexus:plexus-archiver:pom:2.4.4 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots)]
+[INFO] Artifact org.codehaus.plexus:plexus-archiver:pom:2.4.4 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots)]
+[INFO] Artifact org.codehaus.plexus:plexus-io:pom:2.0.10 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.codehaus.plexus:plexus-io:pom:2.0.10 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.apache.commons:commons-compress:pom:1.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.apache.commons:commons-compress:pom:1.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.tukaani:xz:pom:1.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.tukaani:xz:pom:1.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.codehaus.plexus:plexus-archiver:jar:2.4.4 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots)]
+[INFO] Artifact org.apache.commons:commons-compress:jar:1.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.tukaani:xz:jar:1.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.codehaus.plexus:plexus-archiver:jar:2.4.4 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots)]
+[INFO] Artifact org.apache.commons:commons-compress:jar:1.5 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Artifact org.tukaani:xz:jar:1.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [repro-central-https (https://repo.maven.apache.org/maven2, default, releases+snapshots), plexus.snapshots (https://oss.sonatype.org/content/repositories/plexus-snapshots, default, snapshots)]
+[INFO] Building jar: /tmp/javacve-h1z26kgn/tmpemnj15h8/source/target/plexus-utils-3.0.24-SNAPSHOT.jar
+[INFO] 
+[INFO] --- site:3.4:attach-descriptor (attach-descriptor) @ plexus-utils ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.061 s
+[INFO] Finished at: 2026-11-24T07:21:56Z
+[INFO] ------------------------------------------------------------------------

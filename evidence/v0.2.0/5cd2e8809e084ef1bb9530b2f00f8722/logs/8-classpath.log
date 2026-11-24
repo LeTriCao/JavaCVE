@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.codehaus.plexus:plexus-utils >------------------
+[INFO] Building Plexus Common Utilities 3.0.16-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ plexus-utils ---
+[INFO] No dependencies found.
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmptg_d0jt4/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  57.225 s
+[INFO] Finished at: 2026-11-24T06:54:47Z
+[INFO] ------------------------------------------------------------------------

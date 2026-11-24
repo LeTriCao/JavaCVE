@@ -13,7 +13,7 @@ import time
 from .build import digest, prepare_maven, tool_paths
 from .catalog import ROOT, rows
 from .observations import require
-from .runtime import StepError, read_run, utc
+from .runtime import StepError, read_run, utc, redact
 from .security import parse_probe
 
 
@@ -85,18 +85,20 @@ def primary_jar(work):
 
 
 def run_probe(case, record, artifact, dependencies, tools, env, run, tmp):
-    fixture = ROOT / "fixtures/RegressionProbe.java"
+    expand = case["check"] == "plexus-expand"
+    fixture = ROOT / ("fixtures/ExpandProbe.java" if expand else "fixtures/RegressionProbe.java")
     classes = tmp / "probe"
     classes.mkdir()
     owner = (case["cve_id"], record["phase"], record["commit"])
     run.execute("probe-compile", [tools["jdk"]/"bin/javac", "-encoding", "UTF-8", "-d", classes, fixture], env=env, owner=owner)
     cp = os.pathsep.join(map(str, [classes, artifact, *dependencies]))
     probe_env = dict(env, PILOT_ONLY_MARKER="LITERAL_EXPANSION_SENTINEL")
-    output = run.execute("security", [tools["jdk"]/"bin/java", "-cp", cp, "RegressionProbe", case["check"]], env=probe_env, timeout=45, owner=owner)
-    tests = parse_probe(case["check"], output)
+    output = run.execute("security", [tools["jdk"]/"bin/java", "-cp", cp, "ExpandProbe" if expand else "RegressionProbe", case["check"]], env=probe_env, timeout=45, owner=owner)
+    tests = parse_probe("zip4j" if expand else case["check"], output)
     record["security"] = dict(status="EXECUTED", process_exit_code=0, fixture_sha256=digest(fixture), tests=tests,
                                controls_pass=all(t["pass"] for t in tests if t["role"] == "control"),
                                all_security_assertions_pass=all(t["pass"] for t in tests if t["role"] == "security"))
+    record["security_status"] = "EXECUTED"
     require(record["security"]["controls_pass"], "Security probe control failed")
 
 
@@ -105,6 +107,7 @@ def pipeline(cases, args, run, experimental=False):
     if args.retry_from:
         _, retry = read_run(args.retry_from)
         require(retry["command"] == run.report["command"] and retry["dataset_sha256"] == run.report["dataset_sha256"], "Retry requires same command and dataset")
+        require(retry.get("batch_dataset_sha256")==run.report.get("batch_dataset_sha256"),"Retry batch differs")
         run.report["retry_of"] = retry["run_id"]
         run.report["inherited_successes"] = [{k:r[k] for k in ("cve_id","phase","commit")} for r in retry["snapshots"] if r["status"] == "PASS"]
     failed = {(r["cve_id"],r["phase"]) for r in retry["snapshots"] if r["status"] != "PASS"} if retry else None
@@ -119,12 +122,17 @@ def pipeline(cases, args, run, experimental=False):
         session = Path(session)
         start = time.perf_counter()
         tools = tool_paths(args.prior.resolve())
-        env, mvn = prepare_maven(session, tools["jdk"], tools["maven"], args.prior.resolve())
+        upstream_repos = getattr(args,"upstream_repositories",False)
+        env, mvn = prepare_maven(session, tools["jdk"], tools["maven"], args.prior.resolve(),upstream_repos)
+        run.report["repository_policy"] = "central_and_jenkins_https" if upstream_repos else "central_https_and_declared_https"
+        if upstream_repos:
+            mvn += ["-Dmaven.wagon.rto=15000","-Dmaven.wagon.http.retryHandler.count=1","-Daether.connector.connectTimeout=15000","-Daether.connector.requestTimeout=15000"]
         if args.offline:
             mvn.append("-o")
         run.report["toolchain_setup_seconds"] = round(time.perf_counter()-start,6)
         run.report["toolchain"] = {"java":run.execute("java-version", [tools["jdk"]/"bin/java","-version"], env=env),
                                    "maven":run.execute("maven-version", [tools["maven"]/"bin/mvn","--version"], env=env)}
+        run.report["toolchain"] = {k:redact(v) for k,v in run.report["toolchain"].items()}
         spec = json.loads((ROOT/"data/toolchain.json").read_text())
         require(spec["jdk_version"] in run.report["toolchain"]["java"] and "Apache Maven "+spec["maven_version"] in run.report["toolchain"]["maven"], "Toolchain version mismatch")
         for case in cases:
@@ -153,7 +161,8 @@ def pipeline(cases, args, run, experimental=False):
                             source = tmp / "source"
                             source.mkdir()
                             archive_source(repo, record["commit"], source)
-                            profile = profiles.get(case["cve_id"], {})
+                            original_files = {p.relative_to(source):digest(p) for p in source.rglob("*") if p.is_file() and not p.is_symlink()}
+                            profile = profiles.get(case["cve_id"], case.get("build_profile",{}))
                             module = profile.get("module", case["build_module"])
                             command = mvn + profile.get("flags", []) + ["-Dmaven.test.skip=true", "-Dcheckstyle.skip=true", "-Drat.skip=true", "package"]
                             build_cwd = source if profile.get("reactor") else source/module
@@ -165,14 +174,22 @@ def pipeline(cases, args, run, experimental=False):
                             shutil.copyfile(artifact, target)
                             record["artifact"] = str(target.relative_to(run.directory))
                             dependencies = []
-                            if case["check"]:
+                            if run.report["command"] == "batch-build":
+                                selected_tests = case.get("upstream_tests",[])
+                                record["security_status"] = "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
+                                if selected_tests:
+                                    run.execute("upstream-tests",mvn+profile.get("flags",[])+["-Dtest="+",".join(selected_tests),"-DfailIfNoTests=true","-Dcheckstyle.skip=true","-Drat.skip=true","test"],cwd=build_cwd,env=env,timeout=args.timeout,owner=owner)
+                                    record["upstream_tests"] = dict(status="PASS",selected_classes=selected_tests,scope="Changed upstream classes; not a validated external paired security fixture")
+                                else:
+                                    record["upstream_tests"] = dict(status="BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE")
+                            if case["check"] and case["check"] != "plexus-expand":
                                 classes = tmp / "api"
                                 classes.mkdir()
                                 run.execute("api-compile", [tools["jdk"]/"bin/javac", "-cp", artifact, "-d", classes, ROOT/"smoke"/case["check"]/"ApiCheck.java"], env=env, owner=owner)
                                 output = run.execute("api", [tools["jdk"]/"bin/java", "-cp", os.pathsep.join(map(str,[classes,artifact])), "ApiCheck"], env=env, owner=owner)
                                 require(output.splitlines()[-1:] == ["PASS"], "API check missing PASS")
                                 record["api_check"] = "PASS"
-                            if run.report["command"] in ("security", "all"):
+                            if run.report["command"] in ("security", "all") or case["check"] == "plexus-expand":
                                 cp_file = tmp / "classpath.txt"
                                 run.execute("classpath", mvn+["org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath", "-DincludeScope=runtime", "-Dmdep.outputFile="+str(cp_file)], cwd=source/module, env=env, owner=owner)
                                 dependencies = [Path(p) for p in cp_file.read_text().strip().split(os.pathsep) if p]
@@ -181,11 +198,15 @@ def pipeline(cases, args, run, experimental=False):
                                     cache_arg = next(x for x in mvn if str(x).startswith("-Dmaven.repo.local="))
                                     dependencies.append(Path(str(cache_arg).split("=",1)[1])/"org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar")
                                 record["dependencies"] = [dict(path=str(p),sha256=digest(p)) for p in dependencies]
-                        if run.report["command"] in ("security", "all"):
+                        if run.report["command"] in ("security", "all") or case["check"] == "plexus-expand":
                             run_probe(case, record, artifact, dependencies, tools, env, run, tmp)
                         if experimental:
                             record["security_status"] = "BLOCKED_NO_INTEGRATION_FIXTURE"
                             record["remaining_evidence"] = profiles[case["cve_id"]]["remaining_evidence"]
+                        if not previous:
+                            changed = [str(rel) for rel,sha in original_files.items() if not (source/rel).is_file() or digest(source/rel)!=sha]
+                            record["source_integrity"] = dict(checked_original_files=len(original_files),changed_files=changed)
+                            require(not changed,"Build/test modified original source files")
                         record.update(status="PASS", exit_code=0)
                 except Exception as exc:
                     record.update(status="FAIL", error=str(exc), error_category=getattr(exc,"category","VALIDATION"), exit_code=getattr(exc,"code",1))

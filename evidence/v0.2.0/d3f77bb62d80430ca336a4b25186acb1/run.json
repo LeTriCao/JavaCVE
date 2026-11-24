@@ -1,0 +1,90 @@
+{
+  "run_id": "d3f77bb62d80430ca336a4b25186acb1",
+  "release": "0.2.0",
+  "command": "doctor",
+  "start_utc": "2026-11-24T07:03:45.202800+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "doctor --network",
+  "project_commit": "b6d7191f2a7147ef11683fc1b33fa84fbb21fbbe",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [],
+  "snapshots": [],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "diagnostics": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "tools": {
+      "git": true,
+      "java": false,
+      "mvn": true
+    },
+    "optional_python_packages": {
+      "tree_sitter": false,
+      "tree_sitter_java": false,
+      "pip": false
+    },
+    "network": [
+      {
+        "url": "https://repo.maven.apache.org/maven2/",
+        "status": 200,
+        "bytes_prefix": 1024,
+        "seconds": 2.105
+      },
+      {
+        "url": "https://repo.jenkins-ci.org/public/",
+        "status": 200,
+        "bytes_prefix": 1024,
+        "seconds": 1.13
+      },
+      {
+        "url": "https://raw.githubusercontent.com/iris-sast/iris/d2059f299a80a68ea4a0b0315eec2f42b8743776/data/project_info.csv",
+        "status": 200,
+        "bytes_prefix": 1024,
+        "seconds": 1.037
+      }
+    ]
+  },
+  "end_utc": "2026-11-24T07:03:50.051116+00:00",
+  "seconds": 5.450573,
+  "public_receipt": true,
+  "original_run_sha256": "7c035cb5048dedfd4fcd1bff6f767fcb7fe0f1a6f020994c0d8fe7c32f08e425",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

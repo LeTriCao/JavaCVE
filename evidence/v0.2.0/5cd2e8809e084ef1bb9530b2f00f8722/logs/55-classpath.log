@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< net.lingala.zip4j:zip4j >-----------------------
+[INFO] Building zip4j 1.3.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ zip4j ---
+[INFO] No dependencies found.
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmpxtaqrua8/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.927 s
+[INFO] Finished at: 2026-11-24T07:00:50Z
+[INFO] ------------------------------------------------------------------------

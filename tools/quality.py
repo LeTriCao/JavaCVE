@@ -150,7 +150,20 @@ def generate_report(args, run):
         f = result["file_comparison"]
         lines += [f"| Tệp Java trước → sau chuẩn hóa | {f['original_java_files']} → {f['normalized_java_files']} | {f['matched_cves']} CVE giữ commit sửa; giảm {f['reduction_percent']}% |", f"| Ánh xạ commit sửa hiệu chỉnh | {f['corrected_fix_mappings']}/{len(f['cases'])} | So SHA gốc với SHA đã chọn |", f"| Cặp chuẩn hóa | {f['normalized_pairs']}/{len(cases)} | Git xác nhận parent được chọn |"]
     lines += ["", "Thời gian từng bước (giây): `"+json.dumps(result["measured_stage_seconds"])+"`.", "", "Giới hạn: thời gian mạng/cache không được kiểm soát giữa hai quy trình; chưa đo lao động theo CVE hoặc độ chính xác mô hình. Không suy ra tiết kiệm thời gian hay tăng độ chính xác từ số tệp giảm. RESOLVED_TARGET chỉ áp dụng cho cơ chế và điều kiện trong hồ sơ. UNCONFIRMED cần thêm ngữ cảnh và người đánh giá độc lập.", "", "Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iris-sast/iris/tree/d2059f299a80a68ea4a0b0315eec2f42b8743776).", ""]
-    (destination/"REPORT.md").write_text("\n".join(lines),encoding="utf-8")
+    narrative = ["# BÁO CÁO ĐỒ ÁN MÔN ĐẢM BẢO AN TOÀN THÔNG TIN", "", "JavaCVE v0.2.0 — Cải thiện bộ dữ liệu lỗ hổng mã nguồn Java", "", "Ngày cập nhật: 24/11/2026. Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp.", "", "## 1. Mục tiêu và câu hỏi đánh giá", "", "Cải thiện tập con CWE-Bench-Java bằng định danh Git, chuẩn hóa cặp bản vá, nhãn có phạm vi và bằng chứng thực thi. Đánh giá tách bạch tính toàn vẹn mẫu, khả năng build và hành vi bảo mật. Không đánh đồng callable thay đổi với một lỗ hổng độc lập.", "", "## 2. Nguồn và phương pháp", "", "Giữ nguyên revision IRIS và metadata seed; dùng parent đã chỉ định của commit sửa để cô lập thay đổi. Commons IO được hiệu chỉnh khỏi commit chỉ sửa test. Plexus Archiver chọn parent thứ nhất của merge; zip4j dùng lịch sử phục dựng, không coi là SHA gốc của tác giả. Phương thức thêm/xóa chỉ có bản ở phía hiện diện.", "", "## 3. Thiết kế kiểm chứng", "", "Tải commit cố định, xác nhận tree/blob Git, kiểm tra khoảng dòng và SHA256 phương thức. Build source bằng JDK8u514/Maven3.9.9 rồi chạy API và harness bảo mật. Fixture lịch sử giữ nguyên byte. Mỗi lệnh có run ID, thời gian UTC, môi trường, commit công cụ, lệnh, log và exit code. Assertion bảo mật FAIL là quan sát; lỗi harness hoặc đối chứng là lỗi thực nghiệm.", "", "## 4. Kết quả tính lại", ""]
+    narrative += lines[2:]
+    batch = json.loads((ROOT/"data/batch-02/summary.json").read_text()) if (ROOT/"data/batch-02/summary.json").exists() else None
+    if batch:
+        narrative += ["", "## 5. Đợt mở rộng", "", f"Đã chọn {batch['selected']} CVE mới; {batch['source_normalized']} hồ sơ có nguồn/advisory và trích xuất chuẩn hóa, gồm {batch['method_versions']} phiên bản phương thức. Bản chụp intake giữ {batch['labels'].get('UNCONFIRMED',0)} nhãn UNCONFIRMED. Kết quả build, fixture bổ sung và quyết định nhãn sau intake được ghi riêng trong docs/BATCH02.md và evidence/v0.2.0. Chỉ đưa vào số hoàn thành đầy đủ khi có nhãn có phạm vi, build và bằng chứng hành vi trước–sau. Không cộng vào mẫu số pilot."]
+        completion_file = ROOT/"data/batch-02/completion.json"
+        if completion_file.exists():
+            completion = json.loads(completion_file.read_text())
+            narrative += ["", "| Chỉ số batch02 sau rà soát | Số lượng |", "|---|---:|", f"| Chọn / chuẩn hóa nguồn / hoàn tất | {completion['selected']} / {completion['source_normalized']} / {completion['fully_completed']} |", f"| Nhãn sau rà soát | {json.dumps(completion['labels'])} |", "| Người đánh giá độc lập | 0 |"]
+    narrative += ["", "## 6. Chất lượng và giới hạn", "", "Rà soát kỹ thuật do AI thực hiện; số người đánh giá độc lập bằng 0. Các nhãn UNCONFIRMED của pilot giữ lý do ngoài phạm vi, cần caller/context hoặc phần mở rộng ngoài advisory. Toàn vẹn byte không xác nhận tính đúng ngữ nghĩa. Bốn bản sau thư viện ZIP có kiểm tra giới hạn thư mục chưa đạt trong phép đo lịch sử. Jenkins/NiFi cần kiểm thử tích hợp; tham khảo docs/EXPERIMENTS.md.", "", "## 7. Hướng phát triển luận văn", "", "Bổ sung người đánh giá độc lập và đo đồng thuận; hoàn thiện fixture cho batch mới; chia theo dự án hoặc CVE, gộp các nhóm trùng token trước khi chia. Cần kiểm tra clone gần giống và đo tác động của chất lượng nhãn lên một mô hình baseline. Chỉ kết luận cải thiện độ chính xác sau thí nghiệm có tập giữ lại độc lập; chỉ kết luận giảm lao động sau phép đo thời gian người thực hiện phù hợp.", "", "## 8. Tái hiện và bàn giao", "", "Các lệnh công khai: demo, list, fetch, build, security, all, audit, export, measure, report, split, investigate, expand và batch-build. README.md và docs/INSTALL.md hướng dẫn từ bản clone/giải nén mới. LICENSE chỉ cấp phép công cụ mới; mã bên thứ ba giữ giấy phép riêng. Không đóng gói cache, credential, JDK, Maven hoặc source Java chưa rà soát quyền tái phân phối.", ""]
+    markdown = "\n".join(narrative)
+    (destination/"REPORT.md").write_text(markdown,encoding="utf-8")
+    from .document import docx
+    docx(markdown,destination/"COURSE_REPORT.docx")
     print(destination)
     return result
 
@@ -158,6 +171,41 @@ def generate_report(args, run):
 def make_split(args,run):
     cases = {c["cve_id"]:c for c in rows("cases")}
     versions = rows("versions")
+    token_algorithm = "pilot_inherited_token_hash"
+    if args.with_batch:
+        from .batch import batch_cases, parser
+        from .pipeline import git
+        java = parser()
+        batch_cases_by_id = {c["cve_id"]:c for c in batch_cases(args.with_batch)}
+        require(not (cases.keys() & batch_cases_by_id.keys()),"Batch overlaps pilot")
+        cases.update(batch_cases_by_id)
+        versions += [json.loads(l) for l in (args.with_batch/"versions.jsonl").read_text(encoding="utf-8").splitlines()]
+        cached = {}
+        for v in versions:
+            key = (v["cve_id"],v["commit"],v["file_path"])
+            if key not in cached:
+                base = args.batch_repos if v["cve_id"] in batch_cases_by_id else args.repos
+                content = git(base/v["cve_id"],"show",v["commit"]+":"+v["file_path"])
+                tree = java.parse(content)
+                require(not tree.root_node.has_error,"Cannot normalize tokens in source with parse errors")
+                leaves = []
+                def walk(node):
+                    if "comment" in node.type:
+                        return
+                    if node.child_count==0:
+                        leaves.append((node.start_point.row+1,node.end_point.row+1,content[node.start_byte:node.end_byte]))
+                    else:
+                        for child in node.children:
+                            walk(child)
+                walk(tree.root_node)
+                cached[key] = (content,leaves)
+            content,leaves = cached[key]
+            snippet = b"".join(content.splitlines(keepends=True)[v["start_line"]-1:v["end_line"]]).strip()
+            require(hashlib.sha256(snippet).hexdigest()==v["code_sha256"],"Split source identity mismatch")
+            tokens = [token for start,end,token in leaves if v["start_line"]<=start<=end<=v["end_line"]]
+            require(bool(tokens),"No tokens for indexed method")
+            v["token_hash"] = hashlib.sha256(b"\0".join(tokens)).hexdigest()
+        token_algorithm = "common-java-leaves-in-verified-source-line-range-v3"
     units = {c:(c if args.unit=="cve" else cases[c]["repository_url"].lower().removesuffix(".git")) for c in cases}
     parent = {u:u for u in units.values()}
     def find(u):
@@ -186,7 +234,7 @@ def make_split(args,run):
     destination = args.out or run.directory/"split"
     destination.mkdir(parents=True,exist_ok=False)
     (destination/"assignments.jsonl").write_text("".join(json.dumps(r)+"\n" for r in output),encoding="utf-8")
-    result = dict(unit=args.unit,seed="JavaCVE-v0.2.0",policy="Group by project/CVE, union groups sharing exact token hashes, deterministic hash buckets 80/10/10 in expectation",counts=dict(Counter(r["split"] for r in output)),components=len(components),cross_split_exact_token_duplicates=0,
+    result = dict(unit=args.unit,seed="JavaCVE-v0.2.0",token_algorithm=token_algorithm,method_versions=len(versions),cves=len(cases),distinct_token_hashes=len(by_hash),policy="Group by project/CVE, union groups sharing exact token hashes, deterministic hash buckets 80/10/10 in expectation",counts=dict(Counter(r["split"] for r in output)),components=len(components),cross_split_exact_token_duplicates=0,
                   caveat="Tiny pilot can have empty partitions. Hash equality detects exact token duplicates only; review approximate clones before ML. Labels and original pilot_only fields are unchanged.")
     write_json(destination/"summary.json",result)
     return result

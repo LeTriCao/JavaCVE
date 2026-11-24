@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< cn.hutool:hutool-core >------------------------
+[INFO] Building hutool-core 4.1.12-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ hutool-core ---
+[INFO] No dependencies found.
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmpcei8hb8e/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.749 s
+[INFO] Finished at: 2026-11-24T07:03:10Z
+[INFO] ------------------------------------------------------------------------

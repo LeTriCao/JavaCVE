@@ -60,6 +60,7 @@ class Run:
                                             python=platform.python_version(), platform=platform.platform(),
                                             locale=os.environ.get("LANG")), steps=[], snapshots=[])
         self.save()
+        print("RUN",self.directory.relative_to(ROOT),flush=True)
 
     def save(self):
         p = self.directory / "run.json"

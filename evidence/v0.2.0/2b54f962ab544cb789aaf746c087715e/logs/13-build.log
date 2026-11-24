@@ -1,0 +1,35 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.thoughtworks.xstream:xstream >------------------
+[INFO] Building XStream Core 1.4.7-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0-beta-1:enforce (enforce-maven) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:maven-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:parse-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- resources:2.2:resources (default-resources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- compiler:2.1:compile (default-compile) @ xstream ---
+[INFO] Compiling 302 source files to /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/target/classes
+[WARNING] /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/src/java/com/thoughtworks/xstream/converters/reflection/SunLimitedUnsafeReflectionProvider.java:[12,15] Unsafe is internal proprietary API and may be removed in a future release
+
+[WARNING] /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/src/java/com/thoughtworks/xstream/converters/reflection/SunLimitedUnsafeReflectionProvider.java:[35,27] Unsafe is internal proprietary API and may be removed in a future release
+
+[WARNING] /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/src/java/com/thoughtworks/xstream/converters/reflection/SunLimitedUnsafeReflectionProvider.java:[38,8] Unsafe is internal proprietary API and may be removed in a future release
+
+[WARNING] /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/src/java/com/thoughtworks/xstream/converters/reflection/SunLimitedUnsafeReflectionProvider.java:[41,32] Unsafe is internal proprietary API and may be removed in a future release
+
+[WARNING] /tmp/javacve-jb7qp1k1/tmpypdullln/source/xstream/src/java/com/thoughtworks/xstream/converters/reflection/SunLimitedUnsafeReflectionProvider.java:[43,17] Unsafe is internal proprietary API and may be removed in a future release
+
+[INFO] 
+[INFO] --- bundle:2.3.7:manifest (bundle-manifest) @ xstream ---
+[INFO] 
+[INFO] --- resources:2.2:testResources (default-testResources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- dependency:2.1:copy (complete-test-classpath) @ xstream ---

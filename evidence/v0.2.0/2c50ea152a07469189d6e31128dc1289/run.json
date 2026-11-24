@@ -1,0 +1,73 @@
+{
+  "run_id": "2c50ea152a07469189d6e31128dc1289",
+  "release": "0.2.0",
+  "command": "split",
+  "start_utc": "2026-11-24T07:39:45.348088+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "split --with-batch data/batch-02 --repos .cache/measurement-repos --out docs/generated/split-project",
+  "project_commit": "b6d7191f2a7147ef11683fc1b33fa84fbb21fbbe",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [],
+  "snapshots": [],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "split": {
+    "unit": "project",
+    "seed": "JavaCVE-v0.2.0",
+    "token_algorithm": "common-java-leaves-in-verified-source-line-range-v3",
+    "method_versions": 409,
+    "cves": 20,
+    "distinct_token_hashes": 376,
+    "policy": "Group by project/CVE, union groups sharing exact token hashes, deterministic hash buckets 80/10/10 in expectation",
+    "counts": {
+      "train": 376,
+      "test": 25,
+      "validation": 8
+    },
+    "components": 16,
+    "cross_split_exact_token_duplicates": 0,
+    "caveat": "Tiny pilot can have empty partitions. Hash equality detects exact token duplicates only; review approximate clones before ML. Labels and original pilot_only fields are unchanged."
+  },
+  "end_utc": "2026-11-24T07:39:58.064221+00:00",
+  "seconds": 13.109504,
+  "public_receipt": true,
+  "original_run_sha256": "f6172df000e4048b1890510ea3a87b9be498721543093e87f6fec1dd48659b9b",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

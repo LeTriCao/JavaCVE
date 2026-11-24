@@ -1,0 +1,38 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit2:retrofit:jar:2.4.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ line 98, column 15
+[WARNING] 'build.plugins.plugin.version' for org.jetbrains.kotlin:kotlin-maven-plugin is missing. @ line 78, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< com.squareup.retrofit2:retrofit >-------------------
+[INFO] Building Retrofit 2.4.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- kotlin:2.5.0-RC:compile (compile) @ retrofit ---
+[INFO] starting the daemon as: <workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre/bin/java -cp <workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-impl/2.5.0-RC/kotlin-build-tools-impl-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-api/2.5.0-RC/kotlin-build-tools-api-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-stdlib/2.5.0-RC/kotlin-stdlib-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/annotations/13.0/annotations-13.0.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-cri-impl/2.5.0-RC/kotlin-build-tools-cri-impl-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-tooling-core/2.5.0-RC/kotlin-tooling-core-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-compiler-embeddable/2.5.0-RC/kotlin-compiler-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-daemon-embeddable/2.5.0-RC/kotlin-daemon-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.0/kotlinx-coroutines-core-jvm-1.8.0.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-compiler-runner/2.5.0-RC/kotlin-compiler-runner-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-daemon-client/2.5.0-RC/kotlin-daemon-client-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/typescript-export-standalone-embeddable/2.5.0-RC/typescript-export-standalone-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-compiler-embeddable/2.5.0-RC/kotlin-scripting-compiler-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-common/2.5.0-RC/kotlin-scripting-common-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-jvm/2.5.0-RC/kotlin-scripting-jvm-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-script-runtime/2.5.0-RC/kotlin-script-runtime-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-compiler-impl-embeddable/2.5.0-RC/kotlin-scripting-compiler-impl-embeddable-2.5.0-RC.jar -Djava.awt.headless=true -Djava.rmi.server.hostname=127.0.0.1 -Xmx1734m -XX:ReservedCodeCacheSize=320m -ea -Dkotlin.daemon.custom.run.files.path.for.tests=<home>/.kotlin/daemon -XX:+UseCodeCacheFlushing -XX:+UseParallelGC -Dkotlin.daemon.initiator.marker.file=/tmp/kotlin-compiler-client-4328140623073469868-is-running org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-logsPath /tmp --daemon-logsFileSizeLimit=1048576 --daemon-logsFileCountLimit=3 --daemon-runFilesPath <home>/.kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-shutdownDelayMilliseconds=1800000 --daemon-compilerClasspath <workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-impl/2.5.0-RC/kotlin-build-tools-impl-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-api/2.5.0-RC/kotlin-build-tools-api-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-stdlib/2.5.0-RC/kotlin-stdlib-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/annotations/13.0/annotations-13.0.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-build-tools-cri-impl/2.5.0-RC/kotlin-build-tools-cri-impl-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-tooling-core/2.5.0-RC/kotlin-tooling-core-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-compiler-embeddable/2.5.0-RC/kotlin-compiler-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-daemon-embeddable/2.5.0-RC/kotlin-daemon-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.0/kotlinx-coroutines-core-jvm-1.8.0.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-compiler-runner/2.5.0-RC/kotlin-compiler-runner-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-daemon-client/2.5.0-RC/kotlin-daemon-client-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/typescript-export-standalone-embeddable/2.5.0-RC/typescript-export-standalone-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-compiler-embeddable/2.5.0-RC/kotlin-scripting-compiler-embeddable-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-common/2.5.0-RC/kotlin-scripting-common-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-jvm/2.5.0-RC/kotlin-scripting-jvm-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-script-runtime/2.5.0-RC/kotlin-script-runtime-2.5.0-RC.jar:<workspace>/.cache/m2/org/jetbrains/kotlin/kotlin-scripting-compiler-impl-embeddable/2.5.0-RC/kotlin-scripting-compiler-impl-embeddable-2.5.0-RC.jar
+[INFO] #1 retrying connecting to the daemon 
+[INFO] Options for KOTLIN DAEMON: CompilationOptions(compilerMode=NON_INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=null, generateCompilerRefIndex=false)
+[ERROR] Running Kotlin compiler using JDK 8 will not be supported in future versions of Kotlin. Consider upgrading to at least JDK 17 or supplying '-Xallow-pre-17-runtime-jdk' (which will only work until Kotlin 2.5.20-Beta1). See https://jb.gg/kotlin-compiler-jdk-17-migration for more details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  56.125 s
+[INFO] Finished at: 2026-11-24T07:22:30Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.jetbrains.kotlin:kotlin-maven-plugin:2.5.0-RC:compile (compile) on project retrofit: Compilation failure
+[ERROR] Running Kotlin compiler using JDK 8 will not be supported in future versions of Kotlin. Consider upgrading to at least JDK 17 or supplying '-Xallow-pre-17-runtime-jdk' (which will only work until Kotlin 2.5.20-Beta1). See https://jb.gg/kotlin-compiler-jdk-17-migration for more details.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

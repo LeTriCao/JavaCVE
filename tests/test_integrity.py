@@ -15,6 +15,7 @@ class IntegrityTests(unittest.TestCase):
     def test_catalog_relations_and_counts(self):
         result = verify()
         self.assertEqual((result["cves"],result["methods"],result["present_versions"]),(10,126,187))
+        self.assertEqual((result["expansion"]["cves"],result["expansion"]["method_versions"]),(10,222))
 
     def test_duplicate_primary_key_rejected(self):
         with self.assertRaisesRegex(ValueError,"Duplicate"):

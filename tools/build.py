@@ -75,7 +75,7 @@ def tool_paths(prior):
     return found
 
 
-def prepare_maven(tmp, jdk, maven, prior):
+def prepare_maven(tmp, jdk, maven, prior, jenkins_repositories=False):
     env = os.environ.copy()
     env["JAVA_HOME"] = str(jdk)
     env["PATH"] = str(jdk / "bin") + os.pathsep + env["PATH"]
@@ -87,6 +87,17 @@ def prepare_maven(tmp, jdk, maven, prior):
     for key, value in {"id": "repro-central-https", "mirrorOf": "central,external:http:*",
                        "url": "https://repo.maven.apache.org/maven2"}.items():
         ET.SubElement(mirror, key).text = value
+    if jenkins_repositories:
+        jenkins = ET.SubElement(settings.find("mirrors"), "mirror")
+        for key,value in {"id":"jenkins-https", "mirrorOf":"repo.jenkins-ci.org,jenkins.repo,jenkins,jenkins-public,maven.jenkins-ci.org", "url":"https://repo.jenkins-ci.org/public/"}.items():
+            ET.SubElement(jenkins,key).text = value
+        profile = ET.SubElement(ET.SubElement(settings,"profiles"),"profile")
+        ET.SubElement(profile,"id").text = "jenkins-upstream-https"
+        for section,item in (("repositories","repository"),("pluginRepositories","pluginRepository")):
+            repository = ET.SubElement(ET.SubElement(profile,section),item)
+            ET.SubElement(repository,"id").text = "repo.jenkins-ci.org"
+            ET.SubElement(repository,"url").text = "https://repo.jenkins-ci.org/public/"
+        ET.SubElement(ET.SubElement(settings,"activeProfiles"),"activeProfile").text = "jenkins-upstream-https"
     proxy_url = env.get("HTTPS_PROXY") or env.get("https_proxy")
     if proxy_url:
         u = urllib.parse.urlsplit(proxy_url)

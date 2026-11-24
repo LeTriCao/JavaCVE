@@ -1,0 +1,2691 @@
+{
+  "run_id": "5cd2e8809e084ef1bb9530b2f00f8722",
+  "release": "0.2.0",
+  "command": "all",
+  "start_utc": "2026-11-24T06:53:05.090608+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "all",
+  "project_commit": "55096aa4f6bf36237b31efded01224831fddf5ae",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [
+    {
+      "stage": "java-version",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-version"
+      ],
+      "start_utc": "2026-11-24T06:53:05.366759+00:00",
+      "status": "PASS",
+      "log": "logs/0-java-version.log",
+      "end_utc": "2026-11-24T06:53:05.993189+00:00",
+      "seconds": 0.616421,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "maven-version",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "--version"
+      ],
+      "start_utc": "2026-11-24T06:53:06.001540+00:00",
+      "status": "PASS",
+      "log": "logs/1-maven-version.log",
+      "end_utc": "2026-11-24T06:53:08.002188+00:00",
+      "seconds": 1.987725,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2017-1000487"
+      ],
+      "start_utc": "2026-11-24T06:53:08.025511+00:00",
+      "status": "PASS",
+      "log": "logs/2-git-init.log",
+      "end_utc": "2026-11-24T06:53:08.231169+00:00",
+      "seconds": 0.193362,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2017-1000487",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/codehaus-plexus/plexus-utils",
+        "86c37983bb2bd92b1df43fe73f321ffbfa155070"
+      ],
+      "start_utc": "2026-11-24T06:53:08.284411+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "source",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/3-fetch.log",
+      "end_utc": "2026-11-24T06:53:09.771643+00:00",
+      "seconds": 1.471316,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2017-1000487",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/codehaus-plexus/plexus-utils",
+        "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41"
+      ],
+      "start_utc": "2026-11-24T06:53:09.820742+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "source",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/4-fetch.log",
+      "end_utc": "2026-11-24T06:53:10.983357+00:00",
+      "seconds": 1.150991,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:53:11.207261+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/5-build.log",
+      "end_utc": "2026-11-24T06:53:42.068032+00:00",
+      "seconds": 30.843082,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmptg_d0jt4/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmptg_d0jt4/api",
+        "<workspace>/smoke/plexus-utils/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:53:42.104716+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/6-api-compile.log",
+      "end_utc": "2026-11-24T06:53:44.216260+00:00",
+      "seconds": 2.099467,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmptg_d0jt4/api:/tmp/javacve-_ts9dlai/tmptg_d0jt4/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:53:44.225329+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/7-api.log",
+      "end_utc": "2026-11-24T06:53:44.725524+00:00",
+      "seconds": 0.488548,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmptg_d0jt4/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:53:44.733465+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/8-classpath.log",
+      "end_utc": "2026-11-24T06:54:47.774392+00:00",
+      "seconds": 63.030504,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmptg_d0jt4/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T06:54:47.782116+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/9-probe-compile.log",
+      "end_utc": "2026-11-24T06:54:50.050476+00:00",
+      "seconds": 2.254986,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmptg_d0jt4/probe:/tmp/javacve-_ts9dlai/tmptg_d0jt4/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "RegressionProbe",
+        "plexus-utils"
+      ],
+      "start_utc": "2026-11-24T06:54:50.059972+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "log": "logs/10-security.log",
+      "end_utc": "2026-11-24T06:54:50.707276+00:00",
+      "seconds": 0.634136,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:54:51.031884+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/11-build.log",
+      "end_utc": "2026-11-24T06:55:13.309898+00:00",
+      "seconds": 22.262561,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmphewsxc6x/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmphewsxc6x/api",
+        "<workspace>/smoke/plexus-utils/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:55:13.336035+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/12-api-compile.log",
+      "end_utc": "2026-11-24T06:55:15.405822+00:00",
+      "seconds": 2.059748,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmphewsxc6x/api:/tmp/javacve-_ts9dlai/tmphewsxc6x/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:55:15.414717+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/13-api.log",
+      "end_utc": "2026-11-24T06:55:15.775101+00:00",
+      "seconds": 0.349716,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmphewsxc6x/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:55:15.782976+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/14-classpath.log",
+      "end_utc": "2026-11-24T06:55:34.140315+00:00",
+      "seconds": 18.344477,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmphewsxc6x/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T06:55:34.150908+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/15-probe-compile.log",
+      "end_utc": "2026-11-24T06:55:36.496222+00:00",
+      "seconds": 2.33209,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmphewsxc6x/probe:/tmp/javacve-_ts9dlai/tmphewsxc6x/source/target/plexus-utils-3.0.16-SNAPSHOT.jar",
+        "RegressionProbe",
+        "plexus-utils"
+      ],
+      "start_utc": "2026-11-24T06:55:36.503279+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "log": "logs/16-security.log",
+      "end_utc": "2026-11-24T06:55:37.132653+00:00",
+      "seconds": 0.618074,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2018-1002200"
+      ],
+      "start_utc": "2026-11-24T06:55:37.166095+00:00",
+      "status": "PASS",
+      "log": "logs/17-git-init.log",
+      "end_utc": "2026-11-24T06:55:37.346941+00:00",
+      "seconds": 0.169241,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002200",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/codehaus-plexus/plexus-archiver",
+        "97c0d97504632a2a80b7d847bccdd9b37d27aea1"
+      ],
+      "start_utc": "2026-11-24T06:55:37.399730+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "source",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/18-fetch.log",
+      "end_utc": "2026-11-24T06:55:40.040140+00:00",
+      "seconds": 2.628639,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002200",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/codehaus-plexus/plexus-archiver",
+        "f8f4233508193b70df33759ae9dc6154d69c2ea8"
+      ],
+      "start_utc": "2026-11-24T06:55:40.090278+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "source",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/19-fetch.log",
+      "end_utc": "2026-11-24T06:55:41.275255+00:00",
+      "seconds": 1.174143,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:55:41.541820+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/20-build.log",
+      "end_utc": "2026-11-24T06:56:13.826691+00:00",
+      "seconds": 32.273294,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpd3mmlbyg/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpd3mmlbyg/api",
+        "<workspace>/smoke/plexus-archiver/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:56:13.863926+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/21-api-compile.log",
+      "end_utc": "2026-11-24T06:56:16.538291+00:00",
+      "seconds": 2.661338,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpd3mmlbyg/api:/tmp/javacve-_ts9dlai/tmpd3mmlbyg/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:56:16.545787+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/22-api.log",
+      "end_utc": "2026-11-24T06:56:16.962654+00:00",
+      "seconds": 0.4062,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmpd3mmlbyg/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:56:16.970011+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/23-classpath.log",
+      "end_utc": "2026-11-24T06:56:40.402326+00:00",
+      "seconds": 23.420888,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "provided-logger",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:get",
+        "-Dartifact=org.codehaus.plexus:plexus-container-default:1.5.5",
+        "-Dtransitive=false"
+      ],
+      "start_utc": "2026-11-24T06:56:40.410514+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/24-provided-logger.log",
+      "end_utc": "2026-11-24T06:57:02.335634+00:00",
+      "seconds": 21.914451,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpd3mmlbyg/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T06:57:02.409404+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/25-probe-compile.log",
+      "end_utc": "2026-11-24T06:57:04.815554+00:00",
+      "seconds": 2.394536,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpd3mmlbyg/probe:/tmp/javacve-_ts9dlai/tmpd3mmlbyg/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar:<workspace>/.cache/m2/commons-io/commons-io/2.6/commons-io-2.6.jar:<workspace>/.cache/m2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:<workspace>/.cache/m2/org/objenesis/objenesis/2.6/objenesis-2.6.jar:<workspace>/.cache/m2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:<workspace>/.cache/m2/org/tukaani/xz/1.8/xz-1.8.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar",
+        "RegressionProbe",
+        "plexus-archiver"
+      ],
+      "start_utc": "2026-11-24T06:57:04.824343+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "log": "logs/26-security.log",
+      "end_utc": "2026-11-24T06:57:06.033023+00:00",
+      "seconds": 1.196354,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:57:06.404173+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/27-build.log",
+      "end_utc": "2026-11-24T06:57:32.066466+00:00",
+      "seconds": 25.650175,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp3n1gcjt3/api",
+        "<workspace>/smoke/plexus-archiver/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:57:32.096044+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/28-api-compile.log",
+      "end_utc": "2026-11-24T06:57:34.214316+00:00",
+      "seconds": 2.106856,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp3n1gcjt3/api:/tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:57:34.222996+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/29-api.log",
+      "end_utc": "2026-11-24T06:57:34.598883+00:00",
+      "seconds": 0.362858,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmp3n1gcjt3/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:57:34.608280+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/30-classpath.log",
+      "end_utc": "2026-11-24T06:57:52.575020+00:00",
+      "seconds": 17.955026,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "provided-logger",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:get",
+        "-Dartifact=org.codehaus.plexus:plexus-container-default:1.5.5",
+        "-Dtransitive=false"
+      ],
+      "start_utc": "2026-11-24T06:57:52.583828+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/31-provided-logger.log",
+      "end_utc": "2026-11-24T06:58:11.723970+00:00",
+      "seconds": 19.127933,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp3n1gcjt3/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T06:58:11.771119+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/32-probe-compile.log",
+      "end_utc": "2026-11-24T06:58:14.083564+00:00",
+      "seconds": 2.300389,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp3n1gcjt3/probe:/tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar:<workspace>/.cache/m2/commons-io/commons-io/2.6/commons-io-2.6.jar:<workspace>/.cache/m2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:<workspace>/.cache/m2/org/objenesis/objenesis/2.6/objenesis-2.6.jar:<workspace>/.cache/m2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:<workspace>/.cache/m2/org/tukaani/xz/1.8/xz-1.8.jar:<workspace>/.cache/m2/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar",
+        "RegressionProbe",
+        "plexus-archiver"
+      ],
+      "start_utc": "2026-11-24T06:58:14.091035+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "log": "logs/33-security.log",
+      "end_utc": "2026-11-24T06:58:15.164332+00:00",
+      "seconds": 1.062395,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2018-1002201"
+      ],
+      "start_utc": "2026-11-24T06:58:15.196790+00:00",
+      "status": "PASS",
+      "log": "logs/34-git-init.log",
+      "end_utc": "2026-11-24T06:58:15.438923+00:00",
+      "seconds": 0.230161,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002201",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/zeroturnaround/zt-zip",
+        "d1c40776d2ff18550d95db2609d3d154692dea93"
+      ],
+      "start_utc": "2026-11-24T06:58:15.529955+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "source",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/35-fetch.log",
+      "end_utc": "2026-11-24T06:58:16.694396+00:00",
+      "seconds": 1.148869,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002201",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/zeroturnaround/zt-zip",
+        "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff"
+      ],
+      "start_utc": "2026-11-24T06:58:16.754851+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "source",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/36-fetch.log",
+      "end_utc": "2026-11-24T06:58:17.836306+00:00",
+      "seconds": 1.068791,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:58:18.092640+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/37-build.log",
+      "end_utc": "2026-11-24T06:58:47.092053+00:00",
+      "seconds": 28.987433,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmppozbrl4h/source/target/zt-zip-1.13-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmppozbrl4h/api",
+        "<workspace>/smoke/zt-zip/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:58:47.149628+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/38-api-compile.log",
+      "end_utc": "2026-11-24T06:58:49.253627+00:00",
+      "seconds": 2.085287,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmppozbrl4h/api:/tmp/javacve-_ts9dlai/tmppozbrl4h/source/target/zt-zip-1.13-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:58:49.260989+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/39-api.log",
+      "end_utc": "2026-11-24T06:58:49.671563+00:00",
+      "seconds": 0.399459,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmppozbrl4h/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:58:49.682182+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/40-classpath.log",
+      "end_utc": "2026-11-24T06:59:07.017752+00:00",
+      "seconds": 17.316816,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmppozbrl4h/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T06:59:07.039795+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/41-probe-compile.log",
+      "end_utc": "2026-11-24T06:59:09.921730+00:00",
+      "seconds": 2.862876,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmppozbrl4h/probe:/tmp/javacve-_ts9dlai/tmppozbrl4h/source/target/zt-zip-1.13-SNAPSHOT.jar:<workspace>/.cache/m2/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar",
+        "RegressionProbe",
+        "zt-zip"
+      ],
+      "start_utc": "2026-11-24T06:59:09.930476+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "log": "logs/42-security.log",
+      "end_utc": "2026-11-24T06:59:10.724117+00:00",
+      "seconds": 0.780058,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T06:59:11.072901+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/43-build.log",
+      "end_utc": "2026-11-24T06:59:42.928165+00:00",
+      "seconds": 31.840593,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp1swndwy8/source/target/zt-zip-1.13-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp1swndwy8/api",
+        "<workspace>/smoke/zt-zip/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T06:59:42.960799+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/44-api-compile.log",
+      "end_utc": "2026-11-24T06:59:45.489965+00:00",
+      "seconds": 2.512469,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp1swndwy8/api:/tmp/javacve-_ts9dlai/tmp1swndwy8/source/target/zt-zip-1.13-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T06:59:45.497711+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/45-api.log",
+      "end_utc": "2026-11-24T06:59:46.014082+00:00",
+      "seconds": 0.503751,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmp1swndwy8/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T06:59:46.025963+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/46-classpath.log",
+      "end_utc": "2026-11-24T07:00:02.479223+00:00",
+      "seconds": 16.437346,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp1swndwy8/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:00:02.491349+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/47-probe-compile.log",
+      "end_utc": "2026-11-24T07:00:04.767164+00:00",
+      "seconds": 2.265292,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp1swndwy8/probe:/tmp/javacve-_ts9dlai/tmp1swndwy8/source/target/zt-zip-1.13-SNAPSHOT.jar:<workspace>/.cache/m2/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar",
+        "RegressionProbe",
+        "zt-zip"
+      ],
+      "start_utc": "2026-11-24T07:00:04.776142+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "log": "logs/48-security.log",
+      "end_utc": "2026-11-24T07:00:05.525391+00:00",
+      "seconds": 0.73517,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2018-1002202"
+      ],
+      "start_utc": "2026-11-24T07:00:05.566511+00:00",
+      "status": "PASS",
+      "log": "logs/49-git-init.log",
+      "end_utc": "2026-11-24T07:00:05.733633+00:00",
+      "seconds": 0.155503,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002202",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/iris-sast/zip4j",
+        "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde"
+      ],
+      "start_utc": "2026-11-24T07:00:05.793842+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "source",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/50-fetch.log",
+      "end_utc": "2026-11-24T07:00:07.513909+00:00",
+      "seconds": 1.704807,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-1002202",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/iris-sast/zip4j",
+        "59aeea594ff885e06c25751dc6334dfea1bed8c6"
+      ],
+      "start_utc": "2026-11-24T07:00:07.566800+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "source",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/51-fetch.log",
+      "end_utc": "2026-11-24T07:00:08.725608+00:00",
+      "seconds": 1.145645,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:00:08.924285+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/52-build.log",
+      "end_utc": "2026-11-24T07:00:27.160306+00:00",
+      "seconds": 18.224386,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpxtaqrua8/source/target/zip4j-1.3.2.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpxtaqrua8/api",
+        "<workspace>/smoke/zip4j/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:00:27.200237+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/53-api-compile.log",
+      "end_utc": "2026-11-24T07:00:29.898835+00:00",
+      "seconds": 2.684887,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpxtaqrua8/api:/tmp/javacve-_ts9dlai/tmpxtaqrua8/source/target/zip4j-1.3.2.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:00:29.907404+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/54-api.log",
+      "end_utc": "2026-11-24T07:00:30.393178+00:00",
+      "seconds": 0.467605,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmpxtaqrua8/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:00:30.402756+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/55-classpath.log",
+      "end_utc": "2026-11-24T07:00:50.806426+00:00",
+      "seconds": 20.381516,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpxtaqrua8/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:00:50.816820+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/56-probe-compile.log",
+      "end_utc": "2026-11-24T07:00:53.289560+00:00",
+      "seconds": 2.457469,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpxtaqrua8/probe:/tmp/javacve-_ts9dlai/tmpxtaqrua8/source/target/zip4j-1.3.2.jar",
+        "RegressionProbe",
+        "zip4j"
+      ],
+      "start_utc": "2026-11-24T07:00:53.296997+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "log": "logs/57-security.log",
+      "end_utc": "2026-11-24T07:00:54.114501+00:00",
+      "seconds": 0.802375,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:00:54.582940+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/58-build.log",
+      "end_utc": "2026-11-24T07:01:28.881429+00:00",
+      "seconds": 34.284717,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmps0o2r7rf/source/target/zip4j-1.3.3.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmps0o2r7rf/api",
+        "<workspace>/smoke/zip4j/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:01:28.911394+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/59-api-compile.log",
+      "end_utc": "2026-11-24T07:01:31.235471+00:00",
+      "seconds": 2.311915,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmps0o2r7rf/api:/tmp/javacve-_ts9dlai/tmps0o2r7rf/source/target/zip4j-1.3.3.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:01:31.248141+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/60-api.log",
+      "end_utc": "2026-11-24T07:01:31.625175+00:00",
+      "seconds": 0.364631,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmps0o2r7rf/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:01:31.634607+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/61-classpath.log",
+      "end_utc": "2026-11-24T07:01:55.602826+00:00",
+      "seconds": 23.955536,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmps0o2r7rf/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:01:55.619688+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/62-probe-compile.log",
+      "end_utc": "2026-11-24T07:01:59.045656+00:00",
+      "seconds": 3.406329,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmps0o2r7rf/probe:/tmp/javacve-_ts9dlai/tmps0o2r7rf/source/target/zip4j-1.3.3.jar",
+        "RegressionProbe",
+        "zip4j"
+      ],
+      "start_utc": "2026-11-24T07:01:59.056237+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "log": "logs/63-security.log",
+      "end_utc": "2026-11-24T07:02:00.225914+00:00",
+      "seconds": 1.15298,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2018-17297"
+      ],
+      "start_utc": "2026-11-24T07:02:00.280368+00:00",
+      "status": "PASS",
+      "log": "logs/64-git-init.log",
+      "end_utc": "2026-11-24T07:02:00.518413+00:00",
+      "seconds": 0.221909,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-17297",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/dromara/hutool",
+        "fd77bb8718648f69a587046b735488a80123cc26"
+      ],
+      "start_utc": "2026-11-24T07:02:00.615585+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "source",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/65-fetch.log",
+      "end_utc": "2026-11-24T07:02:11.142316+00:00",
+      "seconds": 10.510545,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2018-17297",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/dromara/hutool",
+        "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e"
+      ],
+      "start_utc": "2026-11-24T07:02:11.199816+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "source",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/66-fetch.log",
+      "end_utc": "2026-11-24T07:02:20.596852+00:00",
+      "seconds": 9.383948,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:02:21.410698+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/67-build.log",
+      "end_utc": "2026-11-24T07:02:47.522244+00:00",
+      "seconds": 26.09606,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpcei8hb8e/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpcei8hb8e/api",
+        "<workspace>/smoke/hutool/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:02:47.589283+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/68-api-compile.log",
+      "end_utc": "2026-11-24T07:02:50.414074+00:00",
+      "seconds": 2.80775,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpcei8hb8e/api:/tmp/javacve-_ts9dlai/tmpcei8hb8e/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:02:50.425564+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/69-api.log",
+      "end_utc": "2026-11-24T07:02:50.884002+00:00",
+      "seconds": 0.442789,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmpcei8hb8e/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:02:50.894883+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/70-classpath.log",
+      "end_utc": "2026-11-24T07:03:10.296392+00:00",
+      "seconds": 19.387079,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpcei8hb8e/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:03:10.306329+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/71-probe-compile.log",
+      "end_utc": "2026-11-24T07:03:13.363299+00:00",
+      "seconds": 3.040704,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpcei8hb8e/probe:/tmp/javacve-_ts9dlai/tmpcei8hb8e/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "RegressionProbe",
+        "hutool"
+      ],
+      "start_utc": "2026-11-24T07:03:13.376730+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "log": "logs/72-security.log",
+      "end_utc": "2026-11-24T07:03:14.265995+00:00",
+      "seconds": 0.872075,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:03:15.258201+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/73-build.log",
+      "end_utc": "2026-11-24T07:03:44.203942+00:00",
+      "seconds": 28.929133,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpp7wj9vq5/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpp7wj9vq5/api",
+        "<workspace>/smoke/hutool/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:03:44.259780+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/74-api-compile.log",
+      "end_utc": "2026-11-24T07:03:48.067486+00:00",
+      "seconds": 3.789319,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpp7wj9vq5/api:/tmp/javacve-_ts9dlai/tmpp7wj9vq5/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:03:48.077734+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/75-api.log",
+      "end_utc": "2026-11-24T07:03:48.637484+00:00",
+      "seconds": 0.544429,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmpp7wj9vq5/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:03:48.650725+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/76-classpath.log",
+      "end_utc": "2026-11-24T07:04:09.855879+00:00",
+      "seconds": 21.18577,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpp7wj9vq5/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:04:09.865983+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/77-probe-compile.log",
+      "end_utc": "2026-11-24T07:04:13.356650+00:00",
+      "seconds": 3.477988,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpp7wj9vq5/probe:/tmp/javacve-_ts9dlai/tmpp7wj9vq5/source/hutool-core/target/hutool-core-4.1.12-SNAPSHOT.jar",
+        "RegressionProbe",
+        "hutool"
+      ],
+      "start_utc": "2026-11-24T07:04:13.368181+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "log": "logs/78-security.log",
+      "end_utc": "2026-11-24T07:04:14.248794+00:00",
+      "seconds": 0.859401,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "git-init",
+      "command": [
+        "git",
+        "init",
+        "--bare",
+        "-q",
+        "<workspace>/.cache/repos/CVE-2021-29425"
+      ],
+      "start_utc": "2026-11-24T07:04:14.292284+00:00",
+      "status": "PASS",
+      "log": "logs/79-git-init.log",
+      "end_utc": "2026-11-24T07:04:14.581110+00:00",
+      "seconds": 0.275985,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2021-29425",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/apache/commons-io",
+        "7791a851c4a303f47743b156007fb19c6ed8ed81"
+      ],
+      "start_utc": "2026-11-24T07:04:14.645850+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "source",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/80-fetch.log",
+      "end_utc": "2026-11-24T07:04:16.314855+00:00",
+      "seconds": 1.652757,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "fetch",
+      "command": [
+        "git",
+        "-C",
+        "<workspace>/.cache/repos/CVE-2021-29425",
+        "fetch",
+        "--no-tags",
+        "--depth=2",
+        "https://github.com/apache/commons-io",
+        "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78"
+      ],
+      "start_utc": "2026-11-24T07:04:16.373224+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "source",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/81-fetch.log",
+      "end_utc": "2026-11-24T07:04:17.720789+00:00",
+      "seconds": 1.334337,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:04:18.014163+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/82-build.log",
+      "end_utc": "2026-11-24T07:04:58.016697+00:00",
+      "seconds": 39.984933,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpukn3mcye/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpukn3mcye/api",
+        "<workspace>/smoke/commons-io/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:04:58.051225+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/83-api-compile.log",
+      "end_utc": "2026-11-24T07:05:00.592257+00:00",
+      "seconds": 2.528641,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpukn3mcye/api:/tmp/javacve-_ts9dlai/tmpukn3mcye/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:05:00.601587+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/84-api.log",
+      "end_utc": "2026-11-24T07:05:00.998667+00:00",
+      "seconds": 0.382498,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmpukn3mcye/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:05:01.010499+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/85-classpath.log",
+      "end_utc": "2026-11-24T07:05:16.383125+00:00",
+      "seconds": 15.353985,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmpukn3mcye/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:05:16.391664+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/86-probe-compile.log",
+      "end_utc": "2026-11-24T07:05:18.857425+00:00",
+      "seconds": 2.454139,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmpukn3mcye/probe:/tmp/javacve-_ts9dlai/tmpukn3mcye/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "RegressionProbe",
+        "commons-io"
+      ],
+      "start_utc": "2026-11-24T07:05:18.867098+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "log": "logs/87-security.log",
+      "end_utc": "2026-11-24T07:05:19.213838+00:00",
+      "seconds": 0.332497,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T07:05:19.562154+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/88-build.log",
+      "end_utc": "2026-11-24T07:05:58.036923+00:00",
+      "seconds": 38.460394,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp015q3v4a/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp015q3v4a/api",
+        "<workspace>/smoke/commons-io/ApiCheck.java"
+      ],
+      "start_utc": "2026-11-24T07:05:58.067834+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/89-api-compile.log",
+      "end_utc": "2026-11-24T07:06:00.712351+00:00",
+      "seconds": 2.62621,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "api",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp015q3v4a/api:/tmp/javacve-_ts9dlai/tmp015q3v4a/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "ApiCheck"
+      ],
+      "start_utc": "2026-11-24T07:06:00.723739+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/90-api.log",
+      "end_utc": "2026-11-24T07:06:01.321716+00:00",
+      "seconds": 0.578974,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "classpath",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-_ts9dlai/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath",
+        "-DincludeScope=runtime",
+        "-Dmdep.outputFile=/tmp/javacve-_ts9dlai/tmp015q3v4a/classpath.txt"
+      ],
+      "start_utc": "2026-11-24T07:06:01.343099+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/91-classpath.log",
+      "end_utc": "2026-11-24T07:06:16.924376+00:00",
+      "seconds": 15.565994,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "/tmp/javacve-_ts9dlai/tmp015q3v4a/probe",
+        "<workspace>/fixtures/RegressionProbe.java"
+      ],
+      "start_utc": "2026-11-24T07:06:16.934439+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/92-probe-compile.log",
+      "end_utc": "2026-11-24T07:06:19.475267+00:00",
+      "seconds": 2.529835,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "security",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-_ts9dlai/tmp015q3v4a/probe:/tmp/javacve-_ts9dlai/tmp015q3v4a/source/target/commons-io-2.7-SNAPSHOT.jar",
+        "RegressionProbe",
+        "commons-io"
+      ],
+      "start_utc": "2026-11-24T07:06:19.487091+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "log": "logs/93-security.log",
+      "end_utc": "2026-11-24T07:06:19.966810+00:00",
+      "seconds": 0.463544,
+      "exit_code": 0,
+      "error_category": null
+    }
+  ],
+  "snapshots": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "start_utc": "2026-11-24T06:53:08.013325+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "199d9eb7bb70fa9f777899dc3a4b634500e9be4f6b71455b0fb22dd19d98623b",
+      "module": ".",
+      "artifact": "artifacts/CVE-2017-1000487/before/plexus-utils-3.0.16-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "literal_argument",
+            "role": "control",
+            "observed": "$PILOT_ONLY_MARKER",
+            "pass": true
+          },
+          {
+            "name": "literal_executable_path",
+            "role": "security",
+            "observed": "127",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T06:54:50.721327+00:00",
+      "seconds": 102.708003
+    },
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "start_utc": "2026-11-24T06:54:50.730996+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "b6309afc0912fe31f257c8d2c9670c9c8c34d9f24ff543ac57888550f8b54516",
+      "module": ".",
+      "artifact": "artifacts/CVE-2017-1000487/after/plexus-utils-3.0.16-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "literal_argument",
+            "role": "control",
+            "observed": "$PILOT_ONLY_MARKER",
+            "pass": true
+          },
+          {
+            "name": "literal_executable_path",
+            "role": "security",
+            "observed": "0",
+            "pass": true
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": true
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T06:55:37.148693+00:00",
+      "seconds": 46.417683
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "start_utc": "2026-11-24T06:55:37.158001+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "bc4d35f60a9714f2b96601f4257f2f5065b6100d9316a71abe0a7632c0ac609d",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002200/before/plexus-archiver-3.6.0-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar",
+          "sha256": "0ffa0ad084ebff5712540a7b7ea0abda487c53d3a18f78c98d1a3675dab9bf61"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar",
+          "sha256": "3806c1798f494eeb8081d952746a99f4bffc2cde08512e0e20a6ec11ce6d02e3"
+        },
+        {
+          "path": "<workspace>/.cache/m2/commons-io/commons-io/2.6/commons-io-2.6.jar",
+          "sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar",
+          "sha256": "a20d8e45315abbe07faf952e095817b9925f38c4fc39e8a211c7d072702e97eb"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
+          "sha256": "5e168368fbc250af3c79aa5fef0c3467a2d64e5a7bd74005f25d8399aeb0708d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar",
+          "sha256": "46a0c87d504ce9d6063e1ff6e4d20738feb49d8abf85b5071a7d18df4f11bac9"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/tukaani/xz/1.8/xz-1.8.jar",
+          "sha256": "8c7964b36fe3f0cbe644b04fcbff84e491ce81917db2f5bfa0cba8e9548aff5d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar",
+          "sha256": "69197486cd80beb54b4e0fcabaa325ec2d4e2636e9b245c472435c87a10931cf"
+        }
+      ],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T06:57:06.050883+00:00",
+      "seconds": 88.89289
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "start_utc": "2026-11-24T06:57:06.060526+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "7d105d03d69a4d77c93800f9ce549f5a5aab1c9843875a1418c625c1694575da",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002200/after/plexus-archiver-3.6.0-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar",
+          "sha256": "0ffa0ad084ebff5712540a7b7ea0abda487c53d3a18f78c98d1a3675dab9bf61"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar",
+          "sha256": "3806c1798f494eeb8081d952746a99f4bffc2cde08512e0e20a6ec11ce6d02e3"
+        },
+        {
+          "path": "<workspace>/.cache/m2/commons-io/commons-io/2.6/commons-io-2.6.jar",
+          "sha256": "f877d304660ac2a142f3865badfc971dec7ed73c747c7f8d5d2f5139ca736513"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar",
+          "sha256": "a20d8e45315abbe07faf952e095817b9925f38c4fc39e8a211c7d072702e97eb"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
+          "sha256": "5e168368fbc250af3c79aa5fef0c3467a2d64e5a7bd74005f25d8399aeb0708d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar",
+          "sha256": "46a0c87d504ce9d6063e1ff6e4d20738feb49d8abf85b5071a7d18df4f11bac9"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/tukaani/xz/1.8/xz-1.8.jar",
+          "sha256": "8c7964b36fe3f0cbe644b04fcbff84e491ce81917db2f5bfa0cba8e9548aff5d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar",
+          "sha256": "69197486cd80beb54b4e0fcabaa325ec2d4e2636e9b245c472435c87a10931cf"
+        }
+      ],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => rejected:ArchiverException; written=false; outside_extract=true",
+            "pass": true
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T06:58:15.180276+00:00",
+      "seconds": 69.119754
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "start_utc": "2026-11-24T06:58:15.188282+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "80c97de67905db4c3ef867a0cd1ec77327f0855bfe64da3e65732a200953942b",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002201/before/zt-zip-1.13-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar",
+          "sha256": "43456b2ee31529a9c512d581e53e285c65feddec204a2c146945e032b07810ba"
+        }
+      ],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T06:59:10.738253+00:00",
+      "seconds": 55.549961
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "start_utc": "2026-11-24T06:59:10.748238+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "f67aa85f588dc9824dba591de9805af106d05c806d26a8496aca58f6fd5d1af3",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002201/after/zt-zip-1.13-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar",
+          "sha256": "43456b2ee31529a9c512d581e53e285c65feddec204a2c146945e032b07810ba"
+        }
+      ],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => rejected:ZipException; written=false; outside_extract=true",
+            "pass": true
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:00:05.546382+00:00",
+      "seconds": 54.798153
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "start_utc": "2026-11-24T07:00:05.555339+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "7153ce17c7171c678d145775420b6e95f0371c044f8602a9bb26afd6abb4f47e",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002202/before/zip4j-1.3.2.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:00:54.130503+00:00",
+      "seconds": 48.575163
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "start_utc": "2026-11-24T07:00:54.139774+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "b64b588ee41171ed1addcda0c479d55d20e1b56b0701c4d0b48dfc869aca8a6a",
+      "module": ".",
+      "artifact": "artifacts/CVE-2018-1002202/after/zip4j-1.3.3.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => rejected:ZipException; written=false; outside_extract=true",
+            "pass": true
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:02:00.259727+00:00",
+      "seconds": 66.119955
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "start_utc": "2026-11-24T07:02:00.270600+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "bdff8d22d74e3f1ef636fe9be40c34ec673440019a1932d8a9cdc811eb457e76",
+      "module": "hutool-core",
+      "artifact": "artifacts/CVE-2018-17297/before/hutool-core-4.1.12-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:03:14.294663+00:00",
+      "seconds": 74.024055
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "start_utc": "2026-11-24T07:03:14.302691+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "b6e03974d3df157fc72d955dd95839a4674bf98e17ef2ec119a86d77a7d2bf00",
+      "module": "hutool-core",
+      "artifact": "artifacts/CVE-2018-17297/after/hutool-core-4.1.12-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "benign_zip",
+            "role": "control",
+            "observed": "good.txt => accepted; written=true; outside_extract=false",
+            "pass": true
+          },
+          {
+            "name": "parent_containment",
+            "role": "security",
+            "observed": "../outside.txt => rejected:IllegalArgumentException; written=false; outside_extract=true",
+            "pass": true
+          },
+          {
+            "name": "sibling_prefix_containment",
+            "role": "security",
+            "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+            "pass": false
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:04:14.272530+00:00",
+      "seconds": 59.969825
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "start_utc": "2026-11-24T07:04:14.283545+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "c74a3a7180a80021af1f873ca2b8633e8b3e3d7b1a8924efa14b83cc8d66a8b2",
+      "module": ".",
+      "artifact": "artifacts/CVE-2021-29425/before/commons-io-2.7-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "normalize_invalid_prefix_1",
+            "role": "security",
+            "observed": "//../foo",
+            "pass": false
+          },
+          {
+            "name": "normalize_invalid_prefix_2",
+            "role": "security",
+            "observed": "//../foo",
+            "pass": false
+          },
+          {
+            "name": "benign_normalize",
+            "role": "control",
+            "observed": "dir/file.txt",
+            "pass": true
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": false
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:05:19.231462+00:00",
+      "seconds": 64.947914
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "start_utc": "2026-11-24T07:05:19.242511+00:00",
+      "status": "PASS",
+      "build_status": "PASS",
+      "artifact_sha256": "45f675e5319123bf9bdd2e2d406c78af23b5367e5d6065508f2c0b449d1f6ffb",
+      "module": ".",
+      "artifact": "artifacts/CVE-2021-29425/after/commons-io-2.7-SNAPSHOT.jar",
+      "api_check": "PASS",
+      "dependencies": [],
+      "security": {
+        "status": "EXECUTED",
+        "process_exit_code": 0,
+        "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+        "tests": [
+          {
+            "name": "normalize_invalid_prefix_1",
+            "role": "security",
+            "observed": "null",
+            "pass": true
+          },
+          {
+            "name": "normalize_invalid_prefix_2",
+            "role": "security",
+            "observed": "null",
+            "pass": true
+          },
+          {
+            "name": "benign_normalize",
+            "role": "control",
+            "observed": "dir/file.txt",
+            "pass": true
+          }
+        ],
+        "controls_pass": true,
+        "all_security_assertions_pass": true
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T07:06:19.988244+00:00",
+      "seconds": 60.745764
+    }
+  ],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "selection": [
+    "CVE-2017-1000487",
+    "CVE-2018-1002200",
+    "CVE-2018-1002201",
+    "CVE-2018-1002202",
+    "CVE-2018-17297",
+    "CVE-2021-29425"
+  ],
+  "toolchain_setup_seconds": 0.014916,
+  "toolchain": {
+    "java": "openjdk version \"1.8.0_514\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_514-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.514-b01, mixed mode)\n",
+    "maven": "Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)\nMaven home: <workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven\nJava version: 1.8.0_514, vendor: Temurin, runtime: <workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre\nDefault locale: en, platform encoding: UTF-8\nOS name: \"linux\", version: \"6.18.33.1-microsoft-standard-wsl2\", arch: \"amd64\", family: \"unix\"\n"
+  },
+  "end_utc": "2026-11-24T07:06:20.001547+00:00",
+  "seconds": 795.40485,
+  "public_receipt": true,
+  "original_run_sha256": "3ab6aa32b746dc405481200ef6a93517d3ca0946e780d3a730ca4a69d273a67c",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

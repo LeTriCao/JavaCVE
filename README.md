@@ -1,41 +1,77 @@
-# JavaCVE v0.1.0
+# JavaCVE v0.2.0
 
-Bộ dữ liệu thí điểm cho môn Đảm bảo an toàn thông tin. Từ 10 hồ sơ của **CWE-Bench-Java trong IRIS**, bộ dữ liệu ghép từng phương thức Java với phiên bản Git, nhãn theo CVE và mức bằng chứng. Có 5 hồ sơ CWE-22 và 5 hồ sơ CWE-78. Trong số đó, 6 thư viện có thể build theo cả hai phiên bản và chạy kiểm tra API thông thường.
+Bộ dữ liệu và công cụ thực nghiệm cho đồ án **Đảm bảo an toàn thông tin**, định hướng nghiên cứu chất lượng dữ liệu lỗ hổng Java. JavaCVE kế thừa **CWE-Bench-Java trong IRIS**, giữ revision `d2059f299a80a68ea4a0b0315eec2f42b8743776`, và bổ sung cặp commit có kiểm chứng, chỉ mục phương thức, nhãn có phạm vi và bằng chứng chạy lại.
 
-## Chạy thử trên Ubuntu hoặc WSL
+Repository: [LeTriCao/JavaCVE](https://github.com/LeTriCao/JavaCVE) · [Phát hành v0.2.0](https://github.com/LeTriCao/JavaCVE/releases/tag/v0.2.0). Repository ban đầu để private theo yêu cầu chủ sở hữu.
 
-Giải nén gói. Mở terminal trong thư mục chứa chính tệp `run.py`. Chỉ sao chép dòng lệnh cần chạy.
+## Kết quả đã đo
 
-| Bạn muốn làm gì? | Lệnh |
+| Phạm vi | Kết quả | Diễn giải |
+|---|---:|---|
+| Pilot gốc | 10 CVE, 126 callable, 187 phiên bản | 35 tệp Java; callable gồm phương thức/hàm khởi tạo |
+| Nhãn pilot | 44 VULNERABLE, 14 RESOLVED_TARGET, 129 UNCONFIRMED | Nhãn theo cơ chế và điều kiện trong hồ sơ |
+| Build và hành vi pilot | 12/12 snapshot của 6 thư viện | 6/10 CVE pilot có pipeline hành vi; 4 Jenkins/NiFi còn bị chặn |
+| Phép thử bảo mật pilot | 22 assertion: 7 PASS, 15 FAIL | 12 đối chứng đều PASS; 4/6 bản sau còn assertion bảo mật FAIL |
+| Chuẩn hóa phạm vi tệp | 60 → 33, giảm 45% | Đúng 9 CVE giữ cùng SHA sửa; đếm đường dẫn `.java` thay đổi |
+| Ánh xạ sửa hiệu chỉnh | 1/10 | Commons IO; giữ nguyên metadata seed |
+| Toàn vẹn phương thức pilot | 187/187 | Kiểm tra blob Git, khoảng dòng và SHA256 từ source |
+| Batch bổ sung | 10 CVE, 222 phiên bản | 10/10 đã chuẩn hóa nguồn; 1/10 hoàn tất theo tiêu chí build + hành vi + rà soát AI |
+| Nhãn batch bổ sung | 2 VULNERABLE, 220 UNCONFIRMED | Hai phiên bản Expand có bằng chứng; chín CVE còn thiếu kiểm chứng đầy đủ |
+| Người đánh giá độc lập | 0 | Lượt rà soát hiện do AI thực hiện |
+
+Build đối chứng lịch sử trên cùng 6 seed, JDK, Maven và mô-đun đạt **6/6 ở cả IRIS và JavaCVE**. Không có chênh lệch tỷ lệ build trong phép đối chứng đó. Số tệp giảm không chứng minh giảm thời gian lao động hoặc tăng độ chính xác mô hình.
+
+Xem [bảng số liệu tính lại](docs/generated/metrics.json), [báo cáo môn học](docs/generated/REPORT.md), [bản Word](docs/generated/COURSE_REPORT.docx), [thử nghiệm bị chặn](docs/EXPERIMENTS.md) và [batch bổ sung](docs/BATCH02.md).
+
+## Chạy thử trên Ubuntu/WSL x86_64
+
+Cần Python 3.12+, Git, chứng chỉ CA và Internet ở lần đầu. JDK8u514 và Maven3.9.9 được tải theo URL đã khóa và kiểm tra SHA256. Mở terminal trong thư mục có `run.py`.
+
+```bash
+python3 run.py demo
+python3 run.py list --cwe CWE-22
+python3 run.py all --cve CVE-2021-29425
+```
+
+`demo` kiểm tra chỉ mục và manifest ngoại tuyến. `all` của v0.2.0 build từ nguồn, chạy API và chạy **fixture bảo mật gốc của JavaCVE_Reproducible**. Assertion bảo mật FAIL được giữ như quan sát; lỗi build, harness hoặc đối chứng làm lệnh thất bại. `PASS` của lệnh không có nghĩa mọi thuộc tính bảo mật đều đạt.
+
+## Các thao tác chính
+
+| Mục đích | Lệnh |
 |---|---|
-| Xem thống kê và kiểm tra tính toàn vẹn của bản phát hành, dùng Python 3.12+ | `python3 run.py demo` |
-| Build và kiểm tra hai phiên bản của 6 thư viện, dùng Ubuntu x86_64, Git và Internet | `python3 run.py all` |
-| Thử trước với một thư viện | `python3 run.py all --cve CVE-2021-29425` |
-| Đối chiếu lại gói kết quả WSL cũ nếu có tệp này | `python3 run.py audit-wsl ../results.zip` |
-| Kiểm tra nguồn bước 3 và xuất mã các phương thức nghiệp vụ | `python3 run.py verify-source ../JavaCVE_Buoc3/cases --export methods-local.jsonl` |
+| Xem dự án/CWE/trạng thái bằng chứng | `python3 run.py list --json` |
+| Tải commit đã khóa của toàn bộ pilot | `python3 run.py fetch` |
+| Build sáu CVE hỗ trợ, kèm kiểm tra API | `python3 run.py build` |
+| Build và chạy kiểm tra bảo mật | `python3 run.py security --cve CVE-2021-29425` |
+| Build/API/bảo mật toàn bộ tập hỗ trợ | `python3 run.py all` |
+| Kiểm tra nguồn và xuất toàn bộ phương thức | `python3 run.py export --include-tests` |
+| Rà soát toàn vẹn và xuất lý do UNCONFIRMED | `python3 run.py audit` |
+| Tính lại phép so sánh tệp | `python3 run.py measure` |
+| Sinh thống kê/báo cáo từ bằng chứng lịch sử | `python3 run.py report` |
+| Thử bốn hồ sơ Jenkins/NiFi | `python3 run.py investigate --upstream-repositories --timeout 180` |
+| Kiểm tra môi trường và kết nối | `python3 run.py doctor --network` |
+| Tạo phân hoạch pilot theo dự án, chặn trùng token | `python3 run.py split` |
+| Tái tạo bước trích xuất batch bổ sung | `python3 run.py expand` |
+| Build/kiểm tra CVE mới đã có fixture | `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` |
 
-Lệnh `demo` chạy ngoại tuyến. Lệnh `all` thực sự biên dịch mã và gọi một API thông thường trên mỗi JAR. JDK 8 và Maven được chọn theo `data/toolchain.json`. Nếu thư mục `JavaCVE_Reproducible` nằm cạnh bản này, chương trình có thể dùng lại công cụ và kho lưu nguồn đã kiểm tra SHA-256. Có thể chỉ định vị trí đó bằng `--prior /duong/dan/JavaCVE_Reproducible`. Nếu thiếu, chương trình tự tải công cụ, lấy mã qua Git và đối chiếu mã cây nguồn. Lệnh có thể mất vài phút khi chạy lần đầu.
+`export`/`audit` cần chạy `fetch` trước để có đủ cả 10 kho Git. Mặc định export giữ mã nghiệp vụ; `--include-tests` thêm mã kiểm thử. Tệp xuất nằm trong thư mục run mới, kèm nguồn, nhãn và ngữ cảnh; mã nguồn bên thứ ba không được gộp vào giấy phép MIT của công cụ.
 
-Mỗi lệnh tạo `runs/<mã-lần-chạy>/run.json`. Dòng cuối in trạng thái và vị trí kết quả. Bản tóm tắt chứa môi trường Python thực tế, thời điểm UTC và mã lần chạy mới. Một lượt bị dừng đột ngột có thể ở trạng thái `running`. Các kết quả lịch sử có nguồn riêng trong `evidence/`.
+Mỗi lệnh tạo `runs/<id>/run.json`; dòng đầu và cuối chỉ vị trí. Các bước tải/build/API/bảo mật ghi thời gian, commit, lệnh, exit code và log. Kết quả lịch sử ở `evidence/`; kết quả công bố của v0.2.0 ở `evidence/v0.2.0/`.
 
-## Dữ liệu để đọc và sử dụng
+```bash
+# Thay <id> bằng ID vừa in ra; không gõ nguyên dấu < >.
+python3 run.py all --retry-from runs/<id>
+python3 run.py security --from-run runs/<id>
+```
 
-| Tệp | Đơn vị quan sát |
-|---|---|
-| `data/cases.jsonl` | 10 CVE, dự án, nguồn công bố, commit gốc và cặp commit được chọn |
-| `data/files.jsonl` | 35 tệp thay đổi, đường dẫn và mã đối tượng Git theo từng phía |
-| `data/methods.jsonl` | 126 phương thức hoặc hàm khởi tạo đã thay đổi |
-| `data/versions.jsonl` | 187 phiên bản phương thức thực sự tồn tại, mỗi dòng có nhãn, khoảng dòng và SHA-256 |
-| `data/pairs.jsonl` | 23 cặp phương thức trọng tâm có cả hai phía |
-| `data/review.csv` | 20 quyết định rà soát ở cấp phiên bản dự án, mở được bằng Excel |
-| `evidence/` | Kết quả build đối chứng, lần chạy v0.1.0 và số liệu thực nghiệm WSL có trước |
+Retry tạo run mới và chỉ chạy các snapshot thất bại của cùng command/dataset. Replay dùng artifact đã build từ source và kiểm tra lại hash JAR/phụ thuộc. `--offline` chỉ dùng cache sẵn có; thiếu commit/phụ thuộc được báo rõ.
 
-**Cách lấy phần mã Java.** Bản phát hành phân phối chỉ mục và dấu vân tay nội dung. Lệnh `verify-source --export` ghép chỉ mục với mã nguồn đã lưu, kiểm tra đủ 187 bản và xuất 150 phiên bản thuộc mã ngoài thư mục kiểm thử. 37 phiên bản mã kiểm thử vẫn có nhãn và định danh trong chỉ mục. Mỗi dòng xuất có trường `code`. Tham số `--export` nhận tên tệp mới. Với nguồn lấy độc lập từ các kho Git, dùng chế độ `--git-repos` trong hướng dẫn dữ liệu.
+Để sinh báo cáo từ lượt chạy của chính bạn, thêm các `--run` trỏ đến run build, run `measure` và run `audit`. Không đưa hai quan sát trùng CVE/phase vào cùng báo cáo. Hướng dẫn cụ thể tại [INSTALL.md](docs/INSTALL.md).
 
-**Ý nghĩa nhãn.** `VULNERABLE` và `RESOLVED_TARGET` mô tả cơ chế của CVE trong phạm vi đã ghi. `UNCONFIRMED` giữ nguyên sự thiếu chắc chắn. Bộ dữ liệu có 44, 14 và 129 phiên bản phương thức tương ứng. Cả 10 CVE đã được rà soát kỹ thuật với trợ lý AI. Hiện có 0 lượt đánh giá độc lập của con người.
+## Dữ liệu và phương pháp
 
-## Kết quả chính
+`data/cases.jsonl` → `files.jsonl` → `methods.jsonl` → `versions.jsonl` lưu liên kết CVE → commit → tệp → callable → nhãn. Phía phương thức không tồn tại không được tạo mẫu rỗng. `data/batch-02/` tách riêng đợt mới; không làm đổi mẫu số pilot.
 
-Đối chứng cùng phiên bản Git, cùng bộ công cụ và phạm vi build đạt **6/6 ở cả hai quy trình**. Đóng góp đo được nằm ở việc chuẩn hóa phiên bản, ghép nhãn với bằng chứng và lưu được kết quả kiểm tra theo từng lần chạy. Kết quả trên 6 thư viện chưa đại diện cho toàn bộ CWE-Bench-Java.
+Đọc [từ điển dữ liệu](docs/DATA.md), [quy tắc nhãn](docs/LABELS.md), [phương pháp đo](docs/METHODOLOGY.md), [phép đối chứng lịch sử](docs/BASELINE.md), [nguồn và giấy phép](docs/SOURCES.md), [CHANGELOG](CHANGELOG.md).
 
-Đọc [từ điển dữ liệu](docs/DATA.md), [phương pháp đối chứng](docs/BASELINE.md), [kết quả rà soát](docs/REVIEW.md) và [nguồn cùng giấy phép](docs/SOURCES.md).
+Kiểm tra tự động: `python3 -m unittest discover -s tests -v`. GitHub Actions chạy kiểm tra ngoại tuyến khi push/PR; chạy thủ công workflow để build và đo hành vi Commons IO từ source trong runner mới.

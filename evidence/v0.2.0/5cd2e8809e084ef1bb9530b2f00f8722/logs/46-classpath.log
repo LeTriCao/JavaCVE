@@ -1,0 +1,15 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.zeroturnaround:zt-zip >----------------------
+[INFO] Building ZT Zip 1.13-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ zt-zip ---
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmp1swndwy8/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.190 s
+[INFO] Finished at: 2026-11-24T07:00:02Z
+[INFO] ------------------------------------------------------------------------

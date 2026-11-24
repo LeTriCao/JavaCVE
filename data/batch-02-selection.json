@@ -1,0 +1,17 @@
+{
+  "batch_id": "batch-02",
+  "benchmark_revision": "d2059f299a80a68ea4a0b0315eec2f42b8743776",
+  "selection_policy": "Five new seed CWE-22 and five new seed CWE-78 CVEs; prefer single fix references and manageable repositories; retain advisory classification discrepancies explicitly.",
+  "cases": [
+    {"cve_id":"CVE-2016-9177","module":".","kind":"maven","selected_parent_index":0,"parent_reason":"First parent isolates the merge against the mainline; behavior and completeness remain unconfirmed."},
+    {"cve_id":"CVE-2018-1000850","module":"retrofit","kind":"maven"},
+    {"cve_id":"CVE-2022-25842","module":"one-java-agent-plugin","kind":"maven","selected_fix_index":0,"fix_reason":"Start from the first seed fix; preserve every fix reference and keep all semantic labels unconfirmed pending multi-commit review."},
+    {"cve_id":"CVE-2022-4244","module":".","kind":"maven"},
+    {"cve_id":"CVE-2023-37460","module":".","kind":"maven"},
+    {"cve_id":"CVE-2013-7285","module":"xstream","kind":"maven"},
+    {"cve_id":"CVE-2020-26217","module":"xstream","kind":"maven"},
+    {"cve_id":"CVE-2021-21345","module":"xstream","kind":"maven"},
+    {"cve_id":"CVE-2022-25174","module":".","kind":"maven"},
+    {"cve_id":"CVE-2022-25175","module":".","kind":"maven"}
+  ]
+}

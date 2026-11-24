@@ -1,0 +1,36 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.codehaus.plexus:plexus-utils >------------------
+[INFO] Building Plexus Common Utilities 3.0.16-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.1.1:enforce (enforce-java) @ plexus-utils ---
+[INFO] 
+[INFO] --- resources:2.6:resources (default-resources) @ plexus-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:2.5.1:compile (default-compile) @ plexus-utils ---
+[INFO] Compiling 83 source files to /tmp/javacve-_ts9dlai/tmphewsxc6x/source/target/classes
+[INFO] 
+[INFO] --- resources:2.6:testResources (default-testResources) @ plexus-utils ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:2.5.1:testCompile (default-testCompile) @ plexus-utils ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:2.12.4:test (default-test) @ plexus-utils ---
+[WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:2.4:jar (default-jar) @ plexus-utils ---
+[INFO] Building jar: /tmp/javacve-_ts9dlai/tmphewsxc6x/source/target/plexus-utils-3.0.16-SNAPSHOT.jar
+[INFO] 
+[INFO] --- site:3.2:attach-descriptor (attach-descriptor) @ plexus-utils ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.466 s
+[INFO] Finished at: 2026-11-24T06:55:13Z
+[INFO] ------------------------------------------------------------------------

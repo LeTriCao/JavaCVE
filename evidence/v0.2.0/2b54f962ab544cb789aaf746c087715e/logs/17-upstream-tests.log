@@ -1,0 +1,122 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.thoughtworks.xstream:xstream >------------------
+[INFO] Building XStream Core 1.4.14-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'target' is unknown for plugin 'maven-antrun-plugin:1.1:run (copy-license)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (compile-jdk15)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (compile-jdk18)'
+[WARNING] Parameter 'target' is unknown for plugin 'maven-antrun-plugin:1.1:run (copy-license)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (compile-jdk15)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:compile (compile-jdk18)'
+[WARNING] Parameter 'target' is unknown for plugin 'maven-antrun-plugin:1.1:run (copy-license-for-test)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:testCompile (default-testCompile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:testCompile (compile-jdk15)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.1:testCompile (compile-jdk18)'
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-java-version) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:maven-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:parse-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:add-resource (include-license) @ xstream ---
+[INFO] 
+[INFO] --- antrun:1.1:run (copy-license) @ xstream ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:2.2:resources (default-resources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- compiler:2.1:compile (default-compile) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- compiler:2.1:compile (compile-jdk15) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- compiler:2.1:compile (compile-jdk18) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] >>> bundle:2.5.4:manifest (bundle-manifest) > process-classes @ xstream >>>
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-java-version) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:maven-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:parse-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:add-resource (include-license) @ xstream ---
+[INFO] 
+[INFO] --- antrun:1.1:run (copy-license) @ xstream ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:2.2:resources (default-resources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- compiler:2.1:compile (default-compile) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- compiler:2.1:compile (compile-jdk15) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- compiler:2.1:compile (compile-jdk18) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< bundle:2.5.4:manifest (bundle-manifest) < process-classes @ xstream <<<
+[INFO] 
+[INFO] 
+[INFO] --- bundle:2.5.4:manifest (bundle-manifest) @ xstream ---
+[WARNING] Manifest com.thoughtworks.xstream:xstream:jar:1.4.14-SNAPSHOT : Export com.thoughtworks.xstream.converters.reflection,  has 1,  private references [com.thoughtworks.xstream.core.util], 
+[WARNING] Manifest com.thoughtworks.xstream:xstream:jar:1.4.14-SNAPSHOT : Export com.thoughtworks.xstream.io.json,  has 1,  private references [com.thoughtworks.xstream.core.util], 
+[WARNING] Manifest com.thoughtworks.xstream:xstream:jar:1.4.14-SNAPSHOT : Export com.thoughtworks.xstream.io.xml,  has 1,  private references [com.thoughtworks.xstream.core.util], 
+[INFO] 
+[INFO] --- antrun:1.1:run (copy-license-for-test) @ xstream ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:2.2:testResources (default-testResources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- dependency:2.1:copy (complete-test-classpath) @ xstream ---
+[INFO] Configured Artifact: proxytoys:proxytoys:0.2.1:jar
+[INFO] proxytoys:proxytoys:0.2.1:jar already exists in /tmp/javacve-jb7qp1k1/tmp9fze_hgs/source/xstream/target/lib
+[INFO] 
+[INFO] --- compiler:2.1:testCompile (default-testCompile) @ xstream ---
+[INFO] Compiling 208 source files to /tmp/javacve-jb7qp1k1/tmp9fze_hgs/source/xstream/target/test-classes
+[INFO] 
+[INFO] --- compiler:2.1:testCompile (compile-jdk15) @ xstream ---
+[INFO] Compiling 24 source files to /tmp/javacve-jb7qp1k1/tmp9fze_hgs/source/xstream/target/test-classes
+[INFO] 
+[INFO] --- compiler:2.1:testCompile (compile-jdk18) @ xstream ---
+[INFO] Compiling 2 source files to /tmp/javacve-jb7qp1k1/tmp9fze_hgs/source/xstream/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.4.3:test (default-test) @ xstream ---
+[INFO] Surefire report directory: /tmp/javacve-jb7qp1k1/tmp9fze_hgs/source/xstream/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.thoughtworks.acceptance.SecurityVulnerabilityTest
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.930 s
+[INFO] Finished at: 2026-11-24T07:32:08Z
+[INFO] ------------------------------------------------------------------------

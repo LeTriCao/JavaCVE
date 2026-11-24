@@ -1,0 +1,17 @@
+{
+  "unit": "project",
+  "seed": "JavaCVE-v0.2.0",
+  "token_algorithm": "common-java-leaves-in-verified-source-line-range-v3",
+  "method_versions": 409,
+  "cves": 20,
+  "distinct_token_hashes": 376,
+  "policy": "Group by project/CVE, union groups sharing exact token hashes, deterministic hash buckets 80/10/10 in expectation",
+  "counts": {
+    "train": 376,
+    "test": 25,
+    "validation": 8
+  },
+  "components": 16,
+  "cross_split_exact_token_duplicates": 0,
+  "caveat": "Tiny pilot can have empty partitions. Hash equality detects exact token duplicates only; review approximate clones before ML. Labels and original pilot_only fields are unchanged."
+}

@@ -1,0 +1,19 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ----------------------< net.lingala.zip4j:zip4j >-----------------------
+[INFO] Building zip4j 1.3.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ zip4j ---
+[INFO] No dependencies found.
+[INFO] Wrote classpath file '/tmp/javacve-_ts9dlai/tmps0o2r7rf/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.718 s
+[INFO] Finished at: 2026-11-24T07:01:55Z
+[INFO] ------------------------------------------------------------------------

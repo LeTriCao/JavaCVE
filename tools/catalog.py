@@ -90,6 +90,7 @@ def verify():
         other = measured[r["cve_id"]]
         require(r["commit"] == other["commit"] and all(r[k]["status"] == other[k]["status"]
                 for k in ("upstream", "pilot")), "Mismatch between benchmark runs")
+    expansion = verify_expansion()
     return {"release_builds":len(built), "cves":len(cases), "cwe":dict(Counter(c["target_cwe"] for c in cases.values())),
             "files":len(files), "methods":len(methods), "present_versions":len(versions),
             "labels":dict(Counter(v["label"] for v in versions.values())), "paired_core_methods":len(pairs),
@@ -98,7 +99,37 @@ def verify():
             "historical_wsl_builds":len(historic), "wsl_assertions":sum(sum(t.values()) for r in historic for t in r["checks"].values()),
             "wsl_upstream_tests":sum(r["upstream"]["tests"] for r in historic),
             "matched_upstream_pass":sum(r["upstream"]["status"] == "PASS" for r in controls),
-            "matched_pilot_pass":sum(r["pilot"]["status"] == "PASS" for r in controls), "matched_cases":len(controls)}
+            "matched_pilot_pass":sum(r["pilot"]["status"] == "PASS" for r in controls), "matched_cases":len(controls),"expansion":expansion}
+
+
+def verify_expansion():
+    base = ROOT/"data/batch-02"
+    if not base.exists():
+        return None
+    def table(name,key):
+        return unique([json.loads(l) for l in (base/(name+".jsonl")).read_text(encoding="utf-8").splitlines()],key)
+    cases,files,methods,versions = table("cases","cve_id"),table("files","file_id"),table("methods","record_id"),table("versions","sample_id")
+    require(not (cases.keys() & {c["cve_id"] for c in rows("cases")}),"Expansion/pilot overlap")
+    expected = set()
+    for f in files.values():
+        require(f["cve_id"] in cases,"Unknown batch file CVE")
+        for phase in PHASES:
+            require(bool(f["file_path_"+phase]) == bool(f[phase+"_blob"]),"Inconsistent batch file state")
+    for m in methods.values():
+        require(m["file_id"] in files and files[m["file_id"]]["cve_id"] == m["cve_id"],"Batch method owner mismatch")
+        require(set(m["present_phases"]) <= set(PHASES) and bool(m["present_phases"]),"Invalid batch method phases")
+        expected.update(m["record_id"]+":"+p for p in m["present_phases"])
+    require(expected == versions.keys(),"Batch method version coverage")
+    for sid,v in versions.items():
+        m = methods[v["record_id"]]
+        require(v["cve_id"]==m["cve_id"] and v["file_id"]==m["file_id"] and sid==v["record_id"]+":"+v["phase"],"Batch sample identity")
+        require(v["commit"]==cases[v["cve_id"]][v["phase"]+"_commit"] and v["file_path"]==files[v["file_id"]]["file_path_"+v["phase"]],"Batch sample source mismatch")
+        require(v["label"] in LABELS and 0<v["start_line"]<=v["end_line"] and len(v["code_sha256"])==64,"Invalid batch sample")
+        require(v["label"]!="UNCONFIRMED" or bool(v["unknown_reason_group"]),"Missing uncertainty reason")
+    completion = json.loads((base/"completion.json").read_text())
+    require(completion["labels"]==dict(Counter(v["label"] for v in versions.values())),"Batch completion labels differ")
+    return dict(cves=len(cases),methods=len(methods),method_versions=len(versions),labels=completion["labels"],fully_completed=completion["fully_completed"],
+                cwe=dict(Counter(c["target_cwe"] for c in cases.values())))
 
 
 def verify_sources(base, export_to=None, git_repositories=False, include_tests=False):
