@@ -1,0 +1,5 @@
+Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
+Maven home: <workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven
+Java version: 1.8.0_514, vendor: Temurin, runtime: <workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "6.18.33.1-microsoft-standard-wsl2", arch: "amd64", family: "unix"

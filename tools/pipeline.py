@@ -155,6 +155,7 @@ def pipeline(cases, args, run, experimental=False):
                 try:
                     with tempfile.TemporaryDirectory(dir=session) as workdir:
                         tmp = Path(workdir)
+                        snapshot_env = env
                         if previous:
                             candidates = [r for r in previous["snapshots"] if r["cve_id"] == case["cve_id"] and r["phase"] == phase and r["commit"] == record["commit"] and r.get("build_status") == "PASS"]
                             require(len(candidates) == 1, "No verified source-built artifact for selection")
@@ -172,10 +173,18 @@ def pipeline(cases, args, run, experimental=False):
                             archive_source(repo, record["commit"], source)
                             original_files = {p.relative_to(source):digest(p) for p in source.rglob("*") if p.is_file() and not p.is_symlink()}
                             profile = profiles.get(case["cve_id"], case.get("build_profile",{}))
+                            record["build_profile"] = profile
+                            if profile.get("isolated_java_tmpdir"):
+                                java_tmp = tmp / "java-tmp"
+                                java_tmp.mkdir()
+                                snapshot_env = dict(env)
+                                option = "-Djava.io.tmpdir=" + str(java_tmp) + "/"
+                                snapshot_env["JAVA_TOOL_OPTIONS"] = (env.get("JAVA_TOOL_OPTIONS", "") + " " + option).strip()
+                                record["environment_overrides"] = {"JAVA_TOOL_OPTIONS": option}
                             module = profile.get("module", case["build_module"])
                             command = mvn + profile.get("flags", []) + ["-Dmaven.test.skip=true", "-Dcheckstyle.skip=true", "-Drat.skip=true", "package"]
                             build_cwd = source if profile.get("reactor") else source/module
-                            run.execute("build", command, cwd=build_cwd, env=env, timeout=args.timeout, owner=owner)
+                            run.execute("build", command, cwd=build_cwd, env=snapshot_env, timeout=args.timeout, owner=owner)
                             artifact = primary_jar(source/module)
                             record.update(build_status="PASS", artifact_sha256=digest(artifact), module=module)
                             target = run.directory / "artifacts" / case["cve_id"] / phase / artifact.name
@@ -187,7 +196,7 @@ def pipeline(cases, args, run, experimental=False):
                                 selected_tests = case.get("upstream_tests",[])
                                 record["security_status"] = "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
                                 if selected_tests:
-                                    run.execute("upstream-tests",mvn+profile.get("flags",[])+["-Dtest="+",".join(selected_tests),"-DfailIfNoTests=true","-Dcheckstyle.skip=true","-Drat.skip=true","test"],cwd=build_cwd,env=env,timeout=args.timeout,owner=owner)
+                                    run.execute("upstream-tests",mvn+profile.get("flags",[])+["-Dtest="+",".join(selected_tests),"-DfailIfNoTests=true","-Dcheckstyle.skip=true","-Drat.skip=true","test"],cwd=build_cwd,env=snapshot_env,timeout=args.timeout,owner=owner)
                                     record["upstream_tests"] = dict(status="PASS",selected_classes=selected_tests,scope="Changed upstream classes; not a validated external paired security fixture")
                                 else:
                                     record["upstream_tests"] = dict(status="BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE")

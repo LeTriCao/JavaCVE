@@ -31,9 +31,14 @@ def main():
     fixture=load("20fda5362b864cac988d7560180ebb00")
     cases=[json.loads(l) for l in (ROOT/"data/batch-02/cases.jsonl").read_text(encoding="utf-8").splitlines()]
     completion=json.loads((ROOT/"data/batch-02/completion.json").read_text())
+    recovery_path = ROOT/"data/batch-02/build-recovery.json"
+    recovered = json.loads(recovery_path.read_text(encoding="utf-8"))["cases"] if recovery_path.exists() else []
     statuses=[]
     for c in cases:
         observations=[r for r in batch["snapshots"] if r["cve_id"]==c["cve_id"]]
+        latest = [r for r in recovered if r["cve_id"] == c["cve_id"]]
+        if latest:
+            observations = latest
         if c["cve_id"]=="CVE-2022-4244":
             observations=fixture["snapshots"]
         statuses.append(dict(cve_id=c["cve_id"],source_normalized=True,cwe=c["target_cwe"],advisory_cwes=c["advisory_cwe_ids"],cwe_alignment=c["cwe_alignment"],
@@ -53,6 +58,8 @@ def main():
              "CVE-2022-25174":"Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent.",
              "CVE-2022-25175":"Timeout ở Jenkins parent/plugin/dependency; cần fixture tích hợp tương ứng advisory."}
     for c in statuses:
+        if any(r["cve_id"] == c["cve_id"] for r in recovered):
+            reasons[c["cve_id"]] = "Build trước/sau đạt; xem BUILD_RECOVERY.md và build-recovery.json cho thời gian và trạng thái upstream test. Còn thiếu fixture chung và rà soát nhãn."
         lines.append("| "+c["cve_id"]+" | "+c["before"].get("build_status",c["before"]["status"])+" / "+c["after"].get("build_status",c["after"]["status"])+" | "+reasons[c["cve_id"]]+" |")
     mismatch=[c for c in statuses if c["cwe_alignment"]!="MATCH"]
     lines += ["", "## Phân loại và giới hạn", "", "Giữ target_cwe từ seed; advisory hiện hành được lưu riêng. Phân loại seed không tự động là nhãn vàng. Các hồ sơ có phân loại advisory khác hoặc không chỉ rõ: "+", ".join(c["cve_id"]+" ("+", ".join(c["advisory_cwes"])+")" for c in mismatch)+". Cần người đánh giá phạm vi trước khi dùng làm tập chuẩn CWE-78.", "", "Spark chọn parent thứ nhất của merge có lý do ghi trong selection. one-java-agent giữ mọi fix reference nhưng chỉ trích cặp ở fix đầu tiên; các fix còn lại cần rà soát đa commit. Parser phân biệt anonymous class và lexical occurrence khi chữ ký cú pháp trùng; không coi đây là chữ ký JVM hay ghép ngữ nghĩa hoàn hảo.", "", "UNCONFIRMED không phải safe negative. Đợt mới chưa đủ để kết luận độ chính xác ML. Các snapshot có upstream test PASS chưa chứng minh cơ chế lỗi được tái hiện. Thời gian90/180 giây là ngân sách của lượt thử, không phải kết luận bất khả build. Cache và dependency version range có thể làm kết quả đổi theo thời điểm; cần khóa dependency để nghiên cứu dài hạn.", "", "## Chạy lại", "", "`python3 run.py expand` tạo intake mới trong run mới, không ghi đè các nhãn đã rà soát. `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` chạy fixture mới. Các hồ sơ khác dùng cùng batch-build với --cve và timeout phù hợp. Xem INSTALL.md cho export, parser và split chung409 phiên bản.", "", "Bằng chứng: [build toàn batch](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json), [fixture Expand](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json), [build-status.json](../data/batch-02/build-status.json), [quyết định nhãn](../data/batch-02/reviews.jsonl).", ""]

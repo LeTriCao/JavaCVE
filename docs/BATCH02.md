@@ -4,12 +4,12 @@ Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ s
 
 | CVE | Build trước / sau | Kết quả khác hoặc phần thiếu |
 |---|---|---|
-| CVE-2016-9177 | FAIL / PASS | Before timeout; after build đạt nhưng lớp test upstream có 1 error; chưa có fixture bảo mật chung hai bản. |
+| CVE-2016-9177 | PASS / PASS | Build và lớp test upstream đạt cả hai bản sau khi đặt java.io.tmpdir riêng có dấu / cuối. Chưa có fixture bảo mật chung hai bản. |
 | CVE-2018-1000850 | FAIL / FAIL | Dependency Kotlin dùng version range kéo plugin 2.5.0-RC không phù hợp JDK8; cần pin dependency có nguồn gốc và đo lại. Không sửa source để che lỗi. |
 | CVE-2022-25842 | FAIL / FAIL | Thiếu bytekit-instrument-api/core0.0.8-SNAPSHOT; cần nguồn artifact lịch sử hoặc tái build dependency có revision xác minh. |
 | CVE-2022-4244 | PASS / PASS | Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo. |
 | CVE-2023-37460 | FAIL / FAIL | Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè. |
-| CVE-2013-7285 | FAIL / PASS | Before timeout, after build/upstream đạt; thiếu fixture thống nhất và diễn giải callable theo advisory. |
+| CVE-2013-7285 | PASS / PASS | Hai bản build đạt với ngân sách 600 giây. Before không có test phù hợp danh sách lớp lấy từ after, after upstream đạt. Còn thiếu fixture chung và rà soát nhãn. |
 | CVE-2020-26217 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; chưa chứng minh FAIL→PASS bằng cùng fixture, giữ UNCONFIRMED. |
 | CVE-2021-21345 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; thiếu fixture chung/caller context, giữ UNCONFIRMED. |
 | CVE-2022-25174 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent. |

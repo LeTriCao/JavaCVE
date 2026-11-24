@@ -190,6 +190,8 @@ def batch_cases(folder,cves=None):
     cases = [json.loads(l) for l in (folder/"cases.jsonl").read_text(encoding="utf-8").splitlines()]
     files = [json.loads(l) for l in (folder/"files.jsonl").read_text(encoding="utf-8").splitlines()]
     for case in cases:
+        if case["cve_id"] == "CVE-2016-9177":
+            case["build_profile"] = {"isolated_java_tmpdir": True}
         if case["cve_id"] == "CVE-2022-4244":
             case["check"] = "plexus-expand"
         prefix = "" if case["build_module"] == "." else case["build_module"].rstrip("/")+"/"

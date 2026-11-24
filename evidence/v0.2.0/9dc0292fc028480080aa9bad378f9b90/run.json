@@ -1,0 +1,279 @@
+{
+  "run_id": "9dc0292fc028480080aa9bad378f9b90",
+  "release": "0.2.0",
+  "command": "batch-build",
+  "start_utc": "2026-11-24T08:28:43.533851+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "batch-build data/batch-02 --cve CVE-2016-9177 --timeout 600",
+  "project_commit": "5062c2b1c1f0a41ba9c0264dadd51d75703ac5ea",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [
+    {
+      "stage": "java-version",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-version"
+      ],
+      "start_utc": "2026-11-24T08:28:45.243419+00:00",
+      "status": "PASS",
+      "log": "logs/0-java-version.log",
+      "end_utc": "2026-11-24T08:28:45.527162+00:00",
+      "seconds": 0.272772,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "maven-version",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "--version"
+      ],
+      "start_utc": "2026-11-24T08:28:45.534631+00:00",
+      "status": "PASS",
+      "log": "logs/1-maven-version.log",
+      "end_utc": "2026-11-24T08:28:46.986373+00:00",
+      "seconds": 1.440428,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-1n6rhm53/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T08:28:47.285549+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2016-9177",
+      "phase": "before",
+      "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "log": "logs/2-build.log",
+      "end_utc": "2026-11-24T08:29:12.893483+00:00",
+      "seconds": 25.582845,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "upstream-tests",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-1n6rhm53/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dtest=StaticFilesTest,StaticFilesTestExternal",
+        "-DfailIfNoTests=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "test"
+      ],
+      "start_utc": "2026-11-24T08:29:12.926857+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2016-9177",
+      "phase": "before",
+      "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "log": "logs/3-upstream-tests.log",
+      "end_utc": "2026-11-24T08:29:42.884071+00:00",
+      "seconds": 29.946783,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-1n6rhm53/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-24T08:29:43.235940+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2016-9177",
+      "phase": "after",
+      "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "log": "logs/4-build.log",
+      "end_utc": "2026-11-24T08:30:10.782049+00:00",
+      "seconds": 27.535404,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "upstream-tests",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-U",
+        "-s",
+        "/tmp/javacve-1n6rhm53/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dtest=StaticFilesTest,StaticFilesTestExternal",
+        "-DfailIfNoTests=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "test"
+      ],
+      "start_utc": "2026-11-24T08:30:10.809108+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2016-9177",
+      "phase": "after",
+      "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "log": "logs/5-upstream-tests.log",
+      "end_utc": "2026-11-24T08:30:46.157172+00:00",
+      "seconds": 35.335384,
+      "exit_code": 0,
+      "error_category": null
+    }
+  ],
+  "snapshots": [
+    {
+      "cve_id": "CVE-2016-9177",
+      "phase": "before",
+      "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "start_utc": "2026-11-24T08:28:46.996266+00:00",
+      "status": "PASS",
+      "build_profile": {
+        "isolated_java_tmpdir": true
+      },
+      "environment_overrides": {
+        "JAVA_TOOL_OPTIONS": "-Djava.io.tmpdir=/tmp/javacve-1n6rhm53/tmpdieoet_f/java-tmp/"
+      },
+      "build_status": "PASS",
+      "artifact_sha256": "e4e89d14980674ef138d78f2ef009a88efc5c87238fc513a1752f4cd18f54eae",
+      "module": ".",
+      "artifact": "artifacts/CVE-2016-9177/before/spark-core-2.5.2-SNAPSHOT.jar",
+      "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+      "upstream_tests": {
+        "status": "PASS",
+        "selected_classes": [
+          "StaticFilesTest",
+          "StaticFilesTestExternal"
+        ],
+        "scope": "Changed upstream classes; not a validated external paired security fixture"
+      },
+      "source_integrity": {
+        "checked_original_files": 187,
+        "changed_files": []
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T08:29:42.903032+00:00",
+      "seconds": 55.906764
+    },
+    {
+      "cve_id": "CVE-2016-9177",
+      "phase": "after",
+      "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "start_utc": "2026-11-24T08:29:42.911874+00:00",
+      "status": "PASS",
+      "build_profile": {
+        "isolated_java_tmpdir": true
+      },
+      "environment_overrides": {
+        "JAVA_TOOL_OPTIONS": "-Djava.io.tmpdir=/tmp/javacve-1n6rhm53/tmpo9874vw6/java-tmp/"
+      },
+      "build_status": "PASS",
+      "artifact_sha256": "b68af59d9e885fd5474e3c9d25f89781c6e5db3132e70146acc762872d2269e2",
+      "module": ".",
+      "artifact": "artifacts/CVE-2016-9177/after/spark-core-2.5.2-SNAPSHOT.jar",
+      "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+      "upstream_tests": {
+        "status": "PASS",
+        "selected_classes": [
+          "StaticFilesTest",
+          "StaticFilesTestExternal"
+        ],
+        "scope": "Changed upstream classes; not a validated external paired security fixture"
+      },
+      "source_integrity": {
+        "checked_original_files": 186,
+        "changed_files": []
+      },
+      "exit_code": 0,
+      "end_utc": "2026-11-24T08:30:46.170785+00:00",
+      "seconds": 63.258897
+    }
+  ],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6,
+    "expansion": {
+      "cves": 10,
+      "methods": 183,
+      "method_versions": 222,
+      "labels": {
+        "UNCONFIRMED": 220,
+        "VULNERABLE": 2
+      },
+      "fully_completed": 1,
+      "cwe": {
+        "CWE-22": 5,
+        "CWE-78": 5
+      }
+    }
+  },
+  "batch_dataset_sha256": "a76c4adeab767319d632039bb64cfe617391486e243dc688e6e1c0a27f6ece71",
+  "repository_policy": "central_https_and_declared_https",
+  "toolchain_setup_seconds": 0.007765,
+  "toolchain": {
+    "java": "openjdk version \"1.8.0_514\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_514-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.514-b01, mixed mode)\n",
+    "maven": "Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)\nMaven home: <workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven\nJava version: 1.8.0_514, vendor: Temurin, runtime: <workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre\nDefault locale: en, platform encoding: UTF-8\nOS name: \"linux\", version: \"6.18.33.1-microsoft-standard-wsl2\", arch: \"amd64\", family: \"unix\"\n"
+  },
+  "end_utc": "2026-11-24T08:30:46.180373+00:00",
+  "seconds": 123.708299,
+  "public_receipt": true,
+  "original_run_sha256": "7ecf4e70f61e78edfa8fa453e2cd37f6f27acdf3f3eecf04b81ac5108b2371c4",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}
