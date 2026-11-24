@@ -33,10 +33,11 @@
       "methods": 183,
       "method_versions": 222,
       "labels": {
-        "UNCONFIRMED": 220,
-        "VULNERABLE": 2
+        "UNCONFIRMED": 213,
+        "VULNERABLE": 5,
+        "RESOLVED_TARGET": 4
       },
-      "fully_completed": 1,
+      "fully_completed": 2,
       "cwe": {
         "CWE-22": 5,
         "CWE-78": 5

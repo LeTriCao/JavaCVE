@@ -1,15 +1,15 @@
 # Batch02: mở rộng có kiểm soát
 
-Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ sơ seed CWE-78. Metadata/advisory đã đối chiếu và nguồn khóa theo commit/parent. 10/10 chuẩn hóa, 222 phiên bản callable. Hiện 1/10 hồ sơ hoàn tất theo định nghĩa trong completion.json; 2 phiên bản VULNERABLE và 220 UNCONFIRMED. Người rà soát: AI; 0 đánh giá độc lập.
+Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ sơ seed CWE-78. Metadata/advisory đã đối chiếu và nguồn khóa theo commit/parent. 10/10 chuẩn hóa, 222 phiên bản callable. Hiện 2/10 hồ sơ hoàn tất theo định nghĩa trong completion.json; 213 UNCONFIRMED, 5 VULNERABLE, 4 RESOLVED_TARGET. Người rà soát: AI; 0 đánh giá độc lập.
 
 | CVE | Build trước / sau | Kết quả khác hoặc phần thiếu |
 |---|---|---|
-| CVE-2016-9177 | PASS / PASS | Build và lớp test upstream đạt cả hai bản sau khi đặt java.io.tmpdir riêng có dấu / cuối. Chưa có fixture bảo mật chung hai bản. |
+| CVE-2016-9177 | PASS / PASS | Hoàn tất trong phạm vi external static files: control PASS/PASS; hai URI mã hóa đọc marker ngoài trước, trả 404 sau. Nhãn consumer/guard phụ thuộc ngữ cảnh gọi; classpath/JAR/helper còn UNCONFIRMED. |
 | CVE-2018-1000850 | FAIL / FAIL | Dependency Kotlin dùng version range kéo plugin 2.5.0-RC không phù hợp JDK8; cần pin dependency có nguồn gốc và đo lại. Không sửa source để che lỗi. |
 | CVE-2022-25842 | FAIL / FAIL | Thiếu bytekit-instrument-api/core0.0.8-SNAPSHOT; cần nguồn artifact lịch sử hoặc tái build dependency có revision xác minh. |
 | CVE-2022-4244 | PASS / PASS | Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo. |
 | CVE-2023-37460 | FAIL / FAIL | Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè. |
-| CVE-2013-7285 | PASS / PASS | Đã chọn AliasTest có trong before. Cả hai bản đạt 27 test, 0 failure/error/skipped. Receipt 4063ba008c3644f5ad4d015ccd4cbcc4 lưu cả kết quả fixture cục bộ. Còn rà soát phạm vi nhãn và tiêu chí hoàn tất. |
+| CVE-2013-7285 | PASS / PASS | Chưa hoàn tất: control PASS/PASS, 27 AliasTest mỗi bản đạt; fixture báo ConversionException và 0 callback cả hai. Thiếu nguyên nhân exception, callback trước và bằng chứng xử lý đúng cơ chế sau; snapshot và 68 callable giữ UNCONFIRMED. |
 | CVE-2020-26217 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; chưa chứng minh FAIL→PASS bằng cùng fixture, giữ UNCONFIRMED. |
 | CVE-2021-21345 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; thiếu fixture chung/caller context, giữ UNCONFIRMED. |
 | CVE-2022-25174 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent. |
@@ -28,3 +28,5 @@ UNCONFIRMED không phải safe negative. Đợt mới chưa đủ để kết lu
 `python3 run.py expand` tạo intake mới trong run mới, không ghi đè các nhãn đã rà soát. `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` chạy fixture mới. Các hồ sơ khác dùng cùng batch-build với --cve và timeout phù hợp. Xem INSTALL.md cho export, parser và split chung 409 phiên bản.
 
 Bằng chứng: [build toàn batch](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json), [fixture Expand](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json), [build-status.json](../data/batch-02/build-status.json), [quyết định nhãn](../data/batch-02/reviews.jsonl).
+
+Bảng đối chiếu từng tiêu chí: [BATCH02_REVIEW.md](BATCH02_REVIEW.md). Quyết định từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md). `summary.json` là bản chụp intake; `completion.json` ghi trạng thái hiện tại.

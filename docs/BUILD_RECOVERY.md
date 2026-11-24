@@ -16,9 +16,9 @@ Cả before và after đều đạt 27 test, 0 failure, 0 error, 0 skipped. Tr�
 
 Quan sát zero tests của lượt cũ được diễn giải là NO_TESTS_FOUND trong upstream-selection.json và dẫn về receipt gốc. CLI hiện ghi NO_TESTS_FOUND khi Surefire báo không có test hoặc danh sách chọn rỗng. Completion và nhãn giữ trạng thái đang rà soát. Receipt mới cũng lưu các assertion fixture đã chạy trong lượt đang thực hiện trước yêu cầu thu hẹp sang upstream test.
 
-Thời gian, exit code, commit, công cụ, override, mã băm JAR và kiểm tra source nằm trong hai receipt ở evidence/v0.2.0. build-recovery.json liên kết kết quả mới và giả thuyết. Số snapshot Batch02 build đạt tăng từ 8/20 lên 10/20. Số hồ sơ hoàn tất thực nghiệm giữ 1/10, nhãn của hai hồ sơ đang xử lý giữ UNCONFIRMED.
+Thời gian, exit code, commit, công cụ, override, mã băm JAR và kiểm tra source nằm trong các receipt ở evidence/v0.2.0. build-recovery.json liên kết kết quả và giả thuyết của giai đoạn khôi phục build. Tại thời điểm đó số snapshot Batch02 build đạt tăng từ 8/20 lên 10/20; hoàn tất thực nghiệm giữ 1/10 và nhãn hai hồ sơ giữ UNCONFIRMED.
 
-Lượt này hoàn tất phạm vi build. Công việc còn thiếu gồm fixture trước–sau có đối chứng, kiểm tra ngữ cảnh advisory, rà soát nhãn và xác minh lệnh fixture từ clone mới.
+Giai đoạn trên hoàn tất phạm vi build. Lượt rà soát tiếp từ a7e6abd đã đối chiếu fixture có sẵn, advisory và nhãn: Spark hoàn tất theo đường gọi external đã đo; XStream chưa đủ bằng chứng callback/cause, giữ UNCONFIRMED. Trạng thái hiện tại là 2/10; xem [bảng từng tiêu chí](BATCH02_REVIEW.md). Các receipt cũ và build-recovery.json được giữ nguyên như lịch sử. CI success bên dưới không thay thế kết luận ngữ nghĩa fixture.
 
 ## Ghi chính xác bằng chứng CI
 

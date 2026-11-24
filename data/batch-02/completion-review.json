@@ -1,0 +1,316 @@
+{
+  "review_basis_commit": "a7e6abd",
+  "review_utc": "2026-11-24T09:39:30+00:00",
+  "reviewer": "AI",
+  "independent_human_reviews": 0,
+  "policy": "Source identity, extraction, scoped AI method review, paired source builds, controls and paired security behavior; independent human review is separately pending.",
+  "evidence_policy": "Existing receipts only; no new security fixture or payload execution in this review.",
+  "receipt_sha256": {
+    "4063ba008c3644f5ad4d015ccd4cbcc4": "baa4ee990d9401a9f06027f85403f340cc09b1588a24701034a16c46e3defd6c",
+    "2dc3374df54a4ed5b04e2894f1cb59f6": "8536154b2046ea4af84caf19fa39b669c31e4250fa4146c3da75c48d976196dd"
+  },
+  "cases": [
+    {
+      "cve_id": "CVE-2016-9177",
+      "fully_completed": true,
+      "reviewer": "AI",
+      "independent_human_review": false,
+      "scope": "Pinned Spark snapshots on Linux/JDK8, externalStaticFileLocation(public), an HTTP caller supplying /..%5coutside.txt or /%2e%2e%5coutside.txt, and a process-readable sibling marker outside public. Before returns 200 with the marker; after returns 404. Only this external-file caller path is established. Classpath/JAR resources, symlinks and sibling names sharing the public prefix are unmeasured.",
+      "behavior_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
+      "source_run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
+      "patch_sha256": "5cdfcf72a6ee575d479bb1231bd9c9dbf78df7260fa48cc6488772e0bdf5fe4c",
+      "fixture_sha256": "f1dfbc01a79391d3fd1f613f31d36d03c16f8a11a67a13f53f760e3b6cfece70",
+      "observations": [
+        {
+          "phase": "before",
+          "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+          "artifact_sha256": "413a0b7fbf1fd638fb0c462562af0406396c0fb2e9aa77035aa61c2da5bf9e6c",
+          "tests": [
+            {
+              "name": "ordinary_static_file",
+              "role": "control",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "external_containment_0",
+              "role": "security",
+              "observed": "false",
+              "pass": false
+            },
+            {
+              "name": "external_containment_1",
+              "role": "security",
+              "observed": "false",
+              "pass": false
+            },
+            {
+              "name": "external_containment_2",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            }
+          ],
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+          "log_sha256": "311808012c22212415e98188eeb54e41081df6b335030a235336d37649a4316b"
+        },
+        {
+          "phase": "after",
+          "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+          "artifact_sha256": "973d2afbe48ed8f710117ce7450381e2202162c6d613d61090fedc036153fba6",
+          "tests": [
+            {
+              "name": "ordinary_static_file",
+              "role": "control",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "external_containment_0",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "external_containment_1",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "external_containment_2",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            }
+          ],
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log",
+          "log_sha256": "daaba367f3e1b081b353d89ae0d16fc3cf881e7ee9bd87b2ee342e76093697a5"
+        }
+      ],
+      "criteria": [
+        {
+          "id": "source_identity",
+          "criterion": "Source identity",
+          "status": "MET",
+          "required": true,
+          "reason": "Pinned commits/trees and selected first parent match Git; source files unchanged in the build receipt.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "extraction",
+          "criterion": "Extraction",
+          "status": "MET",
+          "required": true,
+          "reason": "Source audit verifies Git blobs, line ranges, SHA256 and AST names/boundaries for all 222 batch callable versions.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "advisory_patch_context",
+          "criterion": "Advisory and patch context",
+          "status": "MET",
+          "required": true,
+          "reason": "External-resource traversal matches the advisory and added guard.",
+          "evidence": [
+            "data/batch-02/advisories/CVE-2016-9177.json",
+            "https://github.com/perwendel/spark/commit/efcb46c710e3f56805b9257a63d1306882f4faf9"
+          ]
+        },
+        {
+          "id": "scoped_ai_method_review",
+          "criterion": "Scoped AI method review",
+          "status": "MET",
+          "required": true,
+          "reason": "Every indexed callable version in this CVE has an AI decision, caller scope and missing-evidence reason; UNCONFIRMED is retained where needed.",
+          "evidence": [
+            "data/batch-02/reviews.jsonl",
+            "data/batch-02/snapshot-reviews.jsonl"
+          ]
+        },
+        {
+          "id": "paired_source_builds",
+          "criterion": "Paired source builds",
+          "status": "MET",
+          "required": true,
+          "reason": "Both pinned source builds PASS; JAR hashes, commands, exit codes and original-source integrity are in the receipt.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log"
+          ]
+        },
+        {
+          "id": "ordinary_controls",
+          "criterion": "Ordinary controls",
+          "status": "MET",
+          "required": true,
+          "reason": "Same fixture bytes and oracle in both snapshots; ordinary_static_file PASS/PASS.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log"
+          ]
+        },
+        {
+          "id": "paired_security_behavior",
+          "criterion": "Reviewed paired security behavior",
+          "status": "MET",
+          "required": true,
+          "reason": "Two encoded traversal cases return the outside marker before and 404 after; literal /../ returns 400 on both and does not demonstrate a regression.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log"
+          ]
+        }
+      ],
+      "missing_required_evidence": [],
+      "independent_human_review_status": "PENDING; separately tracked, not a completion gate in the current definition"
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "fully_completed": false,
+      "reviewer": "AI",
+      "independent_human_review": false,
+      "scope": "Pinned XStream snapshots, DomDriver, default XStream configuration, untrusted XML requesting a Runnable dynamic proxy with java.beans.EventHandler and a harmless Marker.touch target; the caller would invoke run() only after successful unmarshalling. Both logs show ConversionException and zero callbacks. No root cause or successful proxy construction is recorded. This does not establish advisory callback execution or its prevention by the patch.",
+      "behavior_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
+      "source_run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
+      "patch_sha256": "ae9d57fa466a8ad361fb310c73e394f64da4d9005624721fa5d6dad23a6bda71",
+      "fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+      "observations": [
+        {
+          "phase": "before",
+          "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+          "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+          "tests": [
+            {
+              "name": "string_roundtrip",
+              "role": "control",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "untrusted_event_handler_blocked",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            }
+          ],
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+          "log_sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        },
+        {
+          "phase": "after",
+          "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+          "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+          "tests": [
+            {
+              "name": "string_roundtrip",
+              "role": "control",
+              "observed": "true",
+              "pass": true
+            },
+            {
+              "name": "untrusted_event_handler_blocked",
+              "role": "security",
+              "observed": "true",
+              "pass": true
+            }
+          ],
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log",
+          "log_sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        }
+      ],
+      "criteria": [
+        {
+          "id": "source_identity",
+          "criterion": "Source identity",
+          "status": "MET",
+          "required": true,
+          "reason": "Pinned commits/trees and selected first parent match Git; source files unchanged in the build receipt.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "extraction",
+          "criterion": "Extraction",
+          "status": "MET",
+          "required": true,
+          "reason": "Source audit verifies Git blobs, line ranges, SHA256 and AST names/boundaries for all 222 batch callable versions.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "advisory_patch_context",
+          "criterion": "Advisory and patch context",
+          "status": "MET",
+          "required": true,
+          "reason": "Advisory requires successful unmarshal plus a later proxy method call; the patch adds permission APIs with an allow-all default. No default mitigation is inferred.",
+          "evidence": [
+            "data/batch-02/advisories/CVE-2013-7285.json",
+            "https://github.com/x-stream/xstream/commit/6344867dce6767af7d0fe34fb393271a6456672d"
+          ]
+        },
+        {
+          "id": "scoped_ai_method_review",
+          "criterion": "Scoped AI method review",
+          "status": "MET",
+          "required": true,
+          "reason": "Every indexed callable version in this CVE has an AI decision, caller scope and missing-evidence reason; UNCONFIRMED is retained where needed.",
+          "evidence": [
+            "data/batch-02/reviews.jsonl",
+            "data/batch-02/snapshot-reviews.jsonl"
+          ]
+        },
+        {
+          "id": "paired_source_builds",
+          "criterion": "Paired source builds",
+          "status": "MET",
+          "required": true,
+          "reason": "Both pinned source builds PASS; JAR hashes, commands, exit codes and original-source integrity are in the receipt.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log"
+          ]
+        },
+        {
+          "id": "ordinary_controls",
+          "criterion": "Ordinary controls",
+          "status": "MET",
+          "required": true,
+          "reason": "Same fixture bytes and oracle in both snapshots; string_roundtrip PASS/PASS. AliasTest: 27 tests per snapshot, zero failures/errors/skips; functional evidence only.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log"
+          ]
+        },
+        {
+          "id": "paired_security_behavior",
+          "criterion": "Reviewed paired security behavior",
+          "status": "NOT_MET",
+          "required": true,
+          "reason": "Assertion PASS/PASS means only that an XStreamException occurred and callbacks stayed zero. ConversionException cause is absent; this is not evidence of advisory mitigation. A bounded fixture must first demonstrate successful proxy construction and a harmless callback on before, record the exception cause and conversion stage, then evaluate the same input/oracle on after with any security configuration stated explicitly and ordinary controls passing. The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone do not prove default rejection. Map the result to the actual caller and affected callable. No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair.",
+          "evidence": [
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log"
+          ]
+        }
+      ],
+      "missing_required_evidence": [
+        "A bounded fixture must first demonstrate successful proxy construction and a harmless callback on before, record the exception cause and conversion stage, then evaluate the same input/oracle on after with any security configuration stated explicitly and ordinary controls passing. The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone do not prove default rejection. Map the result to the actual caller and affected callable. No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair."
+      ],
+      "independent_human_review_status": "PENDING; separately tracked, not a completion gate in the current definition"
+    }
+  ],
+  "reviewed_callable_versions": 128,
+  "reviewed_snapshot_count": 4
+}

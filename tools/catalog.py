@@ -128,6 +128,41 @@ def verify_expansion():
         require(v["label"]!="UNCONFIRMED" or bool(v["unknown_reason_group"]),"Missing uncertainty reason")
     completion = json.loads((base/"completion.json").read_text())
     require(completion["labels"]==dict(Counter(v["label"] for v in versions.values())),"Batch completion labels differ")
+    completed = completion["completed_cves"]
+    require(completion["selected"] == completion["source_normalized"] == len(cases), "Batch denominator differs")
+    require(len(set(completed)) == len(completed) == completion["fully_completed"] and set(completed) <= cases.keys(), "Batch completed CVEs differ")
+    for cve in completed:
+        run_id = completion.get("evidence_runs", {}).get(cve, completion["evidence_run_id"])
+        evidence = json.loads((ROOT/"evidence/v0.2.0"/run_id/"run.json").read_text(encoding="utf-8"))
+        pair = [r for r in evidence["snapshots"] if r["cve_id"] == cve]
+        require(len(pair) == 2 and {r["phase"] for r in pair} == set(PHASES), "Completed CVE lacks its own paired receipt")
+        for r in pair:
+            require(r["commit"] == cases[cve][r["phase"]+"_commit"] and r["build_status"] == "PASS"
+                    and r["security"]["controls_pass"], "Completed CVE receipt identity/build/control differs")
+        require(len({r["security"]["fixture_sha256"] for r in pair}) == 1, "Completed CVE has unequal fixtures")
+    if "assessment_path" in completion:
+        assessment = json.loads((ROOT/completion["assessment_path"]).read_text(encoding="utf-8"))
+        required = {"source_identity", "extraction", "advisory_patch_context", "scoped_ai_method_review",
+                    "paired_source_builds", "ordinary_controls", "paired_security_behavior"}
+        reviews = table("reviews", "sample_id")
+        for sid, review in reviews.items():
+            require(sid in versions and review["commit"] == versions[sid]["commit"]
+                    and review["decision"] == versions[sid]["label"], "Batch callable review differs")
+        snapshot_reviews = [json.loads(l) for l in (base/"snapshot-reviews.jsonl").read_text(encoding="utf-8").splitlines()]
+        require(len({(r["cve_id"], r["phase"]) for r in snapshot_reviews}) == len(snapshot_reviews), "Duplicate batch snapshot review")
+        for case_review in assessment["cases"]:
+            cve = case_review["cve_id"]
+            criteria = case_review["criteria"]
+            require(len(criteria) == len(required) and {c["id"] for c in criteria} == required
+                    and all(c["required"] and c["status"] in {"MET", "NOT_MET"} for c in criteria), "Incomplete completion criteria")
+            met = all(c["status"] == "MET" for c in criteria)
+            require(met == case_review["fully_completed"] == (cve in completed), "Completion contradicts required evidence")
+            require({v["sample_id"] for v in versions.values() if v["cve_id"] == cve} <= reviews.keys(), "Missing scoped callable review")
+            pair = [r for r in snapshot_reviews if r["cve_id"] == cve]
+            require(len(pair) == 2 and {r["phase"] for r in pair} == set(PHASES), "Missing snapshot review")
+            for r in pair:
+                require(r["commit"] == cases[cve][r["phase"]+"_commit"] and r["decision"] == cases[cve][r["phase"]+"_label"]
+                        and r["reviewer"] == "AI" and not r["independent_human_review"], "Batch snapshot decision differs")
     return dict(cves=len(cases),methods=len(methods),method_versions=len(versions),labels=completion["labels"],fully_completed=completion["fully_completed"],
                 cwe=dict(Counter(c["target_cwe"] for c in cases.values())))
 

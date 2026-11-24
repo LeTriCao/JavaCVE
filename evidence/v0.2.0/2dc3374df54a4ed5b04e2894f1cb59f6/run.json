@@ -1,0 +1,85 @@
+{
+  "run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
+  "release": "0.2.0",
+  "command": "audit",
+  "start_utc": "2026-11-24T09:34:11.516294+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "audit .cache/batch02-repos --git-repos --batch data/batch-02 --ast",
+  "project_commit": "a7e6abdb9da353e59e57052ab54d7a24f720eb5f",
+  "working_tree_dirty": false,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [],
+  "snapshots": [],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6,
+    "expansion": {
+      "cves": 10,
+      "methods": 183,
+      "method_versions": 222,
+      "labels": {
+        "UNCONFIRMED": 220,
+        "VULNERABLE": 2
+      },
+      "fully_completed": 1,
+      "cwe": {
+        "CWE-22": 5,
+        "CWE-78": 5
+      }
+    }
+  },
+  "source_review": {
+    "checked_cases": 10,
+    "checked_file_versions": 83,
+    "absent_git_states_checked": 23,
+    "checked_method_versions": 222,
+    "exported_versions": 0,
+    "label_status": "UNCONFIRMED: identities verified; semantic labels and paired security evidence pending",
+    "reviewer": "AI"
+  },
+  "ast_review": {
+    "checked_versions": 222,
+    "matched_versions": 222,
+    "failures": [],
+    "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+  },
+  "end_utc": "2026-11-24T09:34:28.530901+00:00",
+  "seconds": 20.278546,
+  "public_receipt": true,
+  "original_run_sha256": "baf6dec37aac2f13c44992e584e0f42c6035366a29055d6407ee27987a2e96e0",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

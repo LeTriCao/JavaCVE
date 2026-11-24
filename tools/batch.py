@@ -245,4 +245,4 @@ def verify_batch(folder,repos,export_to=None,include_tests=False):
                 stream.write(json.dumps(v,ensure_ascii=False)+"\n")
     return dict(checked_cases=len(cases),checked_file_versions=len(contents),absent_git_states_checked=absences,
                 checked_method_versions=len(tables["versions"]),exported_versions=len(exported) if export_to else 0,
-                label_status="UNCONFIRMED: identities verified; semantic labels and paired security evidence pending",reviewer="AI")
+                label_status="Identity audit only; current scoped semantic decisions are in reviews.jsonl and completion.json",reviewer="AI")

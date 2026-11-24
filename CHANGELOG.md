@@ -1,5 +1,11 @@
 # Changelog
 
+## Sau a7e6abd — 24/11/2026
+
+- Rà soát AI từng tiêu chí hoàn tất, 4 snapshot và 128 callable Spark/XStream dựa trên receipt đã có; kiểm tra lại nguồn/AST Batch02 đạt 222/222.
+- Spark hoàn tất trong phạm vi external static files đã đo; XStream giữ UNCONFIRMED vì ConversionException/0 callback cả hai bản chưa chứng minh cơ chế advisory. Batch02 hiện 2/10, nhãn 5 VULNERABLE, 4 RESOLVED_TARGET, 213 UNCONFIRMED.
+- Gắn receipt theo từng CVE và kiểm tra nhất quán tiêu chí, quyết định nhãn, số lượng và tài liệu; giữ nguyên receipt/intake lịch sử.
+
 ## v0.2.0 — 24/11/2026
 
 - Tích hợp nguyên fixture bảo mật từ JavaCVE_Reproducible vào `security` và `all`; giữ riêng API và assertion.

@@ -1,8 +1,12 @@
 from collections import defaultdict
+import hashlib
 import json
 import re
 import unittest
+from unittest.mock import patch
 from tools.catalog import ROOT, rows
+from tools.catalog import verify_expansion
+from tools.security import parse_probe
 
 
 class ReleaseTests(unittest.TestCase):
@@ -34,11 +38,59 @@ class ReleaseTests(unittest.TestCase):
     def test_completed_expansion_has_paired_fixture_evidence(self):
         completion=json.loads((ROOT/"data/batch-02/completion.json").read_text())
         self.assertEqual(completion["fully_completed"],len(completion["completed_cves"]))
-        evidence=json.loads((ROOT/"evidence/v0.2.0"/completion["evidence_run_id"]/"run.json").read_text())
         for cve in completion["completed_cves"]:
+            run_id=completion["evidence_runs"][cve]
+            evidence=json.loads((ROOT/"evidence/v0.2.0"/run_id/"run.json").read_text())
             snapshots=[r for r in evidence["snapshots"] if r["cve_id"]==cve]
+            self.assertEqual(len(snapshots),2)
             self.assertEqual({r["phase"] for r in snapshots},{"before","after"})
             self.assertTrue(all(r["build_status"]=="PASS" and r["security"]["controls_pass"] for r in snapshots))
+            self.assertEqual(len({r["security"]["fixture_sha256"] for r in snapshots}),1)
+
+    def test_inconclusive_security_cannot_be_marked_complete(self):
+        original = type(ROOT).read_text
+        def corrupted(path, *args, **kwargs):
+            text = original(path, *args, **kwargs)
+            if path.name == "completion-review.json":
+                data = json.loads(text)
+                next(c for c in data["cases"] if c["cve_id"] == "CVE-2013-7285")["fully_completed"] = True
+                return json.dumps(data)
+            return text
+        with patch.object(type(ROOT), "read_text", corrupted):
+            with self.assertRaisesRegex(ValueError, "Completion contradicts"):
+                verify_expansion()
+
+    def test_completed_cve_cannot_borrow_another_cve_receipt(self):
+        original = type(ROOT).read_text
+        def corrupted(path, *args, **kwargs):
+            text = original(path, *args, **kwargs)
+            if path.name == "completion.json":
+                data = json.loads(text)
+                data["evidence_runs"]["CVE-2016-9177"] = data["evidence_runs"]["CVE-2022-4244"]
+                return json.dumps(data)
+            return text
+        with patch.object(type(ROOT), "read_text", corrupted):
+            with self.assertRaisesRegex(ValueError, "lacks its own paired receipt"):
+                verify_expansion()
+
+    def test_assessment_observations_match_immutable_logs(self):
+        review=json.loads((ROOT/"data/batch-02/completion-review.json").read_text())
+        for run_id, expected in review["receipt_sha256"].items():
+            self.assertEqual(hashlib.sha256((ROOT/"evidence/v0.2.0"/run_id/"run.json").read_bytes()).hexdigest(),expected)
+        for case in review["cases"]:
+            kind="spark-local" if case["cve_id"]=="CVE-2016-9177" else "xstream-local"
+            for observed in case["observations"]:
+                log=ROOT/observed["log"]
+                self.assertEqual(hashlib.sha256(log.read_bytes()).hexdigest(),observed["log_sha256"])
+                self.assertEqual(parse_probe(kind,log.read_text(encoding="utf-8")),observed["tests"])
+
+    def test_current_batch_statistics_agree(self):
+        completion=json.loads((ROOT/"data/batch-02/completion.json").read_text())
+        status=json.loads((ROOT/"data/batch-02/build-status.json").read_text())
+        metrics=json.loads((ROOT/"docs/generated/metrics.json").read_text())
+        self.assertEqual(metrics["catalog"]["expansion"],verify_expansion())
+        self.assertEqual({c["cve_id"] for c in status["cases"] if c["fully_completed"]},set(completion["completed_cves"]))
+        self.assertEqual(status["source_built_snapshots"],sum(r.get("build_status")=="PASS" for c in status["cases"] for r in (c["before"],c["after"])))
 
     def test_public_receipts_are_redacted(self):
         for path in (ROOT/"evidence/v0.2.0").rglob("*"):

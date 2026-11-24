@@ -15,13 +15,15 @@ Repository: [LeTriCao/JavaCVE](https://github.com/LeTriCao/JavaCVE) · [Phát h�
 | Chuẩn hóa phạm vi tệp | 60 → 33, giảm 45% | Đúng 9 CVE giữ cùng SHA sửa; đếm đường dẫn `.java` thay đổi |
 | Ánh xạ sửa hiệu chỉnh | 1/10 | Commons IO; giữ nguyên metadata seed |
 | Toàn vẹn phương thức pilot | 187/187 | Kiểm tra blob Git, khoảng dòng và SHA256 từ source |
-| Batch bổ sung | 10 CVE, 222 phiên bản | 10/10 đã chuẩn hóa nguồn; 1/10 hoàn tất theo tiêu chí build + hành vi + rà soát AI |
-| Nhãn batch bổ sung | 2 VULNERABLE, 220 UNCONFIRMED | Hai phiên bản Expand có bằng chứng; chín CVE còn thiếu kiểm chứng đầy đủ |
+| Batch bổ sung | 10 CVE, 222 phiên bản | 10/10 đã chuẩn hóa nguồn; 2/10 hoàn tất theo tiêu chí build + hành vi + rà soát AI |
+| Nhãn batch bổ sung | 5 VULNERABLE, 4 RESOLVED_TARGET, 213 UNCONFIRMED | Expand và đường gọi external của Spark có bằng chứng; XStream còn thiếu hành vi phân biệt cơ chế CVE |
 | Người đánh giá độc lập | 0 | Lượt rà soát hiện do AI thực hiện |
 
 Build đối chứng lịch sử trên cùng 6 seed, JDK, Maven và mô-đun đạt **6/6 ở cả IRIS và JavaCVE**. Không có chênh lệch tỷ lệ build trong phép đối chứng đó. Số tệp giảm không chứng minh giảm thời gian lao động hoặc tăng độ chính xác mô hình.
 
 Xem [bảng số liệu tính lại](docs/generated/metrics.json), [báo cáo môn học](docs/generated/REPORT.md), [bản Word](docs/generated/COURSE_REPORT.docx), [thử nghiệm bị chặn](docs/EXPERIMENTS.md) và [batch bổ sung](docs/BATCH02.md).
+
+Rà soát Spark/XStream từ `a7e6abd`: [bảng từng tiêu chí và phần thiếu](docs/BATCH02_REVIEW.md), [quyết định từng callable](docs/BATCH02_CALLABLE_REVIEW.md). Spark hoàn tất trong phạm vi external static files đã đo. XStream giữ UNCONFIRMED: 27 upstream test mỗi bản đạt, nhưng fixture chỉ ghi ConversionException và 0 callback ở cả hai bản.
 
 ## Chạy thử trên Ubuntu/WSL x86_64
 

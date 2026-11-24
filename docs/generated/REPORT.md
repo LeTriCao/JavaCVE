@@ -49,8 +49,8 @@ Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iri
 
 | Chỉ số batch02 sau rà soát | Số lượng |
 |---|---:|
-| Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 1 |
-| Nhãn sau rà soát | {"UNCONFIRMED": 220, "VULNERABLE": 2} |
+| Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 2 |
+| Nhãn sau rà soát | {"UNCONFIRMED": 213, "VULNERABLE": 5, "RESOLVED_TARGET": 4} |
 | Người đánh giá độc lập | 0 |
 
 ## 6. Chất lượng và giới hạn
