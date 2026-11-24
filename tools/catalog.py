@@ -145,10 +145,15 @@ def verify_expansion():
         required = {"source_identity", "extraction", "advisory_patch_context", "scoped_ai_method_review",
                     "paired_source_builds", "ordinary_controls", "paired_security_behavior"}
         reviews = table("reviews", "sample_id")
+        require(completion.get("reviewed_callable_versions", len(reviews)) == len(reviews), "Reviewed callable count differs")
         for sid, review in reviews.items():
             require(sid in versions and review["commit"] == versions[sid]["commit"]
                     and review["decision"] == versions[sid]["label"], "Batch callable review differs")
         snapshot_reviews = [json.loads(l) for l in (base/"snapshot-reviews.jsonl").read_text(encoding="utf-8").splitlines()]
+        require(completion.get("reviewed_snapshot_decisions", len(snapshot_reviews)) == len(snapshot_reviews), "Reviewed snapshot count differs")
+        require(assessment["reviewed_snapshot_count"] == len(snapshot_reviews), "Assessment snapshot count differs")
+        assessed_ids = {a["cve_id"] for a in assessment["cases"]}
+        require(assessment["reviewed_callable_versions"] == sum(v["cve_id"] in assessed_ids for v in versions.values()), "Assessment callable count differs")
         require(len({(r["cve_id"], r["phase"]) for r in snapshot_reviews}) == len(snapshot_reviews), "Duplicate batch snapshot review")
         for case_review in assessment["cases"]:
             cve = case_review["cve_id"]
@@ -164,7 +169,9 @@ def verify_expansion():
                 require(r["commit"] == cases[cve][r["phase"]+"_commit"] and r["decision"] == cases[cve][r["phase"]+"_label"]
                         and r["reviewer"] == "AI" and not r["independent_human_review"], "Batch snapshot decision differs")
     return dict(cves=len(cases),methods=len(methods),method_versions=len(versions),labels=completion["labels"],fully_completed=completion["fully_completed"],
-                cwe=dict(Counter(c["target_cwe"] for c in cases.values())))
+                cwe=dict(Counter(c["target_cwe"] for c in cases.values())),
+                reviewed_callable_versions=completion.get("reviewed_callable_versions", 0),
+                reviewed_snapshot_decisions=completion.get("reviewed_snapshot_decisions", 0))
 
 
 def verify_sources(base, export_to=None, git_repositories=False, include_tests=False):

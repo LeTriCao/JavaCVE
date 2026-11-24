@@ -52,6 +52,9 @@ Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iri
 | Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 2 |
 | Nhãn sau rà soát | {"UNCONFIRMED": 213, "VULNERABLE": 5, "RESOLVED_TARGET": 4} |
 | Người đánh giá độc lập | 0 |
+| Quyết định AI cấp callable / snapshot ghi riêng | 153 / 8 |
+
+CVE-2020-26217 và CVE-2021-21345 vẫn UNCONFIRMED: test upstream 7→9 và 11→13 đạt, nhưng thiếu control chung và hành vi paired đúng advisory. Chẩn đoán CVE-2013-7285 ghi 15 dependency giống nhau; log thiếu message/cause/stack nên chưa xác định nguyên nhân gốc. Bảng từng tiêu chí ở docs/BATCH02_REVIEW.md; chẩn đoán ở docs/XSTREAM_DIAGNOSIS.md.
 
 ## 6. Chất lượng và giới hạn
 

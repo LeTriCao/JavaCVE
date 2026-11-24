@@ -41,7 +41,9 @@
       "cwe": {
         "CWE-22": 5,
         "CWE-78": 5
-      }
+      },
+      "reviewed_callable_versions": 153,
+      "reviewed_snapshot_decisions": 8
     }
   },
   "input_runs": [

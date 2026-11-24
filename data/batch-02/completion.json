@@ -19,5 +19,7 @@
     "CVE-2022-4244": "20fda5362b864cac988d7560180ebb00",
     "CVE-2016-9177": "4063ba008c3644f5ad4d015ccd4cbcc4"
   },
-  "assessment_path": "data/batch-02/completion-review.json"
+  "assessment_path": "data/batch-02/completion-review.json",
+  "reviewed_callable_versions": 153,
+  "reviewed_snapshot_decisions": 8
 }

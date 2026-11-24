@@ -1,0 +1,188 @@
+{
+  "cve_id": "CVE-2013-7285",
+  "review_basis_commit": "8fefbe9",
+  "reviewer": "AI",
+  "independent_human_review": false,
+  "source_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+  "source_receipt_sha256": "baa4ee990d9401a9f06027f85403f340cc09b1588a24701034a16c46e3defd6c",
+  "method": "Read existing published/raw logs, receipt commands and dependency inventories; hash local JAR/dependency bytes; compare pinned Git sources. No Java replay or new fixture execution.",
+  "root_cause_status": "UNDETERMINED_FROM_EXISTING_LOGS",
+  "exception_phase": "UNCONFIRMED",
+  "conclusion": "The fixture logs only error.getClass().getName(), discarding message, cause chain and stack frames. Both snapshots have a ConversionException and zero callbacks, but neither the failed conversion stage nor its root cause can be recovered. Dependency drift is not supported by the identical recorded 15-file sequence and hashes; no mitigation claim follows.",
+  "confirmed_configuration": "Same DomDriver fixture bytes, default XStream construction, same JDK8u514/Maven3.9.9 run, same runtime dependency order/hashes and classpath order (probe, source-built XStream JAR, dependencies). No phase-specific environment override is recorded. This is not a complete JVM environment dump.",
+  "policy_comparison": "Before has no SecurityMapper; after adds SecurityMapper and setupSecurity with AnyTypePermission.ANY. The fixture installs no allowlist or denial. The patch adds policy APIs, which alone do not explain the shared ConversionException.",
+  "unconfirmed_hypotheses": [
+    "Object construction/reflection-provider limitation",
+    "Mapper/converter/type resolution failure",
+    "Proxy/handler conversion or invocation-stage failure"
+  ],
+  "excluded_claims": [
+    "ConversionException proves ForbiddenClassException/type-policy rejection",
+    "After default policy blocks the advisory",
+    "A missing/different external dependency caused the failure",
+    "The exception definitely happened inside fromXML rather than callback.run"
+  ],
+  "logs": {
+    "before": {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+      "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8",
+      "raw_local_log_matches": true
+    },
+    "after": {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log",
+      "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8",
+      "raw_local_log_matches": true
+    }
+  },
+  "observations": [
+    {
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+      "local_artifact_bytes_verified": true,
+      "fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+      "exception_class": "com.thoughtworks.xstream.converters.ConversionException",
+      "callbacks": 0,
+      "java_command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-45zfatuh/tmpc8r3izq4/probe:/tmp/javacve-45zfatuh/tmpc8r3izq4/source/xstream/target/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "XStreamLocalProbe",
+        "xstream-local"
+      ],
+      "environment_overrides": {}
+    },
+    {
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+      "local_artifact_bytes_verified": true,
+      "fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+      "exception_class": "com.thoughtworks.xstream.converters.ConversionException",
+      "callbacks": 0,
+      "java_command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-45zfatuh/tmprlaz45nj/probe:/tmp/javacve-45zfatuh/tmprlaz45nj/source/xstream/target/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "XStreamLocalProbe",
+        "xstream-local"
+      ],
+      "environment_overrides": {}
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+      "sha256": "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar",
+      "sha256": "02bd61a725e8af9b0176b43bf29816d0c748b8ab951385bd127be37489325a0a",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar",
+      "sha256": "32ed093f39c46a8d99f801240069478eac93b35f07351c001f2cef4330e97b4a",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar",
+      "sha256": "bc96dbe7c56f4fe367ea33e66dfcf18b589e3c8eddcff52a78323c5e6da2387e",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar",
+      "sha256": "df6905a047b05e23bc91f03ba57ac2f87c1ddf83e048aa0e5bd13169d5ebf0d9",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar",
+      "sha256": "939f591b445c83f285191cef7603731ed373eaf000da005f49769a283110dd2d",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar",
+      "sha256": "d1968436fc216c901fb9b82c7e878b50fd1d30091676da95b2edd3a9c0ccf92e",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar",
+      "sha256": "05d513cce3f19c1bc4b06c545431da10dbd2f96b4e83aa715d2fe92b06d951a7",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar",
+      "sha256": "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar",
+      "sha256": "12ea18881b2c02122d048bd8a4f73e0f3b10f12694220789db10d64b1f60e74d",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+      "sha256": "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar",
+      "sha256": "bfc90e9e32d0eab1f397fb974b5f150a815188382ac41f372a7149d5bc178008",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar",
+      "sha256": "11aab8e9198a53a3de65aaf4d90f19b124135bb078dd8cdefcbf2fcda00ce599",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar",
+      "sha256": "03acd6adab2da447f49814751b0e953fb62a6a1023f9d2a705c30a6e3e4638eb",
+      "local_bytes_verified": true
+    },
+    {
+      "path": "<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+      "sha256": "544a20dcb7327bef08b0292afdf2a1312bf3004b9bde1bf06ea52b99dea414e9",
+      "local_bytes_verified": true
+    }
+  ],
+  "unchanged_sources": [
+    {
+      "path": "pom.xml",
+      "before_sha256": "3be8b931bbda5eaa8ea0ddb7bce7d603e4c5fd605067a8328d76926576d8360f",
+      "after_sha256": "3be8b931bbda5eaa8ea0ddb7bce7d603e4c5fd605067a8328d76926576d8360f",
+      "identical": true
+    },
+    {
+      "path": "xstream/pom.xml",
+      "before_sha256": "8954bfda9d793fe14205db470f8914de192875775e3cd6e2ed47989a9fe1e280",
+      "after_sha256": "8954bfda9d793fe14205db470f8914de192875775e3cd6e2ed47989a9fe1e280",
+      "identical": true
+    },
+    {
+      "path": "xstream/src/java/com/thoughtworks/xstream/core/JVM.java",
+      "before_sha256": "a92a9b32b4fa4d748ae1cc28fc9fb407f6bb8a9f9149fa3d9a19118c6d876298",
+      "after_sha256": "a92a9b32b4fa4d748ae1cc28fc9fb407f6bb8a9f9149fa3d9a19118c6d876298",
+      "identical": true
+    },
+    {
+      "path": "xstream/src/java/com/thoughtworks/xstream/io/xml/DomDriver.java",
+      "before_sha256": "eca97bcbbc30878ad69128928f0ba5d367eed80f2f06e42b6a448ab35aeaa5f0",
+      "after_sha256": "eca97bcbbc30878ad69128928f0ba5d367eed80f2f06e42b6a448ab35aeaa5f0",
+      "identical": true
+    },
+    {
+      "path": "xstream/src/java/com/thoughtworks/xstream/converters/extended/DynamicProxyConverter.java",
+      "before_sha256": "2db346eb3b677569a17d8bd3cf45d4c044f9a3471e3011f5aeb868611080d3c9",
+      "after_sha256": "2db346eb3b677569a17d8bd3cf45d4c044f9a3471e3011f5aeb868611080d3c9",
+      "identical": true
+    }
+  ],
+  "next_experiment": [
+    "Keep existing receipts and fixture immutable; create a separate diagnostic variant with a new hash.",
+    "Log full exception message/stack/cause chain and stage markers before/after fromXML and callback.run; record actual reflection provider, selected converter/mapper, driver, JDK and classpath.",
+    "Run identical diagnostic code/input on both verified source-built artifacts with the same dependencies and ordinary string/object controls. Keep default-policy and any explicit-policy experiments separate.",
+    "Treat unrelated ConversionException as a harness/diagnostic failure, not successful security rejection. Establish successful construction and a harmless callback on before before evaluating mitigation; no shell/network payload is needed."
+  ]
+}

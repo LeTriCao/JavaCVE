@@ -44,7 +44,8 @@ def main():
         if c["cve_id"]=="CVE-2022-4244":
             observations=fixture["snapshots"]
         if c["cve_id"] in reviewed:
-            observations=[r for r in load(reviewed[c["cve_id"]]["behavior_run_id"])["snapshots"] if r["cve_id"]==c["cve_id"]]
+            assessment=reviewed[c["cve_id"]]
+            observations=[r for r in load(assessment.get("behavior_run_id") or assessment["receipt_run_id"])["snapshots"] if r["cve_id"]==c["cve_id"]]
         statuses.append(dict(cve_id=c["cve_id"],source_normalized=True,cwe=c["target_cwe"],advisory_cwes=c["advisory_cwe_ids"],cwe_alignment=c["cwe_alignment"],
                              before=next(r for r in observations if r["phase"]=="before"),after=next(r for r in observations if r["phase"]=="after"),
                              fully_completed=c["cve_id"] in completion["completed_cves"]))
@@ -70,6 +71,8 @@ def main():
             assessment=reviewed[c["cve_id"]]
             reasons[c["cve_id"]] = ("Hoàn tất trong phạm vi external static files: control PASS/PASS; hai URI mã hóa đọc marker ngoài trước, trả 404 sau. Nhãn consumer/guard phụ thuộc ngữ cảnh gọi; classpath/JAR/helper còn UNCONFIRMED."
                                       if assessment["fully_completed"] else "Chưa hoàn tất: control PASS/PASS, 27 AliasTest mỗi bản đạt; fixture báo ConversionException và 0 callback cả hai. Thiếu nguyên nhân exception, callback trước và bằng chứng xử lý đúng cơ chế sau; snapshot và 68 callable giữ UNCONFIRMED.")
+            if "status_summary" in assessment:
+                reasons[c["cve_id"]] = assessment["status_summary"]
         lines.append("| "+c["cve_id"]+" | "+c["before"].get("build_status",c["before"]["status"])+" / "+c["after"].get("build_status",c["after"]["status"])+" | "+reasons[c["cve_id"]]+" |")
     mismatch=[c for c in statuses if c["cwe_alignment"]!="MATCH"]
     lines += ["", "## Phân loại và giới hạn", "", "Giữ target_cwe từ seed; advisory hiện hành được lưu riêng. Phân loại seed không tự động là nhãn vàng. Các hồ sơ có phân loại advisory khác hoặc không chỉ rõ: "+", ".join(c["cve_id"]+" ("+", ".join(c["advisory_cwes"])+")" for c in mismatch)+". Cần người đánh giá phạm vi trước khi dùng làm tập chuẩn CWE-78.", "", "Spark chọn parent thứ nhất của merge có lý do ghi trong selection. one-java-agent giữ mọi fix reference nhưng chỉ trích cặp ở fix đầu tiên; các fix còn lại cần rà soát đa commit. Parser phân biệt anonymous class và lexical occurrence khi chữ ký cú pháp trùng; không coi đây là chữ ký JVM hay ghép ngữ nghĩa hoàn hảo.", "", "UNCONFIRMED không phải safe negative. Đợt mới chưa đủ để kết luận độ chính xác ML. Các snapshot có upstream test PASS chưa chứng minh cơ chế lỗi được tái hiện. Thời gian90/180 giây là ngân sách của lượt thử, không phải kết luận bất khả build. Cache và dependency version range có thể làm kết quả đổi theo thời điểm; cần khóa dependency để nghiên cứu dài hạn.", "", "## Chạy lại", "", "`python3 run.py expand` tạo intake mới trong run mới, không ghi đè các nhãn đã rà soát. `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` chạy fixture mới. Các hồ sơ khác dùng cùng batch-build với --cve và timeout phù hợp. Xem INSTALL.md cho export, parser và split chung409 phiên bản.", "", "Bằng chứng: [build toàn batch](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json), [fixture Expand](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json), [build-status.json](../data/batch-02/build-status.json), [quyết định nhãn](../data/batch-02/reviews.jsonl).", ""]
@@ -78,6 +81,8 @@ def main():
     for old,new in (("IRIS;5","IRIS; 5"),("và5","và 5"),("parent.10/10","parent. 10/10"),("chuẩn hóa,222","chuẩn hóa, 222"),("Hiện1/10","Hiện 1/10"),("completion.json;2","completion.json; 2"),("và220","và 220"),("soát:AI;0","soát: AI; 0"),("có1 error","có 1 error"),("plugin2.5.0","plugin 2.5.0"),("Thời gian90/180","Thời gian 90/180"),("chung409","chung 409")):
         text=text.replace(old,new)
     text += "\nBảng đối chiếu từng tiêu chí: [BATCH02_REVIEW.md](BATCH02_REVIEW.md). Quyết định từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md). `summary.json` là bản chụp intake; `completion.json` ghi trạng thái hiện tại.\n"
+    if "reviewed_callable_versions" in completion:
+        text += f"\nĐã có {completion['reviewed_callable_versions']} quyết định AI ở cấp callable và {completion['reviewed_snapshot_decisions']} quyết định snapshot ghi riêng. Số quyết định rà soát không phải số nhãn xác nhận. Chẩn đoán XStream: [XSTREAM_DIAGNOSIS.md](XSTREAM_DIAGNOSIS.md).\n"
     (ROOT/"docs/BATCH02.md").write_text(text,encoding="utf-8")
     print("Generated Jenkins/NiFi and batch02 status tables")
 

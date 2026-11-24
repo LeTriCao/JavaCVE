@@ -10,8 +10,8 @@ Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ s
 | CVE-2022-4244 | PASS / PASS | Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo. |
 | CVE-2023-37460 | FAIL / FAIL | Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè. |
 | CVE-2013-7285 | PASS / PASS | Chưa hoàn tất: control PASS/PASS, 27 AliasTest mỗi bản đạt; fixture báo ConversionException và 0 callback cả hai. Thiếu nguyên nhân exception, callback trước và bằng chứng xử lý đúng cơ chế sau; snapshot và 68 callable giữ UNCONFIRMED. |
-| CVE-2020-26217 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; chưa chứng minh FAIL→PASS bằng cùng fixture, giữ UNCONFIRMED. |
-| CVE-2021-21345 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; thiếu fixture chung/caller context, giữ UNCONFIRMED. |
+| CVE-2020-26217 | PASS / PASS | Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 7→9 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED. |
+| CVE-2021-21345 | PASS / PASS | Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 11→13 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED. |
 | CVE-2022-25174 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent. |
 | CVE-2022-25175 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần fixture tích hợp tương ứng advisory. |
 
@@ -30,3 +30,5 @@ UNCONFIRMED không phải safe negative. Đợt mới chưa đủ để kết lu
 Bằng chứng: [build toàn batch](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json), [fixture Expand](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json), [build-status.json](../data/batch-02/build-status.json), [quyết định nhãn](../data/batch-02/reviews.jsonl).
 
 Bảng đối chiếu từng tiêu chí: [BATCH02_REVIEW.md](BATCH02_REVIEW.md). Quyết định từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md). `summary.json` là bản chụp intake; `completion.json` ghi trạng thái hiện tại.
+
+Đã có 153 quyết định AI ở cấp callable và 8 quyết định snapshot ghi riêng. Số quyết định rà soát không phải số nhãn xác nhận. Chẩn đoán XStream: [XSTREAM_DIAGNOSIS.md](XSTREAM_DIAGNOSIS.md).

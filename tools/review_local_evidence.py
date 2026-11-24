@@ -131,7 +131,11 @@ def apply(folder, repos):
     require(source["ast_review"]["matched_versions"] == len(versions), "AST coverage differs")
     previous_review = folder / "completion-review.json"
     review_time = read(previous_review)["review_utc"] if previous_review.exists() else utc()
-    assessments, snapshots, decisions = [], [], []
+    previous = read(previous_review) if previous_review.exists() else {}
+    assessments = [a for a in previous.get("cases", []) if a["cve_id"] not in TARGETS]
+    snapshot_path = folder / "snapshot-reviews.jsonl"
+    snapshots = [r for r in rows(folder, "snapshot-reviews") if r["cve_id"] not in TARGETS] if snapshot_path.exists() else []
+    decisions = []
     for case in cases:
         cve = case["cve_id"]
         if cve not in TARGETS:
@@ -204,15 +208,15 @@ def apply(folder, repos):
     completed += [a["cve_id"] for a in assessments if a["fully_completed"]]
     completion.update(fully_completed=len(completed), completed_cves=completed,
                       labels=dict(Counter(v["label"] for v in versions)),
-                      evidence_runs={"CVE-2022-4244": completion["evidence_run_id"], **{a["cve_id"]: BEHAVIOR for a in assessments if a["fully_completed"]}},
+                      evidence_runs={**completion.get("evidence_runs", {}), **{a["cve_id"]: a["behavior_run_id"] for a in assessments if a["fully_completed"]}},
                       assessment_path="data/batch-02/completion-review.json")
-    review = dict(review_basis_commit="a7e6abd", review_utc=review_time, reviewer="AI", independent_human_reviews=0,
+    old = [r for r in rows(folder, "reviews") if r.get("cve_id") not in TARGETS and not any(r["sample_id"].startswith(c) for c in TARGETS)]
+    review = dict(previous, review_basis_commit=previous.get("review_basis_commit", "a7e6abd"), review_utc=review_time, reviewer="AI", independent_human_reviews=0,
                   policy=completion["definition"], evidence_policy="Existing receipts only; no new security fixture or payload execution in this review.",
-                  receipt_sha256={BEHAVIOR: sha(behavior_path), SOURCE: sha(source_path)}, cases=assessments,
-                  reviewed_callable_versions=len(decisions), reviewed_snapshot_count=len(snapshots))
+                  receipt_sha256={**previous.get("receipt_sha256", {}), BEHAVIOR: sha(behavior_path), SOURCE: sha(source_path)}, cases=assessments,
+                  reviewed_callable_versions=sum(r.get("cve_id") in {a["cve_id"] for a in assessments} for r in old + decisions), reviewed_snapshot_count=len(snapshots))
     write_rows(folder, "versions", versions)
     write_rows(folder, "cases", cases)
-    old = [r for r in rows(folder, "reviews") if r.get("cve_id") not in TARGETS and not any(r["sample_id"].startswith(c) for c in TARGETS)]
     write_rows(folder, "reviews", old + decisions)
     write_rows(folder, "snapshot-reviews", snapshots)
     write_json(folder / "completion-review.json", review)
@@ -222,29 +226,36 @@ def apply(folder, repos):
 
 
 def generate_docs(review, versions):
-    lines = ["# Rà soát Spark và XStream từ a7e6abd", "", "Người rà soát: **AI**; 0 người đánh giá độc lập. Đối chiếu định nghĩa hiện hành trong [completion.json](../data/batch-02/completion.json); quyết định có cấu trúc ở [completion-review.json](../data/batch-02/completion-review.json). Lượt này dùng receipt có sẵn và chạy lại kiểm tra toàn vẹn nguồn; không chạy fixture bảo mật mới.", "",
+    lines = ["# Rà soát tiêu chí Batch02: Spark và XStream", "", "Người rà soát: **AI**; 0 người đánh giá độc lập. Đối chiếu định nghĩa hiện hành trong [completion.json](../data/batch-02/completion.json); quyết định có cấu trúc ở [completion-review.json](../data/batch-02/completion-review.json). Dùng receipt có sẵn và kiểm tra toàn vẹn nguồn; không chạy fixture bảo mật mới. Lượt tiếp từ 8fefbe9 bổ sung CVE-2020-26217/CVE-2021-21345; giữ quyết định Spark/XStream cũ.", "",
              "| CVE | Điều kiện áp dụng | Before / after | Phạm vi đã chứng minh | Còn thiếu |", "|---|---|---|---|---|",
              "| CVE-2016-9177 | HTTP vào externalStaticFileLocation; process đọc được marker ngoài public, trong cây tạm do fixture quản lý | Control PASS/PASS; hai URI mã hóa: 200 + marker → 404; literal /../: 400/400 | Đọc file ngoài external root trước, chặn hai đầu vào đó sau; **hoàn tất theo phạm vi** | Classpath/JAR, symlink, tên sibling cùng prefix chưa đo; đánh giá độc lập còn chờ |",
-             "| CVE-2013-7285 | XML không tin cậy → dynamic proxy/EventHandler; cần unmarshal thành công rồi caller gọi method; policy phải ghi rõ | Control PASS/PASS; ConversionException, 0 callback cả hai; assertion PASS/PASS | JAR build được; 27 AliasTest mỗi bản đạt; phép thử hiện tại không chạy được callback | Nguyên nhân exception và giai đoạn lỗi; callback vô hại trên before; cùng input/oracle sau với policy rõ ràng; ánh xạ callable. **Chưa hoàn tất** |", "",
+             "| CVE-2013-7285 | XML không tin cậy → dynamic proxy/EventHandler; cần unmarshal thành công rồi caller gọi method; policy phải ghi rõ | Control PASS/PASS; ConversionException, 0 callback cả hai; assertion PASS/PASS | JAR build được; 27 AliasTest mỗi bản đạt; phép thử hiện tại không chạy được callback | Nguyên nhân exception và giai đoạn lỗi; callback vô hại trên before; cùng input/oracle sau với policy rõ ràng; ánh xạ callable. **Chưa hoàn tất** |"]
+    for a in review["cases"]:
+        if "overview_row" in a:
+            lines.append(a["overview_row"])
+    lines += ["",
              "Fixture Spark chỉ tạo/đọc marker trong cây tạm và bind 127.0.0.1. XStream dùng Marker.touch, không chạy shell. Cùng hash fixture trong hai snapshot xác nhận cùng mã tạo đầu vào và cùng oracle; địa chỉ port và thư mục tạm được tạo riêng mỗi lần.", ""]
     for a in review["cases"]:
         lines += ["## " + a["cve_id"], "", "| Tiêu chí hiện hành | Bằng chứng | Đạt/chưa đạt | Lý do |", "|---|---|---|---|"]
         for c in a["criteria"]:
-            links = ", ".join("[" + (Path(p).name if not p.startswith("https:") else "bản vá") + "](" + (p if p.startswith("https:") else "../" + p) + ")" for p in c["evidence"])
+            links = ", ".join("[" + (Path(p).name if not p.startswith("https:") else "advisory chính thức" if "x-stream.github.io" in p else "bản vá") + "](" + (p if p.startswith("https:") else "../" + p) + ")" for p in c["evidence"])
             lines.append("| " + c["criterion"] + " | " + links + " | " + ("Đạt" if c["status"] == "MET" else "Chưa đạt") + " | " + c["reason"] + " |")
         lines += ["", "Phạm vi nhãn: " + a["scope"], ""]
-    lines += ["## Diễn giải và giới hạn", "", "Bản vá Spark thêm guard ở ExternalResourceHandler.getResource và bắt DirectoryTraversalDetection ở StaticFilesConfiguration.consume. consumeWithFileResourceHandlers chỉ đổi khoảng trắng; nhãn của callable này phụ thuộc handler và caller, không phải thuộc tính an toàn độc lập. Guard external mới cũng chỉ được xác nhận cùng cấu hình StaticFilesFolder.external. Các callable classpath/JAR, cấu hình và helper không đủ bằng chứng riêng vẫn UNCONFIRMED.", "",
+        if "upstream_scope_notes" in a:
+            lines += ["Giới hạn upstream test: " + a["upstream_scope_notes"], ""]
+    lines += ["## Diễn giải và giới hạn", "", "Chẩn đoán ConversionException và đối chiếu dependency: [XSTREAM_DIAGNOSIS.md](XSTREAM_DIAGNOSIS.md). Nguyên nhân gốc vẫn chưa xác định từ log cũ; không chuyển giả thuyết thành kết luận đã đo.", "", "Bản vá Spark thêm guard ở ExternalResourceHandler.getResource và bắt DirectoryTraversalDetection ở StaticFilesConfiguration.consume. consumeWithFileResourceHandlers chỉ đổi khoảng trắng; nhãn của callable này phụ thuộc handler và caller, không phải thuộc tính an toàn độc lập. Guard external mới cũng chỉ được xác nhận cùng cấu hình StaticFilesFolder.external. Các callable classpath/JAR, cấu hình và helper không đủ bằng chứng riêng vẫn UNCONFIRMED.", "",
               "XStreamLocalProbe coi mọi XStreamException kèm 0 callback là assertion đạt. Log chỉ ghi tên ConversionException, không ghi message/cause hay giai đoạn; do đó không thể xác định lỗi do type policy, dựng object hay mapper. Bản vá được ghim thêm SecurityMapper và setupSecurity với AnyTypePermission.ANY. Không suy ra cấu hình mặc định đã từ chối EventHandler. 68 phiên bản callable XStream và hai snapshot giữ UNCONFIRMED; việc rà soát xong một tiêu chí không làm cả hồ sơ hoàn tất.", "",
               "Advisory chính thức mô tả cần caller gọi method trên proxy sau unmarshalling: [XStream CVE-2013-7285](https://x-stream.github.io/CVE-2013-7285.html). Nguồn Spark: [issue #700](https://github.com/perwendel/spark/issues/700). Bản vá, advisory JSON lưu trong repo và hành vi được đối chiếu cho đúng cặp commit; không mở rộng sang XStream 1.4.10 hay mọi đầu vào/formats.", "",
               "Upstream tests là bằng chứng chức năng hỗ trợ, không phải điều kiện thay thế paired security behavior. Đánh giá độc lập còn chờ được theo dõi riêng theo định nghĩa hiện hành. Receipt CI success ghi trong BUILD_RECOVERY.md chỉ xác nhận lệnh/job chạy đạt, không tự chứng minh fixture phân biệt được lỗi. Trạng thái Batch02 hiện là **2/10**, không phải 3/10.", "",
               "Danh sách đầy đủ từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md); [quyết định snapshot](../data/batch-02/snapshot-reviews.jsonl); [quyết định callable](../data/batch-02/reviews.jsonl). Intake summary.json giữ nguyên trạng thái lúc nhập; completion.json là trạng thái sau rà soát.", ""]
     (ROOT / "docs/BATCH02_REVIEW.md").write_text("\n".join(lines), encoding="utf-8")
     lines = ["# Quyết định từng callable Spark/XStream", "", "Người rà soát: AI; mọi nhãn có phạm vi và yêu cầu ngữ cảnh gọi. Quyết định đầy đủ, commit, khoảng dòng, hash fixture và phần thiếu nằm trong [reviews.jsonl](../data/batch-02/reviews.jsonl). RESOLVED_TARGET chỉ áp dụng các đầu vào external đã đo; UNCONFIRMED không phải mẫu âm an toàn.", ""]
-    for cve in TARGETS:
+    decisions = {r["sample_id"]:r for r in rows(ROOT / "data/batch-02", "reviews")}
+    for cve in (a["cve_id"] for a in review["cases"]):
         lines += ["## " + cve, "", "| Sample | Callable | Phía | Nhãn | Căn cứ / phần thiếu |", "|---|---|---|---|---|"]
         for v in versions:
             if v["cve_id"] == cve:
-                _, _, reason, needed = method_decision(v)
+                reason, needed = decisions[v["sample_id"]]["reason"], decisions[v["sample_id"]]["evidence_needed"]
                 lines.append(f"| {v['sample_id']} | `{v['syntactic_signature']}` | {v['phase']} | {v['label']} | {reason} {needed} |")
         lines.append("")
     (ROOT / "docs/BATCH02_CALLABLE_REVIEW.md").write_text("\n".join(lines), encoding="utf-8")

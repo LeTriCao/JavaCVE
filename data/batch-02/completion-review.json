@@ -1,13 +1,14 @@
 {
-  "review_basis_commit": "a7e6abd",
-  "review_utc": "2026-11-24T09:39:30+00:00",
+  "review_basis_commit": "8fefbe9",
+  "review_utc": "2026-11-24T09:51:19.155679+00:00",
   "reviewer": "AI",
   "independent_human_reviews": 0,
   "policy": "Source identity, extraction, scoped AI method review, paired source builds, controls and paired security behavior; independent human review is separately pending.",
   "evidence_policy": "Existing receipts only; no new security fixture or payload execution in this review.",
   "receipt_sha256": {
     "4063ba008c3644f5ad4d015ccd4cbcc4": "baa4ee990d9401a9f06027f85403f340cc09b1588a24701034a16c46e3defd6c",
-    "2dc3374df54a4ed5b04e2894f1cb59f6": "8536154b2046ea4af84caf19fa39b669c31e4250fa4146c3da75c48d976196dd"
+    "2dc3374df54a4ed5b04e2894f1cb59f6": "8536154b2046ea4af84caf19fa39b669c31e4250fa4146c3da75c48d976196dd",
+    "2b54f962ab544cb789aaf746c087715e": "fe1354e5db10f1786ee885a3206225736df6ceda9ce79015b83c5055c34e8f1e"
   },
   "cases": [
     {
@@ -309,8 +310,283 @@
         "A bounded fixture must first demonstrate successful proxy construction and a harmless callback on before, record the exception cause and conversion stage, then evaluate the same input/oracle on after with any security configuration stated explicitly and ordinary controls passing. The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone do not prove default rejection. Map the result to the actual caller and affected callable. No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair."
       ],
       "independent_human_review_status": "PENDING; separately tracked, not a completion gate in the current definition"
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "fully_completed": false,
+      "reviewer": "AI",
+      "independent_human_review": false,
+      "scope": "Untrusted input unmarshalled by pinned XStream with its default blacklist, without an application allowlist. The patch denies javax.imageio.ImageIO$ContainsFilter. Advisory behavior requires runtime classes plus either unmarshalling side effects or a later Iterator.next call. No common external fixture/ordinary control was executed in the receipt.",
+      "receipt_run_id": "2b54f962ab544cb789aaf746c087715e",
+      "receipt_run_status": "FAIL",
+      "behavior_run_id": null,
+      "source_run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
+      "fixture_sha256": null,
+      "observations": [],
+      "upstream_observations": [
+        {
+          "phase": "before",
+          "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+          "artifact_sha256": "8d8af2d7faa7d2f146e749424cbab5a531dc2cb2427956e36d34b0edf50b746b",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log",
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log",
+          "log_sha256": "6b7a116279a2dd619986fb0f7f1b0e7fe90193c2ba1332adac21a5a195c529ac",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
+        },
+        {
+          "phase": "after",
+          "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+          "artifact_sha256": "19da0de47f371a83bf360a0e8ff38e21190ac9196c392c61bec196c92b4f0672",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log",
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log",
+          "log_sha256": "559d38f6c9f91f3e7fbccd30e95878cd3616557b657fb60131a41c548f92f64a",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
+        }
+      ],
+      "overview_row": "| CVE-2020-26217 | Default blacklist, input không tin cậy; policy/caller/runtime phải ghi rõ | Build PASS/PASS; upstream 7→9 test đạt | Thay đổi blacklist và test đã đối chiếu tĩnh | Thiếu control chung và hành vi paired đúng advisory; **chưa hoàn tất** |",
+      "status_summary": "Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 7→9 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED.",
+      "upstream_scope_notes": "SecurityVulnerabilityTest overrides setupSecurity with an empty method; individual tests can explicitly allow types. In 2020 the explicit EventHandler test also changes converter registration between snapshots, and the new ContainsFilter cases are guarded by JVM.isVersion(7), meaning >= Java 7 (the recorded JDK8 satisfies this check). In 2021 the added tests cover denial and explicit allowance of manipulated ByteArrayInputStream, not the advisory RCE chain.",
+      "criteria": [
+        {
+          "id": "source_identity",
+          "criterion": "Source identity",
+          "required": true,
+          "status": "MET",
+          "reason": "Pinned commits/trees/first parent match Git; receipt records no source mutation.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "extraction",
+          "criterion": "Extraction",
+          "required": true,
+          "status": "MET",
+          "reason": "222/222 callable versions passed source/AST audit; this case's indexed snippets are rechecked against pinned Git bytes.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "advisory_patch_context",
+          "criterion": "Advisory and patch context",
+          "required": true,
+          "status": "MET",
+          "reason": "Untrusted input unmarshalled by pinned XStream with its default blacklist, without an application allowlist. The patch denies javax.imageio.ImageIO$ContainsFilter. Advisory behavior requires runtime classes plus either unmarshalling side effects or a later Iterator.next call. No common external fixture/ordinary control was executed in the receipt.",
+          "evidence": [
+            "data/batch-02/advisories/CVE-2020-26217.json",
+            "https://github.com/x-stream/xstream/commit/0fec095d534126931c99fd38e9c6d41f5c685c1a",
+            "https://x-stream.github.io/CVE-2020-26217.html"
+          ]
+        },
+        {
+          "id": "scoped_ai_method_review",
+          "criterion": "Scoped AI method review",
+          "required": true,
+          "status": "MET",
+          "reason": "All indexed callable versions and both snapshots reviewed by AI; static observations retained separately from unproven advisory behavior.",
+          "evidence": [
+            "data/batch-02/reviews.jsonl",
+            "data/batch-02/snapshot-reviews.jsonl"
+          ]
+        },
+        {
+          "id": "paired_source_builds",
+          "criterion": "Paired source builds",
+          "required": true,
+          "status": "MET",
+          "reason": "Both source builds and selected SecurityVulnerabilityTest class pass. Test totals differ: [7, 9]; zero failures/errors/skips. The tests are not a common paired fixture. The overall batch receipt is FAIL due to other CVEs; these selected snapshots/stages are PASS.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log"
+          ]
+        },
+        {
+          "id": "ordinary_controls",
+          "criterion": "Ordinary controls",
+          "required": true,
+          "status": "NOT_MET",
+          "reason": "No reviewed common ordinary-control fixture is recorded on both commits. Existing authorized-injection tests change policy/body and do not substitute for this criterion.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log"
+          ]
+        },
+        {
+          "id": "paired_security_behavior",
+          "criterion": "Reviewed paired security behavior",
+          "required": true,
+          "status": "NOT_MET",
+          "reason": "A reviewed common bounded fixture with identical input/oracle and an ordinary control on both commits; document actual driver, blacklist/allowlist, runtime class availability, successful harmless callback before and its prevention after. Do not substitute the EventHandler fixture of CVE-2013-7285 or an explicit allowTypes override for default-policy evidence.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log"
+          ]
+        }
+      ],
+      "missing_required_evidence": [
+        "No reviewed common ordinary-control fixture is recorded on both commits. Existing authorized-injection tests change policy/body and do not substitute for this criterion.",
+        "A reviewed common bounded fixture with identical input/oracle and an ordinary control on both commits; document actual driver, blacklist/allowlist, runtime class availability, successful harmless callback before and its prevention after. Do not substitute the EventHandler fixture of CVE-2013-7285 or an explicit allowTypes override for default-policy evidence."
+      ],
+      "independent_human_review_status": "PENDING; separately tracked"
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "fully_completed": false,
+      "reviewer": "AI",
+      "independent_human_review": false,
+      "scope": "Untrusted input unmarshalled by pinned XStream with its default blacklist, without a minimal allowlist. The multi-CVE patch denies ServerTableEntry, IndexOrderComparator, GetterSetterReflection and several hierarchies. The advisory uses a PriorityQueue/JAX-WS/JAXB/CORBA caller chain during unmarshalling; added ByteArrayInputStream tests alone do not establish this RCE chain.",
+      "receipt_run_id": "2b54f962ab544cb789aaf746c087715e",
+      "receipt_run_status": "FAIL",
+      "behavior_run_id": null,
+      "source_run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
+      "fixture_sha256": null,
+      "observations": [],
+      "upstream_observations": [
+        {
+          "phase": "before",
+          "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+          "artifact_sha256": "e5d96230fe8fde15d144400cc8f654a172cecb2b08a4afe04ae3c9e57315edfc",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log",
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log",
+          "log_sha256": "aa195d152df4ef9ed70c8bb8cab398b8bcd245ea9cf781f2e1304c66f2a486d0",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
+        },
+        {
+          "phase": "after",
+          "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+          "artifact_sha256": "a43530049425900766b660b8b85c8bb94de1607e08040ff269babf7f6f870caa",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log",
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log",
+          "log_sha256": "5c82cf3f592ca26278a06e535b7e3bf662a4e94f3935e7163bcae91bdbffedf1",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
+        }
+      ],
+      "overview_row": "| CVE-2021-21345 | Default blacklist, input không tin cậy; policy/caller/runtime phải ghi rõ | Build PASS/PASS; upstream 11→13 test đạt | Thay đổi blacklist và test đã đối chiếu tĩnh | Thiếu control chung và hành vi paired đúng advisory; **chưa hoàn tất** |",
+      "status_summary": "Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 11→13 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED.",
+      "upstream_scope_notes": "SecurityVulnerabilityTest overrides setupSecurity with an empty method; individual tests can explicitly allow types. In 2020 the explicit EventHandler test also changes converter registration between snapshots, and the new ContainsFilter cases are guarded by JVM.isVersion(7), meaning >= Java 7 (the recorded JDK8 satisfies this check). In 2021 the added tests cover denial and explicit allowance of manipulated ByteArrayInputStream, not the advisory RCE chain.",
+      "criteria": [
+        {
+          "id": "source_identity",
+          "criterion": "Source identity",
+          "required": true,
+          "status": "MET",
+          "reason": "Pinned commits/trees/first parent match Git; receipt records no source mutation.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "extraction",
+          "criterion": "Extraction",
+          "required": true,
+          "status": "MET",
+          "reason": "222/222 callable versions passed source/AST audit; this case's indexed snippets are rechecked against pinned Git bytes.",
+          "evidence": [
+            "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json"
+          ]
+        },
+        {
+          "id": "advisory_patch_context",
+          "criterion": "Advisory and patch context",
+          "required": true,
+          "status": "MET",
+          "reason": "Untrusted input unmarshalled by pinned XStream with its default blacklist, without a minimal allowlist. The multi-CVE patch denies ServerTableEntry, IndexOrderComparator, GetterSetterReflection and several hierarchies. The advisory uses a PriorityQueue/JAX-WS/JAXB/CORBA caller chain during unmarshalling; added ByteArrayInputStream tests alone do not establish this RCE chain.",
+          "evidence": [
+            "data/batch-02/advisories/CVE-2021-21345.json",
+            "https://github.com/x-stream/xstream/commit/d5e51177634afea7213b9dc2d21f101d2e258db9",
+            "https://x-stream.github.io/CVE-2021-21345.html"
+          ]
+        },
+        {
+          "id": "scoped_ai_method_review",
+          "criterion": "Scoped AI method review",
+          "required": true,
+          "status": "MET",
+          "reason": "All indexed callable versions and both snapshots reviewed by AI; static observations retained separately from unproven advisory behavior.",
+          "evidence": [
+            "data/batch-02/reviews.jsonl",
+            "data/batch-02/snapshot-reviews.jsonl"
+          ]
+        },
+        {
+          "id": "paired_source_builds",
+          "criterion": "Paired source builds",
+          "required": true,
+          "status": "MET",
+          "reason": "Both source builds and selected SecurityVulnerabilityTest class pass. Test totals differ: [11, 13]; zero failures/errors/skips. The tests are not a common paired fixture. The overall batch receipt is FAIL due to other CVEs; these selected snapshots/stages are PASS.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log"
+          ]
+        },
+        {
+          "id": "ordinary_controls",
+          "criterion": "Ordinary controls",
+          "required": true,
+          "status": "NOT_MET",
+          "reason": "No reviewed common ordinary-control fixture is recorded on both commits. Existing authorized-injection tests change policy/body and do not substitute for this criterion.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log"
+          ]
+        },
+        {
+          "id": "paired_security_behavior",
+          "criterion": "Reviewed paired security behavior",
+          "required": true,
+          "status": "NOT_MET",
+          "reason": "A reviewed common bounded fixture for the advisory PriorityQueue/JAX-WS/JAXB/CORBA caller path, with ordinary controls, runtime class availability, default policy and harmless observable behavior before/after. The pinned commit fixes multiple CVEs; ByteArrayInputStream zero-byte reads and blacklist entries do not prove this advisory's command-execution mechanism.",
+          "evidence": [
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log",
+            "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log"
+          ]
+        }
+      ],
+      "missing_required_evidence": [
+        "No reviewed common ordinary-control fixture is recorded on both commits. Existing authorized-injection tests change policy/body and do not substitute for this criterion.",
+        "A reviewed common bounded fixture for the advisory PriorityQueue/JAX-WS/JAXB/CORBA caller path, with ordinary controls, runtime class availability, default policy and harmless observable behavior before/after. The pinned commit fixes multiple CVEs; ByteArrayInputStream zero-byte reads and blacklist entries do not prove this advisory's command-execution mechanism."
+      ],
+      "independent_human_review_status": "PENDING; separately tracked"
     }
   ],
-  "reviewed_callable_versions": 128,
-  "reviewed_snapshot_count": 4
+  "reviewed_callable_versions": 151,
+  "reviewed_snapshot_count": 8,
+  "previous_review_utc": "2026-11-24T09:39:30+00:00",
+  "previous_review_basis_commit": "a7e6abd",
+  "xstream_followup_review_utc": "2026-11-24T09:51:19.155679+00:00"
 }

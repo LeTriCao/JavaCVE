@@ -1,5 +1,11 @@
 # Changelog
 
+## Sau 8fefbe9 — 24/11/2026
+
+- Đối chiếu tiêu chí và receipt cho CVE-2020-26217/CVE-2021-21345: upstream 7→9 và 11→13 test đạt nhưng thiếu control chung/hành vi paired; thêm 23 quyết định callable và 4 snapshot do AI rà soát, giữ UNCONFIRMED.
+- Lưu chẩn đoán CVE-2013-7285: fixture/toolchain và 15 dependency giống nhau; log chỉ in tên ConversionException nên không thể xác định nguyên nhân gốc. Ghi kế hoạch thu thập message/cause/stack và giai đoạn trong thử nghiệm tiếp theo.
+- Tính thống kê quyết định từ dữ liệu: 153 callable, 8 snapshot ghi riêng. Batch02 vẫn 2/10 hoàn tất; nhãn không đổi. Receipt/intake lịch sử giữ nguyên.
+
 ## Sau a7e6abd — 24/11/2026
 
 - Rà soát AI từng tiêu chí hoàn tất, 4 snapshot và 128 callable Spark/XStream dựa trên receipt đã có; kiểm tra lại nguồn/AST Batch02 đạt 222/222.

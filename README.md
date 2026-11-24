@@ -25,6 +25,8 @@ Xem [bảng số liệu tính lại](docs/generated/metrics.json), [báo cáo m�
 
 Rà soát Spark/XStream từ `a7e6abd`: [bảng từng tiêu chí và phần thiếu](docs/BATCH02_REVIEW.md), [quyết định từng callable](docs/BATCH02_CALLABLE_REVIEW.md). Spark hoàn tất trong phạm vi external static files đã đo. XStream giữ UNCONFIRMED: 27 upstream test mỗi bản đạt, nhưng fixture chỉ ghi ConversionException và 0 callback ở cả hai bản.
 
+Lượt tiếp từ `8fefbe9` rà soát thêm 23 callable và 4 snapshot của CVE-2020-26217/CVE-2021-21345. Cả hai giữ UNCONFIRMED: test upstream thay đổi 7→9 và 11→13, chưa có control chung và hành vi paired đúng advisory. [Chẩn đoán CVE-2013-7285](docs/XSTREAM_DIAGNOSIS.md) xác nhận 15 dependency giống thứ tự/hash; log cũ thiếu message/cause/stack nên nguyên nhân gốc vẫn chưa xác định. Tổng cộng có 153 quyết định callable và 8 quyết định snapshot ghi riêng; Batch02 vẫn 2/10 hoàn tất.
+
 ## Chạy thử trên Ubuntu/WSL x86_64
 
 Cần Python 3.12+, Git, chứng chỉ CA và Internet ở lần đầu. JDK8u514 và Maven3.9.9 được tải theo URL đã khóa và kiểm tra SHA256. Mở terminal trong thư mục có `run.py`.

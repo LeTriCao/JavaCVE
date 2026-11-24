@@ -7,6 +7,7 @@ from unittest.mock import patch
 from tools.catalog import ROOT, rows
 from tools.catalog import verify_expansion
 from tools.security import parse_probe
+from tools.review_xstream_followup import SUMMARY
 
 
 class ReleaseTests(unittest.TestCase):
@@ -91,6 +92,53 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(metrics["catalog"]["expansion"],verify_expansion())
         self.assertEqual({c["cve_id"] for c in status["cases"] if c["fully_completed"]},set(completion["completed_cves"]))
         self.assertEqual(status["source_built_snapshots"],sum(r.get("build_status")=="PASS" for c in status["cases"] for r in (c["before"],c["after"])))
+
+    def test_xstream_upstream_counts_are_not_paired_security(self):
+        review=json.loads((ROOT/"data/batch-02/completion-review.json").read_text())
+        versions=[json.loads(l) for l in (ROOT/"data/batch-02/versions.jsonl").read_text().splitlines()]
+        expected={"CVE-2020-26217":[7,9],"CVE-2021-21345":[11,13]}
+        for cve, counts in expected.items():
+            case=next(c for c in review["cases"] if c["cve_id"]==cve)
+            self.assertFalse(case["fully_completed"])
+            self.assertIsNone(case["behavior_run_id"])
+            self.assertEqual([o["tests"] for o in case["upstream_observations"]],counts)
+            for observed in case["upstream_observations"]:
+                log=ROOT/observed["log"]
+                self.assertEqual(hashlib.sha256(log.read_bytes()).hexdigest(),observed["log_sha256"])
+                self.assertEqual(list(map(int,SUMMARY.findall(log.read_text(encoding="utf-8"))[-1])),[observed["tests"],0,0,0])
+            self.assertEqual({c["id"] for c in case["criteria"] if c["status"]=="NOT_MET"},{"ordinary_controls","paired_security_behavior"})
+            self.assertEqual({v["label"] for v in versions if v["cve_id"]==cve},{"UNCONFIRMED"})
+
+    def test_upstream_only_cve_cannot_be_promoted(self):
+        original = type(ROOT).read_text
+        for cve in ("CVE-2020-26217", "CVE-2021-21345"):
+            def corrupted(path, *args, **kwargs):
+                text = original(path, *args, **kwargs)
+                if path.name == "completion-review.json":
+                    data = json.loads(text)
+                    next(c for c in data["cases"] if c["cve_id"] == cve)["fully_completed"] = True
+                    return json.dumps(data)
+                return text
+            with self.subTest(cve=cve), patch.object(type(ROOT), "read_text", corrupted):
+                with self.assertRaisesRegex(ValueError, "Completion contradicts"):
+                    verify_expansion()
+
+    def test_diagnosis_preserves_uncertainty_and_dependency_inventory(self):
+        diagnosis=json.loads((ROOT/"data/batch-02/xstream-diagnosis.json").read_text())
+        receipt=json.loads((ROOT/diagnosis["source_receipt"]).read_text())
+        self.assertEqual(hashlib.sha256((ROOT/diagnosis["source_receipt"]).read_bytes()).hexdigest(),diagnosis["source_receipt_sha256"])
+        pair=[r for r in receipt["snapshots"] if r["cve_id"]=="CVE-2013-7285"]
+        self.assertEqual(pair[0]["dependencies"],pair[1]["dependencies"])
+        self.assertEqual([{k:d[k] for k in ("path","sha256")} for d in diagnosis["dependencies"]],pair[0]["dependencies"])
+        self.assertEqual(diagnosis["root_cause_status"],"UNDETERMINED_FROM_EXISTING_LOGS")
+        self.assertEqual(diagnosis["exception_phase"],"UNCONFIRMED")
+        for log in diagnosis["logs"].values():
+            path=ROOT/log["path"]
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),log["sha256"])
+            text=path.read_text(encoding="utf-8")
+            self.assertIn("OBSERVED_EXCEPTION=com.thoughtworks.xstream.converters.ConversionException",text)
+            self.assertNotIn("Caused by:",text)
+        self.assertTrue(all(s["identical"] and s["before_sha256"]==s["after_sha256"] for s in diagnosis["unchanged_sources"]))
 
     def test_public_receipts_are_redacted(self):
         for path in (ROOT/"evidence/v0.2.0").rglob("*"):
