@@ -8,3 +8,11 @@ target/
 source_archives/
 toolchain/
 results.zip
+dist/
+exports/
+.venv/
+.env
+*.pem
+*.key
+*.p12
+*.jks

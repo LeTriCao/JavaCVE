@@ -1,82 +1,121 @@
-"""Command line entry point for the JavaCVE pilot."""
+"""JavaCVE: inspect, acquire, build, test and audit version-pinned Java CVE samples."""
 import argparse
-import datetime
 import json
-import os
-import platform
-import sys
-import uuid
 from pathlib import Path
+import sys
 from tools.catalog import ROOT, rows, verify, verify_sources
 from tools.observations import read_archive, require
-from tools.build import build
+from tools.runtime import Run
 
 
-def utc():
-    return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def parser():
+    p = argparse.ArgumentParser(description=__doc__)
+    cmds = p.add_subparsers(dest="action", required=True)
+    cmds.add_parser("demo", help="Offline release and catalog verification")
+    listing = cmds.add_parser("list", help="List CVEs, projects, CWEs and evidence status")
+    for flag in ("project", "cwe", "status"):
+        listing.add_argument("--"+flag)
+    listing.add_argument("--json", action="store_true")
+    for name in ("fetch", "build", "security", "all", "investigate", "measure"):
+        c = cmds.add_parser(name, help={"fetch":"Download locked source commits", "build":"Build paired snapshots and ordinary API checks", "security":"Build and run existing security probes", "all":"Build, API checks and security probes", "investigate":"Attempt the four Jenkins/NiFi build profiles", "measure":"Recompute seed-to-fix versus parent-to-fix Java file counts"}[name])
+        c.add_argument("--cve", action="append")
+        c.add_argument("--repos", type=Path, default=ROOT/".cache/repos")
+        c.add_argument("--offline", action="store_true")
+        c.add_argument("--prior", type=Path, default=ROOT.parent/"JavaCVE_Reproducible")
+        c.add_argument("--timeout", type=int, default=600)
+        c.add_argument("--retry-from", type=Path)
+        c.add_argument("--from-run", type=Path, help="security only: replay verified source-built artifacts from this run")
+        c.add_argument("--seed", action="store_true", help="Also acquire original benchmark commits")
+    for name in ("verify-source", "export", "audit"):
+        c = cmds.add_parser(name, help="Verify source blobs, line ranges and method hashes")
+        c.add_argument("cases_dir", nargs="?", type=Path, default=ROOT/".cache/repos")
+        c.add_argument("--git-repos", action="store_true", help="Read pinned Git objects (default for managed cache)")
+        c.add_argument("--export", type=Path)
+        c.add_argument("--include-tests", action="store_true")
+    archive = cmds.add_parser("audit-wsl", help="Validate historical results.zip without executing its content")
+    archive.add_argument("archive", type=Path)
+    comp = cmds.add_parser("compare", help="Matched-seed build experiment using original IRIS scripts")
+    for flag in ("upstream", "jdk", "maven", "m2"):
+        comp.add_argument("--"+flag, type=Path, required=True)
+    for name in ("stats", "report", "split"):
+        c = cmds.add_parser(name)
+        c.add_argument("--run", action="append", type=Path, default=[])
+        c.add_argument("--out", type=Path, help="New output directory; existing paths are never overwritten")
+        c.add_argument("--unit", choices=("project", "cve"), default="project")
+    cmds.add_parser("seal", help="Maintainer: regenerate release checksums after reviewed changes")
+    return p
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    commands = parser.add_subparsers(dest="action", required=True)
-    commands.add_parser("demo", help="Verify the release and display its dataset statistics")
-    all_cmd = commands.add_parser("all", help="Verify data, build paired Java modules and run ordinary API tests")
-    all_cmd.add_argument("--prior", type=Path, default=ROOT.parent / "JavaCVE_Reproducible", help="Optional existing toolchain and archives")
-    all_cmd.add_argument("--cve", action="append", help="Limit to a CVE marked buildable in the catalog")
-    check = commands.add_parser("verify-source", help="Verify Java files and method texts in an existing stage 3 cases folder")
-    check.add_argument("cases_dir", type=Path)
-    check.add_argument("--git-repos", action="store_true", help="Read local Git repositories named by CVE with both commits available")
-    check.add_argument("--export", type=Path, help="New local JSONL file with verified production source texts")
-    audit = commands.add_parser("audit-wsl", help="Compare the archived evidence with the published observations")
-    audit.add_argument("archive", type=Path)
-    comp = commands.add_parser("compare", help="Build the same benchmark seeds using the two pipelines")
-    for flag in ("upstream", "jdk", "maven", "m2"):
-        comp.add_argument("--" + flag, type=Path, required=True)
-    args = parser.parse_args()
-    run_id = uuid.uuid4().hex
-    directory = ROOT / "runs" / run_id
-    directory.mkdir(parents=True)
-    output = directory / "run.json"
-    report = {"run_id":run_id, "release":"0.1.0", "command":args.action, "start_utc":utc(),
-              "status":"running", "environment":{"system":platform.system(),"architecture":platform.machine(),
-              "python":platform.python_version()}}
-
-    def save():
-        tmp = output.with_suffix(".tmp")
-        tmp.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        os.replace(tmp, output)
-
-    save()
+    p = parser()
+    args = p.parse_args()
+    if args.action == "seal":
+        from tools.checksums import seal
+        seal()
+        return 0
+    if getattr(args,"from_run",None) and args.action != "security":
+        p.error("--from-run is supported only by security")
+    run = Run(args.action, " ".join(sys.argv[1:]))
+    error = None
     try:
-        report["catalog"] = verify()
+        run.report["catalog"] = verify()
         if args.action == "demo":
-            print(json.dumps(report["catalog"], ensure_ascii=False, indent=2))
+            print(json.dumps(run.report["catalog"],ensure_ascii=False,indent=2))
+        elif args.action == "list":
+            from tools.quality import list_cases
+            selected = list_cases(args)
+            run.report["cases"] = selected
+            if args.json:
+                print(json.dumps(selected,ensure_ascii=False,indent=2))
+            else:
+                for c in selected:
+                    print(c["cve_id"], c["target_cwe"], c["project"], c["verification_status"], "after="+c["after_label"])
         elif args.action == "audit-wsl":
             observed = read_archive(args.archive, rows("cases"))
-            expected = json.loads((ROOT / "evidence/wsl.json").read_text())
+            expected = json.loads((ROOT/"evidence/wsl.json").read_text())
             require(observed["observations"] == expected["observations"], "Different WSL observations")
-            report["archive_sha256"] = observed["archive_sha256"]
-            report["identical_submitted_archive"] = observed["archive_sha256"] == expected["archive_sha256"]
+            run.report.update(archive_sha256=observed["archive_sha256"], identical_submitted_archive=observed["archive_sha256"] == expected["archive_sha256"])
         elif args.action == "compare":
             from tools.compare import run_comparison
-            run_comparison(args, [c for c in rows("cases") if "matched_build" in c["evidence_sets"]], report, save)
-        elif args.action == "verify-source":
-            report["source_review"] = verify_sources(args.cases_dir, args.export, args.git_repos)
+            run_comparison(args, [c for c in rows("cases") if "matched_build" in c["evidence_sets"]], run.report, run.save)
+        elif args.action in ("verify-source", "export", "audit"):
+            base = args.cases_dir.resolve()
+            is_git = args.git_repos or base == (ROOT/".cache/repos").resolve()
+            destination = args.export
+            if args.action == "export" and destination is None:
+                destination = run.directory/"methods.jsonl"
+            run.report["source_review"] = verify_sources(base,destination,is_git,args.include_tests)
+            if args.action == "audit":
+                from tools.quality import quality_review
+                run.report["quality"] = quality_review(run)
+        elif args.action in ("stats", "report", "split"):
+            from tools.quality import generate_report, make_split
+            if args.action == "split":
+                run.report["split"] = make_split(args,run)
+            else:
+                run.report["statistics"] = generate_report(args,run)
         else:
-            selected = [c for c in rows("cases") if c["build_module"] is not None and (not args.cve or c["cve_id"] in args.cve)]
-            require(bool(selected) and (not args.cve or set(args.cve) == {c["cve_id"] for c in selected}), "Unknown or unsupported CVE")
-            report["builds"] = []
-            report["selection"] = [c["cve_id"] for c in selected]
-            build(selected, args.prior.resolve(), report, save)
-        report["status"] = "PASS"
-    except Exception as exc:
-        report.update(status="FAIL", error_type=type(exc).__name__)
-        print(str(exc), file=sys.stderr)
+            from tools.pipeline import select, fetch, pipeline
+            cases = select(args.cve,args.action in ("build", "security", "all"))
+            if args.action == "investigate":
+                cases = [c for c in cases if c["build_module"] is None]
+                require(bool(cases), "No experimental CVEs selected")
+            run.report["selection"] = [c["cve_id"] for c in cases]
+            if args.action in ("fetch", "measure"):
+                if args.action == "measure":
+                    args.seed = True
+                fetch(cases,args,run)
+                if args.action == "measure":
+                    from tools.quality import measure_files
+                    run.report["file_comparison"] = measure_files(cases,args.repos,run)
+            else:
+                pipeline(cases,args,run,args.action == "investigate")
+    except (Exception,KeyboardInterrupt) as exc:
+        error = exc
+        print(str(exc),file=sys.stderr)
     finally:
-        report["end_utc"] = utc()
-        save()
-    print(report["status"], output.relative_to(ROOT))
-    return int(report["status"] != "PASS")
+        run.finish(error)
+    return 0 if error is None else min(max(getattr(error,"code",1),1),125)
 
 
 if __name__ == "__main__":

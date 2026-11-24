@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path
 import re
 import shutil
@@ -60,7 +61,7 @@ def tool_paths(prior):
         if (existing / "bin" / command).is_file():
             found[tool] = existing
             continue
-        if tool == "jdk" and (os.uname().machine != "x86_64" or os.uname().sysname != "Linux"):
+        if tool == "jdk" and (platform.machine() != "x86_64" or platform.system() != "Linux"):
             raise RuntimeError("Automatic JDK setup requires Linux x86_64 (including Ubuntu WSL)")
         if not dest.exists():
             with tempfile.NamedTemporaryFile(dir=cache) as f:
@@ -83,7 +84,7 @@ def prepare_maven(tmp, jdk, maven, prior):
         env["JAVA_TOOL_OPTIONS"] = env.get("JAVA_TOOL_OPTIONS", "") + ' -Djavax.net.ssl.trustStore="' + trust + '"'
     settings = ET.Element("settings", xmlns="http://maven.apache.org/SETTINGS/1.0.0")
     mirror = ET.SubElement(ET.SubElement(settings, "mirrors"), "mirror")
-    for key, value in {"id": "repro-central-https", "mirrorOf": "external:*",
+    for key, value in {"id": "repro-central-https", "mirrorOf": "central,external:http:*",
                        "url": "https://repo.maven.apache.org/maven2"}.items():
         ET.SubElement(mirror, key).text = value
     proxy_url = env.get("HTTPS_PROXY") or env.get("https_proxy")

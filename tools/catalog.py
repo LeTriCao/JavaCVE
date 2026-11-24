@@ -101,7 +101,7 @@ def verify():
             "matched_pilot_pass":sum(r["pilot"]["status"] == "PASS" for r in controls), "matched_cases":len(controls)}
 
 
-def verify_sources(base, export_to=None, git_repositories=False):
+def verify_sources(base, export_to=None, git_repositories=False, include_tests=False):
     base = base.resolve()
     files = rows("files")
     versions = rows("versions")
@@ -137,10 +137,17 @@ def verify_sources(base, export_to=None, git_repositories=False):
     export = []
     for v in versions:
         buf = blobs[v["file_id"],v["phase"]]
+        require(v["end_line"] <= len(buf), "Method line range outside source")
         code = b"".join(buf[v["start_line"]-1:v["end_line"]]).strip()
         require(hashlib.sha256(code).hexdigest() == v["code_sha256"], f"Method hash mismatch {v['sample_id']}")
-        if export_to and not v["is_test"]:
-            export.append({**v,"code":code.decode("utf-8")})
+        if export_to and (include_tests or not v["is_test"]):
+            case = cases[v["cve_id"]]
+            review = next(r for r in rows("reviews") if r["cve_id"] == v["cve_id"] and r["phase"] == v["phase"])
+            export.append({**v,"code":code.decode("utf-8"), "context":review["scope_vi"],
+                           "repository_url":case["repository_url"], "advisory_url":case["advisory_url"],
+                           "benchmark_revision":case["benchmark_revision"], "provenance":case["provenance"],
+                           "evidence_sets":case["evidence_sets"], "evidence_review":review,
+                           "source_url":case["repository_url"]+"/blob/"+v["commit"]+"/"+v["file_path"]+"#L"+str(v["start_line"])})
     if export_to:
         export_to.parent.mkdir(parents=True, exist_ok=True)
         # Exclusive create prevents accidental replacement. Prepare everything before publication.
@@ -152,4 +159,4 @@ def verify_sources(base, export_to=None, git_repositories=False):
             os.link(tmp, export_to)
         finally:
             tmp.unlink()
-    return {"checked_file_versions":len(blobs), "absent_git_states_checked":checked_absences, "checked_method_versions":len(versions),"exported_production_versions":len(export)}
+    return {"checked_file_versions":len(blobs), "absent_git_states_checked":checked_absences, "checked_method_versions":len(versions),"exported_versions":len(export), "included_tests":include_tests}

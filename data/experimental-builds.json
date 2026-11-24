@@ -1,0 +1,6 @@
+{
+  "CVE-2019-10392": {"module": ".", "flags": ["-DskipTests", "-Dspotbugs.skip=true", "-Denforcer.skip=true"], "remaining_evidence": "Jenkins test harness with controlled Git executable and before-after argument handling; package success alone cannot confirm the label."},
+  "CVE-2020-2261": {"module": ".", "flags": ["-DskipTests", "-Denforcer.skip=true"], "remaining_evidence": "Controller/agent integration fixture proving execution location without real Perfecto credentials."},
+  "CVE-2022-20617": {"module": ".", "flags": ["-DskipTests", "-Denforcer.skip=true"], "remaining_evidence": "DockerRegistryEndpoint validation and caller-path tests inside Jenkins harness; keep after UNCONFIRMED."},
+  "CVE-2022-33140": {"module": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer", "reactor": true, "flags": ["-pl", "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer", "-am", "-DskipTests", "-Denforcer.skip=true", "-Dskip.npm", "-Dskip.gulp"], "remaining_evidence": "Both NiFi shell authorizer and Registry framework with OS command mocks; current build experiment covers shell-authorizer reactor only."}
+}
