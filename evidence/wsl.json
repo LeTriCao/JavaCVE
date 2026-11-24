@@ -1,0 +1,305 @@
+{
+  "archive_sha256": "2d4d68211ca49af6f1c0168a7f41b0030933d511b77aec3bfe52949fbd1f124e",
+  "observations": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "jar_sha256_reported": "cd3860f5429c2796bf2fe3cfa4ef2ae670cbcbab367d7d0f0ca17b28454a5995",
+      "build_exit": 0,
+      "file_states_reported": 158,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 1
+        }
+      },
+      "upstream": {
+        "tests": 28,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": true
+    },
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "jar_sha256_reported": "b80c7f8d78715ab9dd036c1c705a492ea33af7382b100398e6c7275c5cbfea75",
+      "build_exit": 0,
+      "file_states_reported": 158,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 1,
+          "fail": 0
+        }
+      },
+      "upstream": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": true
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "jar_sha256_reported": "6ba9746ff37faf14df2bda69347d58360eefb33a50af0967097b18fe4983cb77",
+      "build_exit": 0,
+      "file_states_reported": 491,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 2
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "jar_sha256_reported": "6f614096355e4dd28df6893a4d7987ca0a4e188dd5b120413f744fe9c88e2025",
+      "build_exit": 0,
+      "file_states_reported": 492,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 1,
+          "fail": 1
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "jar_sha256_reported": "b675da23931ea614921507c271025e32d840861449ce636c132fc7b9376dfcb5",
+      "build_exit": 0,
+      "file_states_reported": 92,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 2
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "jar_sha256_reported": "78121006ab2f50c5b6417576620293b0acd8b48aa2f73bbdc31c8fedb261ee75",
+      "build_exit": 0,
+      "file_states_reported": 95,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 1,
+          "fail": 1
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "jar_sha256_reported": "2120924d68e1b47f6302aa47f2f4bf61b7ed7625cc85c68eea5ef0adf9508215",
+      "build_exit": 0,
+      "file_states_reported": 60,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 2
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "jar_sha256_reported": "89709f31cbc74ce0536fb628c26a5a609315ab734d7563e4e6b7495cbb4c11b3",
+      "build_exit": 0,
+      "file_states_reported": 60,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 1,
+          "fail": 1
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "jar_sha256_reported": "9f3aaf10d0e13e3323c350869d9f09e1f64c6efb331511c1ced9ca9c492cd6e2",
+      "build_exit": 0,
+      "file_states_reported": 1043,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 2
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "jar_sha256_reported": "378df2b642e2aa3c491ec0d3a8b1f2f84196c72977494fbd21f9a27b5164644a",
+      "build_exit": 0,
+      "file_states_reported": 1043,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 1,
+          "fail": 1
+        }
+      },
+      "upstream": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": false
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "jar_sha256_reported": "00aab31a8ba25a3a510027f73c5d3376df5ff69e1128ea061220e99d005018e7",
+      "build_exit": 0,
+      "file_states_reported": 317,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 0,
+          "fail": 2
+        }
+      },
+      "upstream": {
+        "tests": 37,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": true
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "jar_sha256_reported": "ccf90e36cdc7a1597225ea4061dd1dfe6be1e148fc9d290b380eb4fa0905ffe3",
+      "build_exit": 0,
+      "file_states_reported": 317,
+      "checks": {
+        "control": {
+          "pass": 1,
+          "fail": 0
+        },
+        "security": {
+          "pass": 2,
+          "fail": 0
+        }
+      },
+      "upstream": {
+        "tests": 37,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "upstream_measured": true
+    }
+  ]
+}

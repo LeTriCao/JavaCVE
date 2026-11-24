@@ -1,0 +1,98 @@
+[
+  {
+    "cve_id": "CVE-2017-1000487",
+    "file": "licenses/CVE-2017-1000487/NOTICE.txt",
+    "sha256": "c53634c960163f00ba0b0147cc3dee5caf0e6a47bc9909a2fe94b7adcf5d983e",
+    "origin": "earlier_review",
+    "repository": "https://github.com/codehaus-plexus/plexus-utils",
+    "snapshot": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41"
+  },
+  {
+    "cve_id": "CVE-2018-1002200",
+    "file": "licenses/CVE-2018-1002200/LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/codehaus-plexus/plexus-archiver",
+    "snapshot": "f8f4233508193b70df33759ae9dc6154d69c2ea8"
+  },
+  {
+    "cve_id": "CVE-2018-1002201",
+    "file": "licenses/CVE-2018-1002201/LICENSE",
+    "sha256": "27b1a545791fea517acf864ee16ee8fca643199a6afaf08fb8d3e6f750778b2f",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/zeroturnaround/zt-zip",
+    "snapshot": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff"
+  },
+  {
+    "cve_id": "CVE-2018-1002201",
+    "file": "licenses/CVE-2018-1002201/NOTICE",
+    "sha256": "256b6f2306c9667237a195b6c96e4c7649380b908aee4e2a07fee8277c226b7a",
+    "origin": "earlier_review",
+    "repository": "https://github.com/zeroturnaround/zt-zip",
+    "snapshot": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff"
+  },
+  {
+    "cve_id": "CVE-2018-1002202",
+    "file": "licenses/CVE-2018-1002202/LICENSE",
+    "sha256": "fd206568516983d3d352f071597cebe178ec6ad54df62e91b2bf80a213976227",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/iris-sast/zip4j",
+    "snapshot": "59aeea594ff885e06c25751dc6334dfea1bed8c6"
+  },
+  {
+    "cve_id": "CVE-2018-17297",
+    "file": "licenses/CVE-2018-17297/LICENSE.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/dromara/hutool",
+    "snapshot": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e"
+  },
+  {
+    "cve_id": "CVE-2019-10392",
+    "file": "licenses/CVE-2019-10392/LICENSE",
+    "sha256": "205fdada6a35f6e5cbacf03757b614526b45f65df33b78010aa8718eb343ed8b",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/jenkinsci/git-client-plugin",
+    "snapshot": "899123fa2eb9dd2c37137aae630c47c6be6b4b02"
+  },
+  {
+    "cve_id": "CVE-2020-2261",
+    "file": "licenses/CVE-2020-2261/LICENSE.md",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/jenkinsci/perfecto-plugin",
+    "snapshot": "52c09ad2e26416211e4009b095c4f16508b27b8a"
+  },
+  {
+    "cve_id": "CVE-2021-29425",
+    "file": "licenses/CVE-2021-29425/LICENSE.txt",
+    "sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/apache/commons-io",
+    "snapshot": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78"
+  },
+  {
+    "cve_id": "CVE-2021-29425",
+    "file": "licenses/CVE-2021-29425/NOTICE.txt",
+    "sha256": "f738390135295a249c4fb7118469ff881ae0bd11401b410f7564a52b7e54c4d2",
+    "origin": "earlier_review",
+    "repository": "https://github.com/apache/commons-io",
+    "snapshot": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78"
+  },
+  {
+    "cve_id": "CVE-2022-20617",
+    "file": "licenses/CVE-2022-20617/LICENSE.txt",
+    "sha256": "37e025d41a117e566a90dd47682c843281fd94c928346b8132b8e28530eea804",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/jenkinsci/docker-commons-plugin",
+    "snapshot": "c069b79c31c5aa80a01b0c462f0dc6b41751f059"
+  },
+  {
+    "cve_id": "CVE-2022-33140",
+    "file": "licenses/CVE-2022-33140/LICENSE",
+    "sha256": "f0cbc1acf0f556d7a35d458049586ff4942d8a4c800483d8197ecb98b8e9d4a0",
+    "origin": "retained_snapshot",
+    "repository": "https://github.com/apache/nifi",
+    "snapshot": "a1306a19f78e11c2d809e9aef24336669461403a"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "run_id": "05f9ee1150e34f80bf08285af8021809",
+  "release": "0.1.0",
+  "command": "verify-source",
+  "start_utc": "2026-11-24T00:22:29.934223+00:00",
+  "status": "PASS",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.12.14"
+  },
+  "catalog": {
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "source_review": {
+    "checked_file_versions": 66,
+    "absent_git_states_checked": 4,
+    "checked_method_versions": 187,
+    "exported_production_versions": 0
+  },
+  "end_utc": "2026-11-24T00:22:30.098554+00:00"
+}

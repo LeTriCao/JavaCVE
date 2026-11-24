@@ -1,0 +1,176 @@
+{
+  "run_id": "d95436c621524ee38cfe94e1170f0ba7",
+  "release": "0.1.0",
+  "command": "all",
+  "start_utc": "2026-11-24T00:20:12.686440+00:00",
+  "status": "PASS",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.12.14"
+  },
+  "catalog": {
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "builds": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "source_check": "verified_git_tree",
+      "jar_name": "plexus-utils-3.0.16-SNAPSHOT.jar",
+      "jar_sha256": "e0a130aa252edbd0119f8514502eee0f98beb3a91cb13b380fe911ab5738c1a9",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "source_check": "verified_git_tree",
+      "jar_name": "plexus-utils-3.0.16-SNAPSHOT.jar",
+      "jar_sha256": "730f59ac42e62b087c91451fd62778ba15adc8d1525a2e974003946ac63afa6c",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "source_check": "verified_git_tree",
+      "jar_name": "plexus-archiver-3.6.0-SNAPSHOT.jar",
+      "jar_sha256": "80513f82289ca5b32f17db58699cbed4b9500bec6751cb2c684b74bcfa7d7671",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "source_check": "verified_git_tree",
+      "jar_name": "plexus-archiver-3.6.0-SNAPSHOT.jar",
+      "jar_sha256": "fc771a3607ba3ca8c7861decb9e0ec538dd80c4d006a09329f4b5b6b398a01cb",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "source_check": "verified_git_tree",
+      "jar_name": "zt-zip-1.13-SNAPSHOT.jar",
+      "jar_sha256": "77e08528b0f7300bf21c4f427edee7d6dddc1eed8ed9d7be44b3322fb4326da7",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "source_check": "verified_git_tree",
+      "jar_name": "zt-zip-1.13-SNAPSHOT.jar",
+      "jar_sha256": "e2c5a4b390638a58593163cd5b1c79903ef36a3e7ee44a510ac020e3b09e8014",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "source_check": "verified_git_tree",
+      "jar_name": "zip4j-1.3.2.jar",
+      "jar_sha256": "0da075d33e03cf02c4c105ffad9009f45bfccb8f4d5aa7b4bacbdfeba6faebbc",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "source_check": "verified_git_tree",
+      "jar_name": "zip4j-1.3.3.jar",
+      "jar_sha256": "4b55b36dd25f7ea5d43904f14cf95f2d4dd106ceb3cf48f9d6eed42e73838629",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "source_check": "verified_git_tree",
+      "jar_name": "hutool-core-4.1.12-SNAPSHOT.jar",
+      "jar_sha256": "6b31e1416157a76f6198985009c556d94ab53d8047bdd51eb98035bbd299ea98",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "source_check": "verified_git_tree",
+      "jar_name": "hutool-core-4.1.12-SNAPSHOT.jar",
+      "jar_sha256": "b1ee1c413d96a3fc5dab5f2f3ba483cf8ec90bd2e7d457a57ebfd956cfb59fdb",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "source_check": "verified_git_tree",
+      "jar_name": "commons-io-2.7-SNAPSHOT.jar",
+      "jar_sha256": "d4a97ca5c4611c1048be047ec008b5c2cd6eb38f51b1544fe6336b01b73db927",
+      "api_check": "PASS",
+      "status": "PASS"
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "source_check": "verified_git_tree",
+      "jar_name": "commons-io-2.7-SNAPSHOT.jar",
+      "jar_sha256": "550aaede2a27c974d78cf4d02840282857810cf68890d74eaade94c4bdd1b7be",
+      "api_check": "PASS",
+      "status": "PASS"
+    }
+  ],
+  "selection": [
+    "CVE-2017-1000487",
+    "CVE-2018-1002200",
+    "CVE-2018-1002201",
+    "CVE-2018-1002202",
+    "CVE-2018-17297",
+    "CVE-2021-29425"
+  ],
+  "toolchain": {
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.9.9"
+  },
+  "end_utc": "2026-11-24T00:24:29.302295+00:00"
+}

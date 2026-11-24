@@ -1,0 +1,158 @@
+[
+  {
+    "cve_id": "CVE-2017-1000487",
+    "commit": "3b271b43f9e5021b4232fc2ffdfb4e469c7f8685",
+    "module_packaged": ".",
+    "module_sampled": ".",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:02.087248+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "plexus-utils-3.0.15.jar",
+      "jar_sha256": "9f0cfaa998697be9ad893e60225c5af41064242eec2f122a760304169df8afd3"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "plexus-utils-3.0.15.jar",
+      "jar_sha256": "67d6d4ec1a8b9a500aa59f46045e1f83d4a367bf9c5956025dd522091dc6b514",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 1,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "codehaus-plexus__plexus-utils_CVE-2017-1000487_3.0.15"
+  },
+  {
+    "cve_id": "CVE-2018-1002200",
+    "commit": "b9f9a425865eb47fb3665b3144ee4ca11f402704",
+    "module_packaged": ".",
+    "module_sampled": ".",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:10.559797+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "plexus-archiver-3.5.jar",
+      "jar_sha256": "5a527f15a29564ac752320335add867ff4769b7b9d50dba90a6c764efc61fd59"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "plexus-archiver-3.5.jar",
+      "jar_sha256": "e3705a1a562cb9b3ed40eb9d9287912d3319ef6944c1534c892c26046782d1cd",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 1,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "codehaus-plexus__plexus-archiver_CVE-2018-1002200_3.5"
+  },
+  {
+    "cve_id": "CVE-2018-1002201",
+    "commit": "bd3f3d77f3709f901fd5180a493ef32e4dfebfa6",
+    "module_packaged": ".",
+    "module_sampled": ".",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:18.342989+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "zt-zip-1.12.jar",
+      "jar_sha256": "27be08c0afa4ad35a9e73c575c20b2e7a419ce872b240f412d2504da0f01d6d0"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "zt-zip-1.12.jar",
+      "jar_sha256": "6acf96da6f6358f0565c3588c8a8a1f641b2d7a935b8242e6aa4278ace908ad9",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 1,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "zeroturnaround__zt-zip_CVE-2018-1002201_1.12"
+  },
+  {
+    "cve_id": "CVE-2018-1002202",
+    "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+    "module_packaged": ".",
+    "module_sampled": ".",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:26.251469+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "zip4j-1.3.2.jar",
+      "jar_sha256": "c68d0ab48f3f0d6bf3355856acf113ac4513fab4e17f1f7285c86e6a924bf0cf"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "zip4j-1.3.2.jar",
+      "jar_sha256": "fef40e77352e1974392dea8f8bd7cb487c6e2f4be6672cebccdeba789c181933",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 1,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "srikanth-lingala__zip4j_CVE-2018-1002202_1.3.2"
+  },
+  {
+    "cve_id": "CVE-2018-17297",
+    "commit": "7687720c5125b29386d3bb9c7c2931da79664b73",
+    "module_packaged": ".",
+    "module_sampled": "hutool-core",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:31.925682+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "hutool-core-4.1.11.jar",
+      "jar_sha256": "fed1b4100b9500fe699375fc643dd23cd5fc52aeea5906bf9b23682c2d81036d"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "hutool-core-4.1.11.jar",
+      "jar_sha256": "bb448dbbdcd7baf0383e9010d22dbe636ccea5f130d97ccb08499eb86ed525b2",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 19,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "dromara__hutool_CVE-2018-17297_4.1.11"
+  },
+  {
+    "cve_id": "CVE-2021-29425",
+    "commit": "2ae025fe5c4a7d2046c53072b0898e37a079fe62",
+    "module_packaged": ".",
+    "module_sampled": ".",
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0",
+    "common_cache_seed": true,
+    "started_utc": "2026-11-24T00:15:46.276291+00:00",
+    "upstream": {
+      "status": "PASS",
+      "jar_name": "commons-io-2.6.jar",
+      "jar_sha256": "a3fcf4028ec69116b771aa3ad3b8a185a727e2526211c84e0157e7a11feaf8b9"
+    },
+    "pilot": {
+      "status": "PASS",
+      "jar_name": "commons-io-2.6.jar",
+      "jar_sha256": "021146271a3b5048ad249658b5c18657a56321898e92bda71ac3d447a268e87d",
+      "api_check": "PASS"
+    },
+    "original_fetch_exit": 0,
+    "original_build_exit": 0,
+    "original_jar_count": 1,
+    "initial_environment_attempt": "fetch_ok_build_blocked_by_expired_proxy",
+    "upstream_slug": "asf__commons-io_CVE-2021-29425_2.6"
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "run_id": "1fe4a36d859a48f88d6131d7aa735af5",
+  "release": "0.1.0",
+  "command": "compare",
+  "start_utc": "2026-11-24T00:18:55.396200+00:00",
+  "status": "PASS",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.12.14"
+  },
+  "catalog": {
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6
+  },
+  "comparisons": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "commit": "3b271b43f9e5021b4232fc2ffdfb4e469c7f8685",
+      "module_packaged": ".",
+      "module_sampled": ".",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "plexus-utils-3.0.15.jar",
+        "jar_sha256": "c077b74b7523ed7dd8da23455bf8bbc4a5e5f0f1fc5cc9f639d0d2d61bf4115a"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "plexus-utils-3.0.15.jar",
+        "jar_sha256": "8c70347555bf5ef21b1d186a9b5d5103cecd94c8fbbcfe4c2086d77020682d68",
+        "api_check": "PASS"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "commit": "b9f9a425865eb47fb3665b3144ee4ca11f402704",
+      "module_packaged": ".",
+      "module_sampled": ".",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "plexus-archiver-3.5.jar",
+        "jar_sha256": "e1a1a6c8f0c303c816ef5afe77ac33a3a6fb6130161be72321b01280138025d0"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "plexus-archiver-3.5.jar",
+        "jar_sha256": "fe09648a60a57ba52836ff25db58313accc0032dcf81e744161b5530b733a45c",
+        "api_check": "PASS"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "commit": "bd3f3d77f3709f901fd5180a493ef32e4dfebfa6",
+      "module_packaged": ".",
+      "module_sampled": ".",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "zt-zip-1.12.jar",
+        "jar_sha256": "78c6a6c9fbd6829d8264598e6fed3fcbbc5039bea743dd893af5fa179548382b"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "zt-zip-1.12.jar",
+        "jar_sha256": "74781cc79565700a09672ef79154516fcc7edbc422cbf259423be46d81611625",
+        "api_check": "PASS"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "module_packaged": ".",
+      "module_sampled": ".",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "zip4j-1.3.2.jar",
+        "jar_sha256": "1e125195481eb173fcd4ccd45665a309aa29bdb4d44642c2fead3d88b2898a73"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "zip4j-1.3.2.jar",
+        "jar_sha256": "763723b2aa27cd0c7b520fe6f295412cf1781f649da406ed1e88806c7c382910",
+        "api_check": "PASS"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "commit": "7687720c5125b29386d3bb9c7c2931da79664b73",
+      "module_packaged": ".",
+      "module_sampled": "hutool-core",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "hutool-core-4.1.11.jar",
+        "jar_sha256": "a18ce8d095eb9e46e9e2155854bc5bd241b382a21c877cd14556948cad4e9783"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "hutool-core-4.1.11.jar",
+        "jar_sha256": "2a2222b41de597e8a9245105f0cd43ab80e8ee602ec28ededeee5ef8a67f86d5",
+        "api_check": "PASS"
+      }
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "commit": "2ae025fe5c4a7d2046c53072b0898e37a079fe62",
+      "module_packaged": ".",
+      "module_sampled": ".",
+      "upstream": {
+        "status": "PASS",
+        "jar_name": "commons-io-2.6.jar",
+        "jar_sha256": "66149f034e78a1e31a9684b8d9d8dabb74f0d0dd248651b900ddb22e458a889f"
+      },
+      "pilot": {
+        "status": "PASS",
+        "jar_name": "commons-io-2.6.jar",
+        "jar_sha256": "7d33838f9e9f1b39b383d89066262ed0c8476b48a027e1b73faf15c4166bb1b1",
+        "api_check": "PASS"
+      }
+    }
+  ],
+  "toolchain": {
+    "jdk": "1.8.0_514-b01",
+    "maven": "3.5.0"
+  },
+  "end_utc": "2026-11-24T00:19:52.890116+00:00"
+}

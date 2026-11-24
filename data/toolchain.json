@@ -1,0 +1,8 @@
+{
+  "jdk_version": "1.8.0_514-b01",
+  "jdk_url": "https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u514-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u514b01.tar.gz",
+  "jdk_sha256": "27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095",
+  "maven_version": "3.9.9",
+  "maven_url": "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.9/apache-maven-3.9.9-bin.tar.gz",
+  "maven_archive_sha256": "7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766"
+}

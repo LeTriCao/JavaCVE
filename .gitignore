@@ -1,0 +1,10 @@
+.cache/
+runs/
+__pycache__/
+*.py[cod]
+methods-local*.jsonl
+*.jar
+target/
+source_archives/
+toolchain/
+results.zip

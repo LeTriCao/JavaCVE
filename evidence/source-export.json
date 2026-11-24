@@ -1,0 +1,12 @@
+{
+  "stage3_export_sha256": "533ac10b88f6a151b949f851e8a2b80e512619c27f9275058095f9693ab5799e",
+  "git_export_sha256": "533ac10b88f6a151b949f851e8a2b80e512619c27f9275058095f9693ab5799e",
+  "identical_files": true,
+  "production_versions": 150,
+  "test_versions_indexed": 37,
+  "algorithms": {
+    "file": "Git blob SHA1",
+    "snippet": "SHA256"
+  },
+  "independent_human_review": false
+}
