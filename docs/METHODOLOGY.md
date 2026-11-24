@@ -27,3 +27,7 @@ Giữ metadata seed của CWE-Bench-Java tại revision IRIS khóa. Với mỗi 
 Giữ dự án hoặc CVE làm đơn vị chia; mọi phương thức/phiên bản cùng đơn vị đi cùng partition. Gộp các đơn vị chia sẻ hash token thành một connected component trước khi dùng hash xác định bucket train/validation/test 80/10/10 theo kỳ vọng. Mẫu nhỏ có thể lệch tỷ lệ hoặc trống partition. Với cả pilot và batch02, tính lại token theo cùng thuật toán từ source Git đã khớp SHA256, tránh so hash sinh bằng hai phiên bản extractor khác nhau.
 
 Không có exact token duplicate băng qua các partition được công cụ sinh. Điều này không loại trừ clone gần giống, mã sao chép giữa lịch sử hoặc tương đồng ngữ nghĩa; cần detector bổ sung và đánh giá thủ công trước nghiên cứu ML. Không coi các mẫu UNCONFIRMED là negative. Chưa có mô hình baseline, phép đo tăng accuracy, kappa hay thời gian người gán nhãn.
+
+## Tương thích bản ghi trong giai đoạn phát triển
+
+`security.status`, process_exit_code, fixture_sha256, tests và controls_pass là các trường kết quả hành vi có thẩm quyền. Run Expand20fda536 được tạo trước khi sửa trường trạng thái tóm tắt `security_status`; trường tóm tắt cũ có thể còn BLOCKED dù security.status=EXECUTED. Errata ở evidence/v0.2.0/ERRATA.json ghi rõ sai lệch metadata này; kết quả từng assertion, hash, log và run thô được giữ nguyên. CLI hiện tại cập nhật cả hai trường thành EXECUTED sau khi fixture chạy.

@@ -34,6 +34,7 @@ Bảng được sinh bằng `python3 run.py report`; số liệu lịch sử và
 | Tệp Java trước → sau chuẩn hóa | 60 → 33 | 9 CVE giữ commit sửa; giảm 45.0% |
 | Ánh xạ commit sửa hiệu chỉnh | 1/10 | So SHA gốc với SHA đã chọn |
 | Cặp chuẩn hóa | 10/10 | Git xác nhận parent được chọn |
+| Tên callable và biên AST | 409/409 | Các run AST được chỉ định; pilot và batch ghi phạm vi riêng trong JSON |
 
 Thời gian từng bước (giây): `{"fetch": 282.364994, "build": 357.836761, "classpath": 272.334937, "api": 5.291458, "security": 9.509059}`.
 
@@ -45,6 +46,12 @@ Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iri
 ## 5. Đợt mở rộng
 
 Đã chọn 10 CVE mới; 10 hồ sơ có nguồn/advisory và trích xuất chuẩn hóa, gồm 222 phiên bản phương thức. Bản chụp intake giữ 222 nhãn UNCONFIRMED. Kết quả build, fixture bổ sung và quyết định nhãn sau intake được ghi riêng trong docs/BATCH02.md và evidence/v0.2.0. Chỉ đưa vào số hoàn thành đầy đủ khi có nhãn có phạm vi, build và bằng chứng hành vi trước–sau. Không cộng vào mẫu số pilot.
+
+| Chỉ số batch02 sau rà soát | Số lượng |
+|---|---:|
+| Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 1 |
+| Nhãn sau rà soát | {"UNCONFIRMED": 220, "VULNERABLE": 2} |
+| Người đánh giá độc lập | 0 |
 
 ## 6. Chất lượng và giới hạn
 

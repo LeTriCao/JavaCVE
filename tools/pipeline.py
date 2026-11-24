@@ -58,6 +58,15 @@ def fetch_case(case, repos, run, offline=False, seed=False):
 
 
 def fetch(cases, args, run):
+    if args.retry_from:
+        _,previous = read_run(args.retry_from)
+        require(previous["command"]==run.report["command"] and previous["dataset_sha256"]==run.report["dataset_sha256"],"Source retry requires same command and dataset")
+        failed = {r["cve_id"] for r in previous.get("sources",[]) if r["status"]!="PASS"}
+        require(bool(failed),"Previous source run has no failed profiles")
+        run.report["retry_of"] = previous["run_id"]
+        run.report["inherited_successful_sources"] = [r["cve_id"] for r in previous["sources"] if r["status"]=="PASS"]
+        cases = [c for c in cases if c["cve_id"] in failed]
+        require(bool(cases),"No failed profiles in selected source retry")
     for case in cases:
         record = dict(cve_id=case["cve_id"], start_utc=utc())
         run.report.setdefault("sources", []).append(record)

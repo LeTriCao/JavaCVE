@@ -1,0 +1,64 @@
+{
+  "source": ".cache/github-clone-authenticated",
+  "archive": false,
+  "security": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        "run.py",
+        "demo"
+      ],
+      "exit_code": 0,
+      "output": "RUN runs/1d97da924a4e44f5b7b1beb34a14dfc4\n{\n  \"release_builds\": 12,\n  \"cves\": 10,\n  \"cwe\": {\n    \"CWE-78\": 5,\n    \"CWE-22\": 5\n  },\n  \"files\": 35,\n  \"methods\": 126,\n  \"present_versions\": 187,\n  \"labels\": {\n    \"VULNERABLE\": 44,\n    \"RESOLVED_TARGET\": 14,\n    \"UNCONFIRMED\": 129\n  },\n  \"paired_core_methods\": 23,\n  \"reviewed_snapshots\": 20,\n  \"snapshot_labels\": {\n    \"VULNERABLE\": 14,\n    \"RESOLVED_TARGET\": 5,\n    \"UNCONFIRMED\": 1\n  },\n  \"independent_human_reviews\": 0,\n  \"historical_wsl_builds\": 12,\n  \"wsl_assertions\": 34,\n  \"wsl_upstream_tests\": 131,\n  \"matched_upstream_pass\": 6,\n  \"matched_pilot_pass\": 6,\n  \"matched_cases\": 6,\n  \"expansion\": {\n    \"cves\": 10,\n    \"methods\": 183,\n    \"method_versions\": 222,\n    \"labels\": {\n      \"UNCONFIRMED\": 220,\n      \"VULNERABLE\": 2\n    },\n    \"fully_completed\": 1,\n    \"cwe\": {\n      \"CWE-22\": 5,\n      \"CWE-78\": 5\n    }\n  }\n}\nPASS runs/1d97da924a4e44f5b7b1beb34a14dfc4/run.json\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_catalog_relations_and_counts (test_integrity.IntegrityTests.test_catalog_relations_and_counts) ... ok\ntest_diagnostics_do_not_expose_tokens (test_integrity.IntegrityTests.test_diagnostics_do_not_expose_tokens) ... ok\ntest_duplicate_primary_key_rejected (test_integrity.IntegrityTests.test_duplicate_primary_key_rejected) ... ok\ntest_failure_records_exit_code_and_log (test_integrity.IntegrityTests.test_failure_records_exit_code_and_log) ... RUN runs/e1a249dc5a1e44c5937ffa350dbbf7e1\nFAIL runs/e1a249dc5a1e44c5937ffa350dbbf7e1/run.json\nok\ntest_incomplete_probe_is_harness_error (test_integrity.IntegrityTests.test_incomplete_probe_is_harness_error) ... ok\ntest_security_failure_remains_observation (test_integrity.IntegrityTests.test_security_failure_remains_observation) ... ok\ntest_source_mutation_and_out_of_range_rejected (test_integrity.IntegrityTests.test_source_mutation_and_out_of_range_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.035s\n\nOK\n"
+    },
+    {
+      "command": [
+        "run.py",
+        "list",
+        "--cwe",
+        "CWE-22"
+      ],
+      "exit_code": 0,
+      "output": "RUN runs/cad92759082b4685b932997f56dac46b\nCVE-2018-1002200 CWE-22 Plexus Archiver HISTORICAL_BUILD_AND_BEHAVIOR after=VULNERABLE\nCVE-2018-1002201 CWE-22 ZeroTurnaround zt-zip HISTORICAL_BUILD_AND_BEHAVIOR after=VULNERABLE\nCVE-2018-1002202 CWE-22 zip4j HISTORICAL_BUILD_AND_BEHAVIOR after=VULNERABLE\nCVE-2018-17297 CWE-22 Hutool HISTORICAL_BUILD_AND_BEHAVIOR after=VULNERABLE\nCVE-2021-29425 CWE-22 Apache Commons IO HISTORICAL_BUILD_AND_BEHAVIOR after=RESOLVED_TARGET\nPASS runs/cad92759082b4685b932997f56dac46b/run.json\n"
+    },
+    {
+      "command": [
+        "run.py",
+        "report"
+      ],
+      "exit_code": 0,
+      "output": "RUN runs/438724a11a124f1098dd74c8c33a1d76\n<fresh-checkout>/JavaCVE/runs/438724a11a124f1098dd74c8c33a1d76/report\nPASS runs/438724a11a124f1098dd74c8c33a1d76/run.json\n"
+    },
+    {
+      "command": [
+        "run.py",
+        "split"
+      ],
+      "exit_code": 0,
+      "output": "RUN runs/7ee578cf5f2a452d8f061925eef8ed94\nPASS runs/7ee578cf5f2a452d8f061925eef8ed94/run.json\n"
+    },
+    {
+      "command": [
+        "run.py",
+        "all",
+        "--cve",
+        "CVE-2021-29425"
+      ],
+      "exit_code": 0,
+      "output": "RUN runs/14bf8516cbac4c2d91792fa115429823\nCVE-2021-29425 before PASS \nCVE-2021-29425 after PASS \nPASS runs/14bf8516cbac4c2d91792fa115429823/run.json\n"
+    }
+  ]
+}

@@ -40,6 +40,7 @@ python3 run.py all --cve CVE-2021-29425
 | Mục đích | Lệnh |
 |---|---|
 | Xem dự án/CWE/trạng thái bằng chứng | `python3 run.py list --json` |
+| Xem riêng batch bổ sung | `python3 run.py list --batch data/batch-02` |
 | Tải commit đã khóa của toàn bộ pilot | `python3 run.py fetch` |
 | Build sáu CVE hỗ trợ, kèm kiểm tra API | `python3 run.py build` |
 | Build và chạy kiểm tra bảo mật | `python3 run.py security --cve CVE-2021-29425` |

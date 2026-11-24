@@ -1,0 +1,1292 @@
+[
+  {
+    "sample_id": "CVE-2017-1000487-7076afc2e62d:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-7076afc2e62d:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-7a2ff8dcf167:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-df82ed77975b:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-df82ed77975b:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-d8118ad229cb:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-d8118ad229cb:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-0fd685c24a4f:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-0fd685c24a4f:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-3a7c6beaaa06:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-3a7c6beaaa06:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-f1cadbc3e8ce:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-f1cadbc3e8ce:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-6e3b8edd8f72:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-67a89f0ce4d0:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-0b5d86f7c2c1:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-0b5d86f7c2c1:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-ae1867bf9ac6:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-3ae75c3c3612:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-d8ce1355213d:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-d8ce1355213d:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-a6035d578b0b:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-a6035d578b0b:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-ee5fb795992c:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-ee5fb795992c:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-ca92c5daa149:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-ca92c5daa149:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-fdb7f904f2c8:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-9385e3e3b5a5:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-9385e3e3b5a5:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-3e2df7e96c76:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-3e2df7e96c76:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-b4df85af9f1d:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-b4df85af9f1d:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-9392a4b01d9e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-9392a4b01d9e:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-83970761aea5:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-83970761aea5:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-1a8f0144e7b8:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-1a8f0144e7b8:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-95550ed8a8c2:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2017-1000487-95550ed8a8c2:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Đầu vào không tin cậy ảnh hưởng đến thành phần lệnh; hành vi tùy thuộc shell, hệ điều hành và cách gọi API.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-1002200-5f00f9049f51:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Giải nén tệp nén không tin cậy bằng chức năng bị ảnh hưởng; có quyền ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-1002201-ac22adda9cf3:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Giải nén ZIP không tin cậy qua nhánh tương ứng; mapper không loại bỏ đường dẫn nguy hiểm.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-1002201-dbdbcbea8261:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Giải nén ZIP không tin cậy qua nhánh tương ứng; mapper không loại bỏ đường dẫn nguy hiểm.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-f5db9230be77:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-f47ba4e82a60:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-f47ba4e82a60:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-a0c602e1bfe7:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-a0c602e1bfe7:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-41872c57d34e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-41872c57d34e:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-72c5559395e7:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-72c5559395e7:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-cf6d148a21d7:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-cf6d148a21d7:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-99e42e7035c2:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2018-17297-99e42e7035c2:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng giải nén ZIP do bên không tin cậy cung cấp; tiến trình có quyền ghi tệp tại vị trí đích.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2019-10392-b7390f9d3007:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Kẻ tấn công điều khiển remote URL hoặc cấu hình job; tác động còn phụ thuộc cấu hình Git và quyền Jenkins.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2019-10392-9bb4b83275b5:before",
+    "reason_group": "optional_target_scope_extension",
+    "rule_id": "M04X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Kẻ tấn công điều khiển remote URL hoặc cấu hình job; tác động còn phụ thuộc cấu hình Git và quyền Jenkins.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2019-10392-9bb4b83275b5:after",
+    "reason_group": "optional_target_scope_extension",
+    "rule_id": "M04X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Kẻ tấn công điều khiển remote URL hoặc cấu hình job; tác động còn phụ thuộc cấu hình Git và quyền Jenkins.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2019-10392-531967810bcf:before",
+    "reason_group": "optional_target_scope_extension",
+    "rule_id": "M04X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Kẻ tấn công điều khiển remote URL hoặc cấu hình job; tác động còn phụ thuộc cấu hình Git và quyền Jenkins.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2019-10392-531967810bcf:after",
+    "reason_group": "optional_target_scope_extension",
+    "rule_id": "M04X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Kẻ tấn công điều khiển remote URL hoặc cấu hình job; tác động còn phụ thuộc cấu hình Git và quyền Jenkins.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-18bd15a1dc9f:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-18bd15a1dc9f:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-277a1b30dbd9:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-cde9f4c34b08:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-cde9f4c34b08:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-1c687f8b9246:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-1c687f8b9246:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-c4b702d4458d:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-c4b702d4458d:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-a1b1d62e61ca:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-a1b1d62e61ca:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-41f19e1f841e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2020-2261-41f19e1f841e:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người dùng có Job/Configure; plugin được dùng trong build; cần phân biệt quyền chạy trên controller với quyền chạy trên agent.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-1aba153f2920:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-17fa8e7100f1:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-60dd6ed0ecc8:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-89bf23ce727a:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-9356cc91b87d:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-9356cc91b87d:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-aabf659442bc:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2021-29425-aabf659442bc:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Ứng dụng dùng kết quả normalize để xây dựng hoặc kiểm soát đường dẫn truy cập tệp; chỉ normalize không tự đọc hay ghi tệp.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-528026c27fb6:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M06",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-528026c27fb6:after",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M06",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-747b146ade47:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-f4291c9fe4a9:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-2179a682fbf8:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-255fbe5dc638:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-7f9c0368534e:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-0cf77abf0737:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-1cede8f31dd2:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-f9faa3446591:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-c1eb101e7b70:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-c1eb101e7b70:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-805571d4e318:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-84ab68719521:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-20617-1f6562c9a2fd:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "Người tấn công có Item/Configure hoặc điều khiển nội dung SCM đã cấu hình; cần đường gọi đưa giá trị tới thực thi lệnh.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-20753467a37b:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-34fe3f7ba043:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-89b9c3630083:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-738f1f40c89e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-e12267d8ac5b:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-ed03b47324ea:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-456967d134b9:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-456967d134b9:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-71681590ad48:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-71681590ad48:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-4ed675b29fd1:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-751c1633a952:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-751c1633a952:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-f8d5eba18f04:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-96c70ba6bf7e:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-1e0dae64791e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-bab15eee41c5:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-f863a6af1429:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-edbd0ac48163:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-a0124f0840de:before",
+    "reason_group": "additional_context_needed",
+    "rule_id": "M07X",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-87487a58ae30:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-77cef51b3694:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-1f5a4e17a26a:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-9095b066a35e:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-352cc801c411:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-83a39c40e373:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-37c28814df45:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-37c28814df45:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-c7e0217fc2d2:before",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  },
+  {
+    "sample_id": "CVE-2022-33140-c7e0217fc2d2:after",
+    "reason_group": "not_target_label_candidate",
+    "rule_id": "M00",
+    "requires_context": true,
+    "evidence_needed": "Independent reviewer must assess the callable's data flow, callers and CVE scope before assigning a binary label. Resolve caller reachability, trust boundary and execution preconditions; add a paired behavior fixture if feasible.",
+    "scope": "ShellUserGroupProvider phải được bật, người dùng đã xác thực và có quyền tương ứng; Linux hoặc macOS. Cấu hình mặc định không bật provider này.",
+    "reviewer": "AI",
+    "independent_human_review": false
+  }
+]

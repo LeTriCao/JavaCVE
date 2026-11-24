@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "run_id": "20fda5362b864cac988d7560180ebb00",
+      "field": "snapshots[*].security_status",
+      "issue": "Draft batch-build assigned a preliminary missing-fixture status before executing the new Expand probe and did not update that summary field.",
+      "authoritative_fields": ["snapshots[*].security.status", "snapshots[*].security.process_exit_code", "snapshots[*].security.tests", "snapshots[*].security.controls_pass", "steps[stage=security]"],
+      "interpretation": "Both source-built snapshots successfully executed the recorded fixture. The preliminary summary field is stale. Assertion observations, hashes, logs and original run remain unchanged.",
+      "fix": "Current run_probe sets security_status=EXECUTED after parsing a complete fixture result.",
+      "reviewer": "AI"
+    }
+  ]
+}

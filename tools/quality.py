@@ -17,8 +17,13 @@ def write_json(path, value):
 
 def list_cases(args):
     result = []
-    for c in rows("cases"):
-        status = "HISTORICAL_BUILD_AND_BEHAVIOR" if "wsl" in c["evidence_sets"] else "STATIC_REVIEW_ONLY"
+    if getattr(args,"batch",None):
+        from .batch import batch_cases
+        entries = batch_cases(args.batch)
+    else:
+        entries = rows("cases")
+    for c in entries:
+        status = "BATCH_SOURCE_BUILD_AND_BEHAVIOR" if "batch02_source_build_security" in c["evidence_sets"] else "HISTORICAL_BUILD_AND_BEHAVIOR" if "wsl" in c["evidence_sets"] else "SOURCE_NORMALIZED_UNCONFIRMED" if getattr(args,"batch",None) else "STATIC_REVIEW_ONLY"
         if args.project and args.project.lower() not in c["project"].lower():
             continue
         if args.cwe and args.cwe != c["target_cwe"]:
@@ -99,7 +104,8 @@ def generate_report(args, run):
     observed = [r for _,data in input_runs for r in data.get("snapshots",[])]
     require(len({(r["cve_id"],r["phase"]) for r in observed}) == len(observed), "Reports require disjoint snapshot observations; choose one experiment per snapshot")
     measurements = [data["file_comparison"] for _,data in input_runs if "file_comparison" in data]
-    integrity = [data["source_review"] for _,data in input_runs if "source_review" in data]
+    integrity = [data["source_review"] for _,data in input_runs if "source_review" in data and "checked_cases" not in data["source_review"]]
+    ast_reviews = [dict(run_id=d["run_id"],**d["ast_review"]) for _,d in input_runs if "ast_review" in d]
     behavior = [r for r in observed if r.get("security",{}).get("status") == "EXECUTED"]
     behavior_ids = {r["cve_id"] for r in behavior}
     reproduced = 0
@@ -130,7 +136,7 @@ def generate_report(args, run):
                   measured_stage_seconds=dict(Counter({name:round(sum(s["seconds"] for _,d in input_runs for s in d.get("steps",[]) if s["stage"]==name),6) for name in ("fetch","build","classpath","api","security")})),
                   timing_conditions="Wall-clock subprocess durations; current cache/network and toolchain. No matched timing baseline or measured human annotation time.",
                   manual_interventions="Not comprehensively timed; see docs/EXPERIMENTS.md. No labor saving or model accuracy claim.",
-                  independent_human_reviews=0)
+                  independent_human_reviews=0,ast_reviews=ast_reviews)
     write_json(destination/"metrics.json",result)
     with (destination/"cases.csv").open("w",encoding="utf-8",newline="") as stream:
         writer = csv.writer(stream)
@@ -149,6 +155,8 @@ def generate_report(args, run):
     if result["file_comparison"]:
         f = result["file_comparison"]
         lines += [f"| Tệp Java trước → sau chuẩn hóa | {f['original_java_files']} → {f['normalized_java_files']} | {f['matched_cves']} CVE giữ commit sửa; giảm {f['reduction_percent']}% |", f"| Ánh xạ commit sửa hiệu chỉnh | {f['corrected_fix_mappings']}/{len(f['cases'])} | So SHA gốc với SHA đã chọn |", f"| Cặp chuẩn hóa | {f['normalized_pairs']}/{len(cases)} | Git xác nhận parent được chọn |"]
+    if ast_reviews:
+        lines += [f"| Tên callable và biên AST | {sum(r['matched_versions'] for r in ast_reviews)}/{sum(r['checked_versions'] for r in ast_reviews)} | Các run AST được chỉ định; pilot và batch ghi phạm vi riêng trong JSON |"]
     lines += ["", "Thời gian từng bước (giây): `"+json.dumps(result["measured_stage_seconds"])+"`.", "", "Giới hạn: thời gian mạng/cache không được kiểm soát giữa hai quy trình; chưa đo lao động theo CVE hoặc độ chính xác mô hình. Không suy ra tiết kiệm thời gian hay tăng độ chính xác từ số tệp giảm. RESOLVED_TARGET chỉ áp dụng cho cơ chế và điều kiện trong hồ sơ. UNCONFIRMED cần thêm ngữ cảnh và người đánh giá độc lập.", "", "Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iris-sast/iris/tree/d2059f299a80a68ea4a0b0315eec2f42b8743776).", ""]
     narrative = ["# BÁO CÁO ĐỒ ÁN MÔN ĐẢM BẢO AN TOÀN THÔNG TIN", "", "JavaCVE v0.2.0 — Cải thiện bộ dữ liệu lỗ hổng mã nguồn Java", "", "Ngày cập nhật: 24/11/2026. Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp.", "", "## 1. Mục tiêu và câu hỏi đánh giá", "", "Cải thiện tập con CWE-Bench-Java bằng định danh Git, chuẩn hóa cặp bản vá, nhãn có phạm vi và bằng chứng thực thi. Đánh giá tách bạch tính toàn vẹn mẫu, khả năng build và hành vi bảo mật. Không đánh đồng callable thay đổi với một lỗ hổng độc lập.", "", "## 2. Nguồn và phương pháp", "", "Giữ nguyên revision IRIS và metadata seed; dùng parent đã chỉ định của commit sửa để cô lập thay đổi. Commons IO được hiệu chỉnh khỏi commit chỉ sửa test. Plexus Archiver chọn parent thứ nhất của merge; zip4j dùng lịch sử phục dựng, không coi là SHA gốc của tác giả. Phương thức thêm/xóa chỉ có bản ở phía hiện diện.", "", "## 3. Thiết kế kiểm chứng", "", "Tải commit cố định, xác nhận tree/blob Git, kiểm tra khoảng dòng và SHA256 phương thức. Build source bằng JDK8u514/Maven3.9.9 rồi chạy API và harness bảo mật. Fixture lịch sử giữ nguyên byte. Mỗi lệnh có run ID, thời gian UTC, môi trường, commit công cụ, lệnh, log và exit code. Assertion bảo mật FAIL là quan sát; lỗi harness hoặc đối chứng là lỗi thực nghiệm.", "", "## 4. Kết quả tính lại", ""]
     narrative += lines[2:]

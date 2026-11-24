@@ -27,23 +27,42 @@
     "wsl_upstream_tests": 131,
     "matched_upstream_pass": 6,
     "matched_pilot_pass": 6,
-    "matched_cases": 6
+    "matched_cases": 6,
+    "expansion": {
+      "cves": 10,
+      "methods": 183,
+      "method_versions": 222,
+      "labels": {
+        "UNCONFIRMED": 220,
+        "VULNERABLE": 2
+      },
+      "fully_completed": 1,
+      "cwe": {
+        "CWE-22": 5,
+        "CWE-78": 5
+      }
+    }
   },
   "input_runs": [
     {
       "run_id": "5cd2e8809e084ef1bb9530b2f00f8722",
       "command": "all",
-      "sha256": "3ab6aa32b746dc405481200ef6a93517d3ca0946e780d3a730ca4a69d273a67c"
+      "sha256": "59d5f51359a1b91b91a72ce1f9466c5e4cb65c1efaf8d6e2ee3eb90aad40ef37"
     },
     {
       "run_id": "b6499a16a26c41729ae28ce8f19d701b",
       "command": "measure",
-      "sha256": "9ecfcaf2fed440fe3fa09192fd0b955855cb4fe0a9286b5f7417f4002fb777d2"
+      "sha256": "57bb3f55079eb23bd47ccaf843c6eac9d59ef24a84bdaa5db4bad494d22b0168"
     },
     {
-      "run_id": "7a44f919a319479fb8103d8e6829812e",
+      "run_id": "ed97b42890524847a80085211e91b217",
       "command": "audit",
-      "sha256": "5a3c00563f41c729cdf018f50ff3ca1674b0fee3c4bc794a869732e5aa749ec2"
+      "sha256": "fc3de88bb371d22c078a48adfca44b397766eeea9da9d144f43944355532ba42"
+    },
+    {
+      "run_id": "b33dd5b053464df19b1f31900f82c68f",
+      "command": "audit",
+      "sha256": "6dca3338cd9172d72d534f0453ecd77f7e37a649b1839d26f602a3500e7e2850"
     }
   ],
   "historical": {
@@ -358,5 +377,21 @@
   },
   "timing_conditions": "Wall-clock subprocess durations; current cache/network and toolchain. No matched timing baseline or measured human annotation time.",
   "manual_interventions": "Not comprehensively timed; see docs/EXPERIMENTS.md. No labor saving or model accuracy claim.",
-  "independent_human_reviews": 0
+  "independent_human_reviews": 0,
+  "ast_reviews": [
+    {
+      "run_id": "ed97b42890524847a80085211e91b217",
+      "checked_versions": 187,
+      "matched_versions": 187,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    },
+    {
+      "run_id": "b33dd5b053464df19b1f31900f82c68f",
+      "checked_versions": 222,
+      "matched_versions": 222,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    }
+  ]
 }

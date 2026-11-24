@@ -1,0 +1,501 @@
+{
+  "cases": [
+    {
+      "cve_id": "CVE-2016-9177",
+      "source_normalized": true,
+      "cwe": "CWE-22",
+      "advisory_cwes": [
+        "CWE-22"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2016-9177",
+        "phase": "before",
+        "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+        "start_utc": "2026-11-24T07:16:39.831194+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/2-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:18:10.382322+00:00",
+        "seconds": 90.551182
+      },
+      "after": {
+        "cve_id": "CVE-2016-9177",
+        "phase": "after",
+        "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+        "start_utc": "2026-11-24T07:18:10.417395+00:00",
+        "status": "FAIL",
+        "build_status": "PASS",
+        "artifact_sha256": "5b8280ac9edafda5f1641ef86bfef1f0fe5738d5c04317274def6c060b747e24",
+        "module": ".",
+        "artifact": "artifacts/CVE-2016-9177/after/spark-core-2.5.2-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "error": "upstream-tests: COMMAND_FAILED; see logs/4-upstream-tests.log",
+        "error_category": "COMMAND_FAILED",
+        "exit_code": 1,
+        "end_utc": "2026-11-24T07:19:56.857481+00:00",
+        "seconds": 106.440053
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2018-1000850",
+      "source_normalized": true,
+      "cwe": "CWE-22",
+      "advisory_cwes": [
+        "CWE-22"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2018-1000850",
+        "phase": "before",
+        "commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+        "start_utc": "2026-11-24T07:19:56.865638+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/5-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:21:27.328628+00:00",
+        "seconds": 90.46299
+      },
+      "after": {
+        "cve_id": "CVE-2018-1000850",
+        "phase": "after",
+        "commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+        "start_utc": "2026-11-24T07:21:27.341162+00:00",
+        "status": "FAIL",
+        "error": "build: COMMAND_FAILED; see logs/6-build.log",
+        "error_category": "COMMAND_FAILED",
+        "exit_code": 1,
+        "end_utc": "2026-11-24T07:22:31.389178+00:00",
+        "seconds": 64.048017
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2022-25842",
+      "source_normalized": true,
+      "cwe": "CWE-22",
+      "advisory_cwes": [
+        "CWE-22",
+        "CWE-29"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2022-25842",
+        "phase": "before",
+        "commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+        "start_utc": "2026-11-24T07:22:31.398097+00:00",
+        "status": "FAIL",
+        "error": "build: DEPENDENCY; see logs/7-build.log",
+        "error_category": "DEPENDENCY",
+        "exit_code": 1,
+        "end_utc": "2026-11-24T07:23:31.537621+00:00",
+        "seconds": 60.13951
+      },
+      "after": {
+        "cve_id": "CVE-2022-25842",
+        "phase": "after",
+        "commit": "359603b63fc6c59d8b57e061c171954bab3433bf",
+        "start_utc": "2026-11-24T07:23:31.549957+00:00",
+        "status": "FAIL",
+        "error": "build: DEPENDENCY; see logs/8-build.log",
+        "error_category": "DEPENDENCY",
+        "exit_code": 1,
+        "end_utc": "2026-11-24T07:23:48.098833+00:00",
+        "seconds": 16.548861
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2022-4244",
+      "source_normalized": true,
+      "cwe": "CWE-22",
+      "advisory_cwes": [
+        "CWE-22"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2022-4244",
+        "phase": "before",
+        "commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+        "start_utc": "2026-11-24T07:21:04.445933+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "9bc8d63140bfeb0773ce776ce832a039e0c0b750bbd87a7299faaa83d6fe9c95",
+        "module": ".",
+        "artifact": "artifacts/CVE-2022-4244/before/plexus-utils-3.0.24-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE"
+        },
+        "dependencies": [],
+        "security": {
+          "status": "EXECUTED",
+          "process_exit_code": 0,
+          "fixture_sha256": "d297be9ab38fdb299d1a79d46ba75363f268788c0082af93db73a90da6d9553f",
+          "tests": [
+            {
+              "name": "benign_zip",
+              "role": "control",
+              "observed": "good.txt => accepted; written=true",
+              "pass": true
+            },
+            {
+              "name": "parent_containment",
+              "role": "security",
+              "observed": "../outside.txt => accepted; written=true",
+              "pass": false
+            },
+            {
+              "name": "sibling_prefix_containment",
+              "role": "security",
+              "observed": "../out-sibling.txt => accepted; written=true",
+              "pass": false
+            }
+          ],
+          "controls_pass": true,
+          "all_security_assertions_pass": false
+        },
+        "source_integrity": {
+          "checked_original_files": 343,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:22:17.072432+00:00",
+        "seconds": 72.626485
+      },
+      "after": {
+        "cve_id": "CVE-2022-4244",
+        "phase": "after",
+        "commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+        "start_utc": "2026-11-24T07:22:17.079653+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "c8f4dfa4da4a932323f3db13621670567538a76c19fb2565a52ad68d8fea9db0",
+        "module": ".",
+        "artifact": "artifacts/CVE-2022-4244/after/plexus-utils-3.0.24-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE"
+        },
+        "dependencies": [],
+        "security": {
+          "status": "EXECUTED",
+          "process_exit_code": 0,
+          "fixture_sha256": "d297be9ab38fdb299d1a79d46ba75363f268788c0082af93db73a90da6d9553f",
+          "tests": [
+            {
+              "name": "benign_zip",
+              "role": "control",
+              "observed": "good.txt => accepted; written=true",
+              "pass": true
+            },
+            {
+              "name": "parent_containment",
+              "role": "security",
+              "observed": "../outside.txt => rejected:Exception; written=false",
+              "pass": true
+            },
+            {
+              "name": "sibling_prefix_containment",
+              "role": "security",
+              "observed": "../out-sibling.txt => accepted; written=true",
+              "pass": false
+            }
+          ],
+          "controls_pass": true,
+          "all_security_assertions_pass": false
+        },
+        "source_integrity": {
+          "checked_original_files": 343,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:23:07.203920+00:00",
+        "seconds": 50.124263
+      },
+      "fully_completed": true
+    },
+    {
+      "cve_id": "CVE-2023-37460",
+      "source_normalized": true,
+      "cwe": "CWE-22",
+      "advisory_cwes": [
+        "CWE-22"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2023-37460",
+        "phase": "before",
+        "commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+        "start_utc": "2026-11-24T07:24:32.908997+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/11-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:26:03.322275+00:00",
+        "seconds": 90.413276
+      },
+      "after": {
+        "cve_id": "CVE-2023-37460",
+        "phase": "after",
+        "commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+        "start_utc": "2026-11-24T07:26:03.330127+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/12-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:27:33.869392+00:00",
+        "seconds": 90.539267
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "source_normalized": true,
+      "cwe": "CWE-78",
+      "advisory_cwes": [
+        "CWE-77",
+        "CWE-78"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2013-7285",
+        "phase": "before",
+        "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+        "start_utc": "2026-11-24T07:27:33.884862+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/13-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:29:04.747415+00:00",
+        "seconds": 90.862525
+      },
+      "after": {
+        "cve_id": "CVE-2013-7285",
+        "phase": "after",
+        "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+        "start_utc": "2026-11-24T07:29:04.758590+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "fe6d64cac5f9bf66bdecba95bf952090c7c66697491dff653a68a58932a5c739",
+        "module": "xstream",
+        "artifact": "artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SecurityMapperTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 709,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:30:32.084062+00:00",
+        "seconds": 87.325465
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "source_normalized": true,
+      "cwe": "CWE-78",
+      "advisory_cwes": [
+        "CWE-78"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2020-26217",
+        "phase": "before",
+        "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+        "start_utc": "2026-11-24T07:30:32.091782+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "8d8af2d7faa7d2f146e749424cbab5a531dc2cb2427956e36d34b0edf50b746b",
+        "module": "xstream",
+        "artifact": "artifacts/CVE-2020-26217/before/xstream-1.4.14-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 782,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:32:08.620370+00:00",
+        "seconds": 96.528586
+      },
+      "after": {
+        "cve_id": "CVE-2020-26217",
+        "phase": "after",
+        "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+        "start_utc": "2026-11-24T07:32:08.631054+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "19da0de47f371a83bf360a0e8ff38e21190ac9196c392c61bec196c92b4f0672",
+        "module": "xstream",
+        "artifact": "artifacts/CVE-2020-26217/after/xstream-1.4.14-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 782,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:33:37.516291+00:00",
+        "seconds": 88.885227
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "source_normalized": true,
+      "cwe": "CWE-78",
+      "advisory_cwes": [
+        "CWE-78",
+        "CWE-94"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2021-21345",
+        "phase": "before",
+        "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+        "start_utc": "2026-11-24T07:33:37.525558+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "e5d96230fe8fde15d144400cc8f654a172cecb2b08a4afe04ae3c9e57315edfc",
+        "module": "xstream",
+        "artifact": "artifacts/CVE-2021-21345/before/xstream-1.4.16-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 789,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:35:06.193640+00:00",
+        "seconds": 88.668076
+      },
+      "after": {
+        "cve_id": "CVE-2021-21345",
+        "phase": "after",
+        "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+        "start_utc": "2026-11-24T07:35:06.203562+00:00",
+        "status": "PASS",
+        "build_status": "PASS",
+        "artifact_sha256": "a43530049425900766b660b8b85c8bb94de1607e08040ff269babf7f6f870caa",
+        "module": "xstream",
+        "artifact": "artifacts/CVE-2021-21345/after/xstream-1.4.16-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SecurityVulnerabilityTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 800,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T07:36:29.452584+00:00",
+        "seconds": 83.24902
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2022-25174",
+      "source_normalized": true,
+      "cwe": "CWE-78",
+      "advisory_cwes": [
+        "CWE-78"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2022-25174",
+        "phase": "before",
+        "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+        "start_utc": "2026-11-24T07:36:29.460287+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/24-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:37:59.893975+00:00",
+        "seconds": 90.43368
+      },
+      "after": {
+        "cve_id": "CVE-2022-25174",
+        "phase": "after",
+        "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+        "start_utc": "2026-11-24T07:37:59.905148+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/25-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:39:30.415555+00:00",
+        "seconds": 90.510387
+      },
+      "fully_completed": false
+    },
+    {
+      "cve_id": "CVE-2022-25175",
+      "source_normalized": true,
+      "cwe": "CWE-78",
+      "advisory_cwes": [
+        "CWE-78"
+      ],
+      "cwe_alignment": "MATCH",
+      "before": {
+        "cve_id": "CVE-2022-25175",
+        "phase": "before",
+        "commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+        "start_utc": "2026-11-24T07:39:30.423213+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/26-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:41:00.914590+00:00",
+        "seconds": 90.491374
+      },
+      "after": {
+        "cve_id": "CVE-2022-25175",
+        "phase": "after",
+        "commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+        "start_utc": "2026-11-24T07:41:00.923642+00:00",
+        "status": "FAIL",
+        "error": "build: TIMEOUT; see logs/27-build.log",
+        "error_category": "TIMEOUT",
+        "exit_code": 124,
+        "end_utc": "2026-11-24T07:42:31.470247+00:00",
+        "seconds": 90.546606
+      },
+      "fully_completed": false
+    }
+  ],
+  "source_built_snapshots": 8,
+  "selected_snapshots": 20,
+  "scope": "Attempted historical snapshots; build and upstream-test outcomes separated; use fully_completed only with scoped review and paired security fixture."
+}

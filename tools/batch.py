@@ -182,6 +182,7 @@ def prepare(args, run):
                    cases=statuses,completion_definition="Verified source, normalized/extracted methods, scoped semantic review, successful builds and reviewed paired security behavior evidence; UNCONFIRMED is never a safe negative.")
     write_json(destination/"summary.json",summary)
     run.report["batch"] = summary
+    require(all(s["status"]=="SOURCE_NORMALIZED_LABELS_UNCONFIRMED" for s in statuses),"Expansion contains blocked profiles; summary and completed records retained")
     return destination
 
 

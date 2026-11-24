@@ -1,0 +1,253 @@
+{
+  "run_id": "ed97b42890524847a80085211e91b217",
+  "release": "0.2.0",
+  "command": "audit",
+  "start_utc": "2026-11-24T07:54:51.618272+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "audit .cache/measurement-repos --git-repos --ast",
+  "project_commit": "b09707eaa587e352252a888e5a926d9b92470d6b",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [],
+  "snapshots": [],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6,
+    "expansion": {
+      "cves": 10,
+      "methods": 183,
+      "method_versions": 222,
+      "labels": {
+        "UNCONFIRMED": 220,
+        "VULNERABLE": 2
+      },
+      "fully_completed": 1,
+      "cwe": {
+        "CWE-22": 5,
+        "CWE-78": 5
+      }
+    }
+  },
+  "source_review": {
+    "checked_file_versions": 66,
+    "absent_git_states_checked": 4,
+    "checked_method_versions": 187,
+    "exported_versions": 0,
+    "included_tests": false
+  },
+  "ast_review": {
+    "checked_versions": 187,
+    "matched_versions": 187,
+    "failures": [],
+    "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+  },
+  "quality": {
+    "reviewer": "AI",
+    "independent_human_reviews": 0,
+    "identity_checks": {
+      "checked_file_versions": 66,
+      "absent_git_states_checked": 4,
+      "checked_method_versions": 187,
+      "exported_versions": 0,
+      "included_tests": false
+    },
+    "semantic_review": "Inherited scoped decisions re-examined for linkage and uncertainty; identities do not establish semantic correctness.",
+    "unknown_versions": 129,
+    "unknown_reasons": {
+      "not_target_label_candidate": 117,
+      "optional_target_scope_extension": 4,
+      "additional_context_needed": 8
+    },
+    "distinct_token_hashes": 165,
+    "duplicate_token_groups": [
+      {
+        "token_hash": "f9ca5153965e3ad3ef328f051eb222ef7a8bef9f167f2bf52b408755c5ba65fb",
+        "samples": [
+          "CVE-2017-1000487-0fd685c24a4f:before",
+          "CVE-2017-1000487-0fd685c24a4f:after"
+        ]
+      },
+      {
+        "token_hash": "348088f5dbaf37bee1fd6f2a2c16c03350f40887e85fe403319eda83d539eb2d",
+        "samples": [
+          "CVE-2018-17297-cf6d148a21d7:before",
+          "CVE-2018-17297-cf6d148a21d7:after"
+        ]
+      },
+      {
+        "token_hash": "e5ef828b2b881cdaf91597547ddb1a9bab1e340d2107dd327801c59017707ec5",
+        "samples": [
+          "CVE-2018-17297-99e42e7035c2:before",
+          "CVE-2018-17297-99e42e7035c2:after"
+        ]
+      },
+      {
+        "token_hash": "6271ee89c503de29b79c8ed940a8501ac5c9d0f890f8eb81e79ebc08b7be21f5",
+        "samples": [
+          "CVE-2022-33140-065433ee58ef:before",
+          "CVE-2022-33140-cb864cb543ea:before"
+        ]
+      },
+      {
+        "token_hash": "92b6c651e14228863de582e5a3f3acd2cccc0854a76faef30a56f5c8141abb2f",
+        "samples": [
+          "CVE-2022-33140-ccd9fc0b48a3:before",
+          "CVE-2022-33140-3258ed73f30b:before"
+        ]
+      },
+      {
+        "token_hash": "f65a269c26fe375ee508fddce61237424ba05676c23a0d9d1930eb805c656cae",
+        "samples": [
+          "CVE-2022-33140-46b60396bb37:before",
+          "CVE-2022-33140-6a0af57dc034:before",
+          "CVE-2022-33140-50f68489b1bb:before",
+          "CVE-2022-33140-ea019dc827ec:before"
+        ]
+      },
+      {
+        "token_hash": "ddb16f970b1a5218fc7a486556113130070f8d5a67481f5b36c533b68f225dd9",
+        "samples": [
+          "CVE-2022-33140-352161fc0433:before",
+          "CVE-2022-33140-93ca48c70a67:before"
+        ]
+      },
+      {
+        "token_hash": "913a27be723c112bba179024bfc90ea1a97216e014bf9ed5f0a8becbd9314020",
+        "samples": [
+          "CVE-2022-33140-68335b9bcccb:before",
+          "CVE-2022-33140-be9b9ea647f2:before"
+        ]
+      },
+      {
+        "token_hash": "16bb66a41cb646dc34618e16ce435021d1b8b9fec2d8195ecb8c0a335189a97d",
+        "samples": [
+          "CVE-2022-33140-20753467a37b:before",
+          "CVE-2022-33140-96c70ba6bf7e:before"
+        ]
+      },
+      {
+        "token_hash": "d07b642d7144124e822a466dc34f17f1f975c255c15f3e6c13ac7b0094202ddb",
+        "samples": [
+          "CVE-2022-33140-34fe3f7ba043:before",
+          "CVE-2022-33140-edbd0ac48163:before"
+        ]
+      },
+      {
+        "token_hash": "d52f21f71659e14e7a9636b59fb027cff8bea22c0473534e35f598e66e4e6207",
+        "samples": [
+          "CVE-2022-33140-89b9c3630083:before",
+          "CVE-2022-33140-a0124f0840de:before"
+        ]
+      },
+      {
+        "token_hash": "386c51ce24a7c33e204c2d1956b13962f5976dfb47bb76029f1a5dd0bbd6f7ea",
+        "samples": [
+          "CVE-2022-33140-738f1f40c89e:before",
+          "CVE-2022-33140-1f5a4e17a26a:before"
+        ]
+      },
+      {
+        "token_hash": "0164910d7bed68f63c874912ff3c24f303206bda09b93fe07f92971459cf6b9a",
+        "samples": [
+          "CVE-2022-33140-e12267d8ac5b:before",
+          "CVE-2022-33140-9095b066a35e:before"
+        ]
+      },
+      {
+        "token_hash": "180af2605f9b43b5d093f6c6caa35984a165f5c7dab3bf381c2d6d6e4b68b198",
+        "samples": [
+          "CVE-2022-33140-ed03b47324ea:before",
+          "CVE-2022-33140-352cc801c411:before"
+        ]
+      },
+      {
+        "token_hash": "84b17639fda273531c4403104795e2066225117debe4640759258c61994143b7",
+        "samples": [
+          "CVE-2022-33140-07394102c1c1:before",
+          "CVE-2022-33140-7fb28d09492f:before"
+        ]
+      },
+      {
+        "token_hash": "10bd5add252af3ac7fc9d630f08a1fadf98842916c41dc4cc9bb2eb34f69debb",
+        "samples": [
+          "CVE-2022-33140-07394102c1c1:after",
+          "CVE-2022-33140-7fb28d09492f:after"
+        ]
+      },
+      {
+        "token_hash": "ea7503b6523c12304ebf30d5a1adf2ca6f577673dc554d51881763e4b417aad6",
+        "samples": [
+          "CVE-2022-33140-71681590ad48:before",
+          "CVE-2022-33140-c7e0217fc2d2:before"
+        ]
+      },
+      {
+        "token_hash": "c04567d8a0d89e4d05e7b359aecbd80c814c5b30b7260f0055ea46080dea0659",
+        "samples": [
+          "CVE-2022-33140-71681590ad48:after",
+          "CVE-2022-33140-c7e0217fc2d2:after"
+        ]
+      },
+      {
+        "token_hash": "bef0f4a475ce7e6f3543c261e0819efe9899661fb91b05aa9ecd36e5bbe38f6f",
+        "samples": [
+          "CVE-2022-33140-f497eaa39f4e:before",
+          "CVE-2022-33140-93ee9aa58324:before"
+        ]
+      },
+      {
+        "token_hash": "6c75219537878beb2d96b8acd42e9fbdd0a7417b6982bd3095c7f1d8cbc29f73",
+        "samples": [
+          "CVE-2022-33140-4ed675b29fd1:before",
+          "CVE-2022-33140-83a39c40e373:before"
+        ]
+      }
+    ],
+    "independent_review_required": [
+      "All non-UNCONFIRMED method labels",
+      "Advisory scope and exploit preconditions",
+      "Docker Commons caller chain",
+      "NiFi optional provider and cross-module reachability",
+      "Reconstructed zip4j source/license provenance"
+    ]
+  },
+  "end_utc": "2026-11-24T07:55:01.036578+00:00",
+  "seconds": 10.356066,
+  "public_receipt": true,
+  "original_run_sha256": "a2655e742723b24087b454531d1c43734c75a204d032b00bc9dd526452e9ce53",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

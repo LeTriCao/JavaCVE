@@ -31,6 +31,7 @@ def parser():
     for flag in ("project", "cwe", "status"):
         listing.add_argument("--"+flag)
     listing.add_argument("--json", action="store_true")
+    listing.add_argument("--batch",type=Path,help="List expansion batch separately from the pilot")
     for name in ("fetch", "build", "security", "all", "investigate", "measure"):
         c = cmds.add_parser(name, help={"fetch":"Download locked source commits", "build":"Build paired snapshots and ordinary API checks", "security":"Build and run existing security probes", "all":"Build, API checks and security probes", "investigate":"Attempt the four Jenkins/NiFi build profiles", "measure":"Recompute seed-to-fix versus parent-to-fix Java file counts"}[name])
         c.add_argument("--cve", action="append")
@@ -49,6 +50,7 @@ def parser():
         c.add_argument("--export", type=Path)
         c.add_argument("--include-tests", action="store_true")
         c.add_argument("--batch",type=Path,help="Verify/export separately normalized expansion batch")
+        c.add_argument("--ast",action="store_true",help="Also reparse callable names and node boundaries (optional parser required)")
     archive = cmds.add_parser("audit-wsl", help="Validate historical results.zip without executing its content")
     archive.add_argument("archive", type=Path)
     comp = cmds.add_parser("compare", help="Matched-seed build experiment using original IRIS scripts")
@@ -122,6 +124,11 @@ def main():
                 run.report["source_review"] = verify_batch(args.batch,base,destination,args.include_tests)
             else:
                 run.report["source_review"] = verify_sources(base,destination,is_git,args.include_tests)
+            if args.ast:
+                require(is_git,"AST audit requires --git-repos or managed Git cache")
+                from tools.ast_audit import audit
+                run.report["ast_review"] = audit(base,args.batch)
+                require(not run.report["ast_review"]["failures"],"AST callable boundary/name mismatch; see ast_review")
             if args.action == "audit" and not args.batch:
                 from tools.quality import quality_review
                 run.report["quality"] = quality_review(run)

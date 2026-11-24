@@ -72,6 +72,8 @@ python run.py expand
 python run.py batch-build data/batch-02 --cve CVE-2022-4244
 ```
 
+Sau khi có parser, `python3 run.py audit .cache/repos --git-repos --ast` đối chiếu thêm tên callable và chính xác biên AST. Với batch mới, dùng `.cache/batch02-repos --git-repos --batch data/batch-02 --ast`. Đã xác minh 187/187 pilot và222/222 batch02 bằng bước này; chưa phân giải kiểu JVM hoặc xác minh ngữ nghĩa caller.
+
 Nếu môi trường không có pip, `python3 tools/bootstrap_parser.py` tải wheel Linux x86_64 vào `.cache/parser`, xác nhận SHA256 với metadata PyPI của phiên bản đã khóa. Không đổi Python hệ thống.
 
 ```bash

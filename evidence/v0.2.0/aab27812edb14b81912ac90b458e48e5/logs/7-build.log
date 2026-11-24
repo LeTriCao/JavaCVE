@@ -1,0 +1,11 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< org.jenkins-ci.plugins:docker-commons >----------------
+[INFO] Building Docker Commons Plugin 1.18-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.14:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.14:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.14:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.14:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.14:hpi (default-hpi)'
