@@ -28,6 +28,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python run.py all --cve CVE-2021-29425
+      - run: python run.py batch-build data/batch-02 --cve CVE-2016-9177 --cve CVE-2013-7285 --timeout 600
       - uses: actions/upload-artifact@v4
         if: always()
         with:

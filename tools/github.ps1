@@ -16,6 +16,11 @@ if ($Action -eq 'Status') {
  $repository | Select-Object full_name,html_url,private,default_branch
  $workflowRuns=Invoke-RestMethod -Uri ($api+'/actions/runs?per_page=6') -Headers $headers
  $workflowRuns.workflow_runs | Select-Object id,head_sha,status,conclusion,html_url | Format-Table -AutoSize
+ foreach ($workflow in ($workflowRuns.workflow_runs | Select-Object -First 2)) {
+  Write-Output ('Jobs for workflow '+$workflow.id+' event='+$workflow.event)
+  $jobs=Invoke-RestMethod -Uri ($api+'/actions/runs/'+$workflow.id+'/jobs') -Headers $headers
+  $jobs.jobs | Select-Object name,status,conclusion,html_url | Format-Table -AutoSize
+ }
 } elseif ($Action -eq 'Dispatch') {
  Invoke-RestMethod -Method Post -Uri ($api+'/actions/workflows/verify.yml/dispatches') -Headers $headers -ContentType 'application/json' -Body '{"ref":"main"}' | Out-Null
  Write-Output 'Requested verify.yml including source security check on main.'

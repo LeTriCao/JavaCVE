@@ -4,6 +4,16 @@ from .observations import require
 
 def parse_probe(kind, output):
     tests = []
+    if kind in {"spark-local", "xstream-local"}:
+        for line in output.splitlines():
+            if not line.startswith("ASSERT|"):
+                continue
+            parts = line.split("|")
+            require(len(parts) == 4 and parts[1] in {"control", "security"} and parts[3] in {"true", "false"}, "Malformed local assertion")
+            tests.append(dict(name=parts[2],role=parts[1],observed=parts[3],**{"pass":parts[3]=="true"}))
+        require(len(tests) == (4 if kind == "spark-local" else 2), "Incomplete local probe")
+        require(len({t["name"] for t in tests}) == len(tests), "Duplicate local assertion")
+        return tests
     if kind == "commons-io":
         lines = [line for line in output.splitlines() if " => " in line]
         require(len(lines) == 3, "Expected exactly three normalization observations")

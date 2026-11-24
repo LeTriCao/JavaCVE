@@ -11,3 +11,9 @@ XStream before package đạt, bước upstream test thoát 1 vì Surefire báo 
 Thời gian, exit code, commit, công cụ, override, mã băm JAR và kiểm tra source nằm trong hai receipt ở evidence/v0.2.0. build-recovery.json liên kết kết quả mới và giả thuyết. Số snapshot Batch02 build đạt tăng từ 8/20 lên 10/20. Số hồ sơ hoàn tất thực nghiệm giữ 1/10, nhãn của hai hồ sơ đang xử lý giữ UNCONFIRMED.
 
 Lượt này hoàn tất phạm vi build. Công việc còn thiếu gồm fixture trước–sau có đối chứng, kiểm tra ngữ cảnh advisory, rà soát nhãn và xác minh lệnh fixture từ clone mới.
+
+## Ghi chính xác bằng chứng CI
+
+Workflow chạy khi push commit 627abe2 có job offline đạt và source-security bị skipped. Điều kiện `github.event_name == 'workflow_dispatch'` chỉ bật source-security cho lượt kích hoạt thủ công. Trạng thái Success của lượt push xác nhận các job đã chạy đạt. Bằng chứng bảo mật cần đọc kết quả job source-security của một lượt workflow_dispatch cụ thể.
+
+Người dùng có thể mở Actions → Verify JavaCVE → Run workflow trên main. Công cụ bảo trì `powershell -NoProfile -File tools/github.ps1 -Action Dispatch` thực hiện cùng thao tác. Source-security hiện chạy Commons IO và hai cặp Spark/XStream. Lệnh Status in cả kết luận từng job để ghi nhận chính xác trạng thái skipped.

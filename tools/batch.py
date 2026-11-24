@@ -192,6 +192,10 @@ def batch_cases(folder,cves=None):
     for case in cases:
         if case["cve_id"] == "CVE-2016-9177":
             case["build_profile"] = {"isolated_java_tmpdir": True}
+            case["check"] = "spark-local"
+        if case["cve_id"] == "CVE-2013-7285":
+            case["check"] = "xstream-local"
+            case["upstream_tests"] = ["AliasTest"]
         if case["cve_id"] == "CVE-2022-4244":
             case["check"] = "plexus-expand"
         prefix = "" if case["build_module"] == "." else case["build_module"].rstrip("/")+"/"

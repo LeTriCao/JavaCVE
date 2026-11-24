@@ -95,14 +95,15 @@ def primary_jar(work):
 
 def run_probe(case, record, artifact, dependencies, tools, env, run, tmp):
     expand = case["check"] == "plexus-expand"
-    fixture = ROOT / ("fixtures/ExpandProbe.java" if expand else "fixtures/RegressionProbe.java")
+    local = {"spark-local":"SparkLocalProbe", "xstream-local":"XStreamLocalProbe"}.get(case["check"])
+    fixture = ROOT / ("fixtures/"+local+".java" if local else "fixtures/ExpandProbe.java" if expand else "fixtures/RegressionProbe.java")
     classes = tmp / "probe"
     classes.mkdir()
     owner = (case["cve_id"], record["phase"], record["commit"])
-    run.execute("probe-compile", [tools["jdk"]/"bin/javac", "-encoding", "UTF-8", "-d", classes, fixture], env=env, owner=owner)
     cp = os.pathsep.join(map(str, [classes, artifact, *dependencies]))
+    run.execute("probe-compile", [tools["jdk"]/"bin/javac", "-encoding", "UTF-8", "-cp", cp, "-d", classes, fixture], env=env, owner=owner)
     probe_env = dict(env, PILOT_ONLY_MARKER="LITERAL_EXPANSION_SENTINEL")
-    output = run.execute("security", [tools["jdk"]/"bin/java", "-cp", cp, "ExpandProbe" if expand else "RegressionProbe", case["check"]], env=probe_env, timeout=45, owner=owner)
+    output = run.execute("security", [tools["jdk"]/"bin/java", "-cp", cp, local or ("ExpandProbe" if expand else "RegressionProbe"), case["check"]], env=probe_env, timeout=45, owner=owner)
     tests = parse_probe("zip4j" if expand else case["check"], output)
     record["security"] = dict(status="EXECUTED", process_exit_code=0, fixture_sha256=digest(fixture), tests=tests,
                                controls_pass=all(t["pass"] for t in tests if t["role"] == "control"),
@@ -196,18 +197,26 @@ def pipeline(cases, args, run, experimental=False):
                                 selected_tests = case.get("upstream_tests",[])
                                 record["security_status"] = "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE"
                                 if selected_tests:
-                                    run.execute("upstream-tests",mvn+profile.get("flags",[])+["-Dtest="+",".join(selected_tests),"-DfailIfNoTests=true","-Dcheckstyle.skip=true","-Drat.skip=true","test"],cwd=build_cwd,env=snapshot_env,timeout=args.timeout,owner=owner)
+                                    try:
+                                        run.execute("upstream-tests",mvn+profile.get("flags",[])+["-Dtest="+",".join(selected_tests),"-DfailIfNoTests=true","-Dcheckstyle.skip=true","-Drat.skip=true","test"],cwd=build_cwd,env=snapshot_env,timeout=args.timeout,owner=owner)
+                                    except StepError as exc:
+                                        log = run.directory / run.report["steps"][-1]["log"]
+                                        no_tests = bool(re.search(r"No tests were executed|There are no tests to run|No tests matching", log.read_text(encoding="utf-8")))
+                                        record["upstream_tests"] = dict(status="NO_TESTS_FOUND" if no_tests else "FAIL",selected_classes=selected_tests,exit_code=exc.code)
+                                        if no_tests:
+                                            exc.category = "NO_TESTS_FOUND"
+                                        raise
                                     record["upstream_tests"] = dict(status="PASS",selected_classes=selected_tests,scope="Changed upstream classes; not a validated external paired security fixture")
                                 else:
-                                    record["upstream_tests"] = dict(status="BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE")
-                            if case["check"] and case["check"] != "plexus-expand":
+                                    record["upstream_tests"] = dict(status="NO_TESTS_FOUND",selected_classes=[])
+                            if case["check"] and case["check"] not in {"plexus-expand", "spark-local", "xstream-local"}:
                                 classes = tmp / "api"
                                 classes.mkdir()
                                 run.execute("api-compile", [tools["jdk"]/"bin/javac", "-cp", artifact, "-d", classes, ROOT/"smoke"/case["check"]/"ApiCheck.java"], env=env, owner=owner)
                                 output = run.execute("api", [tools["jdk"]/"bin/java", "-cp", os.pathsep.join(map(str,[classes,artifact])), "ApiCheck"], env=env, owner=owner)
                                 require(output.splitlines()[-1:] == ["PASS"], "API check missing PASS")
                                 record["api_check"] = "PASS"
-                            if run.report["command"] in ("security", "all") or case["check"] == "plexus-expand":
+                            if run.report["command"] in ("security", "all") or case["check"] in {"plexus-expand", "spark-local", "xstream-local"}:
                                 cp_file = tmp / "classpath.txt"
                                 run.execute("classpath", mvn+["org.apache.maven.plugins:maven-dependency-plugin:3.6.1:build-classpath", "-DincludeScope=runtime", "-Dmdep.outputFile="+str(cp_file)], cwd=source/module, env=env, owner=owner)
                                 dependencies = [Path(p) for p in cp_file.read_text().strip().split(os.pathsep) if p]
@@ -216,7 +225,7 @@ def pipeline(cases, args, run, experimental=False):
                                     cache_arg = next(x for x in mvn if str(x).startswith("-Dmaven.repo.local="))
                                     dependencies.append(Path(str(cache_arg).split("=",1)[1])/"org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar")
                                 record["dependencies"] = [dict(path=str(p),sha256=digest(p)) for p in dependencies]
-                        if run.report["command"] in ("security", "all") or case["check"] == "plexus-expand":
+                        if run.report["command"] in ("security", "all") or case["check"] in {"plexus-expand", "spark-local", "xstream-local"}:
                             run_probe(case, record, artifact, dependencies, tools, env, run, tmp)
                         if experimental:
                             record["security_status"] = "BLOCKED_NO_INTEGRATION_FIXTURE"
