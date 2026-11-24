@@ -7,7 +7,7 @@ from unittest.mock import patch
 from tools.catalog import ROOT, rows
 from tools.catalog import verify_expansion
 from tools.security import parse_probe
-from tools.review_xstream_followup import SUMMARY
+from tools.review_xstream_followup import SUMMARY, read_diagnostic_replay
 
 
 class ReleaseTests(unittest.TestCase):
@@ -124,7 +124,7 @@ class ReleaseTests(unittest.TestCase):
                     verify_expansion()
 
     def test_diagnosis_preserves_uncertainty_and_dependency_inventory(self):
-        diagnosis=json.loads((ROOT/"data/batch-02/xstream-diagnosis.json").read_text())
+        diagnosis=json.loads((ROOT/"data/batch-02/xstream-diagnosis.json").read_text())["previous_assessment"]
         receipt=json.loads((ROOT/diagnosis["source_receipt"]).read_text())
         self.assertEqual(hashlib.sha256((ROOT/diagnosis["source_receipt"]).read_bytes()).hexdigest(),diagnosis["source_receipt_sha256"])
         pair=[r for r in receipt["snapshots"] if r["cve_id"]=="CVE-2013-7285"]
@@ -139,6 +139,38 @@ class ReleaseTests(unittest.TestCase):
             self.assertIn("OBSERVED_EXCEPTION=com.thoughtworks.xstream.converters.ConversionException",text)
             self.assertNotIn("Caused by:",text)
         self.assertTrue(all(s["identical"] and s["before_sha256"]==s["after_sha256"] for s in diagnosis["unchanged_sources"]))
+
+    def test_new_diagnosis_matches_both_jvm_logs_and_source_builds(self):
+        diagnosis = json.loads((ROOT/"data/batch-02/xstream-diagnosis.json").read_text(encoding="utf-8"))
+        self.assertEqual(diagnosis, read_diagnostic_replay(diagnosis["previous_assessment"]))
+        self.assertEqual(diagnosis["security_label"], "UNCONFIRMED")
+        self.assertEqual(diagnosis["exception_phase"], "PROXY_FROM_XML")
+        for obs in diagnosis["observations"]:
+            self.assertEqual((obs["classpath_entries"], obs["nested_causes"], obs["callbacks"]), (17, 0, 0))
+            self.assertFalse(obs["proxy_ready"] or obs["callback_attempted"])
+        review = json.loads((ROOT/"data/batch-02/completion-review.json").read_text(encoding="utf-8"))
+        case = next(c for c in review["cases"] if c["cve_id"] == diagnosis["cve_id"])
+        missing = [c for c in case["criteria"] if c["status"] == "NOT_MET"]
+        self.assertEqual([c["id"] for c in missing], ["paired_security_behavior"])
+        self.assertTrue({o["log"] for o in diagnosis["observations"]} <= set(missing[0]["evidence"]))
+
+    def test_build_priority_coverage_and_surefire_counts(self):
+        status = json.loads((ROOT/"data/batch-02/build-status.json").read_text(encoding="utf-8"))
+        self.assertEqual((status["source_built_cases"], status["source_built_snapshots"]), (6, 12))
+        for case in status["cases"]:
+            self.assertEqual(case["priority"] is None, case["fully_completed"])
+            for totals in case["upstream_totals"].values():
+                text = (ROOT/totals["log"]).read_text(encoding="utf-8")
+                self.assertEqual(tuple(map(int, SUMMARY.findall(text)[-1])),
+                                 tuple(totals[k] for k in ("tests", "failures", "errors", "skipped")))
+                self.assertEqual(totals["executed"], totals["tests"] - totals["skipped"])
+        plexus = next(c for c in status["cases"] if c["cve_id"] == "CVE-2023-37460")
+        for phase, count in (("before", 27), ("after", 28)):
+            t = plexus["upstream_totals"][phase]
+            self.assertEqual((t["executed"], t["skipped"], t["failures"], t["errors"]), (count, 1, 0, 0))
+            self.assertEqual(plexus[phase]["source_integrity"]["changed_files"], [])
+            self.assertEqual(plexus[phase]["security_status"], "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE")
+        self.assertFalse(plexus["fully_completed"])
 
     def test_public_receipts_are_redacted(self):
         for path in (ROOT/"evidence/v0.2.0").rglob("*"):

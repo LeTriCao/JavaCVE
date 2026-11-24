@@ -1,19 +1,27 @@
-# Batch02: mở rộng có kiểm soát
+# Batch02
 
-Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ sơ seed CWE-78. Metadata/advisory đã đối chiếu và nguồn khóa theo commit/parent. 10/10 chuẩn hóa, 222 phiên bản callable. Hiện 2/10 hồ sơ hoàn tất theo định nghĩa trong completion.json; 213 UNCONFIRMED, 5 VULNERABLE, 4 RESOLVED_TARGET. Người rà soát: AI; 0 đánh giá độc lập.
+**6/10 hồ sơ build được cả hai snapshot** (12/20 snapshot). **2/10 hồ sơ hoàn tất thực nghiệm** theo tiêu chí hiện hành. Đã chuẩn hóa 10 hồ sơ, gồm 222 phiên bản callable.
 
-| CVE | Build trước / sau | Kết quả khác hoặc phần thiếu |
-|---|---|---|
-| CVE-2016-9177 | PASS / PASS | Hoàn tất trong phạm vi external static files: control PASS/PASS; hai URI mã hóa đọc marker ngoài trước, trả 404 sau. Nhãn consumer/guard phụ thuộc ngữ cảnh gọi; classpath/JAR/helper còn UNCONFIRMED. |
-| CVE-2018-1000850 | FAIL / FAIL | Dependency Kotlin dùng version range kéo plugin 2.5.0-RC không phù hợp JDK8; cần pin dependency có nguồn gốc và đo lại. Không sửa source để che lỗi. |
-| CVE-2022-25842 | FAIL / FAIL | Thiếu bytekit-instrument-api/core0.0.8-SNAPSHOT; cần nguồn artifact lịch sử hoặc tái build dependency có revision xác minh. |
-| CVE-2022-4244 | PASS / PASS | Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo. |
-| CVE-2023-37460 | FAIL / FAIL | Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè. |
-| CVE-2013-7285 | PASS / PASS | Chưa hoàn tất: control PASS/PASS, 27 AliasTest mỗi bản đạt; fixture báo ConversionException và 0 callback cả hai. Thiếu nguyên nhân exception, callback trước và bằng chứng xử lý đúng cơ chế sau; snapshot và 68 callable giữ UNCONFIRMED. |
-| CVE-2020-26217 | PASS / PASS | Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 7→9 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED. |
-| CVE-2021-21345 | PASS / PASS | Chưa hoàn tất: build PASS/PASS; SecurityVulnerabilityTest 11→13 test đạt nhưng nội dung khác. Thiếu control chung và hành vi paired đúng advisory; mọi snapshot/callable giữ UNCONFIRMED. |
-| CVE-2022-25174 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent. |
-| CVE-2022-25175 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần fixture tích hợp tương ứng advisory. |
+Nhãn theo dữ liệu hiện tại gồm 213 UNCONFIRMED, 5 VULNERABLE, 4 RESOLVED_TARGET. Người rà soát là **AI**. Có 0 người đánh giá độc lập.
+
+## Ưu tiên các hồ sơ còn lại
+
+Ưu tiên 1 dành cho hồ sơ vừa có bằng chứng mới, 2 cho hồ sơ đã build còn thiếu đối chứng, 3 cho trở ngại cấu hình hoặc thời gian build, 4 cho dependency lịch sử chưa xác minh được. Nhấn vào trạng thái trước hoặc sau để đọc log package đúng commit.
+
+| CVE | Ưu tiên | Build trước / sau | Kết quả đọc log | Công việc còn thiếu |
+|---|---:|---|---|---|
+| CVE-2013-7285 | 1 | [PASS](../evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/12-build.log) / [PASS](../evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/17-build.log) | Hai bản build được và đạt 27 AliasTest mỗi bản. Lượt chẩn đoán dừng trong fromXML khi tìm converter ở cả hai bản. | Chưa quan sát được hành vi của caller ở cả hai snapshot. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED. |
+| CVE-2023-37460 | 1 | [PASS](../evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/2-build.log) / [PASS](../evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/4-build.log) | Cả hai lượt cũ hết hạn. Lượt mới package thành công và chạy hai lớp test upstream ở mỗi bản. | Đối chiếu phạm vi các test upstream với advisory và từng callable. Còn thiếu đối chứng và quan sát hành vi chung. |
+| CVE-2020-26217 | 2 | [PASS](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log) / [PASS](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log) | Build đạt. Lớp test upstream có 7 test trước và 9 test sau. | Thiếu đối chứng và bằng chứng hành vi theo advisory dưới cùng điều kiện gọi. |
+| CVE-2021-21345 | 2 | [PASS](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log) / [PASS](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log) | Build đạt. Lớp test upstream có 11 test trước và 13 test sau trong bản vá liên quan nhiều CVE. | Thiếu đối chứng chung và bằng chứng phân biệt hành vi của riêng advisory này. |
+| CVE-2018-1000850 | 3 | [TIMEOUT](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/5-build.log) / [COMMAND_FAILED](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/6-build.log) | Before hết 90 giây ở kotlin:2.5.0-RC:compile. After báo compiler từ chối JDK 8. | Đối chiếu phiên bản plugin và JDK với POM hoặc CI ở commit đã ghim. |
+| CVE-2022-25174 | 3 | [TIMEOUT](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/24-build.log) / [TIMEOUT](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/25-build.log) | Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jzlib:1.1.3-kohsuke-1 trước và maven-dependency-tree:3.0.1 sau. | Xác minh repository ID và thời gian phân giải dependency trên cả hai bản. |
+| CVE-2022-25175 | 3 | [TIMEOUT](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/26-build.log) / [TIMEOUT](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/27-build.log) | Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jsch:0.1.55.2 trước và jenkins-stapler-support:1.1 sau. | Xác minh repository ID và thời gian phân giải dependency trên cả hai bản. |
+| CVE-2022-25842 | 4 | [DEPENDENCY](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/7-build.log) / [DEPENDENCY](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/8-build.log) | Maven báo thiếu bytekit-instrument-api và bytekit-core 0.0.8-SNAPSHOT ở cả hai bản trong các kho đã hỏi. | Cần artifact hoặc revision lịch sử có thể kiểm tra nguồn gốc cho cả hai dependency. |
+| CVE-2016-9177 | Đã hoàn tất | [PASS](../evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/2-build.log) / [PASS](../evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/7-build.log) | Hai bản build đạt. Đã xác nhận thay đổi trên đường gọi external static files được đo. | Hoàn tất theo phạm vi external. Các đường gọi classpath và JAR còn UNCONFIRMED. |
+| CVE-2022-4244 | Đã hoàn tất | [PASS](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/2-build.log) / [PASS](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/6-build.log) | Hai bản build đạt. Kiểm tra parent traversal chuyển từ FAIL sang PASS. Trường hợp sibling-prefix vẫn FAIL cả hai bản. | Hoàn tất trong phạm vi các trường hợp đã đo. |
+
+Mỗi bản Plexus Archiver bỏ qua một test upstream. Bảng can thiệp ghi số test thực chạy, số bỏ qua, thời gian, cấu hình Maven và SHA của hai JAR. [Lượt khôi phục Plexus](BUILD_RECOVERY.md#plexus-archiver-cve-2023-37460) · [Chẩn đoán XStream](XSTREAM_DIAGNOSIS.md).
 
 ## Phân loại và giới hạn
 

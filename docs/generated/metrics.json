@@ -38,6 +38,8 @@
         "RESOLVED_TARGET": 4
       },
       "fully_completed": 2,
+      "source_built_cases": 6,
+      "source_built_snapshots": 12,
       "cwe": {
         "CWE-22": 5,
         "CWE-78": 5

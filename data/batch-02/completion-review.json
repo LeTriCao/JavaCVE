@@ -1,14 +1,15 @@
 {
-  "review_basis_commit": "8fefbe9",
-  "review_utc": "2026-11-24T09:51:19.155679+00:00",
+  "review_basis_commit": "0280b7d",
+  "review_utc": "2026-11-24T14:06:21.082936+00:00",
   "reviewer": "AI",
   "independent_human_reviews": 0,
   "policy": "Source identity, extraction, scoped AI method review, paired source builds, controls and paired security behavior; independent human review is separately pending.",
-  "evidence_policy": "Existing receipts only; no new security fixture or payload execution in this review.",
+  "evidence_policy": "AI review of published receipts, source identity and diagnostic logs.",
   "receipt_sha256": {
     "4063ba008c3644f5ad4d015ccd4cbcc4": "baa4ee990d9401a9f06027f85403f340cc09b1588a24701034a16c46e3defd6c",
     "2dc3374df54a4ed5b04e2894f1cb59f6": "8536154b2046ea4af84caf19fa39b669c31e4250fa4146c3da75c48d976196dd",
-    "2b54f962ab544cb789aaf746c087715e": "fe1354e5db10f1786ee885a3206225736df6ceda9ce79015b83c5055c34e8f1e"
+    "2b54f962ab544cb789aaf746c087715e": "fe1354e5db10f1786ee885a3206225736df6ceda9ce79015b83c5055c34e8f1e",
+    "a4e197b267ca44baa4896be94b9f65b5": "3f01ab2c9a3e0359575d4c81b5ddec44b52a3db139eb9f4ec8b2de1772c8d423"
   },
   "cases": [
     {
@@ -177,7 +178,7 @@
       "fully_completed": false,
       "reviewer": "AI",
       "independent_human_review": false,
-      "scope": "Pinned XStream snapshots, DomDriver, default XStream configuration, untrusted XML requesting a Runnable dynamic proxy with java.beans.EventHandler and a harmless Marker.touch target; the caller would invoke run() only after successful unmarshalling. Both logs show ConversionException and zero callbacks. No root cause or successful proxy construction is recorded. This does not establish advisory callback execution or its prevention by the patch.",
+      "scope": "Both pinned XStream artifacts, DomDriver, default configuration and identical input. Both ordinary controls passed. Converter lookup failed during fromXML on each snapshot, before a proxy was returned or a callback attempted. Security behavior remains UNCONFIRMED.",
       "behavior_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
       "source_run_id": "2dc3374df54a4ed5b04e2894f1cb59f6",
       "patch_sha256": "ae9d57fa466a8ad361fb310c73e394f64da4d9005624721fa5d6dad23a6bda71",
@@ -298,18 +299,23 @@
           "criterion": "Reviewed paired security behavior",
           "status": "NOT_MET",
           "required": true,
-          "reason": "Assertion PASS/PASS means only that an XStreamException occurred and callbacks stayed zero. ConversionException cause is absent; this is not evidence of advisory mitigation. A bounded fixture must first demonstrate successful proxy construction and a harmless callback on before, record the exception cause and conversion stage, then evaluate the same input/oracle on after with any security configuration stated explicitly and ordinary controls passing. The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone do not prove default rejection. Map the result to the actual caller and affected callable. No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair.",
+          "reason": "Converter lookup failed during fromXML on both snapshots. Each legacy assertion passed before the caller action was attempted. Missing paired observations of the advisory behavior under a common input, control and caller policy on these commits, with evidence linking that behavior to the indexed callable.",
           "evidence": [
             "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
             "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
-            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log"
+            "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log",
+            "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/run.json",
+            "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/2-diagnostic.log",
+            "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/4-diagnostic.log"
           ]
         }
       ],
       "missing_required_evidence": [
-        "A bounded fixture must first demonstrate successful proxy construction and a harmless callback on before, record the exception cause and conversion stage, then evaluate the same input/oracle on after with any security configuration stated explicitly and ordinary controls passing. The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone do not prove default rejection. Map the result to the actual caller and affected callable. No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair."
+        "Missing paired observations of the advisory behavior under a common input, control and caller policy on these commits, with evidence linking that behavior to the indexed callable."
       ],
-      "independent_human_review_status": "PENDING; separately tracked, not a completion gate in the current definition"
+      "independent_human_review_status": "PENDING; separately tracked, not a completion gate in the current definition",
+      "diagnostic_run_id": "a4e197b267ca44baa4896be94b9f65b5",
+      "status_summary": "Đối chứng chuỗi đạt cả hai bản. Cả hai dừng khi tìm converter trong fromXML, trước khi caller có thể gọi callback. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED."
     },
     {
       "cve_id": "CVE-2020-26217",
@@ -586,7 +592,8 @@
   ],
   "reviewed_callable_versions": 151,
   "reviewed_snapshot_count": 8,
-  "previous_review_utc": "2026-11-24T09:39:30+00:00",
-  "previous_review_basis_commit": "a7e6abd",
-  "xstream_followup_review_utc": "2026-11-24T09:51:19.155679+00:00"
+  "previous_review_utc": "2026-11-24T09:51:19.155679+00:00",
+  "previous_review_basis_commit": "8fefbe9",
+  "xstream_followup_review_utc": "2026-11-24T09:51:19.155679+00:00",
+  "diagnostic_review_utc": "2026-11-24T14:06:21.082936+00:00"
 }

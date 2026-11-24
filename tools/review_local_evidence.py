@@ -19,6 +19,7 @@ from tools.security import parse_probe
 from tools.runtime import utc
 
 BEHAVIOR = "4063ba008c3644f5ad4d015ccd4cbcc4"
+DIAGNOSTIC = "a4e197b267ca44baa4896be94b9f65b5"
 SOURCE = "2dc3374df54a4ed5b04e2894f1cb59f6"
 TARGETS = ("CVE-2016-9177", "CVE-2013-7285")
 SPARK_SCOPE = (
@@ -29,19 +30,13 @@ SPARK_SCOPE = (
     "Classpath/JAR resources, symlinks and sibling names sharing the public prefix are unmeasured."
 )
 XSTREAM_SCOPE = (
-    "Pinned XStream snapshots, DomDriver, default XStream configuration, untrusted XML "
-    "requesting a Runnable dynamic proxy with java.beans.EventHandler and a harmless Marker.touch target; "
-    "the caller would invoke run() only after successful unmarshalling. Both logs show "
-    "ConversionException and zero callbacks. No root cause or successful proxy construction is recorded. "
-    "This does not establish advisory callback execution or its prevention by the patch."
+    "Both pinned XStream artifacts, DomDriver, default configuration and identical input. "
+    "Both ordinary controls passed. Converter lookup failed during fromXML on each snapshot, "
+    "before a proxy was returned or a callback attempted. Security behavior remains UNCONFIRMED."
 )
 XSTREAM_MISSING = (
-    "A bounded fixture must first demonstrate successful proxy construction and a harmless callback "
-    "on before, record the exception cause and conversion stage, then evaluate the same input/oracle "
-    "on after with any security configuration stated explicitly and ordinary controls passing. "
-    "The pinned patch's setupSecurity adds AnyTypePermission.ANY; new permission APIs alone "
-    "do not prove default rejection. Map the result to the actual caller and affected callable. "
-    "No shell execution is needed. Version 1.4.10, JSON and other gadget chains are outside this pair."
+    "Missing paired observations of the advisory behavior under a common input, control and "
+    "caller policy on these commits, with evidence linking that behavior to the indexed callable."
 )
 
 
@@ -102,7 +97,7 @@ def method_decision(v):
         return "UNCONFIRMED", "TEST_OUTSIDE_TARGET", "Test/setup code is evidence support, not an advisory vulnerability sample.", "No promotion of test code to a security label."
     if v["cve_id"] == TARGETS[1]:
         if sig.startswith(("XStream#", "SecurityMapper#", "CachingMapper#")):
-            reason = "Mapper/permission behavior depends on caller configuration; the existing fixture cannot distinguish mitigation from conversion failure. setupSecurity defaults to AnyTypePermission.ANY."
+            reason = "Mapper and permission behavior depends on the caller policy. The observed conversion failure precedes the caller action on both snapshots."
         else:
             reason = "Permission/helper API or policy predicate requires an installed mapper and a caller policy; no paired advisory behavior is established for this callable."
         return "UNCONFIRMED", "XSTREAM_CALLER_BEHAVIOR_MISSING", reason, XSTREAM_MISSING
@@ -122,7 +117,7 @@ def method_decision(v):
     return "UNCONFIRMED", "SUPPORTING_CALLABLE_CONTEXT", "Configuration, accessor, exception or string helper has no standalone advisory security decision; the end-to-end result belongs to its configured caller chain.", "Callable-specific data flow and behavior before assigning a standalone security label."
 
 
-def apply(folder, repos):
+def apply(folder, repos, targets=TARGETS):
     behavior_path, behavior = receipt(BEHAVIOR)
     source_path, source = receipt(SOURCE)
     require(behavior["status"] == source["status"] == "PASS", "Unfinished evidence")
@@ -130,15 +125,21 @@ def apply(folder, repos):
     versions, cases = rows(folder, "versions"), rows(folder, "cases")
     require(source["ast_review"]["matched_versions"] == len(versions), "AST coverage differs")
     previous_review = folder / "completion-review.json"
-    review_time = read(previous_review)["review_utc"] if previous_review.exists() else utc()
     previous = read(previous_review) if previous_review.exists() else {}
-    assessments = [a for a in previous.get("cases", []) if a["cve_id"] not in TARGETS]
+    review_time = previous.get("review_utc") or utc()
+    assessments = []
     snapshot_path = folder / "snapshot-reviews.jsonl"
-    snapshots = [r for r in rows(folder, "snapshot-reviews") if r["cve_id"] not in TARGETS] if snapshot_path.exists() else []
+    previous_snapshots = rows(folder, "snapshot-reviews") if snapshot_path.exists() else []
+    snapshots = []
+    replay_path, replay = receipt(DIAGNOSTIC)
+    replay_logs = [(replay_path.parent / s["log"]).relative_to(ROOT).as_posix() for s in replay["steps"] if s["stage"] == "diagnostic"]
+    require(replay["diagnostic_of"] == BEHAVIOR and replay["previous_receipt_sha256"] == behavior["original_run_sha256"] and
+            replay["status"] == "PASS" and len(replay_logs) == 2, "Unlinked diagnostic receipt")
+    diagnostic_time = previous.get("diagnostic_review_utc") or utc()
     decisions = []
     for case in cases:
         cve = case["cve_id"]
-        if cve not in TARGETS:
+        if cve not in targets:
             continue
         pair, logs = check_pair(case, behavior, behavior_path)
         repo = repos / cve
@@ -149,6 +150,7 @@ def apply(folder, repos):
             require(git("rev-parse", case[phase + "_commit"] + "^{tree}").decode().strip() == case[phase + "_tree"], "Tree differs")
         patch = git("diff", "--no-ext-diff", case["before_commit"], case["after_commit"], "--", "src/main" if cve == TARGETS[0] else "xstream/src/java")
         spark = cve == TARGETS[0]
+        stamp = next((r["review_utc"] for r in previous_snapshots if r["cve_id"] == cve), review_time) if spark else diagnostic_time
         scope = SPARK_SCOPE if spark else XSTREAM_SCOPE
         if spark:
             for phase, expected in (("before", [False, False, True]), ("after", [True, True, True])):
@@ -166,7 +168,7 @@ def apply(folder, repos):
             ("scoped_ai_method_review", "Scoped AI method review", True, "Every indexed callable version in this CVE has an AI decision, caller scope and missing-evidence reason; UNCONFIRMED is retained where needed."),
             ("paired_source_builds", "Paired source builds", True, "Both pinned source builds PASS; JAR hashes, commands, exit codes and original-source integrity are in the receipt."),
             ("ordinary_controls", "Ordinary controls", True, "Same fixture bytes and oracle in both snapshots; ordinary_static_file PASS/PASS." if spark else "Same fixture bytes and oracle in both snapshots; string_roundtrip PASS/PASS. AliasTest: 27 tests per snapshot, zero failures/errors/skips; functional evidence only."),
-            ("paired_security_behavior", "Reviewed paired security behavior", spark, "Two encoded traversal cases return the outside marker before and 404 after; literal /../ returns 400 on both and does not demonstrate a regression." if spark else "Assertion PASS/PASS means only that an XStreamException occurred and callbacks stayed zero. ConversionException cause is absent; this is not evidence of advisory mitigation. " + XSTREAM_MISSING),
+            ("paired_security_behavior", "Reviewed paired security behavior", spark, "Two encoded traversal cases return the outside marker before and 404 after; literal /../ returns 400 on both and does not demonstrate a regression." if spark else "Converter lookup failed during fromXML on both snapshots. Each legacy assertion passed before the caller action was attempted. " + XSTREAM_MISSING),
         ]
         assessment = dict(cve_id=cve, fully_completed=all(c[2] for c in criteria), reviewer="AI", independent_human_review=False,
                           scope=scope, behavior_run_id=BEHAVIOR, source_run_id=SOURCE,
@@ -182,14 +184,19 @@ def apply(folder, repos):
                                          [behavior_path.relative_to(ROOT).as_posix()] + [logs[p]["path"] for p in ("before", "after")]) for i, n, ok, why in criteria],
                           missing_required_evidence=[] if spark else [XSTREAM_MISSING],
                           independent_human_review_status="PENDING; separately tracked, not a completion gate in the current definition")
+        if not spark:
+            assessment["diagnostic_run_id"] = DIAGNOSTIC
+            assessment["criteria"][-1]["evidence"] += [replay_path.relative_to(ROOT).as_posix(), *replay_logs]
+            assessment["status_summary"] = "Đối chứng chuỗi đạt cả hai bản. Cả hai dừng khi tìm converter trong fromXML, trước khi caller có thể gọi callback. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED."
         assessments.append(assessment)
+        diagnostic_ref = {} if spark else {"diagnostic_run_id": DIAGNOSTIC}
         for r in pair:
             label = ("VULNERABLE" if r["phase"] == "before" else "RESOLVED_TARGET") if spark else "UNCONFIRMED"
             snapshots.append(dict(cve_id=cve, phase=r["phase"], commit=r["commit"], decision=label, reviewer="AI",
-                                  independent_human_review=False, review_utc=review_time, scope=scope,
-                                  evidence_run_id=BEHAVIOR, reason=criteria[-1][3]))
+                                  independent_human_review=False, review_utc=stamp, scope=scope,
+                                  evidence_run_id=BEHAVIOR, reason=criteria[-1][3], **diagnostic_ref))
             case[r["phase"] + "_label"] = label
-        case.update(label_scope=scope, check="spark-local" if spark else "xstream-local", evidence_run_id=BEHAVIOR,
+        case.update(label_scope=scope, check="spark-local" if spark else "xstream-local", evidence_run_id=BEHAVIOR, **diagnostic_ref,
                     evidence_sets=["batch02_source_build_security"] if spark else ["batch02_source_build", "batch02_fixture_inconclusive"])
         for v in versions:
             if v["cve_id"] != cve:
@@ -197,39 +204,49 @@ def apply(folder, repos):
             label, group, reason, needed = method_decision(v)
             v.update(label=label, rule_id=group, unknown_reason_group=group if label == "UNCONFIRMED" else None,
                      label_scope=scope + " " + reason, evidence_needed=needed, evidence_run_id=BEHAVIOR,
-                     caller_context_required=True)
+                     caller_context_required=True, **diagnostic_ref)
             decisions.append(dict(sample_id=v["sample_id"], cve_id=cve, phase=v["phase"], commit=v["commit"],
                                   previous_label="UNCONFIRMED", decision=label, reviewer="AI", independent_human_review=False,
-                                  review_utc=review_time, scope=v["label_scope"], reason=reason, evidence_needed=needed,
+                                  review_utc=stamp, scope=v["label_scope"], reason=reason, evidence_needed=needed, **diagnostic_ref,
                                   caller_context_required=True, evidence_run_id=BEHAVIOR, source_run_id=SOURCE,
                                   fixture_sha256=assessment["fixture_sha256"], source_lines=[v["start_line"], v["end_line"]]))
     completion = read(folder / "completion.json")
-    completed = [c for c in completion["completed_cves"] if c not in TARGETS]
+    completed = [c for c in completion["completed_cves"] if c not in targets]
     completed += [a["cve_id"] for a in assessments if a["fully_completed"]]
     completion.update(fully_completed=len(completed), completed_cves=completed,
                       labels=dict(Counter(v["label"] for v in versions)),
                       evidence_runs={**completion.get("evidence_runs", {}), **{a["cve_id"]: a["behavior_run_id"] for a in assessments if a["fully_completed"]}},
                       assessment_path="data/batch-02/completion-review.json")
-    old = [r for r in rows(folder, "reviews") if r.get("cve_id") not in TARGETS and not any(r["sample_id"].startswith(c) for c in TARGETS)]
-    review = dict(previous, review_basis_commit=previous.get("review_basis_commit", "a7e6abd"), review_utc=review_time, reviewer="AI", independent_human_reviews=0,
-                  policy=completion["definition"], evidence_policy="Existing receipts only; no new security fixture or payload execution in this review.",
+    def merge(existing, updated, fields):
+        return list({tuple(row[name] for name in fields): row for row in [*existing, *updated]}.values())
+    assessments = merge(previous.get("cases", []), assessments, ["cve_id"])
+    decisions = merge(rows(folder, "reviews"), decisions, ["sample_id"])
+    snapshots = merge(previous_snapshots, snapshots, ["cve_id", "phase"])
+    assessed = {a["cve_id"] for a in assessments}
+    review = dict(previous, reviewer="AI", independent_human_reviews=0, policy=completion["definition"],
+                  evidence_policy="AI review of published receipts, source identity and diagnostic logs.",
                   receipt_sha256={**previous.get("receipt_sha256", {}), BEHAVIOR: sha(behavior_path), SOURCE: sha(source_path)}, cases=assessments,
-                  reviewed_callable_versions=sum(r.get("cve_id") in {a["cve_id"] for a in assessments} for r in old + decisions), reviewed_snapshot_count=len(snapshots))
+                  reviewed_callable_versions=sum(r.get("cve_id") in assessed for r in decisions), reviewed_snapshot_count=len(snapshots))
+    if TARGETS[1] in targets:
+        review.update(review_basis_commit="0280b7d", review_utc=diagnostic_time, diagnostic_review_utc=diagnostic_time)
+        if "xstream_followup_review_utc" in previous:
+            review.update(previous_review_basis_commit="8fefbe9", previous_review_utc=previous["xstream_followup_review_utc"])
+        review["receipt_sha256"][DIAGNOSTIC] = sha(replay_path)
     write_rows(folder, "versions", versions)
     write_rows(folder, "cases", cases)
-    write_rows(folder, "reviews", old + decisions)
+    write_rows(folder, "reviews", decisions)
     write_rows(folder, "snapshot-reviews", snapshots)
     write_json(folder / "completion-review.json", review)
     write_json(folder / "completion.json", completion)
     generate_docs(review, versions)
-    print(f"Reviewed {len(decisions)} callable versions and {len(snapshots)} snapshots; completion {len(completed)}/{len(cases)}")
+    print(f"Batch reviews: {len(decisions)} callable versions, {len(snapshots)} snapshots, {len(completed)}/{len(cases)} complete")
 
 
 def generate_docs(review, versions):
-    lines = ["# Rà soát tiêu chí Batch02: Spark và XStream", "", "Người rà soát: **AI**; 0 người đánh giá độc lập. Đối chiếu định nghĩa hiện hành trong [completion.json](../data/batch-02/completion.json); quyết định có cấu trúc ở [completion-review.json](../data/batch-02/completion-review.json). Dùng receipt có sẵn và kiểm tra toàn vẹn nguồn; không chạy fixture bảo mật mới. Lượt tiếp từ 8fefbe9 bổ sung CVE-2020-26217/CVE-2021-21345; giữ quyết định Spark/XStream cũ.", "",
+    lines = ["# Rà soát tiêu chí Batch02 cho Spark và XStream", "", "**AI** rà soát bốn hồ sơ theo tiêu chí của đợt. Số người đánh giá độc lập là 0. [Định nghĩa hoàn tất](../data/batch-02/completion.json) · [Quyết định và bằng chứng](../data/batch-02/completion-review.json).", "",
              "| CVE | Điều kiện áp dụng | Before / after | Phạm vi đã chứng minh | Còn thiếu |", "|---|---|---|---|---|",
              "| CVE-2016-9177 | HTTP vào externalStaticFileLocation; process đọc được marker ngoài public, trong cây tạm do fixture quản lý | Control PASS/PASS; hai URI mã hóa: 200 + marker → 404; literal /../: 400/400 | Đọc file ngoài external root trước, chặn hai đầu vào đó sau; **hoàn tất theo phạm vi** | Classpath/JAR, symlink, tên sibling cùng prefix chưa đo; đánh giá độc lập còn chờ |",
-             "| CVE-2013-7285 | XML không tin cậy → dynamic proxy/EventHandler; cần unmarshal thành công rồi caller gọi method; policy phải ghi rõ | Control PASS/PASS; ConversionException, 0 callback cả hai; assertion PASS/PASS | JAR build được; 27 AliasTest mỗi bản đạt; phép thử hiện tại không chạy được callback | Nguyên nhân exception và giai đoạn lỗi; callback vô hại trên before; cùng input/oracle sau với policy rõ ràng; ánh xạ callable. **Chưa hoàn tất** |"]
+             "| CVE-2013-7285 | Caller cần nhận được proxy sau khi đọc XML | Đối chứng đạt ở cả hai bản. Cả hai dừng ở bước tìm converter trong fromXML | 27 AliasTest đạt mỗi bản. Log ghi 0 lần gọi callback | Chưa quan sát được hành vi theo advisory và chưa quy được hành vi cho callable. **Chưa hoàn tất** |"]
     for a in review["cases"]:
         if "overview_row" in a:
             lines.append(a["overview_row"])
@@ -243,8 +260,8 @@ def generate_docs(review, versions):
         lines += ["", "Phạm vi nhãn: " + a["scope"], ""]
         if "upstream_scope_notes" in a:
             lines += ["Giới hạn upstream test: " + a["upstream_scope_notes"], ""]
-    lines += ["## Diễn giải và giới hạn", "", "Chẩn đoán ConversionException và đối chiếu dependency: [XSTREAM_DIAGNOSIS.md](XSTREAM_DIAGNOSIS.md). Nguyên nhân gốc vẫn chưa xác định từ log cũ; không chuyển giả thuyết thành kết luận đã đo.", "", "Bản vá Spark thêm guard ở ExternalResourceHandler.getResource và bắt DirectoryTraversalDetection ở StaticFilesConfiguration.consume. consumeWithFileResourceHandlers chỉ đổi khoảng trắng; nhãn của callable này phụ thuộc handler và caller, không phải thuộc tính an toàn độc lập. Guard external mới cũng chỉ được xác nhận cùng cấu hình StaticFilesFolder.external. Các callable classpath/JAR, cấu hình và helper không đủ bằng chứng riêng vẫn UNCONFIRMED.", "",
-              "XStreamLocalProbe coi mọi XStreamException kèm 0 callback là assertion đạt. Log chỉ ghi tên ConversionException, không ghi message/cause hay giai đoạn; do đó không thể xác định lỗi do type policy, dựng object hay mapper. Bản vá được ghim thêm SecurityMapper và setupSecurity với AnyTypePermission.ANY. Không suy ra cấu hình mặc định đã từ chối EventHandler. 68 phiên bản callable XStream và hai snapshot giữ UNCONFIRMED; việc rà soát xong một tiêu chí không làm cả hồ sơ hoàn tất.", "",
+    lines += ["## Diễn giải và giới hạn", "", "Bản vá Spark thêm guard ở ExternalResourceHandler.getResource và bắt DirectoryTraversalDetection ở StaticFilesConfiguration.consume. consumeWithFileResourceHandlers chỉ đổi khoảng trắng; nhãn của callable này phụ thuộc handler và caller, không phải thuộc tính an toàn độc lập. Guard external mới cũng chỉ được xác nhận cùng cấu hình StaticFilesFolder.external. Các callable classpath/JAR, cấu hình và helper không đủ bằng chứng riêng vẫn UNCONFIRMED.", "",
+              "Ở XStream 2013, assertion cũ đạt khi có XStreamException và số callback bằng 0. Log mới ghi lỗi tìm converter trước khi fromXML trả về ở cả hai bản. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED vì chưa quan sát được hành vi cần phân biệt. [Đối chiếu exception, cấu hình và classpath](XSTREAM_DIAGNOSIS.md).", "",
               "Advisory chính thức mô tả cần caller gọi method trên proxy sau unmarshalling: [XStream CVE-2013-7285](https://x-stream.github.io/CVE-2013-7285.html). Nguồn Spark: [issue #700](https://github.com/perwendel/spark/issues/700). Bản vá, advisory JSON lưu trong repo và hành vi được đối chiếu cho đúng cặp commit; không mở rộng sang XStream 1.4.10 hay mọi đầu vào/formats.", "",
               "Upstream tests là bằng chứng chức năng hỗ trợ, không phải điều kiện thay thế paired security behavior. Đánh giá độc lập còn chờ được theo dõi riêng theo định nghĩa hiện hành. Receipt CI success ghi trong BUILD_RECOVERY.md chỉ xác nhận lệnh/job chạy đạt, không tự chứng minh fixture phân biệt được lỗi. Trạng thái Batch02 hiện là **2/10**, không phải 3/10.", "",
               "Danh sách đầy đủ từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md); [quyết định snapshot](../data/batch-02/snapshot-reviews.jsonl); [quyết định callable](../data/batch-02/reviews.jsonl). Intake summary.json giữ nguyên trạng thái lúc nhập; completion.json là trạng thái sau rà soát.", ""]
@@ -264,6 +281,7 @@ def generate_docs(review, versions):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("folder", type=Path)
+    parser.add_argument("--cve", action="append", choices=TARGETS)
     parser.add_argument("--repos", type=Path, default=ROOT / ".cache/batch02-repos")
     args = parser.parse_args()
-    apply(args.folder, args.repos)
+    apply(args.folder, args.repos, args.cve or TARGETS)

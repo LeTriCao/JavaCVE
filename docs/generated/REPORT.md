@@ -52,9 +52,11 @@ Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iri
 | Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 2 |
 | Nhãn sau rà soát | {"UNCONFIRMED": 213, "VULNERABLE": 5, "RESOLVED_TARGET": 4} |
 | Người đánh giá độc lập | 0 |
+| Hồ sơ build được cả hai bản | 6/10 |
+| Snapshot build được từ source | 12/20 |
 | Quyết định AI cấp callable / snapshot ghi riêng | 153 / 8 |
 
-CVE-2020-26217 và CVE-2021-21345 vẫn UNCONFIRMED: test upstream 7→9 và 11→13 đạt, nhưng thiếu control chung và hành vi paired đúng advisory. Chẩn đoán CVE-2013-7285 ghi 15 dependency giống nhau; log thiếu message/cause/stack nên chưa xác định nguyên nhân gốc. Bảng từng tiêu chí ở docs/BATCH02_REVIEW.md; chẩn đoán ở docs/XSTREAM_DIAGNOSIS.md.
+Plexus Archiver đã build thành công ở cả hai commit. Mỗi bản bỏ qua một test upstream. XStream 2013 dừng ở bước tra cứu converter trong fromXML trước khi caller nhận được proxy ở cả hai bản. XStream 2020 và 2021 còn thiếu đối chứng chung cùng quan sát hành vi thuộc từng advisory. [Bảng ưu tiên Batch02](../BATCH02.md) · [Chẩn đoán XStream](../XSTREAM_DIAGNOSIS.md).
 
 ## 6. Chất lượng và giới hạn
 

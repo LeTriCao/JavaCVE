@@ -12,8 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.catalog import ROOT
 from tools.observations import require
 from tools.quality import write_json
-from tools.review_local_evidence import read, rows, write_rows, sha, receipt, generate_docs
+from tools.review_local_evidence import DIAGNOSTIC, read, rows, write_rows, sha, receipt, generate_docs
 from tools.runtime import utc
+from tools.security import parse_probe
 
 BATCH = "2b54f962ab544cb789aaf746c087715e"
 LOCAL = "4063ba008c3644f5ad4d015ccd4cbcc4"
@@ -51,6 +52,71 @@ def method_review(v):
     else:
         reason = "Dynamic hierarchy denial depends on loadable runtime classes, configured SecurityMapper and policy order; it is a helper shared by multiple fixes, without callable-specific paired advisory behavior."
     return "XSTREAM_DEFAULT_POLICY_CONTEXT_MISSING", reason, MISSING[v["cve_id"]]
+
+
+def read_diagnostic_replay(prior):
+    path, run = receipt(DIAGNOSTIC)
+    old_path, old = receipt(LOCAL)
+    cve = prior["cve_id"]
+    require(run["status"] == "PASS" and run["diagnostic_of"] == LOCAL and run["input_unchanged"]
+            and run["previous_receipt_sha256"] == old["original_run_sha256"]
+            and sha(old_path) == prior["source_receipt_sha256"]
+            and run["previous_fixture_sha256"] == sha(ROOT / "fixtures/XStreamLocalProbe.java"), "Invalid replay provenance")
+    pair = {r["phase"]: r for r in old["snapshots"] if r["cve_id"] == cve}
+    require(len(run["snapshots"]) == 2 and {r["phase"] for r in run["snapshots"]} == {"before", "after"},
+            "Expected two diagnostic snapshots")
+    observations = []
+    for snap in run["snapshots"]:
+        phase = snap["phase"]
+        source = pair[phase]
+        d = snap["diagnostic"]
+        require(snap["cve_id"] == cve and source["commit"] == snap["commit"]
+                and snap["artifact_sha256"] == source["artifact_sha256"] and snap["dependencies"] == source["dependencies"]
+                and snap["build_status"] == "REUSED_VERIFIED" and not snap["source_built_in_this_run"]
+                and snap["source_build_run_id"] == LOCAL, "Diagnostic artifact or source build differs")
+        require(d["input_sha256"] == run["input_sha256"] and d["fixture_sha256"] == run["fixture_sha256"]
+                and run["previous_fixture_sha256"] == source["security"]["fixture_sha256"]
+                and d["tests"] == source["security"]["tests"], "Diagnostic input or oracle differs")
+        step = stage(run, cve, phase, "diagnostic")
+        require(step["commit"] == snap["commit"], "Diagnostic log owner differs")
+        log = path.parent / step["log"]
+        output = log.read_text(encoding="utf-8")
+        lines = output.splitlines()
+        message = lines[lines.index("EXCEPTION_MESSAGE_BEGIN") + 1:lines.index("EXCEPTION_MESSAGE_END")]
+        stack = lines[lines.index("STACK_TRACE_BEGIN") + 1:lines.index("STACK_TRACE_END")]
+        first_frame = next(line.strip() for line in stack if line.lstrip().startswith("at "))
+        causes = re.findall(r"^CAUSE_\d+_CLASS=(.+)$", output, re.MULTILINE)
+        classpath = d["actual_classpath"].split(":")
+        require(parse_probe("xstream-local", output) == d["tests"] and "JAVA_VERSION=" + d["java_version"] in lines
+                and "REFLECTION_PROVIDER=" + d["reflection_provider"] in lines and "MAPPER=" + d["mapper"] in lines
+                and "DRIVER=com.thoughtworks.xstream.io.xml.DomDriver" in lines, "Recorded controls or JVM configuration differ")
+        require("JAVA_CLASSPATH=" + d["actual_classpath"] in lines and classpath == [
+            f"<workspace>/runs/{DIAGNOSTIC}/probe/{phase}", f"<workspace>/runs/{LOCAL}/{source['artifact']}",
+            *(dep["path"] for dep in source["dependencies"])], "Runtime classpath differs")
+        require(message[0] == "No converter specified for class java.beans.EventHandler"
+                and "DefaultConverterLookup.lookupConverterForType(" in first_frame
+                and causes == d["cause_classes"] == [d["exception_class"]]
+                and "EXCEPTION_STAGE=PROXY_FROM_XML" in lines and d["exception_stage"] == "PROXY_FROM_XML"
+                and "PROXY_READY=false" in lines and not d["proxy_ready"]
+                and "CALLBACK_ATTEMPTED=false" in lines and not d["callback_attempted"]
+                and "OBSERVED_CALLBACKS=0" in lines and d["callbacks"] == 0
+                and "ASSERT|control|string_roundtrip|true" in lines and d["controls_pass"]
+                and "DIAGNOSTIC_OUTCOME=TARGET_NOT_OBSERVED" in lines and d["outcome"] == "TARGET_NOT_OBSERVED"
+                and not d["legacy_oracle_is_security_proof"],
+                "Diagnostic conclusion differs from log")
+        observations.append(dict(phase=phase, commit=snap["commit"], artifact_sha256=snap["artifact_sha256"],
+                                 log=log.relative_to(ROOT).as_posix(), log_sha256=sha(log), message=message[0],
+                                 first_frame=first_frame, exception_class=d["exception_class"], nested_causes=len(causes)-1,
+                                 stage=d["exception_stage"], java_version=d["java_version"], classpath_entries=len(classpath),
+                                 control_passed=d["controls_pass"], proxy_ready=d["proxy_ready"],
+                                 callback_attempted=d["callback_attempted"], callbacks=d["callbacks"], outcome=d["outcome"]))
+    return dict(cve_id=cve, reviewer="AI", independent_human_review=False, review_basis_commit="0280b7d",
+                source_receipt=path.relative_to(ROOT).as_posix(), source_receipt_sha256=sha(path),
+                source_build_receipt=old_path.relative_to(ROOT).as_posix(), root_cause_status="OBSERVED_CONVERTER_LOOKUP_FAILURE",
+                exception_phase="PROXY_FROM_XML", completion_status="BLOCKED_PAIRED_SECURITY_BEHAVIOR",
+                security_label="UNCONFIRMED", input_sha256=run["input_sha256"], observations=observations,
+                missing_evidence="Paired advisory behavior and attribution to the caller or callable.",
+                previous_assessment=prior)
 
 
 def diagnose(folder, repos):
@@ -105,16 +171,18 @@ def diagnose(folder, repos):
                                        "Log full exception message/stack/cause chain and stage markers before/after fromXML and callback.run; record actual reflection provider, selected converter/mapper, driver, JDK and classpath.",
                                        "Run identical diagnostic code/input on both verified source-built artifacts with the same dependencies and ordinary string/object controls. Keep default-policy and any explicit-policy experiments separate.",
                                        "Treat unrelated ConversionException as a harness/diagnostic failure, not successful security rejection. Establish successful construction and a harmless callback on before before evaluating mitigation; no shell/network payload is needed."])
-    write_json(folder / "xstream-diagnosis.json", diagnostic)
-    write_diagnosis_doc(diagnostic)
-    return diagnostic
+    latest = read_diagnostic_replay(diagnostic)
+    write_json(folder / "xstream-diagnosis.json", latest)
+    return latest
 
 
 def apply(folder, repos):
     report = read(folder / "completion-review.json")
     stamp = report.get("xstream_followup_review_utc") or utc()
     report.setdefault("previous_review_utc", report["review_utc"])
-    report.update(previous_review_basis_commit="a7e6abd", review_basis_commit="8fefbe9", review_utc=stamp, xstream_followup_review_utc=stamp)
+    report["xstream_followup_review_utc"] = stamp
+    if "diagnostic_review_utc" not in report:
+        report.update(previous_review_basis_commit="a7e6abd", review_basis_commit="8fefbe9", review_utc=stamp)
     cases, versions = rows(folder, "cases"), rows(folder, "versions")
     receipt_path, run = receipt(BATCH)
     source_path, audit = receipt(SOURCE)
@@ -201,28 +269,18 @@ def apply(folder, repos):
     write_json(folder / "completion.json", completion)
     diagnose(folder, repos)
     generate_docs(report, versions)
-    print("Reviewed 23 new callable versions and 4 snapshots; diagnosed existing logs; completion remains 2/10")
-
-
-def write_diagnosis_doc(d):
-    lines = ["# Chẩn đoán XStream CVE-2013-7285 từ receipt hiện có", "", "Người rà soát: **AI**. Kết luận: **chưa xác định được nguyên nhân gốc của ConversionException từ log cũ**. [Chẩn đoán JSON](../data/batch-02/xstream-diagnosis.json) lưu hash, đối chiếu cấu hình/phụ thuộc và bước thử tiếp theo. Không chạy lại Java hoặc payload trong lượt chẩn đoán này.", "",
-             "| Mục | Kết quả đã xác nhận | Bằng chứng / giới hạn |", "|---|---|---|",
-             "| Exception/callback | ConversionException; 0 callback; control đạt ở cả hai bản | [before log](../"+d["logs"]["before"]["path"]+"), [after log](../"+d["logs"]["after"]["path"]+"). Bản raw cục bộ khớp byte bản công bố; cả hai đều không có message/cause/stack. |",
-             "| Vì sao không truy được root cause | catch chỉ in error.getClass().getName(); try bao cả fromXML và run | [Fixture](../fixtures/XStreamLocalProbe.java). Mất thông tin chẩn đoán; không xác định được giai đoạn lỗi từ cờ rejected. |",
-             "| Fixture và toolchain | Cùng hash fixture; DomDriver; JDK8u514, Maven3.9.9 | [Receipt](../"+d["source_receipt"]+"). Không có override riêng theo phase được ghi nhận; không phải bản dump đầy đủ môi trường JVM. |",
-             "| Dependency | 15/15 đường dẫn, thứ tự và SHA-256 giống nhau; byte cache được kiểm tra lại | Danh sách đầy đủ trong JSON. Không có bằng chứng dependency drift gây lỗi; không chứng minh mọi lớp đã load đúng ở runtime. |",
-             "| Artifact | Hai JAR build từ hai source commit, SHA khác nhau; byte local khớp receipt | Không thay bằng JAR phát hành. Classpath đặt probe → XStream JAR → 15 dependency ở cả hai. |",
-             "| Source cấu hình | Root/module POM, JVM.java, DomDriver, DynamicProxyConverter giống byte | Hash trước/sau trong JSON. Provider thực sự được chọn chưa được log. |",
-             "| Policy | Before không có SecurityMapper; after thêm SecurityMapper với AnyTypePermission.ANY | Fixture không cài allowlist/deny. Không thể coi exception chung là bằng chứng bản vá chặn advisory. |", "",
-             "## Giả thuyết và quyết định bước tiếp", "", "Các giả thuyết về reflection/object construction, mapper/converter/type resolution và proxy/handler chỉ là **chưa xác nhận**. Không có message/cause để chọn một giả thuyết làm nguyên nhân gốc. Giữ UNCONFIRMED ở cả snapshot và callable CVE-2013-7285.", ""]
-    lines += [str(i) + ". " + step for i, step in enumerate(d["next_experiment"], 1)]
-    lines += ["", "Hai CVE XStream mới đã được đối chiếu riêng trong [bảng tiêu chí Batch02](BATCH02_REVIEW.md). Fixture EventHandler của năm 2013 không thay thế được chuỗi ContainsFilter của năm 2020 hoặc PriorityQueue/JAX-WS/JAXB/CORBA của năm 2021.", ""]
-    (ROOT / "docs/XSTREAM_DIAGNOSIS.md").write_text("\n".join(lines), encoding="utf-8")
+    print("Reviewed 23 callable versions and 4 snapshots; diagnostic logs reconciled")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("folder", type=Path)
+    parser.add_argument("--diagnosis-only", action="store_true", help="Review the published diagnostic logs offline")
     parser.add_argument("--repos", type=Path, default=ROOT / ".cache/batch02-repos")
     args = parser.parse_args()
-    apply(args.folder, args.repos)
+    if args.diagnosis_only:
+        target = args.folder / "xstream-diagnosis.json"
+        current = read(target)
+        write_json(target, read_diagnostic_replay(current.get("previous_assessment", current)))
+    else:
+        apply(args.folder, args.repos)

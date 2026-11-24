@@ -1,0 +1,357 @@
+{
+  "run_id": "a4e197b267ca44baa4896be94b9f65b5",
+  "release": "0.2.0",
+  "command": "xstream-diagnose",
+  "start_utc": "2026-11-24T13:48:25.471792+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "",
+  "project_commit": "0280b7d30a09259923ccf8eef7369faf1c3be6b0",
+  "working_tree_dirty": false,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [
+    {
+      "stage": "java-version",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-version"
+      ],
+      "start_utc": "2026-11-24T13:48:25.556265+00:00",
+      "status": "PASS",
+      "log": "logs/0-java-version.log",
+      "end_utc": "2026-11-24T13:48:26.382728+00:00",
+      "seconds": 0.816457,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/before:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "-d",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/before",
+        "<workspace>/fixtures/XStreamLocalProbe.java",
+        "<workspace>/fixtures/XStreamDiagnosticProbe.java"
+      ],
+      "start_utc": "2026-11-24T13:48:27.252594+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "log": "logs/1-probe-compile.log",
+      "end_utc": "2026-11-24T13:48:31.934561+00:00",
+      "seconds": 4.671559,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "diagnostic",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/before:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "XStreamDiagnosticProbe"
+      ],
+      "start_utc": "2026-11-24T13:48:31.944744+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "log": "logs/2-diagnostic.log",
+      "end_utc": "2026-11-24T13:48:34.166393+00:00",
+      "seconds": 2.20814,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "probe-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/after:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "-d",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/after",
+        "<workspace>/fixtures/XStreamLocalProbe.java",
+        "<workspace>/fixtures/XStreamDiagnosticProbe.java"
+      ],
+      "start_utc": "2026-11-24T13:48:34.333705+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "log": "logs/3-probe-compile.log",
+      "end_utc": "2026-11-24T13:48:37.715130+00:00",
+      "seconds": 3.370256,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "diagnostic",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/after:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "XStreamDiagnosticProbe"
+      ],
+      "start_utc": "2026-11-24T13:48:37.728429+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "log": "logs/4-diagnostic.log",
+      "end_utc": "2026-11-24T13:48:40.156826+00:00",
+      "seconds": 2.418076,
+      "exit_code": 0,
+      "error_category": null
+    }
+  ],
+  "snapshots": [
+    {
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "start_utc": "2026-11-24T13:48:27.237131+00:00",
+      "status": "PASS",
+      "build_status": "REUSED_VERIFIED",
+      "source_build_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
+      "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+          "sha256": "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar",
+          "sha256": "02bd61a725e8af9b0176b43bf29816d0c748b8ab951385bd127be37489325a0a"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar",
+          "sha256": "32ed093f39c46a8d99f801240069478eac93b35f07351c001f2cef4330e97b4a"
+        },
+        {
+          "path": "<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar",
+          "sha256": "bc96dbe7c56f4fe367ea33e66dfcf18b589e3c8eddcff52a78323c5e6da2387e"
+        },
+        {
+          "path": "<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar",
+          "sha256": "df6905a047b05e23bc91f03ba57ac2f87c1ddf83e048aa0e5bd13169d5ebf0d9"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar",
+          "sha256": "939f591b445c83f285191cef7603731ed373eaf000da005f49769a283110dd2d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar",
+          "sha256": "d1968436fc216c901fb9b82c7e878b50fd1d30091676da95b2edd3a9c0ccf92e"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar",
+          "sha256": "05d513cce3f19c1bc4b06c545431da10dbd2f96b4e83aa715d2fe92b06d951a7"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar",
+          "sha256": "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63"
+        },
+        {
+          "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar",
+          "sha256": "12ea18881b2c02122d048bd8a4f73e0f3b10f12694220789db10d64b1f60e74d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+          "sha256": "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar",
+          "sha256": "bfc90e9e32d0eab1f397fb974b5f150a815188382ac41f372a7149d5bc178008"
+        },
+        {
+          "path": "<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar",
+          "sha256": "11aab8e9198a53a3de65aaf4d90f19b124135bb078dd8cdefcbf2fcda00ce599"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar",
+          "sha256": "03acd6adab2da447f49814751b0e953fb62a6a1023f9d2a705c30a6e3e4638eb"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+          "sha256": "544a20dcb7327bef08b0292afdf2a1312bf3004b9bde1bf06ea52b99dea414e9"
+        }
+      ],
+      "source_built_in_this_run": false,
+      "exit_code": 0,
+      "end_utc": "2026-11-24T13:48:34.173965+00:00",
+      "security_status": "DIAGNOSTIC_ONLY",
+      "diagnostic": {
+        "fixture_sha256": "400ea1cef9501a5adcdf5066f26fa239b1fd191410ca0bbe61c09490de285237",
+        "input_sha256": "a5f6e158de4e621b27cb5fc4d542355a8bf2facb6b3e4e7c32200b99eb8503c5",
+        "tests": [
+          {
+            "name": "string_roundtrip",
+            "role": "control",
+            "observed": "true",
+            "pass": true
+          },
+          {
+            "name": "untrusted_event_handler_blocked",
+            "role": "security",
+            "observed": "true",
+            "pass": true
+          }
+        ],
+        "controls_pass": true,
+        "legacy_oracle_is_security_proof": false,
+        "java_version": "1.8.0_514",
+        "actual_classpath": "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/before:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "reflection_provider": "com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider",
+        "mapper": "com.thoughtworks.xstream.mapper.CachingMapper",
+        "exception_class": "com.thoughtworks.xstream.converters.ConversionException",
+        "exception_stage": "PROXY_FROM_XML",
+        "cause_classes": [
+          "com.thoughtworks.xstream.converters.ConversionException"
+        ],
+        "proxy_ready": false,
+        "callback_attempted": false,
+        "callbacks": 0,
+        "outcome": "TARGET_NOT_OBSERVED"
+      }
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "start_utc": "2026-11-24T13:48:34.322909+00:00",
+      "status": "PASS",
+      "build_status": "REUSED_VERIFIED",
+      "source_build_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
+      "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+      "dependencies": [
+        {
+          "path": "<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+          "sha256": "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar",
+          "sha256": "02bd61a725e8af9b0176b43bf29816d0c748b8ab951385bd127be37489325a0a"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar",
+          "sha256": "32ed093f39c46a8d99f801240069478eac93b35f07351c001f2cef4330e97b4a"
+        },
+        {
+          "path": "<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar",
+          "sha256": "bc96dbe7c56f4fe367ea33e66dfcf18b589e3c8eddcff52a78323c5e6da2387e"
+        },
+        {
+          "path": "<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar",
+          "sha256": "df6905a047b05e23bc91f03ba57ac2f87c1ddf83e048aa0e5bd13169d5ebf0d9"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar",
+          "sha256": "939f591b445c83f285191cef7603731ed373eaf000da005f49769a283110dd2d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar",
+          "sha256": "d1968436fc216c901fb9b82c7e878b50fd1d30091676da95b2edd3a9c0ccf92e"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar",
+          "sha256": "05d513cce3f19c1bc4b06c545431da10dbd2f96b4e83aa715d2fe92b06d951a7"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar",
+          "sha256": "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63"
+        },
+        {
+          "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar",
+          "sha256": "12ea18881b2c02122d048bd8a4f73e0f3b10f12694220789db10d64b1f60e74d"
+        },
+        {
+          "path": "<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+          "sha256": "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2"
+        },
+        {
+          "path": "<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar",
+          "sha256": "bfc90e9e32d0eab1f397fb974b5f150a815188382ac41f372a7149d5bc178008"
+        },
+        {
+          "path": "<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar",
+          "sha256": "11aab8e9198a53a3de65aaf4d90f19b124135bb078dd8cdefcbf2fcda00ce599"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar",
+          "sha256": "03acd6adab2da447f49814751b0e953fb62a6a1023f9d2a705c30a6e3e4638eb"
+        },
+        {
+          "path": "<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+          "sha256": "544a20dcb7327bef08b0292afdf2a1312bf3004b9bde1bf06ea52b99dea414e9"
+        }
+      ],
+      "source_built_in_this_run": false,
+      "exit_code": 0,
+      "end_utc": "2026-11-24T13:48:40.165553+00:00",
+      "security_status": "DIAGNOSTIC_ONLY",
+      "diagnostic": {
+        "fixture_sha256": "400ea1cef9501a5adcdf5066f26fa239b1fd191410ca0bbe61c09490de285237",
+        "input_sha256": "a5f6e158de4e621b27cb5fc4d542355a8bf2facb6b3e4e7c32200b99eb8503c5",
+        "tests": [
+          {
+            "name": "string_roundtrip",
+            "role": "control",
+            "observed": "true",
+            "pass": true
+          },
+          {
+            "name": "untrusted_event_handler_blocked",
+            "role": "security",
+            "observed": "true",
+            "pass": true
+          }
+        ],
+        "controls_pass": true,
+        "legacy_oracle_is_security_proof": false,
+        "java_version": "1.8.0_514",
+        "actual_classpath": "<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/after:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+        "reflection_provider": "com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider",
+        "mapper": "com.thoughtworks.xstream.mapper.CachingMapper",
+        "exception_class": "com.thoughtworks.xstream.converters.ConversionException",
+        "exception_stage": "PROXY_FROM_XML",
+        "cause_classes": [
+          "com.thoughtworks.xstream.converters.ConversionException"
+        ],
+        "proxy_ready": false,
+        "callback_attempted": false,
+        "callbacks": 0,
+        "outcome": "TARGET_NOT_OBSERVED"
+      }
+    }
+  ],
+  "diagnostic_of": "4063ba008c3644f5ad4d015ccd4cbcc4",
+  "previous_receipt_sha256": "bcda2d0f8b954d9f3ee2a5114b2784ea58da960da2692b67214478cfeb4fec84",
+  "previous_fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+  "fixture_sha256": "400ea1cef9501a5adcdf5066f26fa239b1fd191410ca0bbe61c09490de285237",
+  "input_sha256": "a5f6e158de4e621b27cb5fc4d542355a8bf2facb6b3e4e7c32200b99eb8503c5",
+  "input_unchanged": true,
+  "policy": "Same DomDriver/default policy, XML and original Marker target; added logging only. Original fixture and receipt remain immutable.",
+  "environment_overrides": {},
+  "toolchain": {
+    "java": "openjdk version \"1.8.0_514\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_514-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.514-b01, mixed mode)\n"
+  },
+  "end_utc": "2026-11-24T13:48:40.177936+00:00",
+  "seconds": 15.895622,
+  "public_receipt": true,
+  "original_run_sha256": "8e231c7baddedc5bb6c6a62cfb03614ddf3ba9aec3e3346ccc3c9b1604d760a4",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

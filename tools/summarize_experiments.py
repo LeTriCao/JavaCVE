@@ -2,11 +2,14 @@
 from collections import Counter
 import json
 from pathlib import Path
+import re
 import sys
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from tools.catalog import ROOT, rows
 from tools.quality import write_json
+
+TOTAL = re.compile(r"^(?:\[\w+\]\s+)?Tests run: (\d+), Failures: (\d+), Errors: (\d+), Skipped: (\d+)\s*$", re.MULTILINE)
 
 
 def load(run_id):
@@ -27,53 +30,96 @@ def main():
     for attempt in attempts:
         lines.append("- ["+attempt["run_id"]+"](../evidence/v0.2.0/"+attempt["run_id"]+"/run.json), repository policy `"+attempt.get("repository_policy","not_recorded_in_first_attempt")+"`.")
     (ROOT/"docs/EXPERIMENTS.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
-    batch=load("2b54f962ab544cb789aaf746c087715e")
-    fixture=load("20fda5362b864cac988d7560180ebb00")
-    cases=[json.loads(l) for l in (ROOT/"data/batch-02/cases.jsonl").read_text(encoding="utf-8").splitlines()]
-    completion=json.loads((ROOT/"data/batch-02/completion.json").read_text())
-    recovery_path = ROOT/"data/batch-02/build-recovery.json"
-    recovered = json.loads(recovery_path.read_text(encoding="utf-8"))["cases"] if recovery_path.exists() else []
-    review_path = ROOT/"data/batch-02/completion-review.json"
-    reviewed = {a["cve_id"]:a for a in json.loads(review_path.read_text(encoding="utf-8"))["cases"]} if review_path.exists() else {}
-    statuses=[]
-    for c in cases:
-        observations=[r for r in batch["snapshots"] if r["cve_id"]==c["cve_id"]]
-        latest = [r for r in recovered if r["cve_id"] == c["cve_id"]]
-        if latest:
-            observations = latest
-        if c["cve_id"]=="CVE-2022-4244":
-            observations=fixture["snapshots"]
-        if c["cve_id"] in reviewed:
-            assessment=reviewed[c["cve_id"]]
-            observations=[r for r in load(assessment.get("behavior_run_id") or assessment["receipt_run_id"])["snapshots"] if r["cve_id"]==c["cve_id"]]
-        statuses.append(dict(cve_id=c["cve_id"],source_normalized=True,cwe=c["target_cwe"],advisory_cwes=c["advisory_cwe_ids"],cwe_alignment=c["cwe_alignment"],
-                             before=next(r for r in observations if r["phase"]=="before"),after=next(r for r in observations if r["phase"]=="after"),
-                             fully_completed=c["cve_id"] in completion["completed_cves"]))
-    write_json(ROOT/"data/batch-02/build-status.json",dict(cases=statuses,source_built_snapshots=sum(r.get("build_status")=="PASS" for c in statuses for r in (c["before"],c["after"])),
-                   selected_snapshots=2*len(statuses),scope="Attempted historical snapshots; build and upstream-test outcomes separated; use fully_completed only with scoped review and paired security fixture."))
-    versions=[json.loads(l) for l in (ROOT/"data/batch-02/versions.jsonl").read_text(encoding="utf-8").splitlines()]
-    labels=Counter(v["label"] for v in versions)
-    lines=["# Batch02: mở rộng có kiểm soát", "", f"Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ sơ seed CWE-78. Metadata/advisory đã đối chiếu và nguồn khóa theo commit/parent. {completion['source_normalized']}/{completion['selected']} chuẩn hóa, {len(versions)} phiên bản callable. Hiện {completion['fully_completed']}/{completion['selected']} hồ sơ hoàn tất theo định nghĩa trong completion.json; "+", ".join(f"{count} {label}" for label,count in labels.items())+f". Người rà soát: {completion['reviewer']}; {completion['independent_human_reviews']} đánh giá độc lập.", "", "| CVE | Build trước / sau | Kết quả khác hoặc phần thiếu |", "|---|---|---|"]
-    reasons={"CVE-2016-9177":"Before timeout; after build đạt nhưng lớp test upstream có1 error; chưa có fixture bảo mật chung hai bản.",
-             "CVE-2018-1000850":"Dependency Kotlin dùng version range kéo plugin2.5.0-RC không phù hợp JDK8; cần pin dependency có nguồn gốc và đo lại. Không sửa source để che lỗi.",
-             "CVE-2022-25842":"Thiếu bytekit-instrument-api/core0.0.8-SNAPSHOT; cần nguồn artifact lịch sử hoặc tái build dependency có revision xác minh.",
-             "CVE-2022-4244":"Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo.",
-             "CVE-2023-37460":"Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè.",
-             "CVE-2013-7285":"Before timeout, after build/upstream đạt; thiếu fixture thống nhất và diễn giải callable theo advisory.",
-             "CVE-2020-26217":"Hai bản build và lớp upstream được chọn đạt; chưa chứng minh FAIL→PASS bằng cùng fixture, giữ UNCONFIRMED.",
-             "CVE-2021-21345":"Hai bản build và lớp upstream được chọn đạt; thiếu fixture chung/caller context, giữ UNCONFIRMED.",
-             "CVE-2022-25174":"Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent.",
-             "CVE-2022-25175":"Timeout ở Jenkins parent/plugin/dependency; cần fixture tích hợp tương ứng advisory."}
-    for c in statuses:
-        if any(r["cve_id"] == c["cve_id"] for r in recovered):
-            reasons[c["cve_id"]] = "Build trước/sau đạt; xem BUILD_RECOVERY.md và build-recovery.json cho thời gian và trạng thái upstream test. Bằng chứng bảo mật và nhãn đang được rà soát."
-        if c["cve_id"] in reviewed:
-            assessment=reviewed[c["cve_id"]]
-            reasons[c["cve_id"]] = ("Hoàn tất trong phạm vi external static files: control PASS/PASS; hai URI mã hóa đọc marker ngoài trước, trả 404 sau. Nhãn consumer/guard phụ thuộc ngữ cảnh gọi; classpath/JAR/helper còn UNCONFIRMED."
-                                      if assessment["fully_completed"] else "Chưa hoàn tất: control PASS/PASS, 27 AliasTest mỗi bản đạt; fixture báo ConversionException và 0 callback cả hai. Thiếu nguyên nhân exception, callback trước và bằng chứng xử lý đúng cơ chế sau; snapshot và 68 callable giữ UNCONFIRMED.")
-            if "status_summary" in assessment:
-                reasons[c["cve_id"]] = assessment["status_summary"]
-        lines.append("| "+c["cve_id"]+" | "+c["before"].get("build_status",c["before"]["status"])+" / "+c["after"].get("build_status",c["after"]["status"])+" | "+reasons[c["cve_id"]]+" |")
+    batch_id = "2b54f962ab544cb789aaf746c087715e"
+    plexus_id = "9c2a5b8236d34dfbbd96d36ec9df0eb1"
+    folder = ROOT / "data/batch-02"
+    cases = [json.loads(line) for line in (folder / "cases.jsonl").read_text(encoding="utf-8").splitlines()]
+    versions = [json.loads(line) for line in (folder / "versions.jsonl").read_text(encoding="utf-8").splitlines()]
+    completion = json.loads((folder / "completion.json").read_text(encoding="utf-8"))
+    review = json.loads((folder / "completion-review.json").read_text(encoding="utf-8"))
+    build_runs = {a["cve_id"]: a.get("behavior_run_id") or a["receipt_run_id"] for a in review["cases"]}
+    build_runs.update(completion["evidence_runs"])
+    build_runs["CVE-2023-37460"] = plexus_id
+    runs = {run_id: load(run_id) for run_id in {batch_id, *build_runs.values()}}
+    # AI review of the last recorded build stage and the next verifiable evidence for each case.
+    priorities = {
+        "CVE-2023-37460": (1, "Cả hai lượt cũ hết hạn. Lượt mới package thành công và chạy hai lớp test upstream ở mỗi bản.",
+                           "Đối chiếu phạm vi các test upstream với advisory và từng callable. Còn thiếu đối chứng và quan sát hành vi chung."),
+        "CVE-2013-7285": (1, "Hai bản build được và đạt 27 AliasTest mỗi bản. Lượt chẩn đoán dừng trong fromXML khi tìm converter ở cả hai bản.",
+                          "Chưa quan sát được hành vi của caller ở cả hai snapshot. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED."),
+        "CVE-2020-26217": (2, "Build đạt. Lớp test upstream có 7 test trước và 9 test sau.",
+                           "Thiếu đối chứng và bằng chứng hành vi theo advisory dưới cùng điều kiện gọi."),
+        "CVE-2021-21345": (2, "Build đạt. Lớp test upstream có 11 test trước và 13 test sau trong bản vá liên quan nhiều CVE.",
+                           "Thiếu đối chứng chung và bằng chứng phân biệt hành vi của riêng advisory này."),
+        "CVE-2018-1000850": (3, "Before hết 90 giây ở kotlin:2.5.0-RC:compile. After báo compiler từ chối JDK 8.",
+                             "Đối chiếu phiên bản plugin và JDK với POM hoặc CI ở commit đã ghim."),
+        "CVE-2022-25174": (3, "Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jzlib:1.1.3-kohsuke-1 trước và maven-dependency-tree:3.0.1 sau.",
+                           "Xác minh repository ID và thời gian phân giải dependency trên cả hai bản."),
+        "CVE-2022-25175": (3, "Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jsch:0.1.55.2 trước và jenkins-stapler-support:1.1 sau.",
+                           "Xác minh repository ID và thời gian phân giải dependency trên cả hai bản."),
+        "CVE-2022-25842": (4, "Maven báo thiếu bytekit-instrument-api và bytekit-core 0.0.8-SNAPSHOT ở cả hai bản trong các kho đã hỏi.",
+                           "Cần artifact hoặc revision lịch sử có thể kiểm tra nguồn gốc cho cả hai dependency."),
+        "CVE-2016-9177": (None, "Hai bản build đạt. Đã xác nhận thay đổi trên đường gọi external static files được đo.",
+                          "Hoàn tất theo phạm vi external. Các đường gọi classpath và JAR còn UNCONFIRMED."),
+        "CVE-2022-4244": (None, "Hai bản build đạt. Kiểm tra parent traversal chuyển từ FAIL sang PASS. Trường hợp sibling-prefix vẫn FAIL cả hai bản.",
+                          "Hoàn tất trong phạm vi các trường hợp đã đo."),
+    }
+    statuses = []
+    for case in cases:
+        cve = case["cve_id"]
+        run_id = build_runs.get(cve, batch_id)
+        run = runs[run_id]
+        base = Path("evidence/v0.2.0") / run_id
+        pair = {s["phase"]: s for s in run["snapshots"] if s["cve_id"] == cve}
+        priority, finding, remaining = priorities[cve]
+        item = dict(cve_id=cve, source_normalized=True, cwe=case["target_cwe"], advisory_cwes=case["advisory_cwe_ids"],
+                    cwe_alignment=case["cwe_alignment"], build_run_id=run_id, before=pair["before"], after=pair["after"],
+                    fully_completed=cve in completion["completed_cves"], priority=priority, finding=finding,
+                    remaining=remaining, build_logs={}, upstream_totals={})
+        for step in run["steps"]:
+            if step.get("cve_id") != cve:
+                continue
+            phase = step["phase"]
+            log = base / step["log"]
+            if step["stage"] == "build":
+                item["build_logs"][phase] = log.as_posix()
+            if step["stage"] == "upstream-tests" and step["status"] == "PASS":
+                counts = TOTAL.findall((ROOT / log).read_text(encoding="utf-8"))
+                if len(counts) != 1:
+                    raise ValueError(f"Expected one Surefire total in {log}")
+                tests, failures, errors, skipped = map(int, counts[0])
+                item["upstream_totals"][phase] = dict(tests=tests, executed=tests-skipped, failures=failures,
+                                                      errors=errors, skipped=skipped, log=log.as_posix())
+        statuses.append(item)
+    built = sum(all(c[p].get("build_status") == "PASS" for p in ("before", "after")) for c in statuses)
+    snapshots = sum(c[p].get("build_status") == "PASS" for p in ("before", "after") for c in statuses)
+    write_json(folder / "build-status.json", dict(cases=statuses, source_built_cases=built, selected_cases=len(cases),
+               source_built_snapshots=snapshots, selected_snapshots=2*len(cases), reviewer="AI",
+               scope="Pinned source package outcomes. Artifact-only diagnostic replays are excluded."))
+    labels = Counter(v["label"] for v in versions)
+    lines = ["# Batch02", "",
+             f"**{built}/{len(cases)} hồ sơ build được cả hai snapshot** ({snapshots}/{2*len(cases)} snapshot). "
+             f"**{completion['fully_completed']}/{len(cases)} hồ sơ hoàn tất thực nghiệm** theo tiêu chí hiện hành. "
+             f"Đã chuẩn hóa {completion['source_normalized']} hồ sơ, gồm {len(versions)} phiên bản callable.",
+             "", "Nhãn theo dữ liệu hiện tại gồm " + ", ".join(f"{n} {label}" for label, n in labels.items()) +
+             f". Người rà soát là **{completion['reviewer']}**. Có {completion['independent_human_reviews']} người đánh giá độc lập.", "",
+             "## Ưu tiên các hồ sơ còn lại", "",
+             "Ưu tiên 1 dành cho hồ sơ vừa có bằng chứng mới, 2 cho hồ sơ đã build còn thiếu đối chứng, "
+             "3 cho trở ngại cấu hình hoặc thời gian build, 4 cho dependency lịch sử chưa xác minh được. "
+             "Nhấn vào trạng thái trước hoặc sau để đọc log package đúng commit.", "",
+             "| CVE | Ưu tiên | Build trước / sau | Kết quả đọc log | Công việc còn thiếu |", "|---|---:|---|---|---|"]
+    for case in sorted(statuses, key=lambda c: (c["priority"] or 5, c["cve_id"])):
+        logs = []
+        for phase in ("before", "after"):
+            snap = case[phase]
+            status = snap.get("build_status") or snap.get("error_category") or snap["status"]
+            logs.append(f"[{status}](../{case['build_logs'][phase]})")
+        priority = case["priority"] or "Đã hoàn tất"
+        lines.append(f"| {case['cve_id']} | {priority} | {' / '.join(logs)} | {case['finding']} | {case['remaining']} |")
+    lines += ["", "Mỗi bản Plexus Archiver bỏ qua một test upstream. "
+              "Bảng can thiệp ghi số test thực chạy, số bỏ qua, thời gian, cấu hình Maven và SHA của hai JAR. "
+              "[Lượt khôi phục Plexus](BUILD_RECOVERY.md#plexus-archiver-cve-2023-37460) · "
+              "[Chẩn đoán XStream](XSTREAM_DIAGNOSIS.md)."]
     mismatch=[c for c in statuses if c["cwe_alignment"]!="MATCH"]
     lines += ["", "## Phân loại và giới hạn", "", "Giữ target_cwe từ seed; advisory hiện hành được lưu riêng. Phân loại seed không tự động là nhãn vàng. Các hồ sơ có phân loại advisory khác hoặc không chỉ rõ: "+", ".join(c["cve_id"]+" ("+", ".join(c["advisory_cwes"])+")" for c in mismatch)+". Cần người đánh giá phạm vi trước khi dùng làm tập chuẩn CWE-78.", "", "Spark chọn parent thứ nhất của merge có lý do ghi trong selection. one-java-agent giữ mọi fix reference nhưng chỉ trích cặp ở fix đầu tiên; các fix còn lại cần rà soát đa commit. Parser phân biệt anonymous class và lexical occurrence khi chữ ký cú pháp trùng; không coi đây là chữ ký JVM hay ghép ngữ nghĩa hoàn hảo.", "", "UNCONFIRMED không phải safe negative. Đợt mới chưa đủ để kết luận độ chính xác ML. Các snapshot có upstream test PASS chưa chứng minh cơ chế lỗi được tái hiện. Thời gian90/180 giây là ngân sách của lượt thử, không phải kết luận bất khả build. Cache và dependency version range có thể làm kết quả đổi theo thời điểm; cần khóa dependency để nghiên cứu dài hạn.", "", "## Chạy lại", "", "`python3 run.py expand` tạo intake mới trong run mới, không ghi đè các nhãn đã rà soát. `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` chạy fixture mới. Các hồ sơ khác dùng cùng batch-build với --cve và timeout phù hợp. Xem INSTALL.md cho export, parser và split chung409 phiên bản.", "", "Bằng chứng: [build toàn batch](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json), [fixture Expand](../evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json), [build-status.json](../data/batch-02/build-status.json), [quyết định nhãn](../data/batch-02/reviews.jsonl).", ""]
     text="\n".join(lines)

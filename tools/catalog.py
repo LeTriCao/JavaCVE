@@ -131,6 +131,39 @@ def verify_expansion():
     completed = completion["completed_cves"]
     require(completion["selected"] == completion["source_normalized"] == len(cases), "Batch denominator differs")
     require(len(set(completed)) == len(completed) == completion["fully_completed"] and set(completed) <= cases.keys(), "Batch completed CVEs differ")
+    builds = json.loads((base / "build-status.json").read_text(encoding="utf-8"))
+    status_rows = unique(builds["cases"], "cve_id")
+    require(status_rows.keys() == cases.keys(), "Batch build case coverage differs")
+    receipts = {}
+    built_cases = built_snapshots = 0
+    for cve, item in status_rows.items():
+        run_id = item["build_run_id"]
+        directory = ROOT / "evidence/v0.2.0" / run_id
+        if run_id not in receipts:
+            receipts[run_id] = json.loads((directory / "run.json").read_text(encoding="utf-8"))
+        source = receipts[run_id]
+        require(source["run_id"] == run_id, "Build receipt identity differs")
+        require(item["fully_completed"] == (cve in completed), "Build table completion differs")
+        pair = [r for r in source["snapshots"] if r["cve_id"] == cve]
+        require(len(pair) == 2 and {r["phase"] for r in pair} == set(PHASES), "Build receipt pair differs")
+        successful = 0
+        for snap in pair:
+            phase = snap["phase"]
+            require(item[phase] == snap and snap["commit"] == cases[cve][phase+"_commit"], "Build snapshot differs")
+            steps = [s for s in source["steps"] if s["stage"] == "build" and s.get("cve_id") == cve and s["phase"] == phase]
+            require(len(steps) == 1 and steps[0]["commit"] == snap["commit"], "Build stage differs")
+            log = directory / steps[0]["log"]
+            require(log.is_file() and log.relative_to(ROOT).as_posix() == item["build_logs"][phase], "Build log differs")
+            built = snap.get("build_status") == "PASS"
+            if built:
+                require(steps[0]["status"] == "PASS" and steps[0]["exit_code"] == 0
+                        and snap.get("source_built_in_this_run", True) and len(snap["artifact_sha256"]) == 64,
+                        "Source build result differs")
+            successful += built
+        built_cases += successful == 2
+        built_snapshots += successful
+    require((builds["source_built_cases"], builds["source_built_snapshots"]) == (built_cases, built_snapshots)
+            and (builds["selected_cases"], builds["selected_snapshots"]) == (len(cases), len(cases)*2), "Batch build totals differ")
     for cve in completed:
         run_id = completion.get("evidence_runs", {}).get(cve, completion["evidence_run_id"])
         evidence = json.loads((ROOT/"evidence/v0.2.0"/run_id/"run.json").read_text(encoding="utf-8"))
@@ -169,6 +202,7 @@ def verify_expansion():
                 require(r["commit"] == cases[cve][r["phase"]+"_commit"] and r["decision"] == cases[cve][r["phase"]+"_label"]
                         and r["reviewer"] == "AI" and not r["independent_human_review"], "Batch snapshot decision differs")
     return dict(cves=len(cases),methods=len(methods),method_versions=len(versions),labels=completion["labels"],fully_completed=completion["fully_completed"],
+                source_built_cases=built_cases, source_built_snapshots=built_snapshots,
                 cwe=dict(Counter(c["target_cwe"] for c in cases.values())),
                 reviewed_callable_versions=completion.get("reviewed_callable_versions", 0),
                 reviewed_snapshot_decisions=completion.get("reviewed_snapshot_decisions", 0))

@@ -1,5 +1,10 @@
 # Changelog
 
+## Sau 0280b7d — 24/11/2026
+
+- Chẩn đoán CVE-2013-7285 xác định lỗi tra cứu converter trong `fromXML` trên cả hai snapshot. Hai đối chứng chuỗi đạt và số callback quan sát được bằng 0. Hai snapshot cùng 68 phiên bản callable giữ UNCONFIRMED. [Đối chiếu hai receipt](docs/XSTREAM_DIAGNOSIS.md).
+- Khôi phục build Plexus Archiver với hai JAR từ source và 27 test thực chạy trước, 28 test sau. Mỗi bản bỏ qua một test. Batch02 đạt 6/10 cặp build và 2/10 hồ sơ hoàn tất thực nghiệm. AI đã rà soát log của cả 10 hồ sơ. [Lượt build](docs/BUILD_RECOVERY.md#plexus-archiver-cve-2023-37460) · [Bảng ưu tiên](docs/BATCH02.md).
+
 ## Sau 8fefbe9 — 24/11/2026
 
 - Đối chiếu tiêu chí và receipt cho CVE-2020-26217/CVE-2021-21345: upstream 7→9 và 11→13 test đạt nhưng thiếu control chung/hành vi paired; thêm 23 quyết định callable và 4 snapshot do AI rà soát, giữ UNCONFIRMED.

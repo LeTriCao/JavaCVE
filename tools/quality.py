@@ -166,9 +166,16 @@ def generate_report(args, run):
         completion_file = ROOT/"data/batch-02/completion.json"
         if completion_file.exists():
             completion = json.loads(completion_file.read_text())
+            expansion = result["catalog"]["expansion"]
             narrative += ["", "| Chỉ số batch02 sau rà soát | Số lượng |", "|---|---:|", f"| Chọn / chuẩn hóa nguồn / hoàn tất | {completion['selected']} / {completion['source_normalized']} / {completion['fully_completed']} |", f"| Nhãn sau rà soát | {json.dumps(completion['labels'])} |", "| Người đánh giá độc lập | 0 |"]
             if "reviewed_callable_versions" in completion:
-                narrative += [f"| Quyết định AI cấp callable / snapshot ghi riêng | {completion['reviewed_callable_versions']} / {completion['reviewed_snapshot_decisions']} |", "", "CVE-2020-26217 và CVE-2021-21345 vẫn UNCONFIRMED: test upstream 7→9 và 11→13 đạt, nhưng thiếu control chung và hành vi paired đúng advisory. Chẩn đoán CVE-2013-7285 ghi 15 dependency giống nhau; log thiếu message/cause/stack nên chưa xác định nguyên nhân gốc. Bảng từng tiêu chí ở docs/BATCH02_REVIEW.md; chẩn đoán ở docs/XSTREAM_DIAGNOSIS.md."]
+                narrative += [f"| Hồ sơ build được cả hai bản | {expansion['source_built_cases']}/{expansion['cves']} |",
+                              f"| Snapshot build được từ source | {expansion['source_built_snapshots']}/{2*expansion['cves']} |",
+                              f"| Quyết định AI cấp callable / snapshot ghi riêng | {completion['reviewed_callable_versions']} / {completion['reviewed_snapshot_decisions']} |", "",
+                              "Plexus Archiver đã build thành công ở cả hai commit. Mỗi bản bỏ qua một test upstream. "
+                              "XStream 2013 dừng ở bước tra cứu converter trong fromXML trước khi caller nhận được proxy ở cả hai bản. "
+                              "XStream 2020 và 2021 còn thiếu đối chứng chung cùng quan sát hành vi thuộc từng advisory. "
+                              "[Bảng ưu tiên Batch02](../BATCH02.md) · [Chẩn đoán XStream](../XSTREAM_DIAGNOSIS.md)."]
     narrative += ["", "## 6. Chất lượng và giới hạn", "", "Rà soát kỹ thuật do AI thực hiện; số người đánh giá độc lập bằng 0. Các nhãn UNCONFIRMED của pilot giữ lý do ngoài phạm vi, cần caller/context hoặc phần mở rộng ngoài advisory. Toàn vẹn byte không xác nhận tính đúng ngữ nghĩa. Bốn bản sau thư viện ZIP có kiểm tra giới hạn thư mục chưa đạt trong phép đo lịch sử. Jenkins/NiFi cần kiểm thử tích hợp; tham khảo docs/EXPERIMENTS.md.", "", "## 7. Hướng phát triển luận văn", "", "Bổ sung người đánh giá độc lập và đo đồng thuận; hoàn thiện fixture cho batch mới; chia theo dự án hoặc CVE, gộp các nhóm trùng token trước khi chia. Cần kiểm tra clone gần giống và đo tác động của chất lượng nhãn lên một mô hình baseline. Chỉ kết luận cải thiện độ chính xác sau thí nghiệm có tập giữ lại độc lập; chỉ kết luận giảm lao động sau phép đo thời gian người thực hiện phù hợp.", "", "## 8. Tái hiện và bàn giao", "", "Các lệnh công khai: demo, list, fetch, build, security, all, audit, export, measure, report, split, investigate, expand và batch-build. README.md và docs/INSTALL.md hướng dẫn từ bản clone/giải nén mới. LICENSE chỉ cấp phép công cụ mới; mã bên thứ ba giữ giấy phép riêng. Không đóng gói cache, credential, JDK, Maven hoặc source Java chưa rà soát quyền tái phân phối.", ""]
     markdown = "\n".join(narrative)
     (destination/"REPORT.md").write_text(markdown,encoding="utf-8")

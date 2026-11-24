@@ -8,6 +8,7 @@
         "CWE-22"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
       "before": {
         "cve_id": "CVE-2016-9177",
         "phase": "before",
@@ -256,7 +257,32 @@
         "end_utc": "2026-11-24T09:07:27.831848+00:00",
         "seconds": 143.053667
       },
-      "fully_completed": true
+      "fully_completed": true,
+      "priority": null,
+      "finding": "Hai bản build đạt. Đã xác nhận thay đổi trên đường gọi external static files được đo.",
+      "remaining": "Hoàn tất theo phạm vi external. Các đường gọi classpath và JAR còn UNCONFIRMED.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/2-build.log",
+        "after": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/7-build.log"
+      },
+      "upstream_totals": {
+        "before": {
+          "tests": 7,
+          "executed": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/3-upstream-tests.log"
+        },
+        "after": {
+          "tests": 10,
+          "executed": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/8-upstream-tests.log"
+        }
+      }
     },
     {
       "cve_id": "CVE-2018-1000850",
@@ -266,6 +292,7 @@
         "CWE-22"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2018-1000850",
         "phase": "before",
@@ -290,7 +317,15 @@
         "end_utc": "2026-11-24T07:22:31.389178+00:00",
         "seconds": 64.048017
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 3,
+      "finding": "Before hết 90 giây ở kotlin:2.5.0-RC:compile. After báo compiler từ chối JDK 8.",
+      "remaining": "Đối chiếu phiên bản plugin và JDK với POM hoặc CI ở commit đã ghim.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/5-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/6-build.log"
+      },
+      "upstream_totals": {}
     },
     {
       "cve_id": "CVE-2022-25842",
@@ -301,6 +336,7 @@
         "CWE-29"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2022-25842",
         "phase": "before",
@@ -325,7 +361,15 @@
         "end_utc": "2026-11-24T07:23:48.098833+00:00",
         "seconds": 16.548861
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 4,
+      "finding": "Maven báo thiếu bytekit-instrument-api và bytekit-core 0.0.8-SNAPSHOT ở cả hai bản trong các kho đã hỏi.",
+      "remaining": "Cần artifact hoặc revision lịch sử có thể kiểm tra nguồn gốc cho cả hai dependency.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/7-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/8-build.log"
+      },
+      "upstream_totals": {}
     },
     {
       "cve_id": "CVE-2022-4244",
@@ -335,6 +379,7 @@
         "CWE-22"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "20fda5362b864cac988d7560180ebb00",
       "before": {
         "cve_id": "CVE-2022-4244",
         "phase": "before",
@@ -435,7 +480,15 @@
         "end_utc": "2026-11-24T07:23:07.203920+00:00",
         "seconds": 50.124263
       },
-      "fully_completed": true
+      "fully_completed": true,
+      "priority": null,
+      "finding": "Hai bản build đạt. Kiểm tra parent traversal chuyển từ FAIL sang PASS. Trường hợp sibling-prefix vẫn FAIL cả hai bản.",
+      "remaining": "Hoàn tất trong phạm vi các trường hợp đã đo.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/2-build.log",
+        "after": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/6-build.log"
+      },
+      "upstream_totals": {}
     },
     {
       "cve_id": "CVE-2023-37460",
@@ -445,31 +498,89 @@
         "CWE-22"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "9c2a5b8236d34dfbbd96d36ec9df0eb1",
       "before": {
         "cve_id": "CVE-2023-37460",
         "phase": "before",
         "commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
-        "start_utc": "2026-11-24T07:24:32.908997+00:00",
-        "status": "FAIL",
-        "error": "build: TIMEOUT; see logs/11-build.log",
-        "error_category": "TIMEOUT",
-        "exit_code": 124,
-        "end_utc": "2026-11-24T07:26:03.322275+00:00",
-        "seconds": 90.413276
+        "start_utc": "2026-11-24T09:59:59.927391+00:00",
+        "status": "PASS",
+        "build_profile": {},
+        "build_status": "PASS",
+        "artifact_sha256": "e6e5d80e14fb4d7d10407b1993add28fdb912095e9f85fd62ac719a5152f457f",
+        "module": ".",
+        "artifact": "artifacts/CVE-2023-37460/before/plexus-archiver-4.7.2-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SymlinkTest",
+            "ZipArchiverTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 552,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T10:01:57.692022+00:00",
+        "seconds": 117.764621
       },
       "after": {
         "cve_id": "CVE-2023-37460",
         "phase": "after",
         "commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
-        "start_utc": "2026-11-24T07:26:03.330127+00:00",
-        "status": "FAIL",
-        "error": "build: TIMEOUT; see logs/12-build.log",
-        "error_category": "TIMEOUT",
-        "exit_code": 124,
-        "end_utc": "2026-11-24T07:27:33.869392+00:00",
-        "seconds": 90.539267
+        "start_utc": "2026-11-24T10:01:57.701953+00:00",
+        "status": "PASS",
+        "build_profile": {},
+        "build_status": "PASS",
+        "artifact_sha256": "1033235870e9c0ff23444417fc4478c84b6bb38dca79c2eec3b3020911d401e9",
+        "module": ".",
+        "artifact": "artifacts/CVE-2023-37460/after/plexus-archiver-4.7.2-SNAPSHOT.jar",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "upstream_tests": {
+          "status": "PASS",
+          "selected_classes": [
+            "SymlinkTest",
+            "ZipArchiverTest"
+          ],
+          "scope": "Changed upstream classes; not a validated external paired security fixture"
+        },
+        "source_integrity": {
+          "checked_original_files": 553,
+          "changed_files": []
+        },
+        "exit_code": 0,
+        "end_utc": "2026-11-24T10:03:21.974602+00:00",
+        "seconds": 84.272638
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 1,
+      "finding": "Cả hai lượt cũ hết hạn. Lượt mới package thành công và chạy hai lớp test upstream ở mỗi bản.",
+      "remaining": "Đối chiếu phạm vi các test upstream với advisory và từng callable. Còn thiếu đối chứng và quan sát hành vi chung.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/2-build.log",
+        "after": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/4-build.log"
+      },
+      "upstream_totals": {
+        "before": {
+          "tests": 28,
+          "executed": 27,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "log": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/3-upstream-tests.log"
+        },
+        "after": {
+          "tests": 29,
+          "executed": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "log": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/5-upstream-tests.log"
+        }
+      }
     },
     {
       "cve_id": "CVE-2013-7285",
@@ -480,6 +591,7 @@
         "CWE-78"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "4063ba008c3644f5ad4d015ccd4cbcc4",
       "before": {
         "cve_id": "CVE-2013-7285",
         "phase": "before",
@@ -700,7 +812,32 @@
         "end_utc": "2026-11-24T09:11:40.233747+00:00",
         "seconds": 127.07655
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 1,
+      "finding": "Hai bản build được và đạt 27 AliasTest mỗi bản. Lượt chẩn đoán dừng trong fromXML khi tìm converter ở cả hai bản.",
+      "remaining": "Chưa quan sát được hành vi của caller ở cả hai snapshot. Hai snapshot và 68 phiên bản callable giữ UNCONFIRMED.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/12-build.log",
+        "after": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/17-build.log"
+      },
+      "upstream_totals": {
+        "before": {
+          "tests": 27,
+          "executed": 27,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/13-upstream-tests.log"
+        },
+        "after": {
+          "tests": 27,
+          "executed": 27,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/18-upstream-tests.log"
+        }
+      }
     },
     {
       "cve_id": "CVE-2020-26217",
@@ -710,6 +847,7 @@
         "CWE-78"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2020-26217",
         "phase": "before",
@@ -762,7 +900,32 @@
         "end_utc": "2026-11-24T07:33:37.516291+00:00",
         "seconds": 88.885227
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 2,
+      "finding": "Build đạt. Lớp test upstream có 7 test trước và 9 test sau.",
+      "remaining": "Thiếu đối chứng và bằng chứng hành vi theo advisory dưới cùng điều kiện gọi.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log"
+      },
+      "upstream_totals": {
+        "before": {
+          "tests": 7,
+          "executed": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log"
+        },
+        "after": {
+          "tests": 9,
+          "executed": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log"
+        }
+      }
     },
     {
       "cve_id": "CVE-2021-21345",
@@ -773,6 +936,7 @@
         "CWE-94"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2021-21345",
         "phase": "before",
@@ -825,7 +989,32 @@
         "end_utc": "2026-11-24T07:36:29.452584+00:00",
         "seconds": 83.24902
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 2,
+      "finding": "Build đạt. Lớp test upstream có 11 test trước và 13 test sau trong bản vá liên quan nhiều CVE.",
+      "remaining": "Thiếu đối chứng chung và bằng chứng phân biệt hành vi của riêng advisory này.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log"
+      },
+      "upstream_totals": {
+        "before": {
+          "tests": 11,
+          "executed": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log"
+        },
+        "after": {
+          "tests": 13,
+          "executed": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log"
+        }
+      }
     },
     {
       "cve_id": "CVE-2022-25174",
@@ -835,6 +1024,7 @@
         "CWE-78"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2022-25174",
         "phase": "before",
@@ -859,7 +1049,15 @@
         "end_utc": "2026-11-24T07:39:30.415555+00:00",
         "seconds": 90.510387
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 3,
+      "finding": "Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jzlib:1.1.3-kohsuke-1 trước và maven-dependency-tree:3.0.1 sau.",
+      "remaining": "Xác minh repository ID và thời gian phân giải dependency trên cả hai bản.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/24-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/25-build.log"
+      },
+      "upstream_totals": {}
     },
     {
       "cve_id": "CVE-2022-25175",
@@ -869,6 +1067,7 @@
         "CWE-78"
       ],
       "cwe_alignment": "MATCH",
+      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
       "before": {
         "cve_id": "CVE-2022-25175",
         "phase": "before",
@@ -893,10 +1092,21 @@
         "end_utc": "2026-11-24T07:42:31.470247+00:00",
         "seconds": 90.546606
       },
-      "fully_completed": false
+      "fully_completed": false,
+      "priority": 3,
+      "finding": "Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jsch:0.1.55.2 trước và jenkins-stapler-support:1.1 sau.",
+      "remaining": "Xác minh repository ID và thời gian phân giải dependency trên cả hai bản.",
+      "build_logs": {
+        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/26-build.log",
+        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/27-build.log"
+      },
+      "upstream_totals": {}
     }
   ],
-  "source_built_snapshots": 10,
+  "source_built_cases": 6,
+  "selected_cases": 10,
+  "source_built_snapshots": 12,
   "selected_snapshots": 20,
-  "scope": "Attempted historical snapshots; build and upstream-test outcomes separated; use fully_completed only with scoped review and paired security fixture."
+  "reviewer": "AI",
+  "scope": "Pinned source package outcomes. Artifact-only diagnostic replays are excluded."
 }

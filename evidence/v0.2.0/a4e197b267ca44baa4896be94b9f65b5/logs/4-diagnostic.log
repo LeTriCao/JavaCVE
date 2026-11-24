@@ -1,0 +1,67 @@
+JAVA_VERSION=1.8.0_514
+JAVA_RUNTIME_VERSION=1.8.0_514-b01
+JAVA_VENDOR=Temurin
+JAVA_VM_NAME=OpenJDK 64-Bit Server VM
+JAVA_HOME=<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre
+JAVA_CLASSPATH=<workspace>/runs/a4e197b267ca44baa4896be94b9f65b5/probe/after:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar:<workspace>/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:<workspace>/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:<workspace>/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:<workspace>/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar:<workspace>/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar:<workspace>/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:<workspace>/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar:<workspace>/.cache/m2/xom/xom/1.1/xom-1.1.jar:<workspace>/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar:<workspace>/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:<workspace>/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:<workspace>/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:<workspace>/.cache/m2/org/json/json/20080701/json-20080701.jar:<workspace>/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar
+STAGE=XSTREAM_CONSTRUCTION
+DRIVER=com.thoughtworks.xstream.io.xml.DomDriver
+REFLECTION_PROVIDER=com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider
+MAPPER=com.thoughtworks.xstream.mapper.CachingMapper
+STAGE=CONTROL_FROM_XML
+ASSERT|control|string_roundtrip|true
+STAGE=PROXY_FROM_XML
+OBSERVED_EXCEPTION=com.thoughtworks.xstream.converters.ConversionException
+EXCEPTION_STAGE=PROXY_FROM_XML
+EXCEPTION_CLASS=com.thoughtworks.xstream.converters.ConversionException
+EXCEPTION_MESSAGE_BEGIN
+No converter specified for class java.beans.EventHandler
+---- Debugging information ----
+class               : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+required-type       : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+converter-type      : com.thoughtworks.xstream.converters.extended.DynamicProxyConverter
+path                : /dynamic-proxy/handler
+version             : 1.4.7-SNAPSHOT
+-------------------------------
+EXCEPTION_MESSAGE_END
+CAUSE_0_CLASS=com.thoughtworks.xstream.converters.ConversionException
+CAUSE_0_MESSAGE=No converter specified for class java.beans.EventHandler
+---- Debugging information ----
+class               : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+required-type       : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+converter-type      : com.thoughtworks.xstream.converters.extended.DynamicProxyConverter
+path                : /dynamic-proxy/handler
+version             : 1.4.7-SNAPSHOT
+-------------------------------
+STACK_TRACE_BEGIN
+com.thoughtworks.xstream.converters.ConversionException: No converter specified for class java.beans.EventHandler
+---- Debugging information ----
+class               : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+required-type       : com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy
+converter-type      : com.thoughtworks.xstream.converters.extended.DynamicProxyConverter
+path                : /dynamic-proxy/handler
+version             : 1.4.7-SNAPSHOT
+-------------------------------
+	at com.thoughtworks.xstream.core.DefaultConverterLookup.lookupConverterForType(DefaultConverterLookup.java:61)
+	at com.thoughtworks.xstream.XStream$1.lookupConverterForType(XStream.java:497)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:56)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:50)
+	at com.thoughtworks.xstream.converters.extended.DynamicProxyConverter.unmarshal(DynamicProxyConverter.java:127)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convert(TreeUnmarshaller.java:72)
+	at com.thoughtworks.xstream.core.AbstractReferenceUnmarshaller.convert(AbstractReferenceUnmarshaller.java:65)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:66)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.convertAnother(TreeUnmarshaller.java:50)
+	at com.thoughtworks.xstream.core.TreeUnmarshaller.start(TreeUnmarshaller.java:134)
+	at com.thoughtworks.xstream.core.AbstractTreeMarshallingStrategy.unmarshal(AbstractTreeMarshallingStrategy.java:32)
+	at com.thoughtworks.xstream.XStream.unmarshal(XStream.java:1184)
+	at com.thoughtworks.xstream.XStream.unmarshal(XStream.java:1168)
+	at com.thoughtworks.xstream.XStream.fromXML(XStream.java:1039)
+	at com.thoughtworks.xstream.XStream.fromXML(XStream.java:1030)
+	at XStreamDiagnosticProbe.main(XStreamDiagnosticProbe.java:61)
+STACK_TRACE_END
+PROXY_READY=false
+CALLBACK_ATTEMPTED=false
+OBSERVED_CALLBACKS=0
+ASSERT|security|untrusted_event_handler_blocked|true
+DIAGNOSTIC_OUTCOME=TARGET_NOT_OBSERVED
+STAGE=DONE
