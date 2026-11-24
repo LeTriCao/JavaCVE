@@ -1,0 +1,10 @@
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+ASSERT|control|ordinary_static_file|true
+OBSERVED_0=404 <html><body><h2>404 Not found</h2></body></html>
+ASSERT|security|external_containment_0|true
+OBSERVED_1=404 <html><body><h2>404 Not found</h2></body></html>
+ASSERT|security|external_containment_1|true
+OBSERVED_2=400 
+ASSERT|security|external_containment_2|true

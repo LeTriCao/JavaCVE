@@ -1,0 +1,50 @@
+{
+    "run_id":  "4063ba008c3644f5ad4d015ccd4cbcc4",
+    "actual_classes":  [
+                           "com.thoughtworks.acceptance.AliasTest",
+                           "com.thoughtworks.acceptance.annotations.AliasTest"
+                       ],
+    "selection":  "AliasTest",
+    "rationale":  "Both classes exist in the before snapshot and exercise aliases, serialization and unmarshalling. Simple Surefire selector matches both packages.",
+    "phases":  [
+                   {
+                       "failures":  0,
+                       "errors":  0,
+                       "test_exit_code":  0,
+                       "build_status":  "PASS",
+                       "test_status":  "PASS",
+                       "skipped":  0,
+                       "tests":  27,
+                       "build_seconds":  51.506327,
+                       "test_seconds":  37.056033,
+                       "phase":  "before",
+                       "commit":  "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+                       "artifact_sha256":  "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+                       "log":  "logs/13-upstream-tests.log"
+                   },
+                   {
+                       "failures":  0,
+                       "errors":  0,
+                       "test_exit_code":  0,
+                       "build_status":  "PASS",
+                       "test_status":  "PASS",
+                       "skipped":  0,
+                       "tests":  27,
+                       "build_seconds":  55.205685,
+                       "test_seconds":  36.314264,
+                       "phase":  "after",
+                       "commit":  "6344867dce6767af7d0fe34fb393271a6456672d",
+                       "artifact_sha256":  "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+                       "log":  "logs/18-upstream-tests.log"
+                   }
+               ],
+    "surefire_version":  "2.4.3",
+    "previous_observation":  {
+                                 "phase":  "before",
+                                 "status":  "NO_TESTS_FOUND",
+                                 "run_id":  "2ad70474dd2f4a9a8d2313dd8ce41dd0",
+                                 "reason":  "After-selected SecurityMapperTest did not exist in before.",
+                                 "exit_code":  1
+                             },
+    "cve_id":  "CVE-2013-7285"
+}

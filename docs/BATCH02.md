@@ -9,7 +9,7 @@ Nguồn: cùng revision CWE-Bench-Java/IRIS; 5 hồ sơ seed CWE-22 và 5 hồ s
 | CVE-2022-25842 | FAIL / FAIL | Thiếu bytekit-instrument-api/core0.0.8-SNAPSHOT; cần nguồn artifact lịch sử hoặc tái build dependency có revision xác minh. |
 | CVE-2022-4244 | PASS / PASS | Hoàn tất: control đạt; parent traversal FAIL→PASS; sibling-prefix vẫn FAIL cả hai. Hai nhãn VULNERABLE theo phạm vi đã đo. |
 | CVE-2023-37460 | FAIL / FAIL | Timeout package; cần fixture symlink trong thư mục tạm và kiểm tra đúng các nhánh ghi đè. |
-| CVE-2013-7285 | PASS / PASS | Hai bản build đạt với ngân sách 600 giây. Before không có test phù hợp danh sách lớp lấy từ after, after upstream đạt. Còn thiếu fixture chung và rà soát nhãn. |
+| CVE-2013-7285 | PASS / PASS | Đã chọn AliasTest có trong before. Cả hai bản đạt 27 test, 0 failure/error/skipped. Receipt 4063ba008c3644f5ad4d015ccd4cbcc4 lưu cả kết quả fixture cục bộ. Còn rà soát phạm vi nhãn và tiêu chí hoàn tất. |
 | CVE-2020-26217 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; chưa chứng minh FAIL→PASS bằng cùng fixture, giữ UNCONFIRMED. |
 | CVE-2021-21345 | PASS / PASS | Hai bản build và lớp upstream được chọn đạt; thiếu fixture chung/caller context, giữ UNCONFIRMED. |
 | CVE-2022-25174 | FAIL / FAIL | Timeout ở Jenkins parent/plugin/dependency; cần harness điều kiện credential/controller/agent. |

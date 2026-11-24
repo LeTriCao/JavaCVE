@@ -1,0 +1,52 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.thoughtworks.xstream:xstream >------------------
+[INFO] Building XStream Core 1.4.7-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0-beta-1:enforce (enforce-maven) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:maven-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- build-helper:1.5:parse-version (versions) @ xstream ---
+[INFO] 
+[INFO] --- resources:2.2:resources (default-resources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- compiler:2.1:compile (default-compile) @ xstream ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- bundle:2.3.7:manifest (bundle-manifest) @ xstream ---
+[INFO] 
+[INFO] --- resources:2.2:testResources (default-testResources) @ xstream ---
+[INFO] Using default encoding to copy filtered resources.
+[INFO] 
+[INFO] --- dependency:2.1:copy (complete-test-classpath) @ xstream ---
+[INFO] Configured Artifact: proxytoys:proxytoys:0.2.1:jar
+[INFO] proxytoys:proxytoys:0.2.1:jar already exists in /tmp/javacve-45zfatuh/tmpc8r3izq4/source/xstream/target/lib
+[INFO] 
+[INFO] --- compiler:2.1:testCompile (default-testCompile) @ xstream ---
+[INFO] Compiling 225 source files to /tmp/javacve-45zfatuh/tmpc8r3izq4/source/xstream/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.4.3:test (default-test) @ xstream ---
+[INFO] Surefire report directory: /tmp/javacve-45zfatuh/tmpc8r3izq4/source/xstream/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.thoughtworks.acceptance.AliasTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.497 sec
+Running com.thoughtworks.acceptance.annotations.AliasTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.733 sec
+
+Results :
+
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.669 s
+[INFO] Finished at: 2026-11-24T09:08:57Z
+[INFO] ------------------------------------------------------------------------

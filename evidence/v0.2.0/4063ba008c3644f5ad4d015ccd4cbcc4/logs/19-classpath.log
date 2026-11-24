@@ -1,0 +1,15 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.thoughtworks.xstream:xstream >------------------
+[INFO] Building XStream Core 1.4.7-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:build-classpath (default-cli) @ xstream ---
+[INFO] Wrote classpath file '/tmp/javacve-45zfatuh/tmprlaz45nj/classpath.txt'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.956 s
+[INFO] Finished at: 2026-11-24T09:11:33Z
+[INFO] ------------------------------------------------------------------------

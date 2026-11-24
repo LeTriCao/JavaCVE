@@ -2,7 +2,8 @@
     "scope":  "Build recovery from v0.2.0; completion and labels unchanged",
     "runs":  [
                  "2ad70474dd2f4a9a8d2313dd8ce41dd0",
-                 "9dc0292fc028480080aa9bad378f9b90"
+                 "9dc0292fc028480080aa9bad378f9b90",
+                 "4063ba008c3644f5ad4d015ccd4cbcc4"
              ],
     "timeout_seconds":  600,
     "cases":  [
@@ -80,37 +81,220 @@
                       "cve_id":  "CVE-2013-7285",
                       "phase":  "before",
                       "commit":  "64533f1fe2ece82398a1478edc2d30478fb7cd11",
-                      "start_utc":  "2026-11-24T08:30:12.445080+00:00",
-                      "status":  "FAIL",
+                      "start_utc":  "2026-11-24T09:07:27.843124+00:00",
+                      "status":  "PASS",
+                      "build_profile":  {
+
+                                        },
                       "build_status":  "PASS",
-                      "artifact_sha256":  "6d93664619a8fc769107c85c849d71c08de4e9fa86829c936dd6b04d18210616",
+                      "artifact_sha256":  "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
                       "module":  "xstream",
                       "artifact":  "artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar",
-                      "security_status":  "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
-                      "error":  "upstream-tests: COMMAND_FAILED; see logs/7-upstream-tests.log",
-                      "error_category":  "COMMAND_FAILED",
-                      "exit_code":  1,
-                      "end_utc":  "2026-11-24T08:31:18.199962+00:00",
-                      "seconds":  65.754857
+                      "security_status":  "EXECUTED",
+                      "upstream_tests":  {
+                                             "status":  "PASS",
+                                             "selected_classes":  [
+                                                                      "AliasTest"
+                                                                  ],
+                                             "scope":  "Changed upstream classes; not a validated external paired security fixture"
+                                         },
+                      "dependencies":  [
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+                                               "sha256":  "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar",
+                                               "sha256":  "02bd61a725e8af9b0176b43bf29816d0c748b8ab951385bd127be37489325a0a"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar",
+                                               "sha256":  "32ed093f39c46a8d99f801240069478eac93b35f07351c001f2cef4330e97b4a"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar",
+                                               "sha256":  "bc96dbe7c56f4fe367ea33e66dfcf18b589e3c8eddcff52a78323c5e6da2387e"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar",
+                                               "sha256":  "df6905a047b05e23bc91f03ba57ac2f87c1ddf83e048aa0e5bd13169d5ebf0d9"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar",
+                                               "sha256":  "939f591b445c83f285191cef7603731ed373eaf000da005f49769a283110dd2d"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar",
+                                               "sha256":  "d1968436fc216c901fb9b82c7e878b50fd1d30091676da95b2edd3a9c0ccf92e"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xom/xom/1.1/xom-1.1.jar",
+                                               "sha256":  "05d513cce3f19c1bc4b06c545431da10dbd2f96b4e83aa715d2fe92b06d951a7"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar",
+                                               "sha256":  "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar",
+                                               "sha256":  "12ea18881b2c02122d048bd8a4f73e0f3b10f12694220789db10d64b1f60e74d"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+                                               "sha256":  "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar",
+                                               "sha256":  "bfc90e9e32d0eab1f397fb974b5f150a815188382ac41f372a7149d5bc178008"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar",
+                                               "sha256":  "11aab8e9198a53a3de65aaf4d90f19b124135bb078dd8cdefcbf2fcda00ce599"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/json/json/20080701/json-20080701.jar",
+                                               "sha256":  "03acd6adab2da447f49814751b0e953fb62a6a1023f9d2a705c30a6e3e4638eb"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+                                               "sha256":  "544a20dcb7327bef08b0292afdf2a1312bf3004b9bde1bf06ea52b99dea414e9"
+                                           }
+                                       ],
+                      "security":  {
+                                       "status":  "EXECUTED",
+                                       "process_exit_code":  0,
+                                       "fixture_sha256":  "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+                                       "tests":  [
+                                                     {
+                                                         "name":  "string_roundtrip",
+                                                         "role":  "control",
+                                                         "observed":  "true",
+                                                         "pass":  true
+                                                     },
+                                                     {
+                                                         "name":  "untrusted_event_handler_blocked",
+                                                         "role":  "security",
+                                                         "observed":  "true",
+                                                         "pass":  true
+                                                     }
+                                                 ],
+                                       "controls_pass":  true,
+                                       "all_security_assertions_pass":  true
+                                   },
+                      "source_integrity":  {
+                                               "checked_original_files":  692,
+                                               "changed_files":  [
+
+                                                                 ]
+                                           },
+                      "exit_code":  0,
+                      "end_utc":  "2026-11-24T09:09:33.145671+00:00",
+                      "seconds":  125.302521
                   },
                   {
                       "cve_id":  "CVE-2013-7285",
                       "phase":  "after",
                       "commit":  "6344867dce6767af7d0fe34fb393271a6456672d",
-                      "start_utc":  "2026-11-24T08:31:18.206924+00:00",
+                      "start_utc":  "2026-11-24T09:09:33.157188+00:00",
                       "status":  "PASS",
+                      "build_profile":  {
+
+                                        },
                       "build_status":  "PASS",
-                      "artifact_sha256":  "7714e66a7816d9fc12f1548391d6992a0229c68355b592046aefb17d038a98da",
+                      "artifact_sha256":  "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
                       "module":  "xstream",
                       "artifact":  "artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar",
-                      "security_status":  "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+                      "security_status":  "EXECUTED",
                       "upstream_tests":  {
                                              "status":  "PASS",
                                              "selected_classes":  [
-                                                                      "SecurityMapperTest"
+                                                                      "AliasTest"
                                                                   ],
                                              "scope":  "Changed upstream classes; not a validated external paired security fixture"
                                          },
+                      "dependencies":  [
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar",
+                                               "sha256":  "593552ffea3c5823c6602478b5002a7c525fd904a3c44f1abe4065c22edfac73"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/jdom/jdom/1.1.3/jdom-1.1.3.jar",
+                                               "sha256":  "02bd61a725e8af9b0176b43bf29816d0c748b8ab951385bd127be37489325a0a"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar",
+                                               "sha256":  "32ed093f39c46a8d99f801240069478eac93b35f07351c001f2cef4330e97b4a"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/joda-time/joda-time/1.6/joda-time-1.6.jar",
+                                               "sha256":  "bc96dbe7c56f4fe367ea33e66dfcf18b589e3c8eddcff52a78323c5e6da2387e"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/stax/stax/1.2.0/stax-1.2.0.jar",
+                                               "sha256":  "df6905a047b05e23bc91f03ba57ac2f87c1ddf83e048aa0e5bd13169d5ebf0d9"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar",
+                                               "sha256":  "939f591b445c83f285191cef7603731ed373eaf000da005f49769a283110dd2d"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/stax/stax-api/1.0.1/stax-api-1.0.1.jar",
+                                               "sha256":  "d1968436fc216c901fb9b82c7e878b50fd1d30091676da95b2edd3a9c0ccf92e"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xom/xom/1.1/xom-1.1.jar",
+                                               "sha256":  "05d513cce3f19c1bc4b06c545431da10dbd2f96b4e83aa715d2fe92b06d951a7"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar",
+                                               "sha256":  "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar",
+                                               "sha256":  "12ea18881b2c02122d048bd8a4f73e0f3b10f12694220789db10d64b1f60e74d"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar",
+                                               "sha256":  "f264dd9f79a1fde10ce5ecc53221eff24be4c9331c830b7d52f2f08a7b633de2"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar",
+                                               "sha256":  "bfc90e9e32d0eab1f397fb974b5f150a815188382ac41f372a7149d5bc178008"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar",
+                                               "sha256":  "11aab8e9198a53a3de65aaf4d90f19b124135bb078dd8cdefcbf2fcda00ce599"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/json/json/20080701/json-20080701.jar",
+                                               "sha256":  "03acd6adab2da447f49814751b0e953fb62a6a1023f9d2a705c30a6e3e4638eb"
+                                           },
+                                           {
+                                               "path":  "\u003cworkspace\u003e/.cache/m2/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar",
+                                               "sha256":  "544a20dcb7327bef08b0292afdf2a1312bf3004b9bde1bf06ea52b99dea414e9"
+                                           }
+                                       ],
+                      "security":  {
+                                       "status":  "EXECUTED",
+                                       "process_exit_code":  0,
+                                       "fixture_sha256":  "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+                                       "tests":  [
+                                                     {
+                                                         "name":  "string_roundtrip",
+                                                         "role":  "control",
+                                                         "observed":  "true",
+                                                         "pass":  true
+                                                     },
+                                                     {
+                                                         "name":  "untrusted_event_handler_blocked",
+                                                         "role":  "security",
+                                                         "observed":  "true",
+                                                         "pass":  true
+                                                     }
+                                                 ],
+                                       "controls_pass":  true,
+                                       "all_security_assertions_pass":  true
+                                   },
                       "source_integrity":  {
                                                "checked_original_files":  709,
                                                "changed_files":  [
@@ -118,8 +302,8 @@
                                                                  ]
                                            },
                       "exit_code":  0,
-                      "end_utc":  "2026-11-24T08:32:21.578935+00:00",
-                      "seconds":  63.371999
+                      "end_utc":  "2026-11-24T09:11:40.233747+00:00",
+                      "seconds":  127.07655
                   }
               ],
     "hypotheses":  [

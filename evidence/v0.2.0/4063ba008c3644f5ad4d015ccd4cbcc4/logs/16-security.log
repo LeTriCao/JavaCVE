@@ -1,0 +1,4 @@
+ASSERT|control|string_roundtrip|true
+OBSERVED_EXCEPTION=com.thoughtworks.xstream.converters.ConversionException
+OBSERVED_CALLBACKS=0
+ASSERT|security|untrusted_event_handler_blocked|true

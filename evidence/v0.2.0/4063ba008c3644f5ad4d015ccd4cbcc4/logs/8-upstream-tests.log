@@ -1,0 +1,86 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/tmp/javacve-45zfatuh/tmp40vv7vus/java-tmp/
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.sparkjava:spark-core >----------------------
+[INFO] Building Spark 2.5.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-7
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.5.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-6
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.2.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-6
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.2.0
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-maven) @ spark-core ---
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-java) @ spark-core ---
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ spark-core ---
+[INFO] skip non existing resourceDirectory /tmp/javacve-45zfatuh/tmp40vv7vus/source/src/main/resources
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ spark-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ spark-core ---
+[INFO] Copying 11 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ spark-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 74 source files to /tmp/javacve-45zfatuh/tmp40vv7vus/source/target/test-classes
+[INFO] /tmp/javacve-45zfatuh/tmp40vv7vus/source/src/test/java/spark/StaticFilesTest.java: Some input files use or override a deprecated API.
+[INFO] /tmp/javacve-45zfatuh/tmp40vv7vus/source/src/test/java/spark/StaticFilesTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ spark-core ---
+[INFO] Surefire report directory: /tmp/javacve-45zfatuh/tmp40vv7vus/source/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/tmp/javacve-45zfatuh/tmp40vv7vus/java-tmp/
+Running spark.StaticFilesTestExternal
+[main] INFO spark.staticfiles.StaticFilesConfiguration - External StaticResourceHandler configured with folder = /tmp/javacve-45zfatuh/tmp40vv7vus/java-tmp/sparkish
+[Thread-1] INFO org.eclipse.jetty.util.log - Logging initialized @2499ms
+[Thread-1] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+[Thread-1] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+[Thread-1] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+[Thread-1] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@199a5448{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Thread-1] INFO org.eclipse.jetty.server.Server - Started @2784ms
+[Thread-11] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.697 sec - in spark.StaticFilesTestExternal
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/tmp/javacve-45zfatuh/tmp40vv7vus/java-tmp/
+Running spark.StaticFilesTest
+[main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public
+[main] INFO spark.staticfiles.StaticFilesConfiguration - External StaticResourceHandler configured with folder = /tmp/javacve-45zfatuh/tmp40vv7vus/java-tmp/
+[Thread-1] INFO org.eclipse.jetty.util.log - Logging initialized @2432ms
+[Thread-1] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+[Thread-1] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+[Thread-1] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+[Thread-1] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@181aaee4{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Thread-1] INFO org.eclipse.jetty.server.Server - Started @2749ms
+[qtp997782873-18] WARN spark.staticfiles.StaticFilesConfiguration - classpath directory traversal detection for path: /..\spark\Spark.class
+[Thread-11] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.95 sec - in spark.StaticFilesTest
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  42.000 s
+[INFO] Finished at: 2026-11-24T09:06:41Z
+[INFO] ------------------------------------------------------------------------
