@@ -1,25 +1,23 @@
-# JavaCVE — cải thiện CWE-Bench-Java của IRIS
+# JavaCVE — bộ dữ liệu lỗ hổng Java ở cấp phương thức
 
-Trên 10 CVE có cùng commit sửa, chọn parent của bản sửa làm mốc trước đã thu hẹp tập đường dẫn Java trong diff từ 62 xuống 35 (giảm 43,55%) và giữ đủ 25/25 tệp Java được IRIS chú thích. Với CVE-2019-10392, tệp GitClientSecurityTest.java rời khỏi diff nhưng vẫn tồn tại ở cả hai snapshot. Tra mã CVE trong data/context-files.jsonl để lấy đường dẫn, commit và mã băm.
+JavaCVE chuẩn hóa 20 hồ sơ lỗ hổng Java từ CWE-Bench-Java của IRIS. Mỗi hồ sơ liên kết mã CVE với commit trước và sau bản sửa, tệp Java, phương thức hoặc hàm khởi tạo và bằng chứng kiểm chứng. Revision nguồn IRIS là `d2059f299a80a68ea4a0b0315eec2f42b8743776`.
 
-Đồ án chọn một bộ dữ liệu lỗ hổng Java có sẵn và cải thiện cách định danh, ghép phiên bản, trích xuất phương thức và lưu bằng chứng. Nguồn là CWE-Bench-Java/IRIS tại revision `d2059f299a80a68ea4a0b0315eec2f42b8743776`.
+Trên 10 CVE giữ nguyên commit sửa, JavaCVE dùng commit cha của bản sửa làm mốc trước thay cho commit do IRIS chọn. Số đường dẫn Java xuất hiện trong diff **giảm từ 62 xuống 35 (43,55%)**, vẫn giữ đủ **25/25 tệp Java được IRIS chú thích**. Phép đo thể hiện phạm vi tệp cần rà soát, tính mỗi đường dẫn một lần cho từng CVE. Bảng so sánh trình bày riêng kết quả của 9 CVE Pilot và cách truy lại `GitClientSecurityTest.java`, tệp kiểm thử vẫn liên quan dù đã rời khỏi diff. [Bảng so sánh IRIS → JavaCVE](docs/SO_SANH_IRIS_JAVACVE.md) · [Số liệu CSV](docs/generated/iris-comparison.csv)
 
-**Hiện trạng: 20 CVE, 409 phiên bản phương thức; 14/20 có cặp build; 8/20 đạt C1–C7; 342/409 UNCONFIRMED.** 
+## Mức kiểm chứng
 
-| Đối chứng cùng fix | IRIS seed→fix | JavaCVE parent→fix | Giới hạn |
-|---|---:|---:|---|
-| 9 CVE Pilot, mẫu số cũ | 60 path Java | 33 | Giảm 45%; giữ 23/23 anchor IRIS |
-| 10 CVE có đủ Git object | 62 | 35 | Giảm 43,55%; giữ 25/25 anchor IRIS |
+| Chỉ tiêu | Kết quả |
+|---|---:|
+| Phiên bản phương thức hoặc hàm khởi tạo khớp mã nguồn và cây cú pháp trừu tượng (AST) | 409/409 |
+| CVE build thành công từ nguồn ở cả hai commit | 14/20 |
+| CVE đạt đủ bảy tiêu chí nghiệm thu C1–C7 | 8/20 |
+| Phiên bản còn thiếu bằng chứng để kết luận nhãn (`UNCONFIRMED`) | 342/409 |
 
-Đây là phạm vi changed-path tính từ Git, không phải số file gán nhãn của IRIS fix_info; 33 path gồm 23 anchor và 10 ứng viên bổ sung. Không suy ra giảm thời gian hoặc tăng accuracy/precision nhãn. GitClientSecurityTest cùng SECURITY-1534 bị ra khỏi changed-set vẫn được lưu như ngữ cảnh. Bảng đủ 20 CVE ghi lý do loại từng ca; không gọi mọi path bị loại là nhiễu.
+[Bảng nghiệm thu 20 CVE](docs/DOI_CHIEU_DU_LIEU.md) · [Phương pháp và tiêu chí C1–C7](docs/METHODOLOGY.md) · [Báo cáo Markdown](docs/BAO_CAO_MON_HOC.md) · [Báo cáo Word](docs/BAO_CAO_MON_HOC.docx)
 
-- [Bảng so sánh và hai ca đọc diff](docs/SO_SANH_IRIS_JAVACVE.md) · [CSV](docs/generated/iris-comparison.csv).
-- [Báo cáo môn học](docs/BAO_CAO_MON_HOC.md) · [Word](docs/BAO_CAO_MON_HOC.docx).
-- [Bảng nghiệm thu 20 CVE](docs/DOI_CHIEU_DU_LIEU.md) · [Phương pháp](docs/METHODOLOGY.md).
-- [Phiếu người rà ẩn baseline](docs/review/HUONG_DAN.md) · [CSV](docs/review/PHIEU_RA_SOAT_NHAN.csv). Chỉ gửi ZIP người rà, không gửi thư mục review_coordinator hoặc nhãn gốc trước khi họ quyết định.
-- [Kịch bản demo 5 phút](docs/DEMO_5_PHUT.md) · [Nguồn/giấy phép](docs/SOURCES.md).
+## Sử dụng
 
-Tại workspace đang sửa, ba lệnh độc lập sau dùng đích mới:
+Chạy từ thư mục gốc, chọn đường dẫn đầu ra mới cho mỗi lần chạy.
 
 ```sh
 python3 -m tools.compare_iris --out runs/iris-new
@@ -27,6 +25,10 @@ python3 -m tools.course_demo --out runs/course-demo-new
 python3 -m tools.acceptance --out runs/common-new.json
 ```
 
-Lệnh so sánh cần Git cache có seed/parent/fix; trên bản giải nén truyền ba tùy chọn đường dẫn cache theo kịch bản. Demo và tái tính receipt không cần JDK/Maven. Bộ nộp v2 có manifest riêng được tạo lại và kiểm tra từ bản giải nén; workspace giữ manifest gốc và workflow/GitHub helper đang sửa dở ngoài phạm vi. Trong ZIP đã niêm phong, chạy `python3 run.py demo` và `python3 -m unittest discover -s tests -v`. Không ghi đã chạy trên máy khác: diễn tập hiện tại ở cùng máy Ubuntu WSL.
+Lệnh đầu cần Git cache chứa commit do IRIS chọn, commit cha và commit sửa. Hai lệnh sau đọc bằng chứng đã lưu và có thể chạy không cần JDK hay Maven. Kịch bản demo hướng dẫn cách khai báo đường dẫn cache. [Demo 5 phút](docs/DEMO_5_PHUT.md) · [Nguồn và giấy phép](docs/SOURCES.md)
 
-Giữ 6 hồ sơ thiếu cặp build và 6 hồ sơ đã build nhưng chưa đạt chuẩn, liệt kê trong báo cáo. UNCONFIRMED không phải nhãn an toàn. Phiếu trống vẫn PENDING, không tính tỷ lệ đồng thuận khi chưa có người rà. Chưa commit, push, tạo tag hoặc phát hành; gói nộp cũ được giữ nguyên.
+Để kiểm tra bản bàn giao đã có manifest, chạy `python3 run.py demo` và `python3 -m unittest discover -s tests -v`.
+
+## Giới hạn
+
+Mốc 12/20 CVE đạt C1–C7 là mục tiêu đề xuất, chờ giảng viên xác nhận. Phiếu rà nhãn độc lập gồm 40 mẫu đang ở trạng thái `PENDING`. Tỷ lệ đồng thuận sẽ được tính khi có quyết định rà soát hợp lệ. [Hướng dẫn rà nhãn](docs/review/HUONG_DAN.md) · [Phiếu rà soát](docs/review/PHIEU_RA_SOAT_NHAN.csv)
