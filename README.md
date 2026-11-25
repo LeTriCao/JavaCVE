@@ -31,4 +31,4 @@ Lệnh đầu cần Git cache chứa commit do IRIS chọn, commit cha và commi
 
 ## Giới hạn
 
-Mốc 12/20 CVE đạt C1–C7 là mục tiêu đề xuất, chờ giảng viên xác nhận. Phiếu rà nhãn độc lập gồm 40 mẫu đang ở trạng thái `PENDING`. Tỷ lệ đồng thuận sẽ được tính khi có quyết định rà soát hợp lệ. [Hướng dẫn rà nhãn](docs/review/HUONG_DAN.md) · [Phiếu rà soát](docs/review/PHIEU_RA_SOAT_NHAN.csv)
+Phép so sánh với IRIS đo số đường dẫn Java cần rà soát. Độ chính xác của nhãn và thời gian rà soát cần được đánh giá riêng.
