@@ -4,7 +4,7 @@ Trên 10 CVE có cùng commit sửa, chọn parent của bản sửa làm mốc 
 
 Đồ án chọn một bộ dữ liệu lỗ hổng Java có sẵn và cải thiện cách định danh, ghép phiên bản, trích xuất phương thức và lưu bằng chứng. Nguồn là CWE-Bench-Java/IRIS tại revision `d2059f299a80a68ea4a0b0315eec2f42b8743776`.
 
-**Hiện trạng: 20 CVE, 409 phiên bản phương thức; 14/20 có cặp build; 8/20 đạt C1–C7; 342/409 UNCONFIRMED.** Mục tiêu 12/20 là đề xuất chờ giảng viên xác nhận. Không có rà soát nhãn độc lập hoàn tất.
+**Hiện trạng: 20 CVE, 409 phiên bản phương thức; 14/20 có cặp build; 8/20 đạt C1–C7; 342/409 UNCONFIRMED.** 
 
 | Đối chứng cùng fix | IRIS seed→fix | JavaCVE parent→fix | Giới hạn |
 |---|---:|---:|---|
