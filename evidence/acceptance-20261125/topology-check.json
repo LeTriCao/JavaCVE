@@ -1,0 +1,202 @@
+{
+  "CVE-2017-1000487": {
+    "status": "PASS",
+    "before": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+    "after": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "6ba94f05085106523de3998e4d8caf16101b9ff1",
+      "after": "60a36b3044777337fa50aaa310e048d7b74eb37e"
+    }
+  },
+  "CVE-2018-1002200": {
+    "status": "PASS",
+    "before": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+    "after": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "df5c1bbbcbc2da02cb3631a9b86dafe901f7d89d",
+      "after": "adc063995d7e3ec7c7857edf383f18da869addbd"
+    }
+  },
+  "CVE-2018-1002201": {
+    "status": "PASS",
+    "before": "d1c40776d2ff18550d95db2609d3d154692dea93",
+    "after": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "fd16484b6e4a47fd4dc551e61b331dec4316f3f2",
+      "after": "b10fb951cd7de01214daa58d2e692b7987ce2e17"
+    }
+  },
+  "CVE-2018-1002202": {
+    "status": "PASS",
+    "before": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+    "after": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "1c251d7bcbb60eb16a9e7026b58a2c8b1971db71",
+      "after": "9a1e56ffc6f8510479b7bba159a2044a81830bbc"
+    }
+  },
+  "CVE-2018-17297": {
+    "status": "PASS",
+    "before": "fd77bb8718648f69a587046b735488a80123cc26",
+    "after": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "477fd2fe170ca91ba4d3667282f351034d762edb",
+      "after": "ccaeae5c37f151f26ae75694bde3c57d428050c6"
+    }
+  },
+  "CVE-2019-10392": {
+    "status": "PASS",
+    "before": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+    "after": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "c820e954d1cde0fcdfa2aa89027f6d853e675d46",
+      "after": "6ef407cd38bd21acf1b461ffbc3ef73e12cebd2c"
+    }
+  },
+  "CVE-2020-2261": {
+    "status": "PASS",
+    "before": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+    "after": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "43504f44d7a2912774cd50ce6a002e4cfedfc120",
+      "after": "21428213cb0f5f4a8cbb2745055c389399ceec74"
+    }
+  },
+  "CVE-2021-29425": {
+    "status": "PASS",
+    "before": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+    "after": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "b11bbe735a6247fb5618f683fed78240d66eafd7",
+      "after": "4e78b3194e19f186aedec931fdbbebeb1ee96ab7"
+    }
+  },
+  "CVE-2022-20617": {
+    "status": "PASS",
+    "before": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+    "after": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "ba5946c82d00ae9706833e5c99fdb0ce87142db0",
+      "after": "3b371fe215fa3276aa9a5e7f3bd81df34e7b163e"
+    }
+  },
+  "CVE-2022-33140": {
+    "status": "PASS",
+    "before": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+    "after": "a1306a19f78e11c2d809e9aef24336669461403a",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "4d56b2d937fc3c50702904de4ee13c18c1cea461",
+      "after": "2f2505c1566b1e86d0093f4f536725c0715c86e7"
+    }
+  },
+  "CVE-2016-9177": {
+    "status": "PASS",
+    "before": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+    "after": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "601afcd227d438e66071e6cc35d441f78d88cad8",
+      "after": "1b11207b63bb4f1322e19cd9af377b6129f8c83e"
+    }
+  },
+  "CVE-2018-1000850": {
+    "status": "PASS",
+    "before": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+    "after": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "b524dbe27ccfaa18529767fd05f1ca6be3235cc4",
+      "after": "e049756d2d53bb5bb44756e41e4002f89da36e03"
+    }
+  },
+  "CVE-2022-25842": {
+    "status": "PASS",
+    "before": "29dc527a5d76c14de833ac3f2eae282a27190505",
+    "after": "359603b63fc6c59d8b57e061c171954bab3433bf",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "dfb3db24fe4223cddf57d267552a1606e1fa884e",
+      "after": "0e9452c44fbc4bae4b143580641611620dff268d"
+    }
+  },
+  "CVE-2022-4244": {
+    "status": "PASS",
+    "before": "f933e5e78dc2637e485447ed821fe14904f110de",
+    "after": "33a2853df8185b4519b1b8bfae284f03392618ef",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "0ea791d6bb9c9f90731f33edb26a6082a60b9242",
+      "after": "d2b45b11d409012fc47e5c35cc327363679c294d"
+    }
+  },
+  "CVE-2023-37460": {
+    "status": "PASS",
+    "before": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+    "after": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "8da0c8a61d8676985d2e537a44f5de66e13b70a6",
+      "after": "2aa8883c07b2a76db885e389409fabe0da7d4631"
+    }
+  },
+  "CVE-2013-7285": {
+    "status": "PASS",
+    "before": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+    "after": "6344867dce6767af7d0fe34fb393271a6456672d",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "43dccec0ff163d436d1a1775a64da7b4b00b3bd6",
+      "after": "8c329425d3ee7b52456b13da2cfca066e96d1e03"
+    }
+  },
+  "CVE-2020-26217": {
+    "status": "PASS",
+    "before": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+    "after": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "05786ea4f7e84fb6a2b812e4ce75a4db27f66c89",
+      "after": "f9b4ec81da4b3c41593e879a3e6b6f2716e527c7"
+    }
+  },
+  "CVE-2021-21345": {
+    "status": "PASS",
+    "before": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+    "after": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "f97ee3d8484241d18cdfec5406d90f61b5dc6e36",
+      "after": "78fc8109614a7ccf8ae105c7c0dad623b799a1fe"
+    }
+  },
+  "CVE-2022-25174": {
+    "status": "PASS",
+    "before": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+    "after": "ace0de3c2d691662021ea10306eeb407da6b6365",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "4f1e3b15c511f5907419174f2104979783cf0596",
+      "after": "adb466b96846317ff357dadde2cf398092a8e659"
+    }
+  },
+  "CVE-2022-25175": {
+    "status": "PASS",
+    "before": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+    "after": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+    "selected_parent_index": 0,
+    "trees": {
+      "before": "44aaa9fa639944d79ccc00bfde8c6960cad68b86",
+      "after": "51d39f08a7d40b466411ecc162de08376ececabc"
+    }
+  }
+}

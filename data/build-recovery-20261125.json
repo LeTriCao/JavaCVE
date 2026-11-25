@@ -1,0 +1,226 @@
+{
+  "date_local": "2026-11-25",
+  "reviewer": "AI",
+  "selected_cves": [
+    "CVE-2018-1000850",
+    "CVE-2022-25174"
+  ],
+  "initial_paired_builds": 12,
+  "current_paired_builds": 14,
+  "increase": 2,
+  "scope": "Source package under recorded build-only POM overlays; tests skipped; no semantic label promotion.",
+  "attempts": [
+    {
+      "run_id": "188f8a96a7e1421a97ca9a438faafeef",
+      "receipt": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/run.json",
+      "status": "PASS",
+      "offline": false,
+      "transport": null,
+      "timeout_seconds": 300,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2018-1000850",
+          "phase": "before",
+          "commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+          "status": "PASS",
+          "build_status": "PASS",
+          "error_category": null,
+          "exit_code": 0,
+          "seconds": 124.007128,
+          "artifact_sha256": "0bb801f63da42309771614989ec8d7da43a13e61dd6f32c10558194ad1bfb23e",
+          "upstream_config_changes": [
+            "retrofit/pom.xml"
+          ]
+        },
+        {
+          "cve_id": "CVE-2018-1000850",
+          "phase": "after",
+          "commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+          "status": "PASS",
+          "build_status": "PASS",
+          "error_category": null,
+          "exit_code": 0,
+          "seconds": 43.188827,
+          "artifact_sha256": "79880b864d6d058e9c434363102af8d9f2bdd8981ba8392d6a22e83dae754bba",
+          "upstream_config_changes": [
+            "retrofit/pom.xml"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "d8f356a0fef444b5ba7aa250693f5f86",
+      "receipt": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/run.json",
+      "status": "FAIL",
+      "offline": true,
+      "transport": null,
+      "timeout_seconds": 180,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "before",
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "COMMAND_FAILED",
+          "exit_code": 1,
+          "seconds": 58.859061,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        },
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "after",
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "COMMAND_FAILED",
+          "exit_code": 1,
+          "seconds": 24.84574,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        }
+      ]
+    },
+    {
+      "run_id": "3d7060c231ab429db5c824889fcd4eec",
+      "receipt": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/run.json",
+      "status": "FAIL",
+      "offline": false,
+      "transport": "Python TLS via loopback; official repository URLs only",
+      "timeout_seconds": 300,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "before",
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "TIMEOUT",
+          "exit_code": 124,
+          "seconds": 300.187437,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        },
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "after",
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "COMMAND_FAILED",
+          "exit_code": 143,
+          "seconds": 49.95954,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        }
+      ]
+    },
+    {
+      "run_id": "7a18b9cb67574529b6138f0673c42af0",
+      "receipt": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/run.json",
+      "status": "FAIL",
+      "offline": false,
+      "transport": "Python TLS via loopback; official repository URLs only",
+      "timeout_seconds": 300,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "before",
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "TIMEOUT",
+          "exit_code": 124,
+          "seconds": 300.393494,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        },
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "after",
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "DEPENDENCY",
+          "exit_code": 1,
+          "seconds": 192.144854,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        }
+      ]
+    },
+    {
+      "run_id": "332ed42e0837447b9156debf5917fd59",
+      "receipt": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/run.json",
+      "status": "FAIL",
+      "offline": false,
+      "transport": "Python TLS via loopback; official repository URLs only",
+      "timeout_seconds": 600,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "before",
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "TIMEOUT",
+          "exit_code": 124,
+          "seconds": 600.829905,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        },
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "after",
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "status": "FAIL",
+          "build_status": null,
+          "error_category": "COMMAND_FAILED",
+          "exit_code": 143,
+          "seconds": 183.181111,
+          "artifact_sha256": null,
+          "upstream_config_changes": []
+        }
+      ]
+    },
+    {
+      "run_id": "d6afe2302eb94c8e8ee75fe92844ec72",
+      "receipt": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/run.json",
+      "status": "PASS",
+      "offline": false,
+      "transport": "Python TLS via loopback; official repository URLs only",
+      "timeout_seconds": 300,
+      "snapshots": [
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "before",
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "status": "PASS",
+          "build_status": "PASS",
+          "error_category": null,
+          "exit_code": 0,
+          "seconds": 232.962028,
+          "artifact_sha256": "615e1ff370652cf57dff989c74f9b14a2558987dfc045cab992f0948c4ece32e",
+          "upstream_config_changes": [
+            "pom.xml"
+          ]
+        },
+        {
+          "cve_id": "CVE-2022-25174",
+          "phase": "after",
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "status": "PASS",
+          "build_status": "PASS",
+          "error_category": null,
+          "exit_code": 0,
+          "seconds": 132.225486,
+          "artifact_sha256": "977b9fcac0af9d8cc53e6cf48b5fc73f456bf07db9121a270aa894e11442bd27",
+          "upstream_config_changes": [
+            "pom.xml"
+          ]
+        }
+      ]
+    }
+  ]
+}

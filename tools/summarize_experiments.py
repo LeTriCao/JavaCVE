@@ -40,6 +40,11 @@ def main():
     build_runs = {a["cve_id"]: a.get("behavior_run_id") or a["receipt_run_id"] for a in review["cases"]}
     build_runs.update(completion["evidence_runs"])
     build_runs["CVE-2023-37460"] = plexus_id
+    # Later recovery receipts are selected explicitly in the build ledger.
+    # Do not silently revert them to the original batch attempt on regeneration.
+    ledger_path = folder / "build-status.json"
+    previous_status = {c["cve_id"]: c for c in json.loads(ledger_path.read_text())["cases"]} if ledger_path.exists() else {}
+    build_runs.update({cve: c["build_run_id"] for cve, c in previous_status.items()})
     runs = {run_id: load(run_id) for run_id in {batch_id, *build_runs.values()}}
     # AI review of the last recorded build stage and the next verifiable evidence for each case.
     priorities = {
@@ -72,10 +77,15 @@ def main():
         base = Path("evidence/v0.2.0") / run_id
         pair = {s["phase"]: s for s in run["snapshots"] if s["cve_id"] == cve}
         priority, finding, remaining = priorities[cve]
+        previous = previous_status.get(cve, {})
+        if previous.get("previous_build_run_ids"):
+            priority, finding, remaining = previous["priority"], previous["finding"], previous["remaining"]
         item = dict(cve_id=cve, source_normalized=True, cwe=case["target_cwe"], advisory_cwes=case["advisory_cwe_ids"],
                     cwe_alignment=case["cwe_alignment"], build_run_id=run_id, before=pair["before"], after=pair["after"],
                     fully_completed=cve in completion["completed_cves"], priority=priority, finding=finding,
                     remaining=remaining, build_logs={}, upstream_totals={})
+        if previous.get("previous_build_run_ids"):
+            item["previous_build_run_ids"] = previous["previous_build_run_ids"]
         for step in run["steps"]:
             if step.get("cve_id") != cve:
                 continue

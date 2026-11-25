@@ -1,0 +1,2038 @@
+{
+  "schema": "iris-parent-comparison-v1",
+  "date_local": "2026-11-25",
+  "benchmark_revision": "d2059f299a80a68ea4a0b0315eec2f42b8743776",
+  "rule": "Unique case-sensitive .java paths per CVE; git diff --name-only --no-renames -z START FIX -- *.java; includes tests/resources; sum CVE-path counts across cases, not globally unique paths.",
+  "network_used": false,
+  "source_inputs_sha256": {
+    "project_info.csv": "8582dc18b742d15427f54440863d0e42a9259a114b5188735044b9b50652b272",
+    "fix_info.csv": "71d8144c1f22da205f594a01df5dc14b3cae2a6a208a0191bfbaf2ad7f0142c6"
+  },
+  "primary": {
+    "cves": 9,
+    "original_paths": 60,
+    "normalized_paths": 33,
+    "net_reduction": 27,
+    "reduction_percent": 45.0,
+    "removed_paths": 27,
+    "added_paths": 0,
+    "iris_annotated_java_paths": 23,
+    "missing_iris_annotated_paths": 0,
+    "context_references": 1
+  },
+  "expanded": {
+    "cves": 10,
+    "original_paths": 62,
+    "normalized_paths": 35,
+    "net_reduction": 27,
+    "reduction_percent": 43.548387,
+    "removed_paths": 27,
+    "added_paths": 0,
+    "iris_annotated_java_paths": 25,
+    "missing_iris_annotated_paths": 0,
+    "context_references": 1
+  },
+  "prior_60_to_33_matches": true,
+  "limitations": [
+    "Path count is not security-label precision, source lines, processing time, build improvement or model accuracy.",
+    "Parent-diff equality retains the chosen patch paths by construction; independent check uses raw IRIS fix_info.csv annotations.",
+    "Some removed paths can be security context; context references are separate from the 409 changed-callable versions.",
+    "Missing seed objects are reported as exclusions; no network fetch is attempted."
+  ],
+  "cases": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "batch": "pilot",
+      "project": "Plexus Utils",
+      "project_slug": "codehaus-plexus__plexus-utils_CVE-2017-1000487_3.0.15",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-utils",
+      "provenance": "developer_commit",
+      "iris_before_commit": "3b271b43f9e5021b4232fc2ffdfb4e469c7f8685",
+      "javacve_before_commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "common_fix_commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "iris_fix_references": [
+        "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 6,
+      "normalized_count": 5,
+      "original_paths": [
+        "src/main/java/org/codehaus/plexus/util/IOUtil.java",
+        "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+        "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+        "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+        "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+        "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+      ],
+      "removed_paths": [
+        "src/main/java/org/codehaus/plexus/util/IOUtil.java"
+      ],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+        "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+        "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+        "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+        "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+        "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/org/codehaus/plexus/util/IOUtil.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "633c1b2e26f8bba929b4312394fc6f557e427fa2",
+              "sha256": "2ba497fa59d85d8f50da8d96a0886f7492fe5cb54e7e24bd5b7cd3449d391c05"
+            },
+            "javacve_before": {
+              "git_blob": "4045a7f4a9308c5461b1ca9456fda15e3bcab9a1",
+              "sha256": "d9c72fea0b66cb7754b0da38465bb42d296d333254695652fd37da16b4e76a66"
+            },
+            "fix": {
+              "git_blob": "4045a7f4a9308c5461b1ca9456fda15e3bcab9a1",
+              "sha256": "d9c72fea0b66cb7754b0da38465bb42d296d333254695652fd37da16b4e76a66"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "5e0d5af40703a942912a752c466f37ae237bd265",
+              "sha256": "56b7cdb1d78ca1d853a2532560686f5f42b2f48ab796e34466d4d353375c0358"
+            },
+            "javacve_before": {
+              "git_blob": "5e0d5af40703a942912a752c466f37ae237bd265",
+              "sha256": "56b7cdb1d78ca1d853a2532560686f5f42b2f48ab796e34466d4d353375c0358"
+            },
+            "fix": {
+              "git_blob": "7346c7ef021e65ab948f46f2df4745677b3ec9d4",
+              "sha256": "592aba9e9bdbcdc4998b1dbf30d47cca3fac26dd45c345bf0016a95980c38543"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "d3432820fd44ea9cf25b32e94633547f711694d1",
+              "sha256": "70e8d5bcd3cc2e692e680c7ac8dcd57a5743c64a144a35268739341a1d3b1bde"
+            },
+            "javacve_before": {
+              "git_blob": "d3432820fd44ea9cf25b32e94633547f711694d1",
+              "sha256": "70e8d5bcd3cc2e692e680c7ac8dcd57a5743c64a144a35268739341a1d3b1bde"
+            },
+            "fix": {
+              "git_blob": "9bf3a09fa247421572bb8e46752a97bad8a9cc1a",
+              "sha256": "786273589a9ebfb452f341ff928be2b411a63ff76cab794a993407103d1cea89"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "6d748fb28ba9aabf6c2b4ba995212bd807613749",
+              "sha256": "6c9bbe5e95afa9a9ddedc9ecd75e9a65d7cb1c059c0eca58f4a64f2475634923"
+            },
+            "javacve_before": {
+              "git_blob": "6d748fb28ba9aabf6c2b4ba995212bd807613749",
+              "sha256": "6c9bbe5e95afa9a9ddedc9ecd75e9a65d7cb1c059c0eca58f4a64f2475634923"
+            },
+            "fix": {
+              "git_blob": "14fd62d61dda03eb5b07d56b1e35bda4150e48c0",
+              "sha256": "3dc73e0f058281f69a6ac92ec3be10d1912ec7bec656f84783e3724160a2b0e8"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2dac7d9f618c888108ebf738738db16d1b1f3968",
+              "sha256": "358ba5aa6a384d2e4d35638271b40edce8181ca27a3167506a6fa2d6bb66c8ff"
+            },
+            "javacve_before": {
+              "git_blob": "2dac7d9f618c888108ebf738738db16d1b1f3968",
+              "sha256": "358ba5aa6a384d2e4d35638271b40edce8181ca27a3167506a6fa2d6bb66c8ff"
+            },
+            "fix": {
+              "git_blob": "7d9e3df82dc4cd4bc35c0fced9a32c878fb839d3",
+              "sha256": "a939945a963b7c0e741bc43f5f588235af3c6c4acaff29bcfed314c38237b8a5"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2a987eda4e42ca0e8fc0aa4838ea82abf5bdde92",
+              "sha256": "354ff53127bce4d2110eb91556ce66b4f695aa89c86e82d7d561df62cb688f8b"
+            },
+            "javacve_before": {
+              "git_blob": "2a987eda4e42ca0e8fc0aa4838ea82abf5bdde92",
+              "sha256": "354ff53127bce4d2110eb91556ce66b4f695aa89c86e82d7d561df62cb688f8b"
+            },
+            "fix": {
+              "git_blob": "0e06c6397a36bba183778d4927a1655fa900e679",
+              "sha256": "7cab3dd4cfcade7738fb36a981fb9cf319e460fcc5498d19852123a3a88bdc80"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "2ea628da228d43c71123ada4d31d4a4de794c6a426d1fec574bddac5f5e2b92a",
+      "intervening_diff_sha256": "851884b9971af2e577019a06ac1175b8fd468f4fb7f38161e6e5018b7f7b90e0",
+      "fix_message": "[PLXUTILS-161] Commandline shell injection problems\n\nPatch by Charles Duffy, applied unmodified\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "a95a32d59098dd022088146a609fbeb773652954",
+        "javacve_before": "6ba94f05085106523de3998e4d8caf16101b9ff1",
+        "fix": "60a36b3044777337fa50aaa310e048d7b74eb37e"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "batch": "pilot",
+      "project": "Plexus Archiver",
+      "project_slug": "codehaus-plexus__plexus-archiver_CVE-2018-1002200_3.5",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-archiver",
+      "provenance": "developer_commit",
+      "iris_before_commit": "b9f9a425865eb47fb3665b3144ee4ca11f402704",
+      "javacve_before_commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "common_fix_commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "iris_fix_references": [
+        "f8f4233508193b70df33759ae9dc6154d69c2ea8"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 14,
+      "normalized_count": 2,
+      "original_paths": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/JarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/ModularJarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollection.java",
+        "src/test/java/org/codehaus/plexus/archiver/BasePlexusArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/BaseJarArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/JarArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java",
+        "src/test/resources/java-src/com/example/app/Main.java",
+        "src/test/resources/java-src/module-info.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+        "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java"
+      ],
+      "removed_paths": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/JarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/jar/ModularJarArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipArchiver.java",
+        "src/main/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollection.java",
+        "src/test/java/org/codehaus/plexus/archiver/BasePlexusArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/BaseJarArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/JarArchiverTest.java",
+        "src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java",
+        "src/test/resources/java-src/com/example/app/Main.java",
+        "src/test/resources/java-src/module-info.java"
+      ],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+        "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/AbstractArchiver.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "f88583d4435bb4fb034028b40c5143804814de72",
+              "sha256": "d79351131d62dc104d1708b2c3bfab942e0e935331375c48402759d20760960e"
+            },
+            "javacve_before": {
+              "git_blob": "3fab3dd2a33e7f9a671f0cc483d416ff3f3c8da5",
+              "sha256": "b8ab8a8a26eb2374dd2862cae1e1ed267ae22d37168ee69dedfc095b77f4602d"
+            },
+            "fix": {
+              "git_blob": "3fab3dd2a33e7f9a671f0cc483d416ff3f3c8da5",
+              "sha256": "b8ab8a8a26eb2374dd2862cae1e1ed267ae22d37168ee69dedfc095b77f4602d"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "bd462d93b768771dabb9b62a6e8d59554140c00d",
+              "sha256": "396317b351b167947d3d394999ac06fb5e7cd1a17da3fe968a7e2e9740974315"
+            },
+            "javacve_before": {
+              "git_blob": "bd462d93b768771dabb9b62a6e8d59554140c00d",
+              "sha256": "396317b351b167947d3d394999ac06fb5e7cd1a17da3fe968a7e2e9740974315"
+            },
+            "fix": {
+              "git_blob": "96758801fe8dcbe91593da4fefd125e4f101f03d",
+              "sha256": "63b23b01e908b5c50fd5ba6ca20a86182947eed6fdcd342322d6612064949a7e"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/jar/JarArchiver.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "fa0775e5c53dfbd6ec031cb7299663f6a6dd6ad4",
+              "sha256": "81c9b9f3a21bc561d3689542cbcfe06bea69fd40db10d7e78ccd34f5dc8a4fe7"
+            },
+            "javacve_before": {
+              "git_blob": "671593f54532bdd4ad23771e1a7856105a82da7b",
+              "sha256": "de7413f3ce99d9c437f82442c9c02bf93dae70ead67f978ead838fc95669ac7d"
+            },
+            "fix": {
+              "git_blob": "671593f54532bdd4ad23771e1a7856105a82da7b",
+              "sha256": "de7413f3ce99d9c437f82442c9c02bf93dae70ead67f978ead838fc95669ac7d"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiver.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "e8cb678345ee1ccf7da4af5687c9caa022a60e7e",
+              "sha256": "f168cffdf38d94b22def52f30e7b372f38b5823dc54f70313dbd03847846013c"
+            },
+            "fix": {
+              "git_blob": "e8cb678345ee1ccf7da4af5687c9caa022a60e7e",
+              "sha256": "f168cffdf38d94b22def52f30e7b372f38b5823dc54f70313dbd03847846013c"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/jar/ModularJarArchiver.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "bf636e110a846a002ddbbf0241d58ba4f13c033d",
+              "sha256": "6ec67fe01c9ee411a08ef06a86f35df97740c054809bcc3ca66582d4e51e6147"
+            },
+            "fix": {
+              "git_blob": "bf636e110a846a002ddbbf0241d58ba4f13c033d",
+              "sha256": "6ec67fe01c9ee411a08ef06a86f35df97740c054809bcc3ca66582d4e51e6147"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipArchiver.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "501387d72e24321acb97d10fb26f2a405661beb0",
+              "sha256": "b909fec6fbbee6cedc33fb648525d0fbc14303817eb696475f6874c0dceb474c"
+            },
+            "javacve_before": {
+              "git_blob": "57799c683f892389da8fa0216ddf9dbbf35b31ca",
+              "sha256": "89cd7ac6ba86b776a296779e8cf63118cacc585e39b1d736c6bc4dbe35bed0f6"
+            },
+            "fix": {
+              "git_blob": "57799c683f892389da8fa0216ddf9dbbf35b31ca",
+              "sha256": "89cd7ac6ba86b776a296779e8cf63118cacc585e39b1d736c6bc4dbe35bed0f6"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollection.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "4d8a14c5ffc9115314358251c2ffcda63be3304d",
+              "sha256": "aef9dd7df63dbca6f7f9feda99c2458772af0b15422b5d345268ea87279c6c4d"
+            },
+            "javacve_before": {
+              "git_blob": "e14a7ebe236907d30a414885c1b9e7b8a6b0964f",
+              "sha256": "0102f65a806458dad64bbf0a6ea356987efc3be0b69d2a0c7ea2cbf20d4b7e92"
+            },
+            "fix": {
+              "git_blob": "e14a7ebe236907d30a414885c1b9e7b8a6b0964f",
+              "sha256": "0102f65a806458dad64bbf0a6ea356987efc3be0b69d2a0c7ea2cbf20d4b7e92"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/archiver/BasePlexusArchiverTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "fc0cacfae7d0b9f92c7a6e35efc1df9ba17bc94e",
+              "sha256": "0e59b33037563d3ae02e6a5cdfdb2905f28539210ac8f2df74274d12eee11671"
+            },
+            "javacve_before": {
+              "git_blob": "dcc0258e8250a18d77af5840e99fb8ed84d4d03a",
+              "sha256": "4eb550d488c94a31e37b2f0fa3faba086587f3e89c97695c604808d1c801c5dd"
+            },
+            "fix": {
+              "git_blob": "dcc0258e8250a18d77af5840e99fb8ed84d4d03a",
+              "sha256": "4eb550d488c94a31e37b2f0fa3faba086587f3e89c97695c604808d1c801c5dd"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/archiver/jar/BaseJarArchiverTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "383ea7f75f91332ec66d1c2cc1d652e5b98af2a9",
+              "sha256": "00c5874e29bdb8435bc924aa6a16d96cda2e036245a9c95f1e2f3484e1de73e8"
+            },
+            "fix": {
+              "git_blob": "383ea7f75f91332ec66d1c2cc1d652e5b98af2a9",
+              "sha256": "00c5874e29bdb8435bc924aa6a16d96cda2e036245a9c95f1e2f3484e1de73e8"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/archiver/jar/JarArchiverTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "8529977a048204415d7e929404d8d5d22105b32c",
+              "sha256": "7b97dcd2ff5bd6d75cd970960322a67572877e9d1f70058de2c68511b5fec615"
+            },
+            "javacve_before": {
+              "git_blob": "ee118cf4ed2d22d1c81149516122619f6547418d",
+              "sha256": "b9d8c9b02ec36ae2c1a8b12c19b8701ee5d36f971c2d8565bb81c55792728564"
+            },
+            "fix": {
+              "git_blob": "ee118cf4ed2d22d1c81149516122619f6547418d",
+              "sha256": "b9d8c9b02ec36ae2c1a8b12c19b8701ee5d36f971c2d8565bb81c55792728564"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "609692f4ce85b9f72efd8308e4435eedec79d1d0",
+              "sha256": "d0ad7b5cbe9beb6c67e038175d4f60ae514181969e51b52cf5a34aa5cff91a67"
+            },
+            "fix": {
+              "git_blob": "609692f4ce85b9f72efd8308e4435eedec79d1d0",
+              "sha256": "d0ad7b5cbe9beb6c67e038175d4f60ae514181969e51b52cf5a34aa5cff91a67"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "1f72a6156301b37641703f3c099743069bfede41",
+              "sha256": "a5c6f449b2e248baf6e5305308fa68283b18b9c99f5f0c592baea7e654fd5480"
+            },
+            "javacve_before": {
+              "git_blob": "1f72a6156301b37641703f3c099743069bfede41",
+              "sha256": "a5c6f449b2e248baf6e5305308fa68283b18b9c99f5f0c592baea7e654fd5480"
+            },
+            "fix": {
+              "git_blob": "ea46a5aae2bb1cd75828ad8b19da17e61a460bf0",
+              "sha256": "34525c5badc28ebf2d7e88ab00c067bfad839557f926bb066c6dc1cca2b25e19"
+            }
+          }
+        },
+        {
+          "path": "src/test/resources/java-src/com/example/app/Main.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "5de2c61fa317dd902cb0246dbd46d63358c97095",
+              "sha256": "5edeeef85aaf727f4d0269fa2d3bba0f5f8e39bfacf921e845d06c75e47bfc50"
+            },
+            "fix": {
+              "git_blob": "5de2c61fa317dd902cb0246dbd46d63358c97095",
+              "sha256": "5edeeef85aaf727f4d0269fa2d3bba0f5f8e39bfacf921e845d06c75e47bfc50"
+            }
+          }
+        },
+        {
+          "path": "src/test/resources/java-src/module-info.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "194dd842237849c01b975d9dcf58ac51307eaceb",
+              "sha256": "b50864ed7e88dcb399c39bdbb3e43c9ddb1128376cdca31df24e10475159f2c6"
+            },
+            "fix": {
+              "git_blob": "194dd842237849c01b975d9dcf58ac51307eaceb",
+              "sha256": "b50864ed7e88dcb399c39bdbb3e43c9ddb1128376cdca31df24e10475159f2c6"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "55e545ad2ba9db18cd99d907cae758103e27ca0ea3d279e52a5b0f732611144c",
+      "intervening_diff_sha256": "75df86fb3ef4945e2a1526756088c76cd40738c5e5aa28c541173385831f9793",
+      "fix_message": "Merge pull request #87 from odinn1984/fix/fail_on_outside_target_files\n\nfix: fail when trying to extract outside of dest dir\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "d85d14d16d5b0063e1ac405e2076b2e26e8e24b5",
+        "javacve_before": "df5c1bbbcbc2da02cb3631a9b86dafe901f7d89d",
+        "fix": "adc063995d7e3ec7c7857edf383f18da869addbd"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "batch": "pilot",
+      "project": "ZeroTurnaround zt-zip",
+      "project_slug": "zeroturnaround__zt-zip_CVE-2018-1002201_1.12",
+      "repository_url": "https://github.com/zeroturnaround/zt-zip",
+      "provenance": "developer_commit",
+      "iris_before_commit": "bd3f3d77f3709f901fd5180a493ef32e4dfebfa6",
+      "javacve_before_commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "common_fix_commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "iris_fix_references": [
+        "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 3,
+      "normalized_count": 2,
+      "original_paths": [
+        "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+        "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java",
+        "src/test/java/org/zeroturnaround/zip/ZipTransformTest.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+        "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java"
+      ],
+      "removed_paths": [
+        "src/test/java/org/zeroturnaround/zip/ZipTransformTest.java"
+      ],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+        "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/zeroturnaround/zip/ZipUtil.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "fa2622ac4938f25b5134cf2b1395856d986aafda",
+              "sha256": "391280ade5fe09c6e4ac96b8c2e701f48ba2bc84ad2b4da42429aadb41d033c2"
+            },
+            "javacve_before": {
+              "git_blob": "7ebc8dd9bfa3d97fccba6c9da3622a73f997cc3f",
+              "sha256": "971bebccc295ac173bdfe02a023f6472d1388751349631d93fa26377c82fff26"
+            },
+            "fix": {
+              "git_blob": "604866ef0d669c4b86776ace5799c4663bd58beb",
+              "sha256": "6d74ef49a0c9808ef94473fe4d092535b8b3606b5cc6c6b18fa17742e7207bcc"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "fix": {
+              "git_blob": "8eede3d43178e685f2067a88f5cfce9d3083c090",
+              "sha256": "e26cec5ba8017266d44543b41c5b17aa6db4ce29f80f5b2367cb0313e815ddb5"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/zeroturnaround/zip/ZipTransformTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2d9fca6f5436f03a377c68fc6e5fdeb4c8f20a95",
+              "sha256": "3ec0d43c22146b0ad99913f296b3b9d3f064cd80ae41598d08ccfc35411e2133"
+            },
+            "javacve_before": {
+              "git_blob": "774d79326b8b1d3548dbd6d4ce0d9329dbd7e168",
+              "sha256": "71b6e96113c62782e0b8897ddc8e1ef213a5da841b459483e19b01506e69ba79"
+            },
+            "fix": {
+              "git_blob": "774d79326b8b1d3548dbd6d4ce0d9329dbd7e168",
+              "sha256": "71b6e96113c62782e0b8897ddc8e1ef213a5da841b459483e19b01506e69ba79"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "6402762cbd63b1068142489640904274fa97d0e68b99e2d268365d60387791df",
+      "intervening_diff_sha256": "fe9fd1b82639984f29dfa9951f375c6d015132aae642288503d6c2308aa15f79",
+      "fix_message": "Fixed potential security vulnerability reported by Snyk Security Research Team\n\nThis is an arbitrary file write vulnerability, that can be achieved using a specially crafted zip archive, that holds path traversal filenames. So when the filename gets concatenated to the target extraction directory, the final path ends up outside of the target folder.\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "ed56a716db3851276d32a5e7bbd98a8f2ba93229",
+        "javacve_before": "fd16484b6e4a47fd4dc551e61b331dec4316f3f2",
+        "fix": "b10fb951cd7de01214daa58d2e692b7987ce2e17"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "batch": "pilot",
+      "project": "zip4j",
+      "project_slug": "srikanth-lingala__zip4j_CVE-2018-1002202_1.3.2",
+      "repository_url": "https://github.com/iris-sast/zip4j",
+      "provenance": "benchmark_reconstruction",
+      "iris_before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "javacve_before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "common_fix_commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "iris_fix_references": [
+        "59aeea594ff885e06c25751dc6334dfea1bed8c6"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 2,
+      "normalized_count": 2,
+      "original_paths": [
+        "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+        "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+        "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+      ],
+      "removed_paths": [],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+        "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "d7b68e956d9376ce1f7e18e739f2a168f65cd845",
+              "sha256": "0270e490494871da173c8330fc1bbbce2d3d9eb24b6d00d9be83f11e7c4a1937"
+            },
+            "javacve_before": {
+              "git_blob": "d7b68e956d9376ce1f7e18e739f2a168f65cd845",
+              "sha256": "0270e490494871da173c8330fc1bbbce2d3d9eb24b6d00d9be83f11e7c4a1937"
+            },
+            "fix": {
+              "git_blob": "bcb6142959d0cf37ab7d6e0dfe0ec1044022f1e5",
+              "sha256": "369c4c294645952f4388c130720cfdbb5a914f2f7460cae98c707bc2cabe6948"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/net/lingala/zip4j/unzip/Unzip.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "4e9be03ecb3f5ef8e019757e4fbc37f89e66b2d0",
+              "sha256": "d6c2a4041527295fc947dc4bdf8a1ce51ba10b6af365c86d63fed34933d5ff15"
+            },
+            "javacve_before": {
+              "git_blob": "4e9be03ecb3f5ef8e019757e4fbc37f89e66b2d0",
+              "sha256": "d6c2a4041527295fc947dc4bdf8a1ce51ba10b6af365c86d63fed34933d5ff15"
+            },
+            "fix": {
+              "git_blob": "649722608e928dede7c7b0fc112aaf631940240f",
+              "sha256": "d27e231e3dbf5effcf03ca2afd5155d4203392fe1bf44bc2d58e285a3afa2bc8"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "2be5a060aa0c0b6990dacaa722c74af1e54916f286debb61c42f50a8643e9e90",
+      "intervening_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fix_message": "Add decompiled source for 1.3.3 (fixed) from zip4j-1.3.3-sources.jar\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "1c251d7bcbb60eb16a9e7026b58a2c8b1971db71",
+        "javacve_before": "1c251d7bcbb60eb16a9e7026b58a2c8b1971db71",
+        "fix": "9a1e56ffc6f8510479b7bba159a2044a81830bbc"
+      }
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "batch": "pilot",
+      "project": "Hutool",
+      "project_slug": "dromara__hutool_CVE-2018-17297_4.1.11",
+      "repository_url": "https://github.com/dromara/hutool",
+      "provenance": "developer_commit",
+      "iris_before_commit": "7687720c5125b29386d3bb9c7c2931da79664b73",
+      "javacve_before_commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "common_fix_commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "iris_fix_references": [
+        "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 2,
+      "normalized_count": 2,
+      "original_paths": [
+        "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+        "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+      ],
+      "normalized_paths": [
+        "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+        "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+      ],
+      "removed_paths": [],
+      "added_paths": [],
+      "retained_paths": [
+        "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+        "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+      ],
+      "iris_annotated_paths": [
+        "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+        "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "bd43dabc62a88da539fbd857351d593fedb5349b",
+              "sha256": "c5a9084b723303e7030b4bc72bd67dfdd8681002c48654c32ac9e3dddff0316b"
+            },
+            "javacve_before": {
+              "git_blob": "bd43dabc62a88da539fbd857351d593fedb5349b",
+              "sha256": "c5a9084b723303e7030b4bc72bd67dfdd8681002c48654c32ac9e3dddff0316b"
+            },
+            "fix": {
+              "git_blob": "a7583be50f991a876f3c1b7b79e52dda56076620",
+              "sha256": "7ecf3483053a265f93f143f0c57228cd4422c2510a839aa08cc47dd221ddbaff"
+            }
+          }
+        },
+        {
+          "path": "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "ec6a6a4c3ddb159a64beab420622a1cb18d5a2a5",
+              "sha256": "e95e26239023fe3b58efc2b9fda781318cd45d8683ff0e054b1b6621f1816527"
+            },
+            "javacve_before": {
+              "git_blob": "ec6a6a4c3ddb159a64beab420622a1cb18d5a2a5",
+              "sha256": "e95e26239023fe3b58efc2b9fda781318cd45d8683ff0e054b1b6621f1816527"
+            },
+            "fix": {
+              "git_blob": "a7a47a97b01bb84771b2f680d673acdd29e4fb76",
+              "sha256": "c225a4d4c3ddfa63e8a57ac1ce6d3d94e4a4a4e4e9845e0da5027150ee484c91"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "ad971b38b58fad128003447ecac1a23d3da8c4cc566d0cd3d5e0bfe63bf68e53",
+      "intervening_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fix_message": "fix slip bug\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "3bd0b99688bdf49d803e0bb98afc6fbc4fd87681",
+        "javacve_before": "477fd2fe170ca91ba4d3667282f351034d762edb",
+        "fix": "ccaeae5c37f151f26ae75694bde3c57d428050c6"
+      }
+    },
+    {
+      "cve_id": "CVE-2019-10392",
+      "batch": "pilot",
+      "project": "Jenkins Git Client Plugin",
+      "project_slug": "jenkinsci__git-client-plugin_CVE-2019-10392_2.8.4",
+      "repository_url": "https://github.com/jenkinsci/git-client-plugin",
+      "provenance": "developer_commit",
+      "iris_before_commit": "72add81da4cbeabc95504ebdb9007d47ac1c2b0b",
+      "javacve_before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+      "common_fix_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+      "iris_fix_references": [
+        "899123fa2eb9dd2c37137aae630c47c6be6b4b02"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 2,
+      "normalized_count": 1,
+      "original_paths": [
+        "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java",
+        "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java"
+      ],
+      "removed_paths": [
+        "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java"
+      ],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [
+        {
+          "cve_id": "CVE-2019-10392",
+          "path": "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "reason": "Removed changed-path file contains the same issue ID as the fix message; retain as security context, not automatically irrelevant.",
+          "matching_issue_ids": [
+            "SECURITY-1534"
+          ],
+          "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+          "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+          "before_blob": "35b541d007bf979c82c7e391b8f28c8f92c26022",
+          "after_blob": "35b541d007bf979c82c7e391b8f28c8f92c26022",
+          "code_sha256": "c260188a742445132802cbd119b898c249d204080020cd46a46a7ee033ed2446",
+          "source_url": "https://github.com/jenkinsci/git-client-plugin/blob/899123fa2eb9dd2c37137aae630c47c6be6b4b02/src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "changed_callable_sample": false
+        }
+      ],
+      "path_review": [
+        {
+          "path": "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "36bccd2985dbbbb55034bc4c5090ae4843cf08e2",
+              "sha256": "b9602fb033081bfa6611d9ca3b3e907a868664f5070d0877117d0378ad82b982"
+            },
+            "javacve_before": {
+              "git_blob": "01f61996b9d35ec39d83b2a09a0bdb5871709daa",
+              "sha256": "3e4004467f87996717c328e4a35bb841487211595e9775d9dde04d7516cf4b78"
+            },
+            "fix": {
+              "git_blob": "ee62cfeb620c6ca420bbe965493b91010b634c2d",
+              "sha256": "622e425539bbe525f1bd594e2c1fec585f0c45fc8fbc4720e885a957304c7cb7"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": "35b541d007bf979c82c7e391b8f28c8f92c26022",
+              "sha256": "c260188a742445132802cbd119b898c249d204080020cd46a46a7ee033ed2446"
+            },
+            "fix": {
+              "git_blob": "35b541d007bf979c82c7e391b8f28c8f92c26022",
+              "sha256": "c260188a742445132802cbd119b898c249d204080020cd46a46a7ee033ed2446"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "89b59e70d9976dd4100676e6765ecc2b236df7d4c41ff71513f14fc53fd1cade",
+      "intervening_diff_sha256": "d054c3a501af66355b073fd6c17a5a1c54097e4d64dc9b7576491da53e31142f",
+      "fix_message": "[SECURITY-1534] Prevent remote execution by repo URL\n\nSECURITY-1534 reports that user input in the repository URL field is not\nvalidated sufficiently. A carefully crafted value in the URL field can\nallow a user with Job administration permissions to execute an arbitrary\nprogram on the Jenkins master.\n\nSanity check the values passed as repository URL to the ls-remote and\nfetch commands so that user entered data cannot execute arbitrary programs\non the Jenkins master.\n\nUse -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.checkRemoteURL=false\nto disable URL checking.\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "097d7b927906a8938b39815d90a1b3ecf690da01",
+        "javacve_before": "c820e954d1cde0fcdfa2aa89027f6d853e675d46",
+        "fix": "6ef407cd38bd21acf1b461ffbc3ef73e12cebd2c"
+      }
+    },
+    {
+      "cve_id": "CVE-2020-2261",
+      "batch": "pilot",
+      "project": "Jenkins Perfecto Plugin",
+      "project_slug": "jenkinsci__perfecto-plugin_CVE-2020-2261_1.17",
+      "repository_url": "https://github.com/jenkinsci/perfecto-plugin",
+      "provenance": "developer_commit",
+      "iris_before_commit": "adabcd9da98628e063bb91198e30ff39a34dc921",
+      "javacve_before_commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+      "common_fix_commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+      "iris_fix_references": [
+        "52c09ad2e26416211e4009b095c4f16508b27b8a"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 2,
+      "normalized_count": 2,
+      "original_paths": [
+        "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+        "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+        "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+      ],
+      "removed_paths": [],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+        "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+        "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "cae75d7620d26dbde64a15fa19759352dc17e153",
+              "sha256": "120a820da5cb3ae461c0da29841085973f39e6f20e6ecdd52be86e3e9381b446"
+            },
+            "javacve_before": {
+              "git_blob": "cae75d7620d26dbde64a15fa19759352dc17e153",
+              "sha256": "120a820da5cb3ae461c0da29841085973f39e6f20e6ecdd52be86e3e9381b446"
+            },
+            "fix": {
+              "git_blob": "e7810f73b7e6c273d9c43e0fed01dcce4ca31e29",
+              "sha256": "c9ed0ea8e8927719d2a065fca4084bdfcc126ece29b2967c4005027a9e7ac57e"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "5018b29e8b8903a9ffb232a2a02c4d0dac224ae3",
+              "sha256": "ef7e5a52b0bb308e03d6c60aff2c6d860597850bd211e7eec908aeb3418e892d"
+            },
+            "javacve_before": {
+              "git_blob": "5018b29e8b8903a9ffb232a2a02c4d0dac224ae3",
+              "sha256": "ef7e5a52b0bb308e03d6c60aff2c6d860597850bd211e7eec908aeb3418e892d"
+            },
+            "fix": {
+              "git_blob": "dcf8adc36820e7f810980ba78b91e854ce5c3a11",
+              "sha256": "fa45631048da975294c2b75602827adeebe2546baba273365dd129eac3485adb"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "cfac9fbdf3c0f477e06c355e8ed66ccfd684c494af8a78d8f28d373f8d80d959",
+      "intervening_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fix_message": "updates to perfecto plugin\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "940ca6f71f36c65c857f415ffdbd5f39363369e9",
+        "javacve_before": "43504f44d7a2912774cd50ce6a002e4cfedfc120",
+        "fix": "21428213cb0f5f4a8cbb2745055c389399ceec74"
+      }
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "batch": "pilot",
+      "project": "Apache Commons IO",
+      "project_slug": "asf__commons-io_CVE-2021-29425_2.6",
+      "repository_url": "https://github.com/apache/commons-io",
+      "provenance": "developer_commit",
+      "iris_before_commit": "2ae025fe5c4a7d2046c53072b0898e37a079fe62",
+      "javacve_before_commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "common_fix_commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "iris_fix_references": [
+        "fe7543eee5cd4b2f9e78aa44c31031b68eba204d"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "FIX_MAPPING_CHANGED",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2022-20617",
+      "batch": "pilot",
+      "project": "Jenkins Docker Commons Plugin",
+      "project_slug": "jenkinsci__docker-commons-plugin_CVE-2022-20617_1.17",
+      "repository_url": "https://github.com/jenkinsci/docker-commons-plugin",
+      "provenance": "developer_commit",
+      "iris_before_commit": "2f0fda49452a7653c33de24220c908786f1aa405",
+      "javacve_before_commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+      "common_fix_commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+      "iris_fix_references": [
+        "c069b79c31c5aa80a01b0c462f0dc6b41751f059"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 4,
+      "normalized_count": 4,
+      "original_paths": [
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java"
+      ],
+      "removed_paths": [],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+        "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "19b925fa1661561a9644b90d5628080db84fdac1",
+              "sha256": "9609a2410fa4bf0ae560c8dccbd95d2b11674d8dafd123900ea0de1ce327fd4c"
+            },
+            "javacve_before": {
+              "git_blob": "19b925fa1661561a9644b90d5628080db84fdac1",
+              "sha256": "9609a2410fa4bf0ae560c8dccbd95d2b11674d8dafd123900ea0de1ce327fd4c"
+            },
+            "fix": {
+              "git_blob": "a91e088d141f36869e357f33c40c118e2a67caf3",
+              "sha256": "ce9c8c8e480a34de7fb7b4b1d0d9222df51687a6c64f81a0bea262cdd640f49a"
+            }
+          }
+        },
+        {
+          "path": "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "fix": {
+              "git_blob": "993c253b8f5f00212ee7a37a9ef0df7f0a1a8e39",
+              "sha256": "764ab3bf0059240795855a224b989e9413b96a4dd475ae0d90d0205d58265721"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "ad9099d1aa55e46c1ba23543dbc96e814d9f167b",
+              "sha256": "3322f9e21a5c7d4fb88672d87a0ba5c86a922bb9dd32d4db8c1365b2305d0b1e"
+            },
+            "javacve_before": {
+              "git_blob": "ad9099d1aa55e46c1ba23543dbc96e814d9f167b",
+              "sha256": "3322f9e21a5c7d4fb88672d87a0ba5c86a922bb9dd32d4db8c1365b2305d0b1e"
+            },
+            "fix": {
+              "git_blob": "a79ad264333b990ce82372e0fc8a80c720b1769a",
+              "sha256": "f8d21a3597abb5829ad3dab9b1ee976ae2d50f4533bd8ed3ae8a5a84bcf2e8ee"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "javacve_before": {
+              "git_blob": null,
+              "sha256": null
+            },
+            "fix": {
+              "git_blob": "1ae53aeeeff908a2b7fa475b2fbc5c7b8affb4a7",
+              "sha256": "5dacf0ad4e4d2b846c5e560b275acd158b901b3037acf2c84faba1f15503a1b2"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "b9643114938685c51360ec79314b65ed9599d2a0aabee86d57740c674f457271",
+      "intervening_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fix_message": "[SECURITY-1878]\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "02385fcae7fe8cd79dc7c1ba04fa7a7831224fee",
+        "javacve_before": "ba5946c82d00ae9706833e5c99fdb0ce87142db0",
+        "fix": "3b371fe215fa3276aa9a5e7f3bd81df34e7b163e"
+      }
+    },
+    {
+      "cve_id": "CVE-2022-33140",
+      "batch": "pilot",
+      "project": "Apache NiFi và NiFi Registry",
+      "project_slug": "apache__nifi_CVE-2022-33140_1.16.2",
+      "repository_url": "https://github.com/apache/nifi",
+      "provenance": "developer_commit",
+      "iris_before_commit": "06f04958272dafc30ce357c4c4edcaf470050b52",
+      "javacve_before_commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+      "common_fix_commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+      "iris_fix_references": [
+        "a1306a19f78e11c2d809e9aef24336669461403a"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 25,
+      "normalized_count": 13,
+      "original_paths": [
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/main/java/org/apache/nifi/cluster/protocol/jaxb/JaxbProtocolContext.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/test/java/org/apache/nifi/cluster/protocol/impl/SocketProtocolListenerTest.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/controller/service/StandardControllerServiceProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/flow/StandardFlowManager.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/scheduling/StandardProcessScheduler.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/serialization/VersionedFlowSynchronizer.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+        "nifi-nar-bundles/nifi-kudu-bundle/nifi-kudu-controller-service/src/main/java/org/apache/nifi/controller/kudu/KuduLookupService.java",
+        "nifi-nar-bundles/nifi-provenance-repository-bundle/nifi-persistent-provenance-repository/src/test/java/org/apache/nifi/provenance/index/lucene/TestLuceneEventIndex.java",
+        "nifi-nar-bundles/nifi-smb-bundle/nifi-smb-processors/src/main/java/org/apache/nifi/processors/smb/PutSmbFile.java",
+        "nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/ssh/StandardSSHClientProvider.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java",
+        "nifi-system-tests/nifi-system-test-suite/src/test/java/org/apache/nifi/tests/system/rpg/RemoteProcessGroupIT.java"
+      ],
+      "normalized_paths": [
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java"
+      ],
+      "removed_paths": [
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/main/java/org/apache/nifi/cluster/protocol/jaxb/JaxbProtocolContext.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/test/java/org/apache/nifi/cluster/protocol/impl/SocketProtocolListenerTest.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/controller/service/StandardControllerServiceProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/flow/StandardFlowManager.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/scheduling/StandardProcessScheduler.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/serialization/VersionedFlowSynchronizer.java",
+        "nifi-nar-bundles/nifi-kudu-bundle/nifi-kudu-controller-service/src/main/java/org/apache/nifi/controller/kudu/KuduLookupService.java",
+        "nifi-nar-bundles/nifi-provenance-repository-bundle/nifi-persistent-provenance-repository/src/test/java/org/apache/nifi/provenance/index/lucene/TestLuceneEventIndex.java",
+        "nifi-nar-bundles/nifi-smb-bundle/nifi-smb-processors/src/main/java/org/apache/nifi/processors/smb/PutSmbFile.java",
+        "nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/ssh/StandardSSHClientProvider.java",
+        "nifi-system-tests/nifi-system-test-suite/src/test/java/org/apache/nifi/tests/system/rpg/RemoteProcessGroupIT.java"
+      ],
+      "added_paths": [],
+      "retained_paths": [
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java"
+      ],
+      "iris_annotated_paths": [
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+        "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+        "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/main/java/org/apache/nifi/cluster/protocol/jaxb/JaxbProtocolContext.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2baade5f6caf1455aa2a913ed7ac42e0f1e43abe",
+              "sha256": "10e0e302b34ec22f14a783d7c2671fc5f499c1164e1c4623ed7ed9769fa53c95"
+            },
+            "javacve_before": {
+              "git_blob": "918c36d8616dc34353bf205803a509f60cc8ac73",
+              "sha256": "9bffe0eae4e731bc584164f24a3bb07670e343726e904afb3fc9368ad0ec8216"
+            },
+            "fix": {
+              "git_blob": "918c36d8616dc34353bf205803a509f60cc8ac73",
+              "sha256": "9bffe0eae4e731bc584164f24a3bb07670e343726e904afb3fc9368ad0ec8216"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/test/java/org/apache/nifi/cluster/protocol/impl/SocketProtocolListenerTest.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "128399c657149a3da8778a310a0135ac2d1a9e45",
+              "sha256": "3f1cc70b35aace3670b126b2ff37aaa6e3f5007727abaf0d664526e74497661d"
+            },
+            "javacve_before": {
+              "git_blob": "74e4a4780dd72deecec7b50dd8ac6d0e6a34baeb",
+              "sha256": "09c55d597bf3ad82a8f9ac34352e5856f95ba38fe9641dc60ace195c53c44246"
+            },
+            "fix": {
+              "git_blob": "74e4a4780dd72deecec7b50dd8ac6d0e6a34baeb",
+              "sha256": "09c55d597bf3ad82a8f9ac34352e5856f95ba38fe9641dc60ace195c53c44246"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/controller/service/StandardControllerServiceProvider.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "592d096c8b718e0ae14340a609203035bac10e12",
+              "sha256": "0e5179c73ccf050f2e85b66ed2a04e6d601a0ff2ab3450cac5d7757d65b85351"
+            },
+            "javacve_before": {
+              "git_blob": "fd2437c290b0cb8bbd3dafd1bb8f7a24f3fb5d75",
+              "sha256": "d56600a2add07193e037806df3ea93979e3ca53a46ecb71a11324309ca83e8e4"
+            },
+            "fix": {
+              "git_blob": "fd2437c290b0cb8bbd3dafd1bb8f7a24f3fb5d75",
+              "sha256": "d56600a2add07193e037806df3ea93979e3ca53a46ecb71a11324309ca83e8e4"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "bf4fd7bc2475e455b2f7835abe9566e3e768b4e7",
+              "sha256": "e6da7ddd80ee92bc7a5f609fa6990cef36e011ddb5702dc0e5c2176f524d8645"
+            },
+            "javacve_before": {
+              "git_blob": "55f1644b2c6a1530f5cf0b016cb2012183662437",
+              "sha256": "167ce0c4e7acad39e1da9b9a13d0053687a3d64557e72997a41f9ce0954447f0"
+            },
+            "fix": {
+              "git_blob": "55f1644b2c6a1530f5cf0b016cb2012183662437",
+              "sha256": "167ce0c4e7acad39e1da9b9a13d0053687a3d64557e72997a41f9ce0954447f0"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/flow/StandardFlowManager.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "7973d5fc336e9f9887eec70f10e00552947f7cb8",
+              "sha256": "0be59faa8ad8b462d177b130733aa299c1a6b683eb9e9ad88b50c58932fa0722"
+            },
+            "javacve_before": {
+              "git_blob": "4a88d40f2667011ee1a1b51e05217e8bfdeaa3d5",
+              "sha256": "137a4a6e526d62a392c1cdb7f8cfb0e1ad03031dd68dd94c33220e8e57d632cd"
+            },
+            "fix": {
+              "git_blob": "4a88d40f2667011ee1a1b51e05217e8bfdeaa3d5",
+              "sha256": "137a4a6e526d62a392c1cdb7f8cfb0e1ad03031dd68dd94c33220e8e57d632cd"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/scheduling/StandardProcessScheduler.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "a7dc11885dbd02c2b6cf69e118b44cdbfc143a60",
+              "sha256": "6f5dab23d93291c24bc1bec77ae0c83cbcd31c0c46ebfee519c759a01deee3b4"
+            },
+            "javacve_before": {
+              "git_blob": "546cd16fc5520d67e20cadaf1cb78ae0694e2cd7",
+              "sha256": "16ec50ad3e07f8fd5a75ce7e984a89a463ada238b792af38bea49fe303f96b0f"
+            },
+            "fix": {
+              "git_blob": "546cd16fc5520d67e20cadaf1cb78ae0694e2cd7",
+              "sha256": "16ec50ad3e07f8fd5a75ce7e984a89a463ada238b792af38bea49fe303f96b0f"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/serialization/VersionedFlowSynchronizer.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "757ada77a259af4860ceceef015dc46b8f7a61a7",
+              "sha256": "4a30b5a99129f2e6e62a2301a2ed787fb11f806f59c5b203a89dc5a88e2674de"
+            },
+            "javacve_before": {
+              "git_blob": "17a91b07933b70fa619b9d505be7d8b6f709d082",
+              "sha256": "bdf8232299974a0b47bcaa3973b504e0e72c32a479eb292a9eced38a827e27e0"
+            },
+            "fix": {
+              "git_blob": "17a91b07933b70fa619b9d505be7d8b6f709d082",
+              "sha256": "bdf8232299974a0b47bcaa3973b504e0e72c32a479eb292a9eced38a827e27e0"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "4339907624214400f427ece13b1326efe38e478c",
+              "sha256": "92c0fede0ea6fbcc1a9d104612133a284c58f2c69ef6301dafe3065dcef1a6d0"
+            },
+            "javacve_before": {
+              "git_blob": "4339907624214400f427ece13b1326efe38e478c",
+              "sha256": "92c0fede0ea6fbcc1a9d104612133a284c58f2c69ef6301dafe3065dcef1a6d0"
+            },
+            "fix": {
+              "git_blob": "c5c3f61ef9be3c8da29001f9f860fed9474e8943",
+              "sha256": "4e4c125f507941698dadd76877b375d45a64e8a9ca6edb523ffe9bf2bef73dd4"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "85dca066c2d79ff605644ecac92e8cfba6a34121",
+              "sha256": "14c8297bad3c48d1a5f368baf82ca6bc8633daede332c66642f39fb7bbac5d1b"
+            },
+            "javacve_before": {
+              "git_blob": "85dca066c2d79ff605644ecac92e8cfba6a34121",
+              "sha256": "14c8297bad3c48d1a5f368baf82ca6bc8633daede332c66642f39fb7bbac5d1b"
+            },
+            "fix": {
+              "git_blob": "90f405f428330f769715752e77628f7e1e1293e2",
+              "sha256": "b206b806a85a68b05b9cdb56344c7d068573ce07e95daeb9bf9de5a1a27a102c"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "3c26ba71b756c9f7e6ccebf7bb0e882ce502e2d6",
+              "sha256": "73ed478425483098a25688270b1e5b9af8286d108ac64c3e094735b11f5dcf63"
+            },
+            "javacve_before": {
+              "git_blob": "3c26ba71b756c9f7e6ccebf7bb0e882ce502e2d6",
+              "sha256": "73ed478425483098a25688270b1e5b9af8286d108ac64c3e094735b11f5dcf63"
+            },
+            "fix": {
+              "git_blob": "9a6d7fd11a7e5d0b3c5be05d5122291b6bad75bb",
+              "sha256": "4550a8d39e40da27435a7af53092dc2550f6fa199dc06162a90968a6a7101210"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "14c7de4dbc154fa09c424d1f353c32a07bbfa4df",
+              "sha256": "3a1b447c4086b0b0e4f4004ba6b8d085ee14daa9345d2b57a1bd0db260c15ed3"
+            },
+            "javacve_before": {
+              "git_blob": "14c7de4dbc154fa09c424d1f353c32a07bbfa4df",
+              "sha256": "3a1b447c4086b0b0e4f4004ba6b8d085ee14daa9345d2b57a1bd0db260c15ed3"
+            },
+            "fix": {
+              "git_blob": "2879057e2ceb6f3044ee89f87e0814ef8b382898",
+              "sha256": "9218c5b22fbe3280ee943932deb97f084c47c4bb600835d100adbb8564285df8"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "e8e793c32557497f3ff450c3c6bf6e8d0199aa47",
+              "sha256": "ec12fa525c792accafb4af4ce87e71a0119053acd7211db844c9e887e449c16a"
+            },
+            "javacve_before": {
+              "git_blob": "e8e793c32557497f3ff450c3c6bf6e8d0199aa47",
+              "sha256": "ec12fa525c792accafb4af4ce87e71a0119053acd7211db844c9e887e449c16a"
+            },
+            "fix": {
+              "git_blob": "928734da9ebae2bcbc9d1fce430d8dc17cfa3858",
+              "sha256": "ef344d53e8100667f2add342247a33307040a205e410c46705433cc646107868"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "819640de76175e3bf6e984266a98a274bc3b70a0",
+              "sha256": "15e65448184b4ffb3e9e719b5fbb2c70b60ba34125f91bbfcfb1e357d13c3d56"
+            },
+            "javacve_before": {
+              "git_blob": "819640de76175e3bf6e984266a98a274bc3b70a0",
+              "sha256": "15e65448184b4ffb3e9e719b5fbb2c70b60ba34125f91bbfcfb1e357d13c3d56"
+            },
+            "fix": {
+              "git_blob": "46f715446651d6dd6ea9d0c8accd4c20aef651ab",
+              "sha256": "87d745701438089ba3b2caf439ac9f57dc4b4fb3d95df03746b418f368fbde5f"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "cc7f0c4ba194d949faadfb5175ede53349d31419",
+              "sha256": "d0648842ae667d043e69a8f83d5f61e59db7939784b4a08f5196fff33ea7d596"
+            },
+            "javacve_before": {
+              "git_blob": "cc7f0c4ba194d949faadfb5175ede53349d31419",
+              "sha256": "d0648842ae667d043e69a8f83d5f61e59db7939784b4a08f5196fff33ea7d596"
+            },
+            "fix": {
+              "git_blob": "57ace6dd3e4bbbd6cf89a3330cbe1bf662039910",
+              "sha256": "eca15b6bc314c4f5fdb0b61f262105e999f827ad119c3893d4292d222370d6fd"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-kudu-bundle/nifi-kudu-controller-service/src/main/java/org/apache/nifi/controller/kudu/KuduLookupService.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "93b0ce61aa57c9b4add3387e6a7e75c6f9a21420",
+              "sha256": "9193fb206d1cf68b8b97623a51c465a80d7e988923ad888f98387d581b666008"
+            },
+            "javacve_before": {
+              "git_blob": "5656fdb9e59b725fe8aadc179c7b31c10ee23632",
+              "sha256": "e34c86214dfb49475f8e067579b0daa7895ccb5a6577a14a5511115232efa93f"
+            },
+            "fix": {
+              "git_blob": "5656fdb9e59b725fe8aadc179c7b31c10ee23632",
+              "sha256": "e34c86214dfb49475f8e067579b0daa7895ccb5a6577a14a5511115232efa93f"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-provenance-repository-bundle/nifi-persistent-provenance-repository/src/test/java/org/apache/nifi/provenance/index/lucene/TestLuceneEventIndex.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "5c4e2161bc67a6814fadc99aa81a04b47f0dafbc",
+              "sha256": "161ccf92ffb5e03ac476fc2dbd86ed0ba2759b2718184f4405abcf33c0ad8acd"
+            },
+            "javacve_before": {
+              "git_blob": "59b0af798658a959e3b2d259e1998b48295fe417",
+              "sha256": "f55f9c96e6163360437bf58782028aff12dd8f9f1da05ad2e9e803c8e9fc017c"
+            },
+            "fix": {
+              "git_blob": "59b0af798658a959e3b2d259e1998b48295fe417",
+              "sha256": "f55f9c96e6163360437bf58782028aff12dd8f9f1da05ad2e9e803c8e9fc017c"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-smb-bundle/nifi-smb-processors/src/main/java/org/apache/nifi/processors/smb/PutSmbFile.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2accbbf49955914000dac196694611ef3c40d4cd",
+              "sha256": "f9a42b3feb4e02ad2da542003b20893e7fc77381bf1bdab8ee27a9410d6320c9"
+            },
+            "javacve_before": {
+              "git_blob": "6c6821fca4691c3155a8fd057565f8524d2ef189",
+              "sha256": "f41052b9a6183adc55ec1f30f27311d56e98cc7bc54ecbd82083f767c14755e6"
+            },
+            "fix": {
+              "git_blob": "6c6821fca4691c3155a8fd057565f8524d2ef189",
+              "sha256": "f41052b9a6183adc55ec1f30f27311d56e98cc7bc54ecbd82083f767c14755e6"
+            }
+          }
+        },
+        {
+          "path": "nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/ssh/StandardSSHClientProvider.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "2924934a4a2b9ea976f1304f7062479dabd39ad0",
+              "sha256": "91841e8a4f4ba6ddf9045376a79543e493237961d24035a95c4c1e4aaace8574"
+            },
+            "javacve_before": {
+              "git_blob": "1a612c92922f9d533dcbac65c0d348eed8fd1236",
+              "sha256": "4c85622e5f7f31d0fcc24d4a94d44a6a0a3b660d01b3b81abcd8f4ddeb810178"
+            },
+            "fix": {
+              "git_blob": "1a612c92922f9d533dcbac65c0d348eed8fd1236",
+              "sha256": "4c85622e5f7f31d0fcc24d4a94d44a6a0a3b660d01b3b81abcd8f4ddeb810178"
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "eef58b05586f913cf42852df8e63f9c4e255dede",
+              "sha256": "843e0d37419192cc8dbe5e6645aecc7de533efaee81be011bef9a07f06180523"
+            },
+            "javacve_before": {
+              "git_blob": "eef58b05586f913cf42852df8e63f9c4e255dede",
+              "sha256": "843e0d37419192cc8dbe5e6645aecc7de533efaee81be011bef9a07f06180523"
+            },
+            "fix": {
+              "git_blob": "0d49a6e0a06273970e693a2a4a05dcdd9a37cbfb",
+              "sha256": "04fbddc0eb0a789d7570977192e14c2a655652db7342b49717accd8f5a6c472d"
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "059166235a66c18d13e9f2300afb6ec5959efa57",
+              "sha256": "5a2a605d18652907600a0c162a98af51902205ce8e752c4f35db6cc79b2d248d"
+            },
+            "javacve_before": {
+              "git_blob": "059166235a66c18d13e9f2300afb6ec5959efa57",
+              "sha256": "5a2a605d18652907600a0c162a98af51902205ce8e752c4f35db6cc79b2d248d"
+            },
+            "fix": {
+              "git_blob": "e4949ac2e5258713862659e577b33b77e1b089ca",
+              "sha256": "7ebaca84bfe31c647e181d61266dbdb014da0e6b88714bc729aea12a52b7d239"
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "f622409bc727a7b51e1d44bfb4678189bc87c5f9",
+              "sha256": "336231e64c5af17148bcea3f8e7c5bdf18353de2c330b4fd86ca55e9406d2994"
+            },
+            "javacve_before": {
+              "git_blob": "f622409bc727a7b51e1d44bfb4678189bc87c5f9",
+              "sha256": "336231e64c5af17148bcea3f8e7c5bdf18353de2c330b4fd86ca55e9406d2994"
+            },
+            "fix": {
+              "git_blob": null,
+              "sha256": null
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "ce3e6a4d38d84d98e04ed5ed7988d3c827e5f933",
+              "sha256": "e85f1560a852d45f31b44e231862c053fb0d54bf0ec3d34be4e91a8a53e44b3c"
+            },
+            "javacve_before": {
+              "git_blob": "ce3e6a4d38d84d98e04ed5ed7988d3c827e5f933",
+              "sha256": "e85f1560a852d45f31b44e231862c053fb0d54bf0ec3d34be4e91a8a53e44b3c"
+            },
+            "fix": {
+              "git_blob": "10383586370b712428a8c5407df4f4615e9cc653",
+              "sha256": "08b8012884200e19ee0bc7aadb7d4be29057809dc722067dcc0ac31ad35524a5"
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+          "classification": "retained",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "de38b631f66c85dc8d565c1a2d0ab5f1661df52c",
+              "sha256": "3dd69e1737866eff89cbebc949cf066d925eb7ed8a5971e71a92d6fa27c944ce"
+            },
+            "javacve_before": {
+              "git_blob": "de38b631f66c85dc8d565c1a2d0ab5f1661df52c",
+              "sha256": "3dd69e1737866eff89cbebc949cf066d925eb7ed8a5971e71a92d6fa27c944ce"
+            },
+            "fix": {
+              "git_blob": "fc470605ccdc51f32653400f4432745f9a361a62",
+              "sha256": "aa7abbcb2b4cb90c754c0044f099795d456b0e29134877edbdad4f7e7ec02a78"
+            }
+          }
+        },
+        {
+          "path": "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "4e201d2fe3dbdae2a910f6321cedfa0b9287fc76",
+              "sha256": "366dbe91eb3a0ea09d9f05f8817dd9ed061fdf3c511314e6f71bd90251733159"
+            },
+            "javacve_before": {
+              "git_blob": "4e201d2fe3dbdae2a910f6321cedfa0b9287fc76",
+              "sha256": "366dbe91eb3a0ea09d9f05f8817dd9ed061fdf3c511314e6f71bd90251733159"
+            },
+            "fix": {
+              "git_blob": "152693ee714a4df5d94a3d968c3b682b349d0e69",
+              "sha256": "d10546fcc61def11002b24266877441739dd3be772a96fc71e49cd5b91846372"
+            }
+          }
+        },
+        {
+          "path": "nifi-system-tests/nifi-system-test-suite/src/test/java/org/apache/nifi/tests/system/rpg/RemoteProcessGroupIT.java",
+          "classification": "removed_from_changed_set",
+          "iris_fix_annotation": false,
+          "identities": {
+            "iris_before": {
+              "git_blob": "b25f8d1144e8c9222017d4718486a0ff18b99a36",
+              "sha256": "ae1987fa8e96926ad40a4899ad2f567364a1af3e73386a89df001ab48a20c5c4"
+            },
+            "javacve_before": {
+              "git_blob": "d58e15aea8f5030d5f68c985deb1073e6e8f00f9",
+              "sha256": "bb38028658e61532b0ea1fa782a6179d3cbd1ab9961e3be542bff54b81f3de39"
+            },
+            "fix": {
+              "git_blob": "d58e15aea8f5030d5f68c985deb1073e6e8f00f9",
+              "sha256": "bb38028658e61532b0ea1fa782a6179d3cbd1ab9961e3be542bff54b81f3de39"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "51c7d89df8938ccf136f7d5e7a8c9d666342729236096242be999802e4fd2be4",
+      "intervening_diff_sha256": "dc747f8e94f415a067bed7552ffd5729d782695315ccc82c4fe609824e771857",
+      "fix_message": "NIFI-10114 This closes #6122. Removed Single Refresh from ShellUserGroupProvider\n\nSigned-off-by: Joe Witt <joewitt@apache.org>\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "b33a01218740b9fa4e26aca578b015daee090391",
+        "javacve_before": "4d56b2d937fc3c50702904de4ee13c18c1cea461",
+        "fix": "2f2505c1566b1e86d0093f4f536725c0715c86e7"
+      }
+    },
+    {
+      "cve_id": "CVE-2016-9177",
+      "batch": "batch02",
+      "project": "perwendel/spark",
+      "project_slug": "perwendel__spark_CVE-2016-9177_2.5.1",
+      "repository_url": "https://github.com/perwendel/spark",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "ce57dfb949ed183405f75dee8cf3262b45c9b3b5",
+      "javacve_before_commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "common_fix_commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "iris_fix_references": [
+        "efcb46c710e3f56805b9257a63d1306882f4faf9"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2018-1000850",
+      "batch": "batch02",
+      "project": "square/retrofit",
+      "project_slug": "square__retrofit_CVE-2018-1000850_2.4.0",
+      "repository_url": "https://github.com/square/retrofit",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "7158698314daa138e993fac6a590ed19d78a8599",
+      "javacve_before_commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+      "common_fix_commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "iris_fix_references": [
+        "b9a7f6ad72073ddd40254c0058710e87a073047d"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2022-25842",
+      "batch": "batch02",
+      "project": "alibaba/one-java-agent",
+      "project_slug": "alibaba__one-java-agent_CVE-2022-25842_0.0.1",
+      "repository_url": "https://github.com/alibaba/one-java-agent",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "b911af2bb779917c84a016350700745dc31c642a",
+      "javacve_before_commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+      "common_fix_commit": "359603b63fc6c59d8b57e061c171954bab3433bf",
+      "iris_fix_references": [
+        "359603b63fc6c59d8b57e061c171954bab3433bf",
+        "e0149bb36488fede2a12cb1ab3c2095e56dd7571"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MULTIPLE_IRIS_FIXES",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2022-4244",
+      "batch": "batch02",
+      "project": "codehaus-plexus/plexus-utils",
+      "project_slug": "codehaus-plexus__plexus-utils_CVE-2022-4244_3.0.23",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-utils",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "6176f91bb843eecddac857591ed20bda38e01470",
+      "javacve_before_commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+      "common_fix_commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+      "iris_fix_references": [
+        "33a2853df8185b4519b1b8bfae284f03392618ef"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2023-37460",
+      "batch": "batch02",
+      "project": "codehaus-plexus/plexus-archiver",
+      "project_slug": "codehaus-plexus__plexus-archiver_CVE-2023-37460_4.7.1",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-archiver",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "e7cbadba1b5c78192677da95b355dd790f3a4535",
+      "javacve_before_commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "common_fix_commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "iris_fix_references": [
+        "54759839fbdf85caf8442076f001d5fd64e0dcb2"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "project_slug": "x-stream__xstream_CVE-2013-7285_1.4.6",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "768c6e417a75e7732fc591bee844e5e81af56a7d",
+      "javacve_before_commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "common_fix_commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "iris_fix_references": [
+        "6344867dce6767af7d0fe34fb393271a6456672d"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "project_slug": "x-stream__xstream_CVE-2020-26217_1.4.14-java7",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "d03f6987b793fac71ab89a31d7aa633c366c5289",
+      "javacve_before_commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "common_fix_commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "iris_fix_references": [
+        "0fec095d534126931c99fd38e9c6d41f5c685c1a"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "project_slug": "x-stream__xstream_CVE-2021-21345_1.4.15",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "f04bbec461f2c2a6f1e2cf41770f42c64aae24a4",
+      "javacve_before_commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "common_fix_commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "iris_fix_references": [
+        "d5e51177634afea7213b9dc2d21f101d2e258db9"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2022-25174",
+      "batch": "batch02",
+      "project": "jenkinsci/workflow-cps-global-lib-plugin",
+      "project_slug": "jenkinsci__workflow-cps-global-lib-plugin_CVE-2022-25174_544.vff04fa68714d",
+      "repository_url": "https://github.com/jenkinsci/workflow-cps-global-lib-plugin",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "ff04fa68714d2cc277e8a87512461bdf3a39e186",
+      "javacve_before_commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "common_fix_commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "iris_fix_references": [
+        "ace0de3c2d691662021ea10306eeb407da6b6365"
+      ],
+      "selected_parent_index": 0,
+      "eligible": false,
+      "exclusion_reason": "MISSING_PINNED_LOCAL_SEED_OR_SNAPSHOT",
+      "original_count": null,
+      "normalized_count": null
+    },
+    {
+      "cve_id": "CVE-2022-25175",
+      "batch": "batch02",
+      "project": "jenkinsci/workflow-multibranch-plugin",
+      "project_slug": "jenkinsci__workflow-multibranch-plugin_CVE-2022-25175_706.vd43c65dec013",
+      "repository_url": "https://github.com/jenkinsci/workflow-multibranch-plugin",
+      "provenance": "seed_fix_selected_parent_verified",
+      "iris_before_commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "javacve_before_commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "common_fix_commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+      "iris_fix_references": [
+        "71c3f0a6ccdb2ba43f43686826b0d62160df85e8"
+      ],
+      "selected_parent_index": 0,
+      "eligible": true,
+      "exclusion_reason": null,
+      "original_count": 2,
+      "normalized_count": 2,
+      "original_paths": [
+        "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+        "src/test/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStepTest.java"
+      ],
+      "normalized_paths": [
+        "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+        "src/test/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStepTest.java"
+      ],
+      "removed_paths": [],
+      "added_paths": [],
+      "retained_paths": [
+        "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+        "src/test/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStepTest.java"
+      ],
+      "iris_annotated_paths": [
+        "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+        "src/test/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStepTest.java"
+      ],
+      "missing_iris_annotated_paths": [],
+      "context_files": [],
+      "path_review": [
+        {
+          "path": "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "01335eea73c9551d2aa8a77ca84f6595e1c2e6fb",
+              "sha256": "deec11b96b78726802c8a1cfd1aad8bb3ab4944c24a3aed6ef11277407aa4f26"
+            },
+            "javacve_before": {
+              "git_blob": "01335eea73c9551d2aa8a77ca84f6595e1c2e6fb",
+              "sha256": "deec11b96b78726802c8a1cfd1aad8bb3ab4944c24a3aed6ef11277407aa4f26"
+            },
+            "fix": {
+              "git_blob": "3a9df7fa503a00bab9002a5df510637645a8fd56",
+              "sha256": "19c5fc4dfaada2f4e9518b0f384b2fa689282c008a4ec744abf6e8b19dd847b9"
+            }
+          }
+        },
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStepTest.java",
+          "classification": "retained",
+          "iris_fix_annotation": true,
+          "identities": {
+            "iris_before": {
+              "git_blob": "6ae9dc00b8041af0afef36761f5a4f7b69c4905f",
+              "sha256": "77c6502584ef09aa80f6eacb517326203131927a3f8692846d9973c52ab49000"
+            },
+            "javacve_before": {
+              "git_blob": "6ae9dc00b8041af0afef36761f5a4f7b69c4905f",
+              "sha256": "77c6502584ef09aa80f6eacb517326203131927a3f8692846d9973c52ab49000"
+            },
+            "fix": {
+              "git_blob": "5ea72f666393ba640585810e6e2af77a195708b2",
+              "sha256": "773e7d8a58f7c5bff3b07a00c251c6a2f2f81c67558802d8d7fbe138cc786d88"
+            }
+          }
+        }
+      ],
+      "patch_sha256": "190207b7e6e0f6c90346718126dc8559dfff48f432ceee0f2063030b271b5158",
+      "intervening_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fix_message": "[SECURITY-2463][SECURITY-2491]\n\n",
+      "direct_fix_java_paths_retained": true,
+      "snapshot_trees": {
+        "iris_before": "44aaa9fa639944d79ccc00bfde8c6960cad68b86",
+        "javacve_before": "44aaa9fa639944d79ccc00bfde8c6960cad68b86",
+        "fix": "51d39f08a7d40b466411ecc162de08376ececabc"
+      }
+    }
+  ]
+}

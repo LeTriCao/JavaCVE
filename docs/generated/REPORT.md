@@ -2,7 +2,7 @@
 
 JavaCVE v0.2.0 — Cải thiện bộ dữ liệu lỗ hổng mã nguồn Java
 
-Ngày cập nhật: 24/11/2026. Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp.
+Ngày cập nhật: 25/11/2026. Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp.
 
 ## 1. Mục tiêu và câu hỏi đánh giá
 
@@ -52,11 +52,19 @@ Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iri
 | Chọn / chuẩn hóa nguồn / hoàn tất | 10 / 10 / 2 |
 | Nhãn sau rà soát | {"UNCONFIRMED": 213, "VULNERABLE": 5, "RESOLVED_TARGET": 4} |
 | Người đánh giá độc lập | 0 |
-| Hồ sơ build được cả hai bản | 6/10 |
-| Snapshot build được từ source | 12/20 |
+| Hồ sơ build được cả hai bản | 8/10 |
+| Snapshot build được từ source | 16/20 |
 | Quyết định AI cấp callable / snapshot ghi riêng | 153 / 8 |
 
-Plexus Archiver đã build thành công ở cả hai commit. Mỗi bản bỏ qua một test upstream. XStream 2013 dừng ở bước tra cứu converter trong fromXML trước khi caller nhận được proxy ở cả hai bản. XStream 2020 và 2021 còn thiếu đối chứng chung cùng quan sát hành vi thuộc từng advisory. [Bảng ưu tiên Batch02](../BATCH02.md) · [Chẩn đoán XStream](../XSTREAM_DIAGNOSIS.md).
+Plexus Archiver đã build thành công ở cả hai commit. Mỗi bản bỏ qua một test upstream. XStream 2013 dừng ở bước tra cứu converter trong fromXML trước khi caller nhận được proxy ở cả hai bản. Đối chứng chức năng bổ sung không thay thế quan sát hành vi thuộc từng advisory của XStream 2020/2021. [Bảng ưu tiên Batch02](../BATCH02.md) · [Chẩn đoán XStream](../XSTREAM_DIAGNOSIS.md).
+
+### Nghiệm thu chung C1–C7
+
+Cùng tiêu chí cho cả 20 CVE: 8/20 đạt, 14/20 có cặp build. Mục tiêu 12/20 vẫn là đề xuất, chờ giảng viên xác nhận. Kiểm thử chức năng không chứng minh hành vi CVE. [Bảng nghiệm thu](../DOI_CHIEU_DU_LIEU.md) · [Biên bản máy đọc](../../data/acceptance-review.json).
+
+### Đối chứng IRIS → JavaCVE từ Git
+
+Giữ cùng fix: 9 Pilot đạt 60→33 đường dẫn (45.0%). Mở rộng 10 CVE đạt 62→35 (43.548387%). Giữ 25/25 anchor Java của IRIS fix_info; GitClientSecurityTest cùng SECURITY-1534 bị ra khỏi changed-set được lưu thành context reference. Không coi toàn bộ đường dẫn loại là nhiễu và không suy ra accuracy hay giảm thời gian. [Bảng 20 CVE và hai ca đọc diff](../SO_SANH_IRIS_JAVACVE.md).
 
 ## 6. Chất lượng và giới hạn
 

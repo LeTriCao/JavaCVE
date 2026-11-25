@@ -1,0 +1,35 @@
+RUN runs/a2d6273985ab4afd8a67fcb4f3528098
+FAIL runs/a2d6273985ab4afd8a67fcb4f3528098/run.json
+test_all_cases_use_same_gates_and_saved_assessment_matches (test_acceptance.AcceptanceTests.test_all_cases_use_same_gates_and_saved_assessment_matches) ... ok
+test_inconclusive_pass_pass_is_not_behavior_evidence (test_acceptance.AcceptanceTests.test_inconclusive_pass_pass_is_not_behavior_evidence) ... ok
+test_missing_control_or_changed_fixture_blocks_acceptance (test_acceptance.AcceptanceTests.test_missing_control_or_changed_fixture_blocks_acceptance) ... ok
+test_partial_fix_can_complete_with_residual_failure (test_acceptance.AcceptanceTests.test_partial_fix_can_complete_with_residual_failure) ... ok
+test_separate_control_must_match_both_pinned_snapshots (test_acceptance.AcceptanceTests.test_separate_control_must_match_both_pinned_snapshots) ... ok
+test_catalog_relations_and_counts (test_integrity.IntegrityTests.test_catalog_relations_and_counts) ... ok
+test_diagnostics_do_not_expose_tokens (test_integrity.IntegrityTests.test_diagnostics_do_not_expose_tokens) ... ok
+test_duplicate_primary_key_rejected (test_integrity.IntegrityTests.test_duplicate_primary_key_rejected) ... ok
+test_failure_records_exit_code_and_log (test_integrity.IntegrityTests.test_failure_records_exit_code_and_log) ... ok
+test_incomplete_probe_is_harness_error (test_integrity.IntegrityTests.test_incomplete_probe_is_harness_error) ... ok
+test_security_failure_remains_observation (test_integrity.IntegrityTests.test_security_failure_remains_observation) ... ok
+test_source_mutation_and_out_of_range_rejected (test_integrity.IntegrityTests.test_source_mutation_and_out_of_range_rejected) ... ok
+test_callback_execution_is_a_security_failure (test_local_probes.LocalProbeTests.test_callback_execution_is_a_security_failure) ... ok
+test_incomplete_or_malformed_output_fails (test_local_probes.LocalProbeTests.test_incomplete_or_malformed_output_fails) ... ok
+test_assessment_observations_match_immutable_logs (test_release.ReleaseTests.test_assessment_observations_match_immutable_logs) ... ok
+test_build_priority_coverage_and_surefire_counts (test_release.ReleaseTests.test_build_priority_coverage_and_surefire_counts) ... ok
+test_completed_cve_cannot_borrow_another_cve_receipt (test_release.ReleaseTests.test_completed_cve_cannot_borrow_another_cve_receipt) ... ok
+test_completed_expansion_has_paired_fixture_evidence (test_release.ReleaseTests.test_completed_expansion_has_paired_fixture_evidence) ... ok
+test_current_batch_statistics_agree (test_release.ReleaseTests.test_current_batch_statistics_agree) ... ok
+test_diagnosis_preserves_uncertainty_and_dependency_inventory (test_release.ReleaseTests.test_diagnosis_preserves_uncertainty_and_dependency_inventory) ... ok
+test_inconclusive_security_cannot_be_marked_complete (test_release.ReleaseTests.test_inconclusive_security_cannot_be_marked_complete) ... ok
+test_metrics_recompute_from_path_lists (test_release.ReleaseTests.test_metrics_recompute_from_path_lists) ... ok
+test_new_diagnosis_matches_both_jvm_logs_and_source_builds (test_release.ReleaseTests.test_new_diagnosis_matches_both_jvm_logs_and_source_builds) ... ok
+test_public_receipts_are_redacted (test_release.ReleaseTests.test_public_receipts_are_redacted) ... ok
+test_readme_local_links_exist (test_release.ReleaseTests.test_readme_local_links_exist) ... ok
+test_split_has_no_project_or_exact_token_leakage (test_release.ReleaseTests.test_split_has_no_project_or_exact_token_leakage) ... ok
+test_upstream_only_cve_cannot_be_promoted (test_release.ReleaseTests.test_upstream_only_cve_cannot_be_promoted) ... ok
+test_xstream_upstream_counts_are_not_paired_security (test_release.ReleaseTests.test_xstream_upstream_counts_are_not_paired_security) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 5.399s
+
+OK

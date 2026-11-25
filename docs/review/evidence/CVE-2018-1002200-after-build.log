@@ -1,0 +1,49 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.codehaus.plexus:plexus-archiver >-----------------
+[INFO] Building Plexus Archiver Component 3.6.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ plexus-archiver ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-java) @ plexus-archiver ---
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ plexus-archiver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ plexus-archiver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 100 source files to /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/target/classes
+[INFO] /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/src/main/java/org/codehaus/plexus/archiver/tar/TarUnArchiver.java: Some input files use or override a deprecated API.
+[INFO] /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/src/main/java/org/codehaus/plexus/archiver/tar/TarUnArchiver.java: Recompile with -Xlint:deprecation for details.
+[INFO] /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java: Some input files use unchecked or unsafe operations.
+[INFO] /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- plexus-component-metadata:1.7.1:generate-metadata (process-classes) @ plexus-archiver ---
+[INFO] 
+[INFO] --- plexus-component-metadata:1.7.1:generate-metadata (default) @ plexus-archiver ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ plexus-archiver ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ plexus-archiver ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- plexus-component-metadata:1.7.1:generate-test-metadata (process-test-classes) @ plexus-archiver ---
+[INFO] 
+[INFO] --- surefire:2.20:test (default-test) @ plexus-archiver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.0.2:jar (default-jar) @ plexus-archiver ---
+[INFO] Building jar: /tmp/javacve-_ts9dlai/tmp3n1gcjt3/source/target/plexus-archiver-3.6.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- site:3.6:attach-descriptor (attach-descriptor) @ plexus-archiver ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.683 s
+[INFO] Finished at: 2026-11-24T06:57:31Z
+[INFO] ------------------------------------------------------------------------

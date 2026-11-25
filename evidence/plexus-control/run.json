@@ -1,0 +1,72 @@
+{
+  "cve_id": "CVE-2023-37460",
+  "reviewer": "AI",
+  "scope": "Ordinary ZIP extraction at an 11-byte output limit",
+  "upstream": "https://github.com/codehaus-plexus/plexus-archiver.git",
+  "test_class": "org.codehaus.plexus.archiver.zip.ZipUnArchiverTest",
+  "test_method": "testZipMaxOutputSizeEqualToExtractedFileSize",
+  "test_path": "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java",
+  "archive_path": "src/test/jars/test.zip",
+  "member": "test.sh",
+  "maven_test_arguments": [
+    "-Dtest=org.codehaus.plexus.archiver.zip.ZipUnArchiverTest#testZipMaxOutputSizeEqualToExtractedFileSize",
+    "-DfailIfNoTests=true",
+    "-Dsurefire.failIfNoSpecifiedTests=true",
+    "-Dcheckstyle.skip=true",
+    "-Drat.skip=true",
+    "test"
+  ],
+  "maven_offline": true,
+  "verifier_sha256": "c0b2760e92d406682da78c2bf4f3504b3d6e81ce7c14b68b8e22c9af8ee195ff",
+  "started_utc": "2026-11-24T19:35:38.804404+00:00",
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "maven": "3.9.9",
+    "java": "1.8.0_514"
+  },
+  "snapshots": [
+    {
+      "phase": "before",
+      "commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "tree": "8da0c8a61d8676985d2e537a44f5de66e13b70a6",
+      "status": "PASS",
+      "stage": "complete",
+      "test_file_sha256": "fd2a22cb933f9579db2e1d50a871a01e60f55c03ab8386df20989bbe069f94c2",
+      "archive_sha256": "31c66140bc0a686d893f4e4f825efe37ac4da21a9809ab7df3613eab94a255f5",
+      "input_member_sha256": "2ec71fc955d0107a6e90d1ab4e6f00c9438b56d3e621ef018d57c8ef07bfae7f",
+      "maven_exit": 0,
+      "surefire": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "output_bytes": 11,
+      "output_sha256": "2ec71fc955d0107a6e90d1ab4e6f00c9438b56d3e621ef018d57c8ef07bfae7f",
+      "tracked_files_changed": false
+    },
+    {
+      "phase": "after",
+      "commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "tree": "2aa8883c07b2a76db885e389409fabe0da7d4631",
+      "status": "PASS",
+      "stage": "complete",
+      "test_file_sha256": "fd2a22cb933f9579db2e1d50a871a01e60f55c03ab8386df20989bbe069f94c2",
+      "archive_sha256": "31c66140bc0a686d893f4e4f825efe37ac4da21a9809ab7df3613eab94a255f5",
+      "input_member_sha256": "2ec71fc955d0107a6e90d1ab4e6f00c9438b56d3e621ef018d57c8ef07bfae7f",
+      "maven_exit": 0,
+      "surefire": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "output_bytes": 11,
+      "output_sha256": "2ec71fc955d0107a6e90d1ab4e6f00c9438b56d3e621ef018d57c8ef07bfae7f",
+      "tracked_files_changed": false
+    }
+  ],
+  "finished_utc": "2026-11-24T19:37:21.208462+00:00",
+  "status": "PASS"
+}

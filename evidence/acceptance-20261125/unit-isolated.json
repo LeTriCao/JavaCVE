@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "command": "python3 -m unittest discover -s tests -v",
+  "scope": "Current files copied; manifest rehashed only in isolated copy"
+}

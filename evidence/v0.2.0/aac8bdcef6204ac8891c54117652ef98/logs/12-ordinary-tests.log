@@ -1,0 +1,4 @@
+Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+CONTROL|string_roundtrip|true
+CONTROL|empty_string_roundtrip|true
+CONTROL|integer_roundtrip|true

@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://repo.jenkins-ci.org/public/io/jenkins/tools/bom/bom-weekly/1008.vb9e22885c9cf/bom-weekly-1008.vb9e22885c9cf.pom",
+    "status": 200,
+    "bytes": 25879,
+    "sha256": "53448562306f3c95ebd45f8ab78fe13c44aab1b4079bd40b9bd87a7418af4560",
+    "seconds": 1.304328302999977
+  },
+  {
+    "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-bom/2.303.1/jenkins-bom-2.303.1.pom",
+    "status": 200,
+    "bytes": 24095,
+    "sha256": "6d4e157ed41b55cd62a32858a3e2069b8a487e911fbf723f28571fdd5fc5fe9d",
+    "seconds": 1.2680529210000486
+  }
+]

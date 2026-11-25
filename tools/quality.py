@@ -137,6 +137,24 @@ def generate_report(args, run):
                   timing_conditions="Wall-clock subprocess durations; current cache/network and toolchain. No matched timing baseline or measured human annotation time.",
                   manual_interventions="Not comprehensively timed; see docs/EXPERIMENTS.md. No labor saving or model accuracy claim.",
                   independent_human_reviews=0,ast_reviews=ast_reviews)
+    assessment_path = ROOT / "data/acceptance-review.json"
+    if assessment_path.exists():
+        from .acceptance import assess
+        assessment = assess()
+        require(assessment == json.loads(assessment_path.read_text(encoding="utf-8")), "Common acceptance assessment is stale; recompute it before generating reports")
+        result["acceptance_common"] = dict(policy_id=assessment["policy_id"], **assessment["summary"],
+                                           proposed_target=assessment["proposed_target"],
+                                           assessment_sha256=hashlib.sha256(assessment_path.read_bytes()).hexdigest())
+    comparison_path = ROOT / "data/iris-comparison.json"
+    if comparison_path.exists():
+        comparison = json.loads(comparison_path.read_text())
+        result["iris_comparison"] = dict(primary=comparison["primary"],expanded=comparison["expanded"],
+                                         source_sha256=hashlib.sha256(comparison_path.read_bytes()).hexdigest(),
+                                         scope=comparison["rule"])
+    review_path = ROOT / "data/independent-review-summary.json"
+    if review_path.exists():
+        review_status = json.loads(review_path.read_text())
+        result["independent_label_review"] = {k:review_status[k] for k in ("status","valid_samples","pending_samples","agreement_rate","disagreement_count")}
     write_json(destination/"metrics.json",result)
     with (destination/"cases.csv").open("w",encoding="utf-8",newline="") as stream:
         writer = csv.writer(stream)
@@ -159,6 +177,8 @@ def generate_report(args, run):
         lines += [f"| Tên callable và biên AST | {sum(r['matched_versions'] for r in ast_reviews)}/{sum(r['checked_versions'] for r in ast_reviews)} | Các run AST được chỉ định; pilot và batch ghi phạm vi riêng trong JSON |"]
     lines += ["", "Thời gian từng bước (giây): `"+json.dumps(result["measured_stage_seconds"])+"`.", "", "Giới hạn: thời gian mạng/cache không được kiểm soát giữa hai quy trình; chưa đo lao động theo CVE hoặc độ chính xác mô hình. Không suy ra tiết kiệm thời gian hay tăng độ chính xác từ số tệp giảm. RESOLVED_TARGET chỉ áp dụng cho cơ chế và điều kiện trong hồ sơ. UNCONFIRMED cần thêm ngữ cảnh và người đánh giá độc lập.", "", "Nguồn: CWE-Bench-Java trong [IRIS tại revision khóa](https://github.com/iris-sast/iris/tree/d2059f299a80a68ea4a0b0315eec2f42b8743776).", ""]
     narrative = ["# BÁO CÁO ĐỒ ÁN MÔN ĐẢM BẢO AN TOÀN THÔNG TIN", "", "JavaCVE v0.2.0 — Cải thiện bộ dữ liệu lỗ hổng mã nguồn Java", "", "Ngày cập nhật: 24/11/2026. Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp.", "", "## 1. Mục tiêu và câu hỏi đánh giá", "", "Cải thiện tập con CWE-Bench-Java bằng định danh Git, chuẩn hóa cặp bản vá, nhãn có phạm vi và bằng chứng thực thi. Đánh giá tách bạch tính toàn vẹn mẫu, khả năng build và hành vi bảo mật. Không đánh đồng callable thay đổi với một lỗ hổng độc lập.", "", "## 2. Nguồn và phương pháp", "", "Giữ nguyên revision IRIS và metadata seed; dùng parent đã chỉ định của commit sửa để cô lập thay đổi. Commons IO được hiệu chỉnh khỏi commit chỉ sửa test. Plexus Archiver chọn parent thứ nhất của merge; zip4j dùng lịch sử phục dựng, không coi là SHA gốc của tác giả. Phương thức thêm/xóa chỉ có bản ở phía hiện diện.", "", "## 3. Thiết kế kiểm chứng", "", "Tải commit cố định, xác nhận tree/blob Git, kiểm tra khoảng dòng và SHA256 phương thức. Build source bằng JDK8u514/Maven3.9.9 rồi chạy API và harness bảo mật. Fixture lịch sử giữ nguyên byte. Mỗi lệnh có run ID, thời gian UTC, môi trường, commit công cụ, lệnh, log và exit code. Assertion bảo mật FAIL là quan sát; lỗi harness hoặc đối chứng là lỗi thực nghiệm.", "", "## 4. Kết quả tính lại", ""]
+    if "acceptance_common" in result:
+        narrative[4] = "Ngày cập nhật: " + "/".join(reversed(assessment["review_date_local"].split("-"))) + ". Thông tin trường, lớp, sinh viên và giảng viên cần được người thực hiện điền trước khi nộp."
     narrative += lines[2:]
     batch = json.loads((ROOT/"data/batch-02/summary.json").read_text()) if (ROOT/"data/batch-02/summary.json").exists() else None
     if batch:
@@ -174,8 +194,23 @@ def generate_report(args, run):
                               f"| Quyết định AI cấp callable / snapshot ghi riêng | {completion['reviewed_callable_versions']} / {completion['reviewed_snapshot_decisions']} |", "",
                               "Plexus Archiver đã build thành công ở cả hai commit. Mỗi bản bỏ qua một test upstream. "
                               "XStream 2013 dừng ở bước tra cứu converter trong fromXML trước khi caller nhận được proxy ở cả hai bản. "
-                              "XStream 2020 và 2021 còn thiếu đối chứng chung cùng quan sát hành vi thuộc từng advisory. "
+                              "Đối chứng chức năng bổ sung không thay thế quan sát hành vi thuộc từng advisory của XStream 2020/2021. "
                               "[Bảng ưu tiên Batch02](../BATCH02.md) · [Chẩn đoán XStream](../XSTREAM_DIAGNOSIS.md)."]
+    if "acceptance_common" in result:
+        common = result["acceptance_common"]
+        narrative += ["", "### Nghiệm thu chung C1–C7", "",
+                      f"Cùng tiêu chí cho cả 20 CVE: {common['accepted_common']}/{common['cases']} đạt, {common['paired_builds']}/{common['cases']} có cặp build. "
+                      "Mục tiêu 12/20 vẫn là đề xuất, chờ giảng viên xác nhận. Kiểm thử chức năng không chứng minh hành vi CVE. "
+                      "[Bảng nghiệm thu](../DOI_CHIEU_DU_LIEU.md) · [Biên bản máy đọc](../../data/acceptance-review.json)."]
+    if "iris_comparison" in result:
+        primary=result["iris_comparison"]["primary"];expanded=result["iris_comparison"]["expanded"]
+        narrative += ["", "### Đối chứng IRIS → JavaCVE từ Git", "",
+                      f"Giữ cùng fix: {primary['cves']} Pilot đạt {primary['original_paths']}→{primary['normalized_paths']} đường dẫn ({primary['reduction_percent']}%). "
+                      f"Mở rộng {expanded['cves']} CVE đạt {expanded['original_paths']}→{expanded['normalized_paths']} ({expanded['reduction_percent']}%). "
+                      f"Giữ {expanded['iris_annotated_java_paths']}/{expanded['iris_annotated_java_paths']} anchor Java của IRIS fix_info; "
+                      "GitClientSecurityTest cùng SECURITY-1534 bị ra khỏi changed-set được lưu thành context reference. "
+                      "Không coi toàn bộ đường dẫn loại là nhiễu và không suy ra accuracy hay giảm thời gian. "
+                      "[Bảng 20 CVE và hai ca đọc diff](../SO_SANH_IRIS_JAVACVE.md)."]
     narrative += ["", "## 6. Chất lượng và giới hạn", "", "Rà soát kỹ thuật do AI thực hiện; số người đánh giá độc lập bằng 0. Các nhãn UNCONFIRMED của pilot giữ lý do ngoài phạm vi, cần caller/context hoặc phần mở rộng ngoài advisory. Toàn vẹn byte không xác nhận tính đúng ngữ nghĩa. Bốn bản sau thư viện ZIP có kiểm tra giới hạn thư mục chưa đạt trong phép đo lịch sử. Jenkins/NiFi cần kiểm thử tích hợp; tham khảo docs/EXPERIMENTS.md.", "", "## 7. Hướng phát triển luận văn", "", "Bổ sung người đánh giá độc lập và đo đồng thuận; hoàn thiện fixture cho batch mới; chia theo dự án hoặc CVE, gộp các nhóm trùng token trước khi chia. Cần kiểm tra clone gần giống và đo tác động của chất lượng nhãn lên một mô hình baseline. Chỉ kết luận cải thiện độ chính xác sau thí nghiệm có tập giữ lại độc lập; chỉ kết luận giảm lao động sau phép đo thời gian người thực hiện phù hợp.", "", "## 8. Tái hiện và bàn giao", "", "Các lệnh công khai: demo, list, fetch, build, security, all, audit, export, measure, report, split, investigate, expand và batch-build. README.md và docs/INSTALL.md hướng dẫn từ bản clone/giải nén mới. LICENSE chỉ cấp phép công cụ mới; mã bên thứ ba giữ giấy phép riêng. Không đóng gói cache, credential, JDK, Maven hoặc source Java chưa rà soát quyền tái phân phối.", ""]
     markdown = "\n".join(narrative)
     (destination/"REPORT.md").write_text(markdown,encoding="utf-8")

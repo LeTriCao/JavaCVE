@@ -1,0 +1,495 @@
+{
+  "run_id": "787224bcbc8e4b5f87eb4b052e30196f",
+  "release": "0.2.0",
+  "command": "report-recovery",
+  "start_utc": "2026-11-25T09:32:54.914307+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "same four pilot input receipts plus verified current ledger/common assessment",
+  "project_commit": "a1ea91f12cb78d2828e97c055ff6c18481107759",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [],
+  "snapshots": [],
+  "catalog": {
+    "release_builds": 12,
+    "cves": 10,
+    "cwe": {
+      "CWE-78": 5,
+      "CWE-22": 5
+    },
+    "files": 35,
+    "methods": 126,
+    "present_versions": 187,
+    "labels": {
+      "VULNERABLE": 44,
+      "RESOLVED_TARGET": 14,
+      "UNCONFIRMED": 129
+    },
+    "paired_core_methods": 23,
+    "reviewed_snapshots": 20,
+    "snapshot_labels": {
+      "VULNERABLE": 14,
+      "RESOLVED_TARGET": 5,
+      "UNCONFIRMED": 1
+    },
+    "independent_human_reviews": 0,
+    "historical_wsl_builds": 12,
+    "wsl_assertions": 34,
+    "wsl_upstream_tests": 131,
+    "matched_upstream_pass": 6,
+    "matched_pilot_pass": 6,
+    "matched_cases": 6,
+    "expansion": {
+      "cves": 10,
+      "methods": 183,
+      "method_versions": 222,
+      "labels": {
+        "UNCONFIRMED": 213,
+        "VULNERABLE": 5,
+        "RESOLVED_TARGET": 4
+      },
+      "fully_completed": 2,
+      "source_built_cases": 8,
+      "source_built_snapshots": 16,
+      "cwe": {
+        "CWE-22": 5,
+        "CWE-78": 5
+      },
+      "reviewed_callable_versions": 153,
+      "reviewed_snapshot_decisions": 8
+    }
+  },
+  "statistics": {
+    "catalog": {
+      "release_builds": 12,
+      "cves": 10,
+      "cwe": {
+        "CWE-78": 5,
+        "CWE-22": 5
+      },
+      "files": 35,
+      "methods": 126,
+      "present_versions": 187,
+      "labels": {
+        "VULNERABLE": 44,
+        "RESOLVED_TARGET": 14,
+        "UNCONFIRMED": 129
+      },
+      "paired_core_methods": 23,
+      "reviewed_snapshots": 20,
+      "snapshot_labels": {
+        "VULNERABLE": 14,
+        "RESOLVED_TARGET": 5,
+        "UNCONFIRMED": 1
+      },
+      "independent_human_reviews": 0,
+      "historical_wsl_builds": 12,
+      "wsl_assertions": 34,
+      "wsl_upstream_tests": 131,
+      "matched_upstream_pass": 6,
+      "matched_pilot_pass": 6,
+      "matched_cases": 6,
+      "expansion": {
+        "cves": 10,
+        "methods": 183,
+        "method_versions": 222,
+        "labels": {
+          "UNCONFIRMED": 213,
+          "VULNERABLE": 5,
+          "RESOLVED_TARGET": 4
+        },
+        "fully_completed": 2,
+        "source_built_cases": 8,
+        "source_built_snapshots": 16,
+        "cwe": {
+          "CWE-22": 5,
+          "CWE-78": 5
+        },
+        "reviewed_callable_versions": 153,
+        "reviewed_snapshot_decisions": 8
+      }
+    },
+    "input_runs": [
+      {
+        "run_id": "5cd2e8809e084ef1bb9530b2f00f8722",
+        "command": "all",
+        "sha256": "59d5f51359a1b91b91a72ce1f9466c5e4cb65c1efaf8d6e2ee3eb90aad40ef37"
+      },
+      {
+        "run_id": "b6499a16a26c41729ae28ce8f19d701b",
+        "command": "measure",
+        "sha256": "57bb3f55079eb23bd47ccaf843c6eac9d59ef24a84bdaa5db4bad494d22b0168"
+      },
+      {
+        "run_id": "ed97b42890524847a80085211e91b217",
+        "command": "audit",
+        "sha256": "fc3de88bb371d22c078a48adfca44b397766eeea9da9d144f43944355532ba42"
+      },
+      {
+        "run_id": "b33dd5b053464df19b1f31900f82c68f",
+        "command": "audit",
+        "sha256": "6dca3338cd9172d72d534f0453ecd77f7e37a649b1839d26f602a3500e7e2850"
+      }
+    ],
+    "historical": {
+      "matched_upstream_build": {
+        "numerator": 6,
+        "denominator": 6,
+        "unit": "seed snapshots",
+        "scope": "Same original commits, JDK8, Maven3.5.0 and module scope",
+        "percent": 100.0
+      },
+      "matched_pilot_build": {
+        "numerator": 6,
+        "denominator": 6,
+        "unit": "seed snapshots",
+        "scope": "Same original commits and conditions",
+        "percent": 100.0
+      },
+      "paired_build": {
+        "numerator": 6,
+        "denominator": 10,
+        "unit": "CVEs",
+        "scope": "Pilot coverage with both snapshots source-built; four CVEs unmeasured",
+        "percent": 60.0
+      },
+      "security_assertions": {
+        "passed": 7,
+        "failed": 15
+      },
+      "after_security_failing_snapshots": 4
+    },
+    "current": {
+      "build_snapshots": {
+        "numerator": 12,
+        "denominator": 12,
+        "unit": "snapshots",
+        "scope": "Explicit input runs; excludes reused artifacts",
+        "percent": 100.0
+      },
+      "paired_build_pilot": {
+        "numerator": 6,
+        "denominator": 10,
+        "unit": "CVEs",
+        "scope": "All 10 pilot CVEs; selected module scope",
+        "percent": 60.0
+      },
+      "behavior_reproduction": {
+        "numerator": 6,
+        "denominator": 6,
+        "unit": "CVEs",
+        "scope": "At least one security FAIL to PASS with passing controls on both sides",
+        "percent": 100.0
+      },
+      "behavior_pilot_coverage": {
+        "numerator": 6,
+        "denominator": 10,
+        "unit": "CVEs",
+        "scope": "All pilot CVEs",
+        "percent": 60.0
+      },
+      "after_security_failing_snapshots": 4,
+      "after_security_measured_snapshots": 6,
+      "integrity": {
+        "numerator": 187,
+        "denominator": 187,
+        "unit": "present method versions",
+        "scope": "Byte hashes and line ranges verified from actual source in input runs",
+        "percent": 100.0
+      }
+    },
+    "file_comparison": {
+      "scope": "unique changed .java paths per CVE; no rename detection; identical fix commit",
+      "cases": [
+        {
+          "cve_id": "CVE-2017-1000487",
+          "same_fix": true,
+          "seed_commit": "3b271b43f9e5021b4232fc2ffdfb4e469c7f8685",
+          "before_commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+          "after_commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+          "original_paths": [
+            "src/main/java/org/codehaus/plexus/util/IOUtil.java",
+            "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+            "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+            "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+            "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+            "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/org/codehaus/plexus/util/cli/Commandline.java",
+            "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+            "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+            "src/test/java/org/codehaus/plexus/util/cli/CommandlineTest.java",
+            "src/test/java/org/codehaus/plexus/util/cli/shell/BourneShellTest.java"
+          ],
+          "original_count": 6,
+          "normalized_count": 5
+        },
+        {
+          "cve_id": "CVE-2018-1002200",
+          "same_fix": true,
+          "seed_commit": "b9f9a425865eb47fb3665b3144ee4ca11f402704",
+          "before_commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+          "after_commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+          "original_paths": [
+            "src/main/java/org/codehaus/plexus/archiver/AbstractArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/jar/JarArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/jar/ModularJarArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipArchiver.java",
+            "src/main/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollection.java",
+            "src/test/java/org/codehaus/plexus/archiver/BasePlexusArchiverTest.java",
+            "src/test/java/org/codehaus/plexus/archiver/jar/BaseJarArchiverTest.java",
+            "src/test/java/org/codehaus/plexus/archiver/jar/JarArchiverTest.java",
+            "src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java",
+            "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java",
+            "src/test/resources/java-src/com/example/app/Main.java",
+            "src/test/resources/java-src/module-info.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+            "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java"
+          ],
+          "original_count": 14,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2018-1002201",
+          "same_fix": true,
+          "seed_commit": "bd3f3d77f3709f901fd5180a493ef32e4dfebfa6",
+          "before_commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+          "after_commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+          "original_paths": [
+            "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+            "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java",
+            "src/test/java/org/zeroturnaround/zip/ZipTransformTest.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+            "src/test/java/org/zeroturnaround/zip/DirectoryTraversalMaliciousTest.java"
+          ],
+          "original_count": 3,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2018-1002202",
+          "same_fix": true,
+          "seed_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+          "before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+          "after_commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+          "original_paths": [
+            "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+            "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/net/lingala/zip4j/io/InflaterInputStream.java",
+            "src/main/java/net/lingala/zip4j/unzip/Unzip.java"
+          ],
+          "original_count": 2,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2018-17297",
+          "same_fix": true,
+          "seed_commit": "7687720c5125b29386d3bb9c7c2931da79664b73",
+          "before_commit": "fd77bb8718648f69a587046b735488a80123cc26",
+          "after_commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+          "original_paths": [
+            "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+            "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+          ],
+          "normalized_paths": [
+            "hutool-core/src/main/java/cn/hutool/core/io/FileUtil.java",
+            "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java"
+          ],
+          "original_count": 2,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2019-10392",
+          "same_fix": true,
+          "seed_commit": "72add81da4cbeabc95504ebdb9007d47ac1c2b0b",
+          "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+          "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+          "original_paths": [
+            "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java",
+            "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java"
+          ],
+          "original_count": 2,
+          "normalized_count": 1
+        },
+        {
+          "cve_id": "CVE-2020-2261",
+          "same_fix": true,
+          "seed_commit": "adabcd9da98628e063bb91198e30ff39a34dc921",
+          "before_commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+          "after_commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+          "original_paths": [
+            "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+            "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+            "src/main/java/io/plugins/perfecto/credentials/PerfectoCredentials.java"
+          ],
+          "original_count": 2,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2021-29425",
+          "same_fix": false,
+          "seed_commit": "2ae025fe5c4a7d2046c53072b0898e37a079fe62",
+          "before_commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+          "after_commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+          "original_paths": null,
+          "normalized_paths": [
+            "src/main/java/org/apache/commons/io/FilenameUtils.java",
+            "src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java"
+          ],
+          "original_count": null,
+          "normalized_count": 2
+        },
+        {
+          "cve_id": "CVE-2022-20617",
+          "same_fix": true,
+          "seed_commit": "2f0fda49452a7653c33de24220c908786f1aa405",
+          "before_commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+          "after_commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+          "original_paths": [
+            "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+            "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+            "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+            "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java"
+          ],
+          "normalized_paths": [
+            "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+            "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidator.java",
+            "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpointTest.java",
+            "src/test/java/org/jenkinsci/plugins/docker/commons/credentials/ImageNameValidatorTest.java"
+          ],
+          "original_count": 4,
+          "normalized_count": 4
+        },
+        {
+          "cve_id": "CVE-2022-33140",
+          "same_fix": true,
+          "seed_commit": "06f04958272dafc30ce357c4c4edcaf470050b52",
+          "before_commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+          "after_commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+          "original_paths": [
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/main/java/org/apache/nifi/cluster/protocol/jaxb/JaxbProtocolContext.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-cluster-protocol/src/test/java/org/apache/nifi/cluster/protocol/impl/SocketProtocolListenerTest.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/controller/service/StandardControllerServiceProvider.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-components/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/flow/StandardFlowManager.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/scheduling/StandardProcessScheduler.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/controller/serialization/VersionedFlowSynchronizer.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+            "nifi-nar-bundles/nifi-kudu-bundle/nifi-kudu-controller-service/src/main/java/org/apache/nifi/controller/kudu/KuduLookupService.java",
+            "nifi-nar-bundles/nifi-provenance-repository-bundle/nifi-persistent-provenance-repository/src/test/java/org/apache/nifi/provenance/index/lucene/TestLuceneEventIndex.java",
+            "nifi-nar-bundles/nifi-smb-bundle/nifi-smb-processors/src/main/java/org/apache/nifi/processors/smb/PutSmbFile.java",
+            "nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/ssh/StandardSSHClientProvider.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java",
+            "nifi-system-tests/nifi-system-test-suite/src/test/java/org/apache/nifi/tests/system/rpg/RemoteProcessGroupIT.java"
+          ],
+          "normalized_paths": [
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/OsxShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/RemoteShellCommands.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellCommandsProvider.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/util/ShellRunner.java",
+            "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/test/java/org/apache/nifi/authorization/ShellUserGroupProviderIT.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/NssShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/OsxShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/RemoteShellCommands.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellCommandsProvider.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellRunner.java",
+            "nifi-registry/nifi-registry-core/nifi-registry-framework/src/main/java/org/apache/nifi/registry/security/authorization/shell/ShellUserGroupProvider.java"
+          ],
+          "original_count": 25,
+          "normalized_count": 13
+        }
+      ],
+      "matched_cves": 9,
+      "original_java_files": 60,
+      "normalized_java_files": 33,
+      "reduction_percent": 45.0,
+      "corrected_fix_mappings": 1,
+      "normalized_pairs": 10,
+      "reported_60_to_33_verified": true
+    },
+    "measured_stage_seconds": {
+      "fetch": 282.364994,
+      "build": 357.836761,
+      "classpath": 272.334937,
+      "api": 5.291458,
+      "security": 9.509059
+    },
+    "timing_conditions": "Wall-clock subprocess durations; current cache/network and toolchain. No matched timing baseline or measured human annotation time.",
+    "manual_interventions": "Not comprehensively timed; see docs/EXPERIMENTS.md. No labor saving or model accuracy claim.",
+    "independent_human_reviews": 0,
+    "ast_reviews": [
+      {
+        "run_id": "ed97b42890524847a80085211e91b217",
+        "checked_versions": 187,
+        "matched_versions": 187,
+        "failures": [],
+        "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+      },
+      {
+        "run_id": "b33dd5b053464df19b1f31900f82c68f",
+        "checked_versions": 222,
+        "matched_versions": 222,
+        "failures": [],
+        "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+      }
+    ],
+    "acceptance_common": {
+      "policy_id": "common-scoped-v1",
+      "cases": 20,
+      "accepted_common": 8,
+      "paired_builds": 14,
+      "by_batch": {
+        "pilot": 6,
+        "batch02": 2
+      },
+      "labels": {
+        "VULNERABLE": 49,
+        "RESOLVED_TARGET": 18,
+        "UNCONFIRMED": 342
+      },
+      "proposed_target": {
+        "accepted_cases": 12,
+        "total_cases": 20,
+        "instructor_confirmed": false
+      },
+      "assessment_sha256": "5d3db87a1f57a8ea6a80c20962372be903ca1be0dabbbcd3ed49c38ef7401329"
+    }
+  },
+  "end_utc": "2026-11-25T09:32:55.742369+00:00",
+  "seconds": 2.019457
+}

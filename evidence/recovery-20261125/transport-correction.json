@@ -1,0 +1,6 @@
+{
+  "interrupted_java_pids": [
+    661
+  ],
+  "reason": "The first transport attempt wrote ns0:settings; Maven ignored mirrors. Stop redundant after attempt and rerun with corrected default namespace. Preserve before TIMEOUT and partial after log."
+}

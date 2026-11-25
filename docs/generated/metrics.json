@@ -38,8 +38,8 @@
         "RESOLVED_TARGET": 4
       },
       "fully_completed": 2,
-      "source_built_cases": 6,
-      "source_built_snapshots": 12,
+      "source_built_cases": 8,
+      "source_built_snapshots": 16,
       "cwe": {
         "CWE-22": 5,
         "CWE-78": 5
@@ -398,5 +398,61 @@
       "failures": [],
       "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
     }
-  ]
+  ],
+  "acceptance_common": {
+    "policy_id": "common-scoped-v1",
+    "cases": 20,
+    "accepted_common": 8,
+    "paired_builds": 14,
+    "by_batch": {
+      "pilot": 6,
+      "batch02": 2
+    },
+    "labels": {
+      "VULNERABLE": 49,
+      "RESOLVED_TARGET": 18,
+      "UNCONFIRMED": 342
+    },
+    "proposed_target": {
+      "accepted_cases": 12,
+      "total_cases": 20,
+      "instructor_confirmed": false
+    },
+    "assessment_sha256": "5d3db87a1f57a8ea6a80c20962372be903ca1be0dabbbcd3ed49c38ef7401329"
+  },
+  "iris_comparison": {
+    "primary": {
+      "cves": 9,
+      "original_paths": 60,
+      "normalized_paths": 33,
+      "net_reduction": 27,
+      "reduction_percent": 45.0,
+      "removed_paths": 27,
+      "added_paths": 0,
+      "iris_annotated_java_paths": 23,
+      "missing_iris_annotated_paths": 0,
+      "context_references": 1
+    },
+    "expanded": {
+      "cves": 10,
+      "original_paths": 62,
+      "normalized_paths": 35,
+      "net_reduction": 27,
+      "reduction_percent": 43.548387,
+      "removed_paths": 27,
+      "added_paths": 0,
+      "iris_annotated_java_paths": 25,
+      "missing_iris_annotated_paths": 0,
+      "context_references": 1
+    },
+    "source_sha256": "65eb0ac8e3b143938c5e3ef7b777a371910841287631d74e4d197b4ec1a8f0f9",
+    "scope": "Unique case-sensitive .java paths per CVE; git diff --name-only --no-renames -z START FIX -- *.java; includes tests/resources; sum CVE-path counts across cases, not globally unique paths."
+  },
+  "independent_label_review": {
+    "status": "PENDING",
+    "valid_samples": 0,
+    "pending_samples": 40,
+    "agreement_rate": null,
+    "disagreement_count": 0
+  }
 }

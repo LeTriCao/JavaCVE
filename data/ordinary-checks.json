@@ -1,0 +1,22 @@
+{
+  "reviewer": "AI",
+  "scope": "Ordinary functional controls only; never security behavior or new source-build evidence.",
+  "cases": [
+    {
+      "cve_id": "CVE-2013-7285",
+      "kind": "xstream-api-roundtrip",
+      "receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json"
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "kind": "xstream-api-roundtrip",
+      "receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json"
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "kind": "xstream-api-roundtrip",
+      "receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json"
+    }
+  ],
+  "plexus_control_receipt": "evidence/recovery-20261125/plexus-ordinary.json"
+}

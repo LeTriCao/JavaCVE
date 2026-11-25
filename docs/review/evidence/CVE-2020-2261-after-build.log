@@ -1,0 +1,13 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< io.jenkins.plugins:perfecto >---------------------
+[INFO] Building Perfecto Plugin 1.18-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.13:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.13:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.13:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.13:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.13:hpi (default-hpi)'
+[INFO] Artifact io.jenkins.lib:support-log-formatter:jar:1.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [jenkins-https (https://repo.jenkins-ci.org/public/, default, releases+snapshots), repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.jenkins.lib:support-log-formatter:jar:1.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [jenkins-https (https://repo.jenkins-ci.org/public/, default, releases+snapshots), repro-central-https (https://repo.maven.apache.org/maven2, default, releases)]

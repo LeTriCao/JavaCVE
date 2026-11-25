@@ -1,0 +1,3 @@
+//../foo => //../foo
+\\..\foo => //../foo
+dir/file.txt => dir/file.txt

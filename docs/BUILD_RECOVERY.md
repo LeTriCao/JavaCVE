@@ -1,5 +1,7 @@
 # Khôi phục build Batch02
 
+Các mục trước phần “Lượt khôi phục build và kiểm thử thông thường” là lịch sử đến a1ea91f. Hiện Batch02 có **8/10 cặp build**; C6 của ba XStream được bổ sung bằng API round-trip, C7 vẫn thiếu. [Kết quả cập nhật](RECOVERY_20261125.md).
+
 ## Plexus Archiver CVE-2023-37460
 
 **Cả hai commit đã package thành công và có JAR build từ source.** AI chọn hồ sơ này vì log trước cho thấy Maven còn xác minh repository ID của artifact đã có trong cache. Log sau đã ghi tạo JAR rồi mới hết thời gian ở `site:attach-descriptor`. Cả hai lần cũ đều hết hạn 90 giây với exit code 124. [Log cũ trước](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/11-build.log) · [Log cũ sau](../evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/12-build.log).
@@ -44,3 +46,7 @@ Workflow chạy khi push commit 627abe2 có job offline đạt và source-securi
 Người dùng có thể mở Actions → Verify JavaCVE → Run workflow trên main. Công cụ bảo trì `powershell -NoProfile -File tools/github.ps1 -Action Dispatch` thực hiện cùng thao tác. Source-security hiện chạy Commons IO và hai cặp Spark/XStream. Lệnh Status in cả kết luận từng job để ghi nhận chính xác trạng thái skipped.
 
 Đã xác minh lượt workflow_dispatch 45361871765 tại commit 1d8ae45 có offline=success và source-security=success. Job source-security thực sự chạy các lệnh source đã cấu hình. Lượt push 45361863359 tại cùng commit có offline=success, source-security=skipped. Hai kết quả được ghi theo từng job và sự kiện kích hoạt. URL kiểm tra là https://github.com/LeTriCao/JavaCVE/actions/runs/45361871765.
+
+## Lượt khôi phục build và kiểm thử thông thường (25/11/2026)
+
+Kết quả hiện tại: **14/20 cặp build**, tăng **2**; **8/20 đạt chuẩn chung**, không nâng nhãn phương thức. [Build và kiểm thử chức năng mới](RECOVERY_20261125.md) · [Bảng nghiệm thu](DOI_CHIEU_DU_LIEU.md). Manifest gốc được giữ nguyên, danh sách bàn giao vẫn là dự kiến. Chưa commit/push/tag/release. Các kết quả và tiêu chí theo lô phía trên là lịch sử; C1–C7 cập nhật ở `data/acceptance-review.json`.

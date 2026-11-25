@@ -1,0 +1,2370 @@
+{
+  "status": "FINAL_COURSE_HANDOFF",
+  "date_local": "2026-11-25",
+  "source_head": "a1ea91f12cb78d2828e97c055ff6c18481107759",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "origin": "HEAD"
+    },
+    {
+      "path": ".gitignore",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "README.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/acceptance-review.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02-selection.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2013-7285.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2016-9177.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2018-1000850.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2020-26217.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2021-21345.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2022-25174.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2022-25175.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2022-25842.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2022-4244.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/advisories/CVE-2023-37460.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/build-recovery.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/build-status.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/cases.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/completion-review.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/completion.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/files.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/methods.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/reviews.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/snapshot-reviews.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/summary.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/upstream-selection.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/versions.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/batch-02/xstream-diagnosis.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/build-recovery-20261125.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/cases.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/context-files.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/experimental-builds.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/files.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/independent-review-summary.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/iris-comparison.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/methods.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/ordinary-checks.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/pairs.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/review.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/reviews.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/toolchain.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "data/versions.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BAN_NOP_MON_HOC.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BAO_CAO_MON_HOC.docx",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BAO_CAO_MON_HOC.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BASELINE.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BATCH02.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BATCH02_CALLABLE_REVIEW.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BATCH02_REVIEW.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/BUILD_RECOVERY.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DATA.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DELIVERY.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DELIVERY_CANDIDATE.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DEMO_5_PHUT.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DOI_CHIEU_CI.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/DOI_CHIEU_DU_LIEU.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/EXPERIMENTS.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/INTAKE.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/KIEM_TRA_BAN_GIAO.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/LABELS.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/METHODOLOGY.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/RECOVERY_20261125.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/REVIEW.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/SOURCES.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/SO_SANH_IRIS_JAVACVE.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/SUBMISSION_FILES.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/XSTREAM_DIAGNOSIS.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/COURSE_REPORT.docx",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/REPORT.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/cases.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/iris-comparison.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/iris-paths.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/metrics.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/split-project/assignments.jsonl",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/generated/split-project/summary.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/EVIDENCE_REFERENCES.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/HUONG_DAN.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/PHIEU_RA_SOAT_NHAN.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/PHIEU_RA_SOAT_NHAN.docx",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/TRANG_THAI.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2013-7285-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2013-7285-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2013-7285-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2013-7285-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2016-9177-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2016-9177-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2016-9177-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2016-9177-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2017-1000487-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2017-1000487-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2017-1000487-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2017-1000487-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1000850-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1000850-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002200-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002200-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002200-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002200-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002201-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002201-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002201-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002201-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002202-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002202-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002202-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-1002202-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-17297-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-17297-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-17297-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2018-17297-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2019-10392-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2019-10392-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2020-2261-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2020-2261-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2020-26217-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2020-26217-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-21345-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-21345-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-29425-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-29425-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-29425-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2021-29425-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-20617-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-20617-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25174-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25174-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25175-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25175-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25842-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-25842-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-33140-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-33140-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-4244-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-4244-after-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-4244-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2022-4244-before-observed-behavior.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2023-37460-after-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review/evidence/CVE-2023-37460-before-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review_coordinator/BASELINE_AI.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "docs/review_coordinator/HUONG_DAN.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/ast-check.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/source-check.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/topology-check.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/unit-isolated.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/unit-isolated.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/unit-working-tree.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/unit-working-tree.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/acceptance-20261125/validation.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/baseline.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/build-run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/comparison-run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/diagnostic-logging/JvmLoggingControl.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/diagnostic-logging/verify.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/inputs/build_info.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/inputs/case_annotations-step2.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/inputs/fix_info.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/inputs/project_info.csv",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/plexus-control/README.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/plexus-control/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/plexus-control/verify.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/acceptance-isolated.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/demo-isolated.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/jenkins-http-diagnostic.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/jenkins-package-thread.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/jenkins-test-staging-thread.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/jenkins-thread-diagnostic.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/plexus-ordinary.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/report-generation.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/seal-isolated.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/source-check.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/test-staging-interruption.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/transport-correction.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/unit-isolated.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/unit-working-tree.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/unit-working-tree.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/recovery-20261125/validation.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/source-export.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/source-review-run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.1.0-checksums.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/0edb5f863d684211b57ef37880609eee/logs/0-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/0edb5f863d684211b57ef37880609eee/logs/1-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/0edb5f863d684211b57ef37880609eee/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/3-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/4-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/5-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/7-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/8-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/9-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/3-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/4-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/5-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/7-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/8-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/logs/9-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2ad70474dd2f4a9a8d2313dd8ce41dd0/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/10-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/11-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/12-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/13-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/14-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/15-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/17-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/19-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/21-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/23-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/24-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/25-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/26-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/27-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/4-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/5-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/7-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/8-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/9-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2c50ea152a07469189d6e31128dc1289/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/10-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/11-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/12-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/13-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/14-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/15-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/16-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/17-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/18-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/19-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/2-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/20-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/21-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/3-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/4-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/5-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/7-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/8-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/logs/9-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2db8826fb83749229df01b3b30db9ead/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/logs/transport.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/332ed42e0837447b9156debf5917fd59/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/3d7060c231ab429db5c824889fcd4eec/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/10-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/12-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/13-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/14-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/15-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/17-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/18-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/19-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/20-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/3-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/4-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/5-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/7-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/8-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/9-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/10-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/11-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/12-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/13-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/14-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/15-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/16-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/17-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/18-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/19-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/2-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/20-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/21-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/22-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/23-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/24-provided-logger.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/25-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/26-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/27-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/28-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/29-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/3-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/30-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/31-provided-logger.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/32-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/33-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/34-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/35-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/36-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/37-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/38-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/39-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/4-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/40-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/41-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/42-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/43-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/44-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/45-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/46-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/47-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/48-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/49-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/5-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/50-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/51-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/52-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/53-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/54-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/55-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/56-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/57-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/58-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/59-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/6-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/60-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/61-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/62-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/63-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/64-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/65-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/66-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/67-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/68-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/69-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/7-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/70-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/71-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/72-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/73-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/74-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/75-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/76-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/77-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/78-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/79-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/8-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/80-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/81-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/82-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/83-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/84-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/85-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/86-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/87-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/88-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/89-api-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/9-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/90-api.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/91-classpath.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/92-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/93-security.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/logs/transport.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a18b9cb67574529b6138f0673c42af0/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a44f919a319479fb8103d8e6829812e/quality-review.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a44f919a319479fb8103d8e6829812e/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/7a44f919a319479fb8103d8e6829812e/unconfirmed.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/817b07fd7a8a423b909d8fcb8b68e4c4/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/3-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/4-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/5-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/3-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/4-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/logs/5-upstream-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/9dc0292fc028480080aa9bad378f9b90/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ERRATA.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/1-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/2-diagnostic.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/3-probe-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/logs/4-diagnostic.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/a4e197b267ca44baa4896be94b9f65b5/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/4-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/5-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/7-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/8-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/9-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/1-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/10-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/11-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/12-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/2-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/3-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/4-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/5-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/6-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/7-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/8-ordinary-tests.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/9-ordinary-compile.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/4-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/5-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/6-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/7-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/8-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/logs/9-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ad128fead9184743b58b027a65ee6192/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b33dd5b053464df19b1f31900f82c68f/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/file-comparison.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/0-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/1-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/10-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/11-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/12-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/13-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/14-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/15-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/16-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/17-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/18-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/19-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/2-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/20-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/21-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/22-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/23-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/24-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/25-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/26-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/27-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/28-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/29-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/3-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/30-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/31-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/32-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/33-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/34-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/35-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/36-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/37-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/4-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/5-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/6-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/7-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/8-git-init.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/logs/9-fetch.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/b6499a16a26c41729ae28ce8f19d701b/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d3f77bb62d80430ca336a4b25186acb1/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/transport.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/logs/0-java-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/logs/1-maven-version.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/logs/2-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/logs/3-build.log",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/d8f356a0fef444b5ba7aa250693f5f86/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/quality-review.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/unconfirmed.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/ffb1a3cfeb844c06a6ecb45d022127d0/run.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/v0.2.0/fresh-clone-b09707e.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "evidence/wsl.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "fixtures/ExpandProbe.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "fixtures/OrdinaryXStreamProbe.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "fixtures/RegressionProbe.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "fixtures/SparkLocalProbe.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "fixtures/XStreamLocalProbe.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2017-1000487/NOTICE.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2018-1002200/LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2018-1002201/LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2018-1002201/NOTICE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2018-1002202/LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2018-17297/LICENSE.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2019-10392/LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2020-2261/LICENSE.md",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2021-29425/LICENSE.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2021-29425/NOTICE.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2022-20617/LICENSE.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/CVE-2022-33140/LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/GITHUB-ADVISORY-CC-BY-4.0.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/IRIS-LICENSE",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "licenses/inventory.json",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "requirements-annotation.txt",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "run.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/commons-io/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/hutool/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/plexus-archiver/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/plexus-utils/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/zip4j/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "smoke/zt-zip/ApiCheck.java",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_acceptance.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_improvement.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_integrity.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_local_probes.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_recovery.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tests/test_release.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/acceptance.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/ast_audit.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/batch.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/bootstrap_parser.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/build.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/catalog.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/checksums.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/compare.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/compare_iris.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/course_demo.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/doctor.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/document.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/github.ps1",
+      "origin": "HEAD"
+    },
+    {
+      "path": "tools/maven_transport.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/observations.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/ordinary_replay.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/package_release.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/pipeline.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/publish_evidence.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/quality.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/recover_builds.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/review_batch.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/review_labels.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/review_local_evidence.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/review_xstream_followup.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/runtime.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/security.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/summarize_experiments.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    },
+    {
+      "path": "tools/verify_delivery.py",
+      "origin": "WORKTREE_AND_PREPARED_DOCUMENTS"
+    }
+  ],
+  "exclusions": [
+    ".git/",
+    ".cache/",
+    "runs/",
+    "dist/",
+    "source_archives/",
+    "*.jar",
+    "*.whl",
+    "credentials"
+  ],
+  "purpose": "IRIS source comparison, scoped JavaCVE evidence, blind human review pending",
+  "workflow_head_choices": [
+    ".github/workflows/verify.yml",
+    "tools/github.ps1"
+  ],
+  "human_review_completed": false,
+  "target_12_of_20_instructor_confirmed": false,
+  "zip_format": "Overlay on source_head. Git tree and checksums.json describe the complete reconstructed submission.",
+  "blind_ai_review": "PENDING"
+}

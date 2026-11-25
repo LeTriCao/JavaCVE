@@ -1,0 +1,36 @@
+{
+  "pilot": {
+    "status": "PASS",
+    "source": {
+      "checked_file_versions": 66,
+      "absent_git_states_checked": 4,
+      "checked_method_versions": 187,
+      "exported_versions": 0,
+      "included_tests": false
+    },
+    "ast": {
+      "checked_versions": 187,
+      "matched_versions": 187,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    }
+  },
+  "batch02": {
+    "status": "PASS",
+    "source": {
+      "checked_cases": 10,
+      "checked_file_versions": 83,
+      "absent_git_states_checked": 23,
+      "checked_method_versions": 222,
+      "exported_versions": 0,
+      "label_status": "Identity audit only; current scoped semantic decisions are in reviews.jsonl and completion.json",
+      "reviewer": "AI"
+    },
+    "ast": {
+      "checked_versions": 222,
+      "matched_versions": 222,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    }
+  }
+}

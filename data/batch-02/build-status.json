@@ -292,40 +292,91 @@
         "CWE-22"
       ],
       "cwe_alignment": "MATCH",
-      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
+      "build_run_id": "188f8a96a7e1421a97ca9a438faafeef",
       "before": {
         "cve_id": "CVE-2018-1000850",
         "phase": "before",
         "commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
-        "start_utc": "2026-11-24T07:19:56.865638+00:00",
-        "status": "FAIL",
-        "error": "build: TIMEOUT; see logs/5-build.log",
-        "error_category": "TIMEOUT",
-        "exit_code": 124,
-        "end_utc": "2026-11-24T07:21:27.328628+00:00",
-        "seconds": 90.46299
+        "status": "PASS",
+        "start_utc": "2026-11-25T08:48:28.651567+00:00",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "tree": "b524dbe27ccfaa18529767fd05f1ca6be3235cc4",
+        "build_config_overrides": [
+          {
+            "path": "retrofit/pom.xml",
+            "kind": "build_configuration_only",
+            "reason": "Missing plugin version otherwise resolves current metadata, ignoring kotlin.version=1.2.60",
+            "version": "1.2.60",
+            "provenance_path": "pom.xml",
+            "original_sha256": "15071245c266fcda81e4ef8ddd6819175cecefb85ded0cfa6e3f70db554787d9",
+            "configured_sha256": "afc3e14e2cbe6b5191182e3f8525eca2d2d4fc8d9cc88045ab047bae0b204de9",
+            "diff": "--- upstream/retrofit/pom.xml\n+++ configured/retrofit/pom.xml\n@@ -78,6 +78,7 @@\n       <plugin>\n         <groupId>org.jetbrains.kotlin</groupId>\n         <artifactId>kotlin-maven-plugin</artifactId>\n+        <version>${kotlin.version}</version>\n         <executions>\n           <execution>\n             <id>compile</id>\n"
+          }
+        ],
+        "build_status": "PASS",
+        "artifact_sha256": "0bb801f63da42309771614989ec8d7da43a13e61dd6f32c10558194ad1bfb23e",
+        "artifact": "artifacts/CVE-2018-1000850/before/retrofit-2.4.1-SNAPSHOT.jar",
+        "module": "retrofit",
+        "exit_code": 0,
+        "source_integrity": {
+          "baseline": "upstream plus explicitly recorded POM overlay",
+          "checked_original_files": 303,
+          "changed_files": []
+        },
+        "upstream_config_changes": [
+          "retrofit/pom.xml"
+        ],
+        "end_utc": "2026-11-25T08:50:32.658670+00:00",
+        "seconds": 124.007128
       },
       "after": {
         "cve_id": "CVE-2018-1000850",
         "phase": "after",
         "commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
-        "start_utc": "2026-11-24T07:21:27.341162+00:00",
-        "status": "FAIL",
-        "error": "build: COMMAND_FAILED; see logs/6-build.log",
-        "error_category": "COMMAND_FAILED",
-        "exit_code": 1,
-        "end_utc": "2026-11-24T07:22:31.389178+00:00",
-        "seconds": 64.048017
+        "status": "PASS",
+        "start_utc": "2026-11-25T08:50:32.668205+00:00",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "tree": "e049756d2d53bb5bb44756e41e4002f89da36e03",
+        "build_config_overrides": [
+          {
+            "path": "retrofit/pom.xml",
+            "kind": "build_configuration_only",
+            "reason": "Missing plugin version otherwise resolves current metadata, ignoring kotlin.version=1.2.60",
+            "version": "1.2.60",
+            "provenance_path": "pom.xml",
+            "original_sha256": "15071245c266fcda81e4ef8ddd6819175cecefb85ded0cfa6e3f70db554787d9",
+            "configured_sha256": "afc3e14e2cbe6b5191182e3f8525eca2d2d4fc8d9cc88045ab047bae0b204de9",
+            "diff": "--- upstream/retrofit/pom.xml\n+++ configured/retrofit/pom.xml\n@@ -78,6 +78,7 @@\n       <plugin>\n         <groupId>org.jetbrains.kotlin</groupId>\n         <artifactId>kotlin-maven-plugin</artifactId>\n+        <version>${kotlin.version}</version>\n         <executions>\n           <execution>\n             <id>compile</id>\n"
+          }
+        ],
+        "build_status": "PASS",
+        "artifact_sha256": "79880b864d6d058e9c434363102af8d9f2bdd8981ba8392d6a22e83dae754bba",
+        "artifact": "artifacts/CVE-2018-1000850/after/retrofit-2.4.1-SNAPSHOT.jar",
+        "module": "retrofit",
+        "exit_code": 0,
+        "source_integrity": {
+          "baseline": "upstream plus explicitly recorded POM overlay",
+          "checked_original_files": 303,
+          "changed_files": []
+        },
+        "upstream_config_changes": [
+          "retrofit/pom.xml"
+        ],
+        "end_utc": "2026-11-25T08:51:15.857008+00:00",
+        "seconds": 43.188827
       },
       "fully_completed": false,
-      "priority": 3,
-      "finding": "Before hết 90 giây ở kotlin:2.5.0-RC:compile. After báo compiler từ chối JDK 8.",
-      "remaining": "Đối chiếu phiên bản plugin và JDK với POM hoặc CI ở commit đã ghim.",
+      "priority": 2,
+      "finding": "Paired source package PASS with recorded temporary Kotlin plugin pin 1.2.60; JDK8u514/Maven3.9.9.",
+      "remaining": "Scoped callable review, common ordinary controls and advisory-specific paired security behavior remain missing.",
       "build_logs": {
-        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/5-build.log",
-        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/6-build.log"
+        "before": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/2-build.log",
+        "after": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/3-build.log"
       },
-      "upstream_totals": {}
+      "upstream_totals": {},
+      "previous_build_run_ids": [
+        "2b54f962ab544cb789aaf746c087715e"
+      ]
     },
     {
       "cve_id": "CVE-2022-25842",
@@ -1024,40 +1075,99 @@
         "CWE-78"
       ],
       "cwe_alignment": "MATCH",
-      "build_run_id": "2b54f962ab544cb789aaf746c087715e",
+      "build_run_id": "d6afe2302eb94c8e8ee75fe92844ec72",
       "before": {
         "cve_id": "CVE-2022-25174",
         "phase": "before",
         "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
-        "start_utc": "2026-11-24T07:36:29.460287+00:00",
-        "status": "FAIL",
-        "error": "build: TIMEOUT; see logs/24-build.log",
-        "error_category": "TIMEOUT",
-        "exit_code": 124,
-        "end_utc": "2026-11-24T07:37:59.893975+00:00",
-        "seconds": 90.43368
+        "status": "PASS",
+        "start_utc": "2026-11-25T09:20:17.197222+00:00",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "tree": "4f1e3b15c511f5907419174f2104979783cf0596",
+        "build_config_overrides": [
+          {
+            "path": "pom.xml",
+            "kind": "build_configuration_only",
+            "reason": "maven.test.skip does not disable HPI 3.22 test harness dependency staging; omit this test-only goal for source package",
+            "parent_version": "4.33",
+            "plugin_version": "3.22",
+            "disabled_execution": "default-resolve-test-dependencies",
+            "plugin_descriptor_source_sha256": "bf775baf940aca63d6ee622a6190638b5bab8aad445bcee2f3341b40cbdc50c7",
+            "original_sha256": "b36cd9204e73910541f4c165eaf7325118df63210ea2ec0db8c7d1c189dcef91",
+            "configured_sha256": "b9c3b960579f1a0a6439691c46317dc27eea3139e9ddb4d3f5b4b9fc2f4fa3a7",
+            "diff": "--- upstream/pom.xml\n+++ configured/pom.xml\n@@ -209,4 +209,9 @@\n             <scope>test</scope>\n         </dependency>\n     </dependencies>\n+\n+  <build><plugins><plugin>\n+    <groupId>org.jenkins-ci.tools</groupId><artifactId>maven-hpi-plugin</artifactId>\n+    <executions><execution><id>default-resolve-test-dependencies</id><phase>none</phase></execution></executions>\n+  </plugin></plugins></build>\n </project>\n"
+          }
+        ],
+        "build_status": "PASS",
+        "artifact_sha256": "615e1ff370652cf57dff989c74f9b14a2558987dfc045cab992f0948c4ece32e",
+        "artifact": "artifacts/CVE-2022-25174/before/workflow-cps-global-lib.jar",
+        "module": ".",
+        "exit_code": 0,
+        "source_integrity": {
+          "baseline": "upstream plus explicitly recorded POM overlay",
+          "checked_original_files": 87,
+          "changed_files": []
+        },
+        "upstream_config_changes": [
+          "pom.xml"
+        ],
+        "end_utc": "2026-11-25T09:24:10.159225+00:00",
+        "seconds": 232.962028
       },
       "after": {
         "cve_id": "CVE-2022-25174",
         "phase": "after",
         "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
-        "start_utc": "2026-11-24T07:37:59.905148+00:00",
-        "status": "FAIL",
-        "error": "build: TIMEOUT; see logs/25-build.log",
-        "error_category": "TIMEOUT",
-        "exit_code": 124,
-        "end_utc": "2026-11-24T07:39:30.415555+00:00",
-        "seconds": 90.510387
+        "status": "PASS",
+        "start_utc": "2026-11-25T09:24:10.166800+00:00",
+        "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+        "tree": "adb466b96846317ff357dadde2cf398092a8e659",
+        "build_config_overrides": [
+          {
+            "path": "pom.xml",
+            "kind": "build_configuration_only",
+            "reason": "maven.test.skip does not disable HPI 3.22 test harness dependency staging; omit this test-only goal for source package",
+            "parent_version": "4.33",
+            "plugin_version": "3.22",
+            "disabled_execution": "default-resolve-test-dependencies",
+            "plugin_descriptor_source_sha256": "bf775baf940aca63d6ee622a6190638b5bab8aad445bcee2f3341b40cbdc50c7",
+            "original_sha256": "b36cd9204e73910541f4c165eaf7325118df63210ea2ec0db8c7d1c189dcef91",
+            "configured_sha256": "b9c3b960579f1a0a6439691c46317dc27eea3139e9ddb4d3f5b4b9fc2f4fa3a7",
+            "diff": "--- upstream/pom.xml\n+++ configured/pom.xml\n@@ -209,4 +209,9 @@\n             <scope>test</scope>\n         </dependency>\n     </dependencies>\n+\n+  <build><plugins><plugin>\n+    <groupId>org.jenkins-ci.tools</groupId><artifactId>maven-hpi-plugin</artifactId>\n+    <executions><execution><id>default-resolve-test-dependencies</id><phase>none</phase></execution></executions>\n+  </plugin></plugins></build>\n </project>\n"
+          }
+        ],
+        "build_status": "PASS",
+        "artifact_sha256": "977b9fcac0af9d8cc53e6cf48b5fc73f456bf07db9121a270aa894e11442bd27",
+        "artifact": "artifacts/CVE-2022-25174/after/workflow-cps-global-lib.jar",
+        "module": ".",
+        "exit_code": 0,
+        "source_integrity": {
+          "baseline": "upstream plus explicitly recorded POM overlay",
+          "checked_original_files": 88,
+          "changed_files": []
+        },
+        "upstream_config_changes": [
+          "pom.xml"
+        ],
+        "end_utc": "2026-11-25T09:26:22.392246+00:00",
+        "seconds": 132.225486
       },
       "fully_completed": false,
-      "priority": 3,
-      "finding": "Hết 90 giây khi Maven xác minh lại cache theo repository ID. Mục cuối là jzlib:1.1.3-kohsuke-1 trước và maven-dependency-tree:3.0.1 sau.",
-      "remaining": "Xác minh repository ID và thời gian phân giải dependency trên cả hai bản.",
+      "priority": 2,
+      "finding": "Source package PASS/PASS; JDK8u514/Maven3.9.9; explicit POM overlay disables only HPI 3.22 test harness dependency staging; official repository transport recorded.",
+      "remaining": "Scoped callable review and ordinary/security behavior inside Jenkins integration harness remain missing; UNCONFIRMED unchanged.",
       "build_logs": {
-        "before": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/24-build.log",
-        "after": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/25-build.log"
+        "before": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/2-build.log",
+        "after": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/3-build.log"
       },
-      "upstream_totals": {}
+      "upstream_totals": {},
+      "previous_build_run_ids": [
+        "2b54f962ab544cb789aaf746c087715e",
+        "d8f356a0fef444b5ba7aa250693f5f86",
+        "3d7060c231ab429db5c824889fcd4eec",
+        "7a18b9cb67574529b6138f0673c42af0",
+        "332ed42e0837447b9156debf5917fd59"
+      ]
     },
     {
       "cve_id": "CVE-2022-25175",
@@ -1103,9 +1213,9 @@
       "upstream_totals": {}
     }
   ],
-  "source_built_cases": 6,
+  "source_built_cases": 8,
   "selected_cases": 10,
-  "source_built_snapshots": 12,
+  "source_built_snapshots": 16,
   "selected_snapshots": 20,
   "reviewer": "AI",
   "scope": "Pinned source package outcomes. Artifact-only diagnostic replays are excluded."

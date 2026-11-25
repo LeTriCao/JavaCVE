@@ -1,0 +1,51 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.codehaus.plexus:plexus-archiver >-----------------
+[INFO] Building Plexus Archiver Component 4.7.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-and-java-bytecode) @ plexus-archiver ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Adding ignore: module-info
+[INFO] Rule 1: org.codehaus.mojo.extraenforcer.dependencies.EnforceBytecodeVersion passed
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ plexus-archiver ---
+[INFO] skip non existing resourceDirectory /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ plexus-archiver ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 147 source files with javac [debug target 8] to target/classes
+[INFO] /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/java/org/codehaus/plexus/archiver/tar/TarArchiver.java: Some input files use or override a deprecated API.
+[INFO] /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/java/org/codehaus/plexus/archiver/tar/TarArchiver.java: Recompile with -Xlint:deprecation for details.
+[INFO] /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java: /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java uses unchecked or unsafe operations.
+[INFO] /tmp/javacve-tn1wb7e2/tmpj724bvug/source/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- sisu:0.9.0.M2:main-index (generate-index) @ plexus-archiver ---
+[INFO] 
+[INFO] --- sisu:0.9.0.M2:main-index (index-project) @ plexus-archiver ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ plexus-archiver ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ plexus-archiver ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- sisu:0.9.0.M2:test-index (generate-index) @ plexus-archiver ---
+[INFO] 
+[INFO] --- sisu:0.9.0.M2:test-index (index-project) @ plexus-archiver ---
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ plexus-archiver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ plexus-archiver ---
+[INFO] Building jar: /tmp/javacve-tn1wb7e2/tmpj724bvug/source/target/plexus-archiver-4.7.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- site:3.12.1:attach-descriptor (attach-descriptor) @ plexus-archiver ---
+[INFO] Skipping because packaging 'jar' is not pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.718 s
+[INFO] Finished at: 2026-11-24T10:02:38Z
+[INFO] ------------------------------------------------------------------------

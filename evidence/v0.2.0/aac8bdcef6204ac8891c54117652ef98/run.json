@@ -1,0 +1,467 @@
+{
+  "run_id": "aac8bdcef6204ac8891c54117652ef98",
+  "release": "0.2.0",
+  "command": "ordinary-api-replay",
+  "start_utc": "2026-11-25T09:24:46.372488+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "arguments": "String/empty String/Integer roundtrip; DomDriver; no security probes",
+  "project_commit": "a1ea91f12cb78d2828e97c055ff6c18481107759",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [
+    {
+      "stage": "java-version",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-version"
+      ],
+      "start_utc": "2026-11-25T09:24:46.400621+00:00",
+      "status": "PASS",
+      "log": "logs/0-java-version.log",
+      "end_utc": "2026-11-25T09:24:46.768107+00:00",
+      "seconds": 0.355926,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-h89a5c2z",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:24:46.836047+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "log": "logs/1-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:24:49.539684+00:00",
+      "seconds": 2.692348,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-h89a5c2z:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/before/xstream-1.4.7-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:24:49.547572+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "log": "logs/2-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:24:50.676493+00:00",
+      "seconds": 1.116868,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-mianhm07",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:24:50.741638+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "log": "logs/3-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:24:53.000968+00:00",
+      "seconds": 2.24803,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-mianhm07:<workspace>/runs/4063ba008c3644f5ad4d015ccd4cbcc4/artifacts/CVE-2013-7285/after/xstream-1.4.7-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:24:53.009272+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "log": "logs/4-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:24:54.281016+00:00",
+      "seconds": 1.259962,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2020-26217/before/xstream-1.4.14-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-8fs5t5oq",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:24:54.352584+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2020-26217",
+      "phase": "before",
+      "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "log": "logs/5-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:24:56.716922+00:00",
+      "seconds": 2.352433,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-8fs5t5oq:<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2020-26217/before/xstream-1.4.14-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:24:56.724933+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2020-26217",
+      "phase": "before",
+      "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "log": "logs/6-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:24:58.224031+00:00",
+      "seconds": 1.485598,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2020-26217/after/xstream-1.4.14-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-btzymayp",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:24:58.292943+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2020-26217",
+      "phase": "after",
+      "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "log": "logs/7-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:25:00.702641+00:00",
+      "seconds": 2.397686,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-btzymayp:<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2020-26217/after/xstream-1.4.14-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:25:00.710825+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2020-26217",
+      "phase": "after",
+      "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "log": "logs/8-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:25:02.337470+00:00",
+      "seconds": 1.613798,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2021-21345/before/xstream-1.4.16-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-bebht24w",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:25:02.415320+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-21345",
+      "phase": "before",
+      "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "log": "logs/9-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:25:04.837342+00:00",
+      "seconds": 2.410298,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-bebht24w:<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2021-21345/before/xstream-1.4.16-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:25:04.846056+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-21345",
+      "phase": "before",
+      "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "log": "logs/10-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:25:06.176144+00:00",
+      "seconds": 1.316955,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-compile",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-cp",
+        "<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2021-21345/after/xstream-1.4.16-SNAPSHOT.jar",
+        "-d",
+        "/tmp/javacve-ordinary-api-uy0zct5l",
+        "<workspace>/fixtures/OrdinaryXStreamProbe.java"
+      ],
+      "start_utc": "2026-11-25T09:25:06.241392+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-21345",
+      "phase": "after",
+      "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "log": "logs/11-ordinary-compile.log",
+      "end_utc": "2026-11-25T09:25:08.621954+00:00",
+      "seconds": 2.368503,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "ordinary-tests",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-cp",
+        "/tmp/javacve-ordinary-api-uy0zct5l:<workspace>/runs/2b54f962ab544cb789aaf746c087715e/artifacts/CVE-2021-21345/after/xstream-1.4.16-SNAPSHOT.jar",
+        "OrdinaryXStreamProbe"
+      ],
+      "start_utc": "2026-11-25T09:25:08.631958+00:00",
+      "status": "PASS",
+      "cve_id": "CVE-2021-21345",
+      "phase": "after",
+      "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "log": "logs/12-ordinary-tests.log",
+      "end_utc": "2026-11-25T09:25:10.159955+00:00",
+      "seconds": 1.515145,
+      "exit_code": 0,
+      "error_category": null
+    }
+  ],
+  "snapshots": [
+    {
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+      "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+      "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "phase": "before",
+      "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "artifact_sha256": "8d8af2d7faa7d2f146e749424cbab5a531dc2cb2427956e36d34b0edf50b746b",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "phase": "after",
+      "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "artifact_sha256": "19da0de47f371a83bf360a0e8ff38e21190ac9196c392c61bec196c92b4f0672",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "phase": "before",
+      "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "artifact_sha256": "e5d96230fe8fde15d144400cc8f654a172cecb2b08a4afe04ae3c9e57315edfc",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "phase": "after",
+      "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "status": "PASS",
+      "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+      "build_status": "REUSED_VERIFIED",
+      "source_built_in_this_run": false,
+      "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "artifact_sha256": "a43530049425900766b660b8b85c8bb94de1607e08040ff269babf7f6f870caa",
+      "driver": "DomDriver",
+      "policy": "Pinned default; no allowTypes or policy overrides",
+      "exit_code": 0,
+      "controls": [
+        {
+          "name": "string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "empty_string_roundtrip",
+          "pass": true
+        },
+        {
+          "name": "integer_roundtrip",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "scope": "Functional API controls only. Reused hash-verified source-built JARs; no new builds or CVE behavior claims.",
+  "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+  "toolchain": {
+    "java": "openjdk version \"1.8.0_514\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_514-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.514-b01, mixed mode)\n"
+  },
+  "end_utc": "2026-11-25T09:25:10.176930+00:00",
+  "seconds": 25.110691,
+  "public_receipt": true,
+  "original_run_sha256": "ad131c7e21877ab93a631269455917294a4d3dfde537aaa8cd835f184deb7608",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

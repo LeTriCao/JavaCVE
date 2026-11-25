@@ -1,0 +1,1488 @@
+{
+  "samples": [
+    {
+      "review_id": "R01",
+      "sample_id": "CVE-2013-7285-04a55a7affeb:after",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "2042",
+      "end_line": "2044",
+      "code_sha256": "0081c95f1de3a71150020b00ec6bc914b069dcdd7e06651ca99e7324865a804d",
+      "source_url": "https://github.com/x-stream/xstream/blob/6344867dce6767af7d0fe34fb393271a6456672d/xstream/src/java/com/thoughtworks/xstream/XStream.java#L2042-L2044",
+      "signature": "XStream#allowTypesByRegExp(Pattern...regexps)",
+      "advisory_url": "https://github.com/advisories/GHSA-f554-x222-wgf7",
+      "before_commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "after_commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-before-build.log",
+          "sha256": "a1e79501215bff1d5817e61dc74b0d7232aa27f4d7b54a1c9c87a1cf577e859c"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-before-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-after-build.log",
+          "sha256": "5735171486615003777b59ff4486e4928d6735f1b4de45e980d54e9c696560f8"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-after-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R02",
+      "sample_id": "CVE-2013-7285-18974f15f270:before",
+      "cve_id": "CVE-2013-7285",
+      "phase": "before",
+      "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "623",
+      "end_line": "646",
+      "code_sha256": "569ca1bf5caaace8d228c5797ba04c93c2ecee1fcfefb87bae7b6a6648d0ac39",
+      "source_url": "https://github.com/x-stream/xstream/blob/64533f1fe2ece82398a1478edc2d30478fb7cd11/xstream/src/java/com/thoughtworks/xstream/XStream.java#L623-L646",
+      "signature": "XStream#setupMappers()",
+      "advisory_url": "https://github.com/advisories/GHSA-f554-x222-wgf7",
+      "before_commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "after_commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-before-build.log",
+          "sha256": "a1e79501215bff1d5817e61dc74b0d7232aa27f4d7b54a1c9c87a1cf577e859c"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-before-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-after-build.log",
+          "sha256": "5735171486615003777b59ff4486e4928d6735f1b4de45e980d54e9c696560f8"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-after-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R03",
+      "sample_id": "CVE-2016-9177-308dfd860dcb:before",
+      "cve_id": "CVE-2016-9177",
+      "phase": "before",
+      "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "file_path": "src/main/java/spark/staticfiles/StaticFilesConfiguration.java",
+      "start_line": "70",
+      "end_line": "82",
+      "code_sha256": "76c103c7b5635cc3b148e9e7500bd49bd369f4ffd9f08c44e557cc9cde703698",
+      "source_url": "https://github.com/perwendel/spark/blob/c57e572f95de5752c5bf8e1e5de764aa50e4a0f6/src/main/java/spark/staticfiles/StaticFilesConfiguration.java#L70-L82",
+      "signature": "StaticFilesConfiguration#consume(HttpServletRequesthttpRequest,HttpServletResponsehttpResponse)",
+      "advisory_url": "https://github.com/advisories/GHSA-89gc-6cw6-4vch",
+      "before_commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "after_commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2016-9177-before-build.log",
+          "sha256": "62c75a4f24b1d8b22742b6a22ecbad5652a56e2586a1e4a889c4a836a65fe059"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2016-9177-before-observed-behavior.log",
+          "sha256": "311808012c22212415e98188eeb54e41081df6b335030a235336d37649a4316b"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2016-9177-after-build.log",
+          "sha256": "7a58e940082397fb9e300f4b959e973a17c93905182f422d3553142844be995f"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2016-9177-after-observed-behavior.log",
+          "sha256": "daaba367f3e1b081b353d89ae0d16fc3cf881e7ee9bd87b2ee342e76093697a5"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R04",
+      "sample_id": "CVE-2016-9177-308dfd860dcb:after",
+      "cve_id": "CVE-2016-9177",
+      "phase": "after",
+      "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "file_path": "src/main/java/spark/staticfiles/StaticFilesConfiguration.java",
+      "start_line": "70",
+      "end_line": "85",
+      "code_sha256": "6447501d533c7ceb0395bad04a5bd81e5042e911897d22eddbcb04c7986583c3",
+      "source_url": "https://github.com/perwendel/spark/blob/efcb46c710e3f56805b9257a63d1306882f4faf9/src/main/java/spark/staticfiles/StaticFilesConfiguration.java#L70-L85",
+      "signature": "StaticFilesConfiguration#consume(HttpServletRequesthttpRequest,HttpServletResponsehttpResponse)",
+      "advisory_url": "https://github.com/advisories/GHSA-89gc-6cw6-4vch",
+      "before_commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "after_commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2016-9177-before-build.log",
+          "sha256": "62c75a4f24b1d8b22742b6a22ecbad5652a56e2586a1e4a889c4a836a65fe059"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2016-9177-before-observed-behavior.log",
+          "sha256": "311808012c22212415e98188eeb54e41081df6b335030a235336d37649a4316b"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2016-9177-after-build.log",
+          "sha256": "7a58e940082397fb9e300f4b959e973a17c93905182f422d3553142844be995f"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2016-9177-after-observed-behavior.log",
+          "sha256": "daaba367f3e1b081b353d89ae0d16fc3cf881e7ee9bd87b2ee342e76093697a5"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R05",
+      "sample_id": "CVE-2017-1000487-44bbd262b032:before",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "before",
+      "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "file_path": "src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java",
+      "start_line": "157",
+      "end_line": "170",
+      "code_sha256": "7e060e34c6b6f1fde62b86fc6dd412b6568fbfba0efbb90950e761ca1c2a8341",
+      "source_url": "https://github.com/codehaus-plexus/plexus-utils/blob/86c37983bb2bd92b1df43fe73f321ffbfa155070/src/main/java/org/codehaus/plexus/util/cli/shell/BourneShell.java#L157-L170",
+      "signature": ".BourneShell#unifyQuotes(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-8vhq-qq4p-grq3",
+      "before_commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "after_commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2017-1000487-before-build.log",
+          "sha256": "c55985eb2817a2225dffd3f482c133c1d56a7c45482f004f0a1569792c8c5379"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2017-1000487-before-observed-behavior.log",
+          "sha256": "e8ad3656882487c9b3ecc75422d4ba65567a00c1c5a97a1b5a45b120acf5ebee"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2017-1000487-after-build.log",
+          "sha256": "ff072239d09cd73b6420fd0affb72763c7065e9c46a2640aa6ee2ecf714871f8"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2017-1000487-after-observed-behavior.log",
+          "sha256": "e4e76cbd0915258852464f40d02f3fef6a1c82698ccec3ff9c274ad48c69196f"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R06",
+      "sample_id": "CVE-2017-1000487-6f2797468136:after",
+      "cve_id": "CVE-2017-1000487",
+      "phase": "after",
+      "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "file_path": "src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java",
+      "start_line": "157",
+      "end_line": "199",
+      "code_sha256": "e9ef9c8ef3e4781fd4d689c90158e20dc92ce160e61fe7be2faedc687eed7499",
+      "source_url": "https://github.com/codehaus-plexus/plexus-utils/blob/b38a1b3a4352303e4312b2bb601a0d7ec6e28f41/src/main/java/org/codehaus/plexus/util/cli/shell/Shell.java#L157-L199",
+      "signature": ".Shell#getRawCommandLine(String,String[])",
+      "advisory_url": "https://github.com/advisories/GHSA-8vhq-qq4p-grq3",
+      "before_commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "after_commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2017-1000487-before-build.log",
+          "sha256": "c55985eb2817a2225dffd3f482c133c1d56a7c45482f004f0a1569792c8c5379"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2017-1000487-before-observed-behavior.log",
+          "sha256": "e8ad3656882487c9b3ecc75422d4ba65567a00c1c5a97a1b5a45b120acf5ebee"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2017-1000487-after-build.log",
+          "sha256": "ff072239d09cd73b6420fd0affb72763c7065e9c46a2640aa6ee2ecf714871f8"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2017-1000487-after-observed-behavior.log",
+          "sha256": "e4e76cbd0915258852464f40d02f3fef6a1c82698ccec3ff9c274ad48c69196f"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R07",
+      "sample_id": "CVE-2018-1000850-bc18cb1bf259:after",
+      "cve_id": "CVE-2018-1000850",
+      "phase": "after",
+      "commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "file_path": "retrofit/src/main/java/retrofit2/RequestBuilder.java",
+      "start_line": "105",
+      "end_line": "117",
+      "code_sha256": "3a2168d7498e618050f941e33a2b64d512f787c2784952364c603e7c5e9e5e91",
+      "source_url": "https://github.com/square/retrofit/blob/b9a7f6ad72073ddd40254c0058710e87a073047d/retrofit/src/main/java/retrofit2/RequestBuilder.java#L105-L117",
+      "signature": "RequestBuilder#addPathParam(Stringname,Stringvalue,booleanencoded)",
+      "advisory_url": "https://github.com/advisories/GHSA-8p8g-f9vg-r7xr",
+      "before_commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+      "after_commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1000850-before-build.log",
+          "sha256": "04abf34af57391ea22b5aaa8164ded52c0abebf6ea7fe9f0c00e69e915b70235"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1000850-after-build.log",
+          "sha256": "4017d1f1bf0540aa6eaaad3ec880587744a0a3263b0fed87c61f4bbe01d5929a"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R08",
+      "sample_id": "CVE-2018-1000850-bc18cb1bf259:before",
+      "cve_id": "CVE-2018-1000850",
+      "phase": "before",
+      "commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+      "file_path": "retrofit/src/main/java/retrofit2/RequestBuilder.java",
+      "start_line": "89",
+      "end_line": "95",
+      "code_sha256": "9187f9a39e60747ae515433ebb6352a6d21e7a5f1e2e46d1427703e7479fc31a",
+      "source_url": "https://github.com/square/retrofit/blob/5088b0df6f2c52fcead426dafbb04214225e0cc7/retrofit/src/main/java/retrofit2/RequestBuilder.java#L89-L95",
+      "signature": "RequestBuilder#addPathParam(Stringname,Stringvalue,booleanencoded)",
+      "advisory_url": "https://github.com/advisories/GHSA-8p8g-f9vg-r7xr",
+      "before_commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+      "after_commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1000850-before-build.log",
+          "sha256": "04abf34af57391ea22b5aaa8164ded52c0abebf6ea7fe9f0c00e69e915b70235"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1000850-after-build.log",
+          "sha256": "4017d1f1bf0540aa6eaaad3ec880587744a0a3263b0fed87c61f4bbe01d5929a"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R09",
+      "sample_id": "CVE-2018-1002200-58a87000e8d7:after",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "after",
+      "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "file_path": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+      "start_line": "303",
+      "end_line": "370",
+      "code_sha256": "4c437b67b376daba09efa19dee576cb0b9bc3cc4bc872854e9392492866b6278",
+      "source_url": "https://github.com/codehaus-plexus/plexus-archiver/blob/f8f4233508193b70df33759ae9dc6154d69c2ea8/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java#L303-L370",
+      "signature": ".AbstractUnArchiver#extractFile(File,File,InputStream,String,Date,boolean,Integer,String)",
+      "advisory_url": "https://github.com/advisories/GHSA-hcxq-x77q-3469",
+      "before_commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "after_commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002200-before-build.log",
+          "sha256": "89ff1ee74d9c9be30e8e115a19bad026755789bdde53d9b6c6cd204145e5dbb8"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002200-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002200-after-build.log",
+          "sha256": "49537804a1e5b999cacfa87ba89d3aef748f6c46a910f67681a6ad1619d823bd"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002200-after-observed-behavior.log",
+          "sha256": "d63334844189f3109b7117eb49088f9aa6e4fe8512845e768ca09e8d6414bcff"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R10",
+      "sample_id": "CVE-2018-1002200-58a87000e8d7:before",
+      "cve_id": "CVE-2018-1002200",
+      "phase": "before",
+      "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "file_path": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+      "start_line": "303",
+      "end_line": "361",
+      "code_sha256": "940bf60b4c1bdd582ca40d19b8bf04c103ee97c2d4cf77e4197e4db8c6afbdde",
+      "source_url": "https://github.com/codehaus-plexus/plexus-archiver/blob/97c0d97504632a2a80b7d847bccdd9b37d27aea1/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java#L303-L361",
+      "signature": ".AbstractUnArchiver#extractFile(File,File,InputStream,String,Date,boolean,Integer,String)",
+      "advisory_url": "https://github.com/advisories/GHSA-hcxq-x77q-3469",
+      "before_commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "after_commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002200-before-build.log",
+          "sha256": "89ff1ee74d9c9be30e8e115a19bad026755789bdde53d9b6c6cd204145e5dbb8"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002200-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002200-after-build.log",
+          "sha256": "49537804a1e5b999cacfa87ba89d3aef748f6c46a910f67681a6ad1619d823bd"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002200-after-observed-behavior.log",
+          "sha256": "d63334844189f3109b7117eb49088f9aa6e4fe8512845e768ca09e8d6414bcff"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R11",
+      "sample_id": "CVE-2018-1002201-361b6ea05300:after",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "after",
+      "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "file_path": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+      "start_line": "1276",
+      "end_line": "1310",
+      "code_sha256": "1cf0e287fc4e0279386c2bba4e11424247e563eeceda3950eaa27e45c69bd4d2",
+      "source_url": "https://github.com/zeroturnaround/zt-zip/blob/759b72f33bc8f4d69f84f09fcb7f010ad45d6fff/src/main/java/org/zeroturnaround/zip/ZipUtil.java#L1276-L1310",
+      "signature": ".ZipUtil.Unwraper#process(InputStream,ZipEntry)",
+      "advisory_url": "https://github.com/advisories/GHSA-qcf3-9vmh-xw4r",
+      "before_commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "after_commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002201-before-build.log",
+          "sha256": "e28dcdd974a5c3deea96a1c1ad246de78ad10f4a19e3f46006cd903ff91b01d2"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002201-before-observed-behavior.log",
+          "sha256": "01049f6784cb6e9ddade337aa516d4c00c6ad40b7bd5743c9686dd4fca0192b3"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002201-after-build.log",
+          "sha256": "fd95fae4e919231e16978d663748a16313aefab2b69f8406b6933902b335e9ac"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002201-after-observed-behavior.log",
+          "sha256": "c56b8bcbf1a9c1612f20347d44bebf3d4ea281f51176085c8f2bd1e0d56589bf"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R12",
+      "sample_id": "CVE-2018-1002201-361b6ea05300:before",
+      "cve_id": "CVE-2018-1002201",
+      "phase": "before",
+      "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "file_path": "src/main/java/org/zeroturnaround/zip/ZipUtil.java",
+      "start_line": "1249",
+      "end_line": "1274",
+      "code_sha256": "522d199dc7d6553b428fb98b5ca19a4b3bb06242c10e6c002adf9e1d3ae46c21",
+      "source_url": "https://github.com/zeroturnaround/zt-zip/blob/d1c40776d2ff18550d95db2609d3d154692dea93/src/main/java/org/zeroturnaround/zip/ZipUtil.java#L1249-L1274",
+      "signature": ".ZipUtil.Unwraper#process(InputStream,ZipEntry)",
+      "advisory_url": "https://github.com/advisories/GHSA-qcf3-9vmh-xw4r",
+      "before_commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "after_commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002201-before-build.log",
+          "sha256": "e28dcdd974a5c3deea96a1c1ad246de78ad10f4a19e3f46006cd903ff91b01d2"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002201-before-observed-behavior.log",
+          "sha256": "01049f6784cb6e9ddade337aa516d4c00c6ad40b7bd5743c9686dd4fca0192b3"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002201-after-build.log",
+          "sha256": "fd95fae4e919231e16978d663748a16313aefab2b69f8406b6933902b335e9ac"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002201-after-observed-behavior.log",
+          "sha256": "c56b8bcbf1a9c1612f20347d44bebf3d4ea281f51176085c8f2bd1e0d56589bf"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R13",
+      "sample_id": "CVE-2018-1002202-758073feaaa1:after",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "after",
+      "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "file_path": "src/main/java/net/lingala/zip4j/unzip/Unzip.java",
+      "start_line": "123",
+      "end_line": "179",
+      "code_sha256": "202adf2a358da06ed0cca9d4f9ea6b2b1310cf992775d541f48dca6e2b103a0b",
+      "source_url": "https://github.com/iris-sast/zip4j/blob/59aeea594ff885e06c25751dc6334dfea1bed8c6/src/main/java/net/lingala/zip4j/unzip/Unzip.java#L123-L179",
+      "signature": ".Unzip#initExtractFile(FileHeader,String,UnzipParameters,String,ProgressMonitor)",
+      "advisory_url": "https://github.com/advisories/GHSA-2rpm-4x8c-pvqg",
+      "before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "after_commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002202-before-build.log",
+          "sha256": "9e0a6ff0178e17229c3f2a9efd2cc08a1fa2460227ee2cf153023d3d012029e4"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002202-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002202-after-build.log",
+          "sha256": "d467544a1700c3253bb1a0e0afe71216c6f8dc9bfadd53472f7ab9bd61847498"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002202-after-observed-behavior.log",
+          "sha256": "8abe5533dbd30f13ba34d21f06c58578866d07067ef4dc987611253aad4a14f1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R14",
+      "sample_id": "CVE-2018-1002202-758073feaaa1:before",
+      "cve_id": "CVE-2018-1002202",
+      "phase": "before",
+      "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "file_path": "src/main/java/net/lingala/zip4j/unzip/Unzip.java",
+      "start_line": "123",
+      "end_line": "173",
+      "code_sha256": "00aad841f6c98215d649404956466c63b8a67be84d1bcbc2fdc1308b6da60ab8",
+      "source_url": "https://github.com/iris-sast/zip4j/blob/d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde/src/main/java/net/lingala/zip4j/unzip/Unzip.java#L123-L173",
+      "signature": ".Unzip#initExtractFile(FileHeader,String,UnzipParameters,String,ProgressMonitor)",
+      "advisory_url": "https://github.com/advisories/GHSA-2rpm-4x8c-pvqg",
+      "before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "after_commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002202-before-build.log",
+          "sha256": "9e0a6ff0178e17229c3f2a9efd2cc08a1fa2460227ee2cf153023d3d012029e4"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002202-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-1002202-after-build.log",
+          "sha256": "d467544a1700c3253bb1a0e0afe71216c6f8dc9bfadd53472f7ab9bd61847498"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-1002202-after-observed-behavior.log",
+          "sha256": "8abe5533dbd30f13ba34d21f06c58578866d07067ef4dc987611253aad4a14f1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R15",
+      "sample_id": "CVE-2018-17297-c87deec2a319:after",
+      "cve_id": "CVE-2018-17297",
+      "phase": "after",
+      "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "file_path": "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java",
+      "start_line": "377",
+      "end_line": "404",
+      "code_sha256": "a502e48a657b83522ea87dad7653272910ca73c6d8323e50924c2ffd29f9cf4e",
+      "source_url": "https://github.com/dromara/hutool/blob/8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e/hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java#L377-L404",
+      "signature": ".ZipUtil#unzip(File,File,Charset)",
+      "advisory_url": "https://github.com/advisories/GHSA-rhq2-2574-78mc",
+      "before_commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "after_commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-17297-before-build.log",
+          "sha256": "ea2cb8a9a1ac61adf4f548e9c552a2702f954e686c4be190c3205adb8ad648c0"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-17297-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-17297-after-build.log",
+          "sha256": "ed9f7023f43a3e38450361278aeb42b771a1757b36a376fee7edb86c7d965f22"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-17297-after-observed-behavior.log",
+          "sha256": "49551c653d7dcb1200c681096f42519463abd4bec7769ea11f7d91f7640e9a60"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R16",
+      "sample_id": "CVE-2018-17297-c87deec2a319:before",
+      "cve_id": "CVE-2018-17297",
+      "phase": "before",
+      "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "file_path": "hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java",
+      "start_line": "377",
+      "end_line": "403",
+      "code_sha256": "5e8895c0d2b77f2eb7b330e94e54a18643365b5b59c2b7aebf4b348e2179a196",
+      "source_url": "https://github.com/dromara/hutool/blob/fd77bb8718648f69a587046b735488a80123cc26/hutool-core/src/main/java/cn/hutool/core/util/ZipUtil.java#L377-L403",
+      "signature": ".ZipUtil#unzip(File,File,Charset)",
+      "advisory_url": "https://github.com/advisories/GHSA-rhq2-2574-78mc",
+      "before_commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "after_commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2018-17297-before-build.log",
+          "sha256": "ea2cb8a9a1ac61adf4f548e9c552a2702f954e686c4be190c3205adb8ad648c0"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-17297-before-observed-behavior.log",
+          "sha256": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2018-17297-after-build.log",
+          "sha256": "ed9f7023f43a3e38450361278aeb42b771a1757b36a376fee7edb86c7d965f22"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2018-17297-after-observed-behavior.log",
+          "sha256": "49551c653d7dcb1200c681096f42519463abd4bec7769ea11f7d91f7640e9a60"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R17",
+      "sample_id": "CVE-2019-10392-092006a61b1c:before",
+      "cve_id": "CVE-2019-10392",
+      "phase": "before",
+      "commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+      "file_path": "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java",
+      "start_line": "2895",
+      "end_line": "2913",
+      "code_sha256": "c3aef5658d3253b4244082c821c49cecddc4afdbf7cb85cc9f55b2eca18a7a81",
+      "source_url": "https://github.com/jenkinsci/git-client-plugin/blob/04d2c155d19a37ae28ffe2345e0e2ccd96556b07/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java#L2895-L2913",
+      "signature": ".CliGitAPIImpl#getHeadRev(String,String)",
+      "advisory_url": "https://github.com/advisories/GHSA-hw6x-2qwv-rxr7",
+      "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+      "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2019-10392-before-build.log",
+          "sha256": "9f6b2d3ea5197fdb46ccf1cec3c5f8d6be827ea7a0222690feb8a4cdd1d29bb4"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2019-10392-after-build.log",
+          "sha256": "5ae1555e1c6d5d74ecedcdd3ce8f9eb46e4da0669392476dc3c134b7f40583a2"
+        }
+      ],
+      "extra_context": [
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+          "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+          "source_url": "https://github.com/jenkinsci/git-client-plugin/blob/899123fa2eb9dd2c37137aae630c47c6be6b4b02/src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "file_sha256": "c260188a742445132802cbd119b898c249d204080020cd46a46a7ee033ed2446"
+        }
+      ]
+    },
+    {
+      "review_id": "R18",
+      "sample_id": "CVE-2019-10392-092006a61b1c:after",
+      "cve_id": "CVE-2019-10392",
+      "phase": "after",
+      "commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+      "file_path": "src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java",
+      "start_line": "2959",
+      "end_line": "2978",
+      "code_sha256": "b47a6b4dc6259df107efde833494067a728718e856d1f0801fe38b9fff0c4c26",
+      "source_url": "https://github.com/jenkinsci/git-client-plugin/blob/899123fa2eb9dd2c37137aae630c47c6be6b4b02/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java#L2959-L2978",
+      "signature": ".CliGitAPIImpl#getHeadRev(String,String)",
+      "advisory_url": "https://github.com/advisories/GHSA-hw6x-2qwv-rxr7",
+      "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+      "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2019-10392-before-build.log",
+          "sha256": "9f6b2d3ea5197fdb46ccf1cec3c5f8d6be827ea7a0222690feb8a4cdd1d29bb4"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2019-10392-after-build.log",
+          "sha256": "5ae1555e1c6d5d74ecedcdd3ce8f9eb46e4da0669392476dc3c134b7f40583a2"
+        }
+      ],
+      "extra_context": [
+        {
+          "path": "src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+          "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+          "source_url": "https://github.com/jenkinsci/git-client-plugin/blob/899123fa2eb9dd2c37137aae630c47c6be6b4b02/src/test/java/org/jenkinsci/plugins/gitclient/GitClientSecurityTest.java",
+          "file_sha256": "c260188a742445132802cbd119b898c249d204080020cd46a46a7ee033ed2446"
+        }
+      ]
+    },
+    {
+      "review_id": "R19",
+      "sample_id": "CVE-2020-2261-cc5451acfcc4:before",
+      "cve_id": "CVE-2020-2261",
+      "phase": "before",
+      "commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+      "file_path": "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+      "start_line": "151",
+      "end_line": "194",
+      "code_sha256": "1b37d3e71bd851c7a3315bc2c0a0c1ba7fd523f0f6cf27388e19e43a8a137044",
+      "source_url": "https://github.com/jenkinsci/perfecto-plugin/blob/60f9da8c6cdf06ef7824c5b35a63e3a21dda3110/src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java#L151-L194",
+      "signature": ".PerfectoBuildWrapper#getTunnelId(String,String,String,BuildListener)",
+      "advisory_url": "https://github.com/advisories/GHSA-jq84-6fmm-6qv6",
+      "before_commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+      "after_commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2020-2261-before-build.log",
+          "sha256": "114be2f9cb6e5c33c2824f48ddf5169e969200325eda7d28d12258568b0fb80e"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2020-2261-after-build.log",
+          "sha256": "079708030e1725d7b461bea834fc62d5d37b0a21e880cb8bb79d4bad000a6322"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R20",
+      "sample_id": "CVE-2020-2261-ed434e8a35b7:after",
+      "cve_id": "CVE-2020-2261",
+      "phase": "after",
+      "commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+      "file_path": "src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java",
+      "start_line": "158",
+      "end_line": "242",
+      "code_sha256": "9f5576c1b976a5f7ae95928051ea226683ea1e95ec2d1e7cefadfc1871cfb9b7",
+      "source_url": "https://github.com/jenkinsci/perfecto-plugin/blob/52c09ad2e26416211e4009b095c4f16508b27b8a/src/main/java/io/plugins/perfecto/PerfectoBuildWrapper.java#L158-L242",
+      "signature": ".PerfectoBuildWrapper#setUp(AbstractBuild,Launcher,BuildListener)",
+      "advisory_url": "https://github.com/advisories/GHSA-jq84-6fmm-6qv6",
+      "before_commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+      "after_commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2020-2261-before-build.log",
+          "sha256": "114be2f9cb6e5c33c2824f48ddf5169e969200325eda7d28d12258568b0fb80e"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2020-2261-after-build.log",
+          "sha256": "079708030e1725d7b461bea834fc62d5d37b0a21e880cb8bb79d4bad000a6322"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R21",
+      "sample_id": "CVE-2020-26217-ebecba3fe431:after",
+      "cve_id": "CVE-2020-26217",
+      "phase": "after",
+      "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "639",
+      "end_line": "649",
+      "code_sha256": "5178754fc00e2187858c446b99038dcee3cf2c39c98e5c258d9949fac1abb74e",
+      "source_url": "https://github.com/x-stream/xstream/blob/0fec095d534126931c99fd38e9c6d41f5c685c1a/xstream/src/java/com/thoughtworks/xstream/XStream.java#L639-L649",
+      "signature": "XStream#setupSecurity()",
+      "advisory_url": "https://github.com/advisories/GHSA-mw36-7c6c-q4q2",
+      "before_commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "after_commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2020-26217-before-build.log",
+          "sha256": "57a752b403e971fc59673eeae75d4980af4eda32f96f2409b511a8f2c9315724"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2020-26217-after-build.log",
+          "sha256": "3575d44f06b456d1aac63b8d668cd0dc80d6e49d297d59260184903f36036da5"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R22",
+      "sample_id": "CVE-2020-26217-ebecba3fe431:before",
+      "cve_id": "CVE-2020-26217",
+      "phase": "before",
+      "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "639",
+      "end_line": "649",
+      "code_sha256": "76cdf684097180af6db8941f43190f618184d6db39b7ddb188cde6ea2d1254b8",
+      "source_url": "https://github.com/x-stream/xstream/blob/573fbafb06859ecb3a836bd6fe2afacfc5cdabcc/xstream/src/java/com/thoughtworks/xstream/XStream.java#L639-L649",
+      "signature": "XStream#setupSecurity()",
+      "advisory_url": "https://github.com/advisories/GHSA-mw36-7c6c-q4q2",
+      "before_commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "after_commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2020-26217-before-build.log",
+          "sha256": "57a752b403e971fc59673eeae75d4980af4eda32f96f2409b511a8f2c9315724"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2020-26217-after-build.log",
+          "sha256": "3575d44f06b456d1aac63b8d668cd0dc80d6e49d297d59260184903f36036da5"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R23",
+      "sample_id": "CVE-2021-21345-18974f15f270:after",
+      "cve_id": "CVE-2021-21345",
+      "phase": "after",
+      "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "623",
+      "end_line": "642",
+      "code_sha256": "480e3203abee6f4a8b615ff479eff950c76b9857cd1ec8a816b7f3496eae1632",
+      "source_url": "https://github.com/x-stream/xstream/blob/d5e51177634afea7213b9dc2d21f101d2e258db9/xstream/src/java/com/thoughtworks/xstream/XStream.java#L623-L642",
+      "signature": "XStream#setupMappers()",
+      "advisory_url": "https://github.com/advisories/GHSA-hwpc-8xqv-jvj4",
+      "before_commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "after_commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2021-21345-before-build.log",
+          "sha256": "9aa915a09066150ca3ab0d53521bf763fd89c6b0e348921aa235e6b9ef2b7766"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2021-21345-after-build.log",
+          "sha256": "ad2857c40ba0aed8b983d128d5229b7822efae82eb8b50905f50798a243ddae1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R24",
+      "sample_id": "CVE-2021-21345-18974f15f270:before",
+      "cve_id": "CVE-2021-21345",
+      "phase": "before",
+      "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/XStream.java",
+      "start_line": "619",
+      "end_line": "638",
+      "code_sha256": "85652cdb049622f052661c1f6d71e22739f54cff23445c2ffe5068aebb03169f",
+      "source_url": "https://github.com/x-stream/xstream/blob/d3c679a2cca689a0113c3bf011a74ad79b85c4f3/xstream/src/java/com/thoughtworks/xstream/XStream.java#L619-L638",
+      "signature": "XStream#setupMappers()",
+      "advisory_url": "https://github.com/advisories/GHSA-hwpc-8xqv-jvj4",
+      "before_commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "after_commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2021-21345-before-build.log",
+          "sha256": "9aa915a09066150ca3ab0d53521bf763fd89c6b0e348921aa235e6b9ef2b7766"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2021-21345-after-build.log",
+          "sha256": "ad2857c40ba0aed8b983d128d5229b7822efae82eb8b50905f50798a243ddae1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R25",
+      "sample_id": "CVE-2021-29425-6897512d9093:before",
+      "cve_id": "CVE-2021-29425",
+      "phase": "before",
+      "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "file_path": "src/main/java/org/apache/commons/io/FilenameUtils.java",
+      "start_line": "630",
+      "end_line": "683",
+      "code_sha256": "cf49a228020bad239e811110699ea225aeb778ac6977fd5efae75549867b6809",
+      "source_url": "https://github.com/apache/commons-io/blob/7791a851c4a303f47743b156007fb19c6ed8ed81/src/main/java/org/apache/commons/io/FilenameUtils.java#L630-L683",
+      "signature": ".FilenameUtils#getPrefixLength(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-gwrp-pvrq-jmwv",
+      "before_commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "after_commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2021-29425-before-build.log",
+          "sha256": "f4c522c8aea978713a96470a60adc06930af6421c57d3249bdd6e029f41919d3"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2021-29425-before-observed-behavior.log",
+          "sha256": "923a73726af438b62b0b03c1098f79ab455b929a8ba58d25e13267e6da03cbec"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2021-29425-after-build.log",
+          "sha256": "62cee112196e3cfb9b4539a69905526860d14af3a7e124f647b2697b4dd2de62"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2021-29425-after-observed-behavior.log",
+          "sha256": "a64e8910b17475fa77c2791c480f721726fbd485c4d6be29bb256cfeb1ff79e1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R26",
+      "sample_id": "CVE-2021-29425-6897512d9093:after",
+      "cve_id": "CVE-2021-29425",
+      "phase": "after",
+      "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "file_path": "src/main/java/org/apache/commons/io/FilenameUtils.java",
+      "start_line": "634",
+      "end_line": "689",
+      "code_sha256": "89416fbd6c8b89493b1b06bf287f0f39e6b2e04eaa372d84a6aa302c6bc77b13",
+      "source_url": "https://github.com/apache/commons-io/blob/2736b6fe0b3fa22ec8e2b4184897ecadb021fc78/src/main/java/org/apache/commons/io/FilenameUtils.java#L634-L689",
+      "signature": ".FilenameUtils#getPrefixLength(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-gwrp-pvrq-jmwv",
+      "before_commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "after_commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2021-29425-before-build.log",
+          "sha256": "f4c522c8aea978713a96470a60adc06930af6421c57d3249bdd6e029f41919d3"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2021-29425-before-observed-behavior.log",
+          "sha256": "923a73726af438b62b0b03c1098f79ab455b929a8ba58d25e13267e6da03cbec"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2021-29425-after-build.log",
+          "sha256": "62cee112196e3cfb9b4539a69905526860d14af3a7e124f647b2697b4dd2de62"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2021-29425-after-observed-behavior.log",
+          "sha256": "a64e8910b17475fa77c2791c480f721726fbd485c4d6be29bb256cfeb1ff79e1"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R27",
+      "sample_id": "CVE-2022-20617-528026c27fb6:after",
+      "cve_id": "CVE-2022-20617",
+      "phase": "after",
+      "commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+      "file_path": "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+      "start_line": "312",
+      "end_line": "335",
+      "code_sha256": "22d4e2a4f75f51532f27997e1d9eec326d20fea69306dcdcedb6769d3e7eb545",
+      "source_url": "https://github.com/jenkinsci/docker-commons-plugin/blob/c069b79c31c5aa80a01b0c462f0dc6b41751f059/src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java#L312-L335",
+      "signature": ".DockerRegistryEndpoint#imageName(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-jpxj-vgq5-prjc",
+      "before_commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+      "after_commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-20617-before-build.log",
+          "sha256": "4a0243c47375b800125d7ca7ecb6ed946794ce27793822dbfd0ce3f57b7099f6"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-20617-after-build.log",
+          "sha256": "cfe6ead3921fab8dc0b870d9a737666989d9b1c633ece94cf68398321850bda3"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R28",
+      "sample_id": "CVE-2022-20617-528026c27fb6:before",
+      "cve_id": "CVE-2022-20617",
+      "phase": "before",
+      "commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+      "file_path": "src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java",
+      "start_line": "311",
+      "end_line": "328",
+      "code_sha256": "9a179e694ad01318019afdc5bae400316f850fdc307b651f36f117ce0e9bcf96",
+      "source_url": "https://github.com/jenkinsci/docker-commons-plugin/blob/7078a70448719715ae2c91b6a7fd718de76cf5a2/src/main/java/org/jenkinsci/plugins/docker/commons/credentials/DockerRegistryEndpoint.java#L311-L328",
+      "signature": ".DockerRegistryEndpoint#imageName(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-jpxj-vgq5-prjc",
+      "before_commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+      "after_commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-20617-before-build.log",
+          "sha256": "4a0243c47375b800125d7ca7ecb6ed946794ce27793822dbfd0ce3f57b7099f6"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-20617-after-build.log",
+          "sha256": "cfe6ead3921fab8dc0b870d9a737666989d9b1c633ece94cf68398321850bda3"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R29",
+      "sample_id": "CVE-2022-25174-0870dea96246:after",
+      "cve_id": "CVE-2022-25174",
+      "phase": "after",
+      "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "file_path": "src/main/java/org/jenkinsci/plugins/workflow/libs/LibraryAdder.java",
+      "start_line": "305",
+      "end_line": "335",
+      "code_sha256": "b4a7aab6247b1e2d4fd858d1c7f5fe0286daaca5e4d8a0f76b0b2460b709e972",
+      "source_url": "https://github.com/jenkinsci/workflow-cps-global-lib-plugin/blob/ace0de3c2d691662021ea10306eeb407da6b6365/src/main/java/org/jenkinsci/plugins/workflow/libs/LibraryAdder.java#L305-L335",
+      "signature": "LibraryAdder.LoadedLibraries#loadScripts(CpsFlowExecutionexecution)",
+      "advisory_url": "https://github.com/advisories/GHSA-g9fx-6j5c-grmw",
+      "before_commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "after_commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25174-before-build.log",
+          "sha256": "af3503cd79cdc04da2a53ea4b19a817eba0d264dd68c4aba4048f010a8e822ee"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25174-after-build.log",
+          "sha256": "665a531b37e1a3382337a0205ad7c281a682d92e526c3cf6584e4857df12bf1c"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R30",
+      "sample_id": "CVE-2022-25174-0870dea96246:before",
+      "cve_id": "CVE-2022-25174",
+      "phase": "before",
+      "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "file_path": "src/main/java/org/jenkinsci/plugins/workflow/libs/LibraryAdder.java",
+      "start_line": "293",
+      "end_line": "323",
+      "code_sha256": "9d9551c69a997e5ee1792e800238611bd5b51eefc64e066a4e767a4839142d95",
+      "source_url": "https://github.com/jenkinsci/workflow-cps-global-lib-plugin/blob/d1912e98fa56b77ef495beee79e3f27f0c8f4026/src/main/java/org/jenkinsci/plugins/workflow/libs/LibraryAdder.java#L293-L323",
+      "signature": "LibraryAdder.LoadedLibraries#loadScripts(CpsFlowExecutionexecution)",
+      "advisory_url": "https://github.com/advisories/GHSA-g9fx-6j5c-grmw",
+      "before_commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "after_commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25174-before-build.log",
+          "sha256": "af3503cd79cdc04da2a53ea4b19a817eba0d264dd68c4aba4048f010a8e822ee"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25174-after-build.log",
+          "sha256": "665a531b37e1a3382337a0205ad7c281a682d92e526c3cf6584e4857df12bf1c"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R31",
+      "sample_id": "CVE-2022-25175-010d437f6900:before",
+      "cve_id": "CVE-2022-25175",
+      "phase": "before",
+      "commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "file_path": "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+      "start_line": "218",
+      "end_line": "220",
+      "code_sha256": "1418ce9245dce8a922a8324945457e2f5215f38b92de0def830b5e3997502ecc",
+      "source_url": "https://github.com/jenkinsci/workflow-multibranch-plugin/blob/d43c65dec013812b084fecbb4a310d856eb6b89a/src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java#L218-L220",
+      "signature": "ReadTrustedStep.Execution#getFilePathWithSuffix(FilePathbaseWorkspace)",
+      "advisory_url": "https://github.com/advisories/GHSA-pj84-qjm3-77mg",
+      "before_commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "after_commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25175-before-build.log",
+          "sha256": "c61975562b88d6a78ba6f17f910eadba55b90414bcb601d6ac86a3fa4d947dfb"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25175-after-build.log",
+          "sha256": "56500958d9dafb201dca4209070cc2d370b8c09a913ec722edd7ec1e37da065a"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R32",
+      "sample_id": "CVE-2022-25175-107e80c31b3e:after",
+      "cve_id": "CVE-2022-25175",
+      "phase": "after",
+      "commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+      "file_path": "src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java",
+      "start_line": "247",
+      "end_line": "252",
+      "code_sha256": "7c4bcf6c65354473d6a2a8ef329ce94d2b68c8e766578acba8fbcf34f64f9bed",
+      "source_url": "https://github.com/jenkinsci/workflow-multibranch-plugin/blob/71c3f0a6ccdb2ba43f43686826b0d62160df85e8/src/main/java/org/jenkinsci/plugins/workflow/multibranch/ReadTrustedStep.java#L247-L252",
+      "signature": "ReadTrustedStep.Execution#isDescendant(FilePathchild,FilePathparent)",
+      "advisory_url": "https://github.com/advisories/GHSA-pj84-qjm3-77mg",
+      "before_commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "after_commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25175-before-build.log",
+          "sha256": "c61975562b88d6a78ba6f17f910eadba55b90414bcb601d6ac86a3fa4d947dfb"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25175-after-build.log",
+          "sha256": "56500958d9dafb201dca4209070cc2d370b8c09a913ec722edd7ec1e37da065a"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R33",
+      "sample_id": "CVE-2022-25842-38e4e085e8c6:before",
+      "cve_id": "CVE-2022-25842",
+      "phase": "before",
+      "commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+      "file_path": "one-java-agent-plugin/src/main/java/com/alibaba/oneagent/utils/IOUtils.java",
+      "start_line": "106",
+      "end_line": "161",
+      "code_sha256": "519a3e2ac37d6b6d3fd766199d0a2b67de928ff7a73bb5d0bdfdbe0670361f95",
+      "source_url": "https://github.com/alibaba/one-java-agent/blob/29dc527a5d76c14de833ac3f2eae282a27190505/one-java-agent-plugin/src/main/java/com/alibaba/oneagent/utils/IOUtils.java#L106-L161",
+      "signature": "IOUtils#unzip(StringzipFile,StringextractFolder)",
+      "advisory_url": "https://github.com/advisories/GHSA-9hr3-j9mc-xmq2",
+      "before_commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+      "after_commit": "359603b63fc6c59d8b57e061c171954bab3433bf",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25842-before-build.log",
+          "sha256": "de2ea32af9602ec1bea003524b42a3150d4b787145d0d329d61df4996460a147"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-25842-after-build.log",
+          "sha256": "ef81e7d52e02e9b2ed6a6eab85361816849f94c78a5a9f5913b394287223d934"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R34",
+      "sample_id": "CVE-2022-33140-065433ee58ef:before",
+      "cve_id": "CVE-2022-33140",
+      "phase": "before",
+      "commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+      "file_path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java",
+      "start_line": "78",
+      "end_line": "80",
+      "code_sha256": "551c8518a199443d49fb7c26a75f841dd0201607867a94c1ba729b87858908b2",
+      "source_url": "https://github.com/apache/nifi/blob/fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/NssShellCommands.java#L78-L80",
+      "signature": ".NssShellCommands#getGroupById(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-77hf-23pq-2g7c",
+      "before_commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+      "after_commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-33140-before-build.log",
+          "sha256": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-33140-after-build.log",
+          "sha256": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R35",
+      "sample_id": "CVE-2022-33140-07394102c1c1:after",
+      "cve_id": "CVE-2022-33140",
+      "phase": "after",
+      "commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+      "file_path": "nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java",
+      "start_line": "128",
+      "end_line": "142",
+      "code_sha256": "7cace19c005e52ac54e695aaa9e8799106378d48db7da507c3fb877659c2856e",
+      "source_url": "https://github.com/apache/nifi/blob/a1306a19f78e11c2d809e9aef24336669461403a/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-shell-authorizer/src/main/java/org/apache/nifi/authorization/ShellUserGroupProvider.java#L128-L142",
+      "signature": ".ShellUserGroupProvider#getUserByIdentity(String)",
+      "advisory_url": "https://github.com/advisories/GHSA-77hf-23pq-2g7c",
+      "before_commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+      "after_commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-33140-before-build.log",
+          "sha256": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-33140-after-build.log",
+          "sha256": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R36",
+      "sample_id": "CVE-2022-4244-0bcbec420c5e:after",
+      "cve_id": "CVE-2022-4244",
+      "phase": "after",
+      "commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+      "file_path": "src/main/java/org/codehaus/plexus/util/Expand.java",
+      "start_line": "134",
+      "end_line": "188",
+      "code_sha256": "4de410371db973f843d57f38937a5fea6b62ef177e4be959c5db225df317b2dc",
+      "source_url": "https://github.com/codehaus-plexus/plexus-utils/blob/33a2853df8185b4519b1b8bfae284f03392618ef/src/main/java/org/codehaus/plexus/util/Expand.java#L134-L188",
+      "signature": "Expand#extractFile(FilesrcF,Filedir,InputStreamcompressedInputStream,StringentryName,DateentryDate,booleanisDirectory)",
+      "advisory_url": "https://github.com/advisories/GHSA-g6ph-x5wf-g337",
+      "before_commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+      "after_commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-4244-before-build.log",
+          "sha256": "8582a2bee1d2a10a4fe27d83ac1e0d360e06c22690333eb4b9b27b57fb692eb0"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2022-4244-before-observed-behavior.log",
+          "sha256": "d5e41c50598cc4128e3c477346ec5d1eef59be489166b29bf4f1a2971cf06b58"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-4244-after-build.log",
+          "sha256": "7098fd10b7f4d702c63296ea2c0c7787b59ebb7f343aef25bff8e1e94866ab9f"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2022-4244-after-observed-behavior.log",
+          "sha256": "df2e397a3c8ad2bc28d098bc1263a247c5c3da4ae0576df47af81b64c72e3690"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R37",
+      "sample_id": "CVE-2022-4244-0bcbec420c5e:before",
+      "cve_id": "CVE-2022-4244",
+      "phase": "before",
+      "commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+      "file_path": "src/main/java/org/codehaus/plexus/util/Expand.java",
+      "start_line": "134",
+      "end_line": "182",
+      "code_sha256": "ab2ae5cb63727071a24329e2e2fd9e0100bf47d9d03eae489b12210345b80099",
+      "source_url": "https://github.com/codehaus-plexus/plexus-utils/blob/f933e5e78dc2637e485447ed821fe14904f110de/src/main/java/org/codehaus/plexus/util/Expand.java#L134-L182",
+      "signature": "Expand#extractFile(FilesrcF,Filedir,InputStreamcompressedInputStream,StringentryName,DateentryDate,booleanisDirectory)",
+      "advisory_url": "https://github.com/advisories/GHSA-g6ph-x5wf-g337",
+      "before_commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+      "after_commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2022-4244-before-build.log",
+          "sha256": "8582a2bee1d2a10a4fe27d83ac1e0d360e06c22690333eb4b9b27b57fb692eb0"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2022-4244-before-observed-behavior.log",
+          "sha256": "d5e41c50598cc4128e3c477346ec5d1eef59be489166b29bf4f1a2971cf06b58"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2022-4244-after-build.log",
+          "sha256": "7098fd10b7f4d702c63296ea2c0c7787b59ebb7f343aef25bff8e1e94866ab9f"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2022-4244-after-observed-behavior.log",
+          "sha256": "df2e397a3c8ad2bc28d098bc1263a247c5c3da4ae0576df47af81b64c72e3690"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R38",
+      "sample_id": "CVE-2023-37460-077aa35a5990:after",
+      "cve_id": "CVE-2023-37460",
+      "phase": "after",
+      "commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "file_path": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+      "start_line": "274",
+      "end_line": "336",
+      "code_sha256": "c95aa894033dd7890cbf5329968494bca4f45c153833d2ceaca6261c1686ed78",
+      "source_url": "https://github.com/codehaus-plexus/plexus-archiver/blob/54759839fbdf85caf8442076f001d5fd64e0dcb2/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java#L274-L336",
+      "signature": "AbstractUnArchiver#extractFile(finalFilesrcF,finalFiledir,finalInputStreamcompressedInputStream,StringentryName,finalDateentryDate,finalbooleanisDirectory,finalIntegermode,StringsymlinkDestination,finalFileMapper[]fileMappers)",
+      "advisory_url": "https://github.com/advisories/GHSA-wh3p-fphp-9h2m",
+      "before_commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "after_commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2023-37460-before-build.log",
+          "sha256": "47a69a06799807e77392681da96118b1f353cf33aa8d57d62d0486877a3c5362"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2023-37460-after-build.log",
+          "sha256": "6b67dc2aee73f34e0ed5b6f7214595fffb5b0360cb43d3c9d3d40a9de67fbd9b"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R39",
+      "sample_id": "CVE-2023-37460-077aa35a5990:before",
+      "cve_id": "CVE-2023-37460",
+      "phase": "before",
+      "commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "file_path": "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java",
+      "start_line": "274",
+      "end_line": "333",
+      "code_sha256": "4779f4f6d8ae78e51184ca59c7313f4cc8f6d3850ba8633172f3fa771cc4a0c8",
+      "source_url": "https://github.com/codehaus-plexus/plexus-archiver/blob/18a64852036bd6f0ebc880eb16563d8f08b0bc37/src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java#L274-L333",
+      "signature": "AbstractUnArchiver#extractFile(finalFilesrcF,finalFiledir,finalInputStreamcompressedInputStream,StringentryName,finalDateentryDate,finalbooleanisDirectory,finalIntegermode,StringsymlinkDestination,finalFileMapper[]fileMappers)",
+      "advisory_url": "https://github.com/advisories/GHSA-wh3p-fphp-9h2m",
+      "before_commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "after_commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2023-37460-before-build.log",
+          "sha256": "47a69a06799807e77392681da96118b1f353cf33aa8d57d62d0486877a3c5362"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2023-37460-after-build.log",
+          "sha256": "6b67dc2aee73f34e0ed5b6f7214595fffb5b0360cb43d3c9d3d40a9de67fbd9b"
+        }
+      ],
+      "extra_context": []
+    },
+    {
+      "review_id": "R40",
+      "sample_id": "CVE-2013-7285-069b61517bd2:after",
+      "cve_id": "CVE-2013-7285",
+      "phase": "after",
+      "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "file_path": "xstream/src/java/com/thoughtworks/xstream/security/AnyTypePermission.java",
+      "start_line": "25",
+      "end_line": "27",
+      "code_sha256": "d85f0bb16e4d90f628b3eb65a3e88c29764a807b4933b38bd7296b1e2f420f33",
+      "source_url": "https://github.com/x-stream/xstream/blob/6344867dce6767af7d0fe34fb393271a6456672d/xstream/src/java/com/thoughtworks/xstream/security/AnyTypePermission.java#L25-L27",
+      "signature": "AnyTypePermission#hashCode()",
+      "advisory_url": "https://github.com/advisories/GHSA-f554-x222-wgf7",
+      "before_commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "after_commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "logs": [
+        {
+          "phase": "before",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-before-build.log",
+          "sha256": "a1e79501215bff1d5817e61dc74b0d7232aa27f4d7b54a1c9c87a1cf577e859c"
+        },
+        {
+          "phase": "before",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-before-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        },
+        {
+          "phase": "after",
+          "kind": "build",
+          "path": "evidence/CVE-2013-7285-after-build.log",
+          "sha256": "5735171486615003777b59ff4486e4928d6735f1b4de45e980d54e9c696560f8"
+        },
+        {
+          "phase": "after",
+          "kind": "observed-behavior",
+          "path": "evidence/CVE-2013-7285-after-observed-behavior.log",
+          "sha256": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8"
+        }
+      ],
+      "extra_context": []
+    }
+  ]
+}

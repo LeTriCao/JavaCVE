@@ -1,0 +1,51 @@
+RUN runs/bb674ce0a0384fe5bff0a8441a2a0ee3
+{
+  "release_builds": 12,
+  "cves": 10,
+  "cwe": {
+    "CWE-78": 5,
+    "CWE-22": 5
+  },
+  "files": 35,
+  "methods": 126,
+  "present_versions": 187,
+  "labels": {
+    "VULNERABLE": 44,
+    "RESOLVED_TARGET": 14,
+    "UNCONFIRMED": 129
+  },
+  "paired_core_methods": 23,
+  "reviewed_snapshots": 20,
+  "snapshot_labels": {
+    "VULNERABLE": 14,
+    "RESOLVED_TARGET": 5,
+    "UNCONFIRMED": 1
+  },
+  "independent_human_reviews": 0,
+  "historical_wsl_builds": 12,
+  "wsl_assertions": 34,
+  "wsl_upstream_tests": 131,
+  "matched_upstream_pass": 6,
+  "matched_pilot_pass": 6,
+  "matched_cases": 6,
+  "expansion": {
+    "cves": 10,
+    "methods": 183,
+    "method_versions": 222,
+    "labels": {
+      "UNCONFIRMED": 213,
+      "VULNERABLE": 5,
+      "RESOLVED_TARGET": 4
+    },
+    "fully_completed": 2,
+    "source_built_cases": 8,
+    "source_built_snapshots": 16,
+    "cwe": {
+      "CWE-22": 5,
+      "CWE-78": 5
+    },
+    "reviewed_callable_versions": 153,
+    "reviewed_snapshot_decisions": 8
+  }
+}
+PASS runs/bb674ce0a0384fe5bff0a8441a2a0ee3/run.json

@@ -156,7 +156,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_build_priority_coverage_and_surefire_counts(self):
         status = json.loads((ROOT/"data/batch-02/build-status.json").read_text(encoding="utf-8"))
-        self.assertEqual((status["source_built_cases"], status["source_built_snapshots"]), (6, 12))
+        self.assertEqual((status["source_built_cases"], status["source_built_snapshots"]), (8, 16))
         for case in status["cases"]:
             self.assertEqual(case["priority"] is None, case["fully_completed"])
             for totals in case["upstream_totals"].values():

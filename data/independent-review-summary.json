@@ -1,0 +1,32 @@
+{
+  "status": "PENDING",
+  "expected_samples": 40,
+  "valid_samples": 0,
+  "pending_samples": 40,
+  "matches": 0,
+  "agreement_rate": null,
+  "disagreement_count": 0,
+  "disagreements": [],
+  "valid_reviews": [],
+  "issues": [],
+  "scanned_files": [
+    {
+      "path": "dist/course-submission-20261125/PHIEU_RA_SOAT_NHAN.csv",
+      "sha256": "da4b4e7a4ec1959315a43ef5d325f6986037764bf857340330e7ab5b13404282",
+      "duplicate_content": false
+    },
+    {
+      "path": "dist/course-submission-20261125/bundle/JavaCVE-course-submission-20261125/JavaCVE/docs/review/PHIEU_RA_SOAT_NHAN.csv",
+      "sha256": "da4b4e7a4ec1959315a43ef5d325f6986037764bf857340330e7ab5b13404282",
+      "duplicate_content": true
+    },
+    {
+      "path": "docs/review/PHIEU_RA_SOAT_NHAN.csv",
+      "sha256": "da4b4e7a4ec1959315a43ef5d325f6986037764bf857340330e7ab5b13404282",
+      "duplicate_content": true
+    }
+  ],
+  "unique_file_contents": 1,
+  "blank_rows": 40,
+  "caveat": "Agreement with an AI baseline on purposively selected samples; not dataset accuracy. No label changes are applied."
+}

@@ -1,0 +1,3 @@
+good.txt => accepted; written=true; outside_extract=false
+../outside.txt => rejected:IllegalArgumentException; written=false; outside_extract=true
+../out-sibling.txt => accepted; written=true; outside_extract=true

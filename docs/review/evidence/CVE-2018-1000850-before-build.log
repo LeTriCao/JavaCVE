@@ -1,0 +1,449 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit2:retrofit:jar:2.4.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ line 99, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< com.squareup.retrofit2:retrofit >-------------------
+[INFO] Building Retrofit 2.4.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- kotlin:1.2.60:compile (compile) @ retrofit ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ retrofit ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 48 source files to /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/classes
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ retrofit ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ retrofit ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- kotlin:1.2.60:test-compile (test-compile) @ retrofit ---
+[INFO] Test compilation is skipped
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ retrofit ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- animal-sniffer:1.14:check (default) @ retrofit ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.1
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ retrofit ---
+[INFO] Building jar: /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/retrofit-2.4.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- javadoc:2.10.4:jar (attach-javadocs) @ retrofit ---
+[INFO] 
+Loading source files for package retrofit2...
+Loading source files for package retrofit2.http...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_514
+Building tree for all the packages and classes...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Call.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/CallAdapter.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/CallAdapter.Factory.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Callback.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Converter.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Converter.Factory.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/HttpException.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Invocation.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Response.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Retrofit.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/Retrofit.Builder.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Body.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/DELETE.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Field.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/FieldMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/FormUrlEncoded.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/GET.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/HEAD.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Header.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/HeaderMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Headers.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/HTTP.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Multipart.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/OPTIONS.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Part.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/PartMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/PATCH.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Path.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/POST.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/PUT.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Query.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/QueryMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/QueryName.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Streaming.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/Url.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/overview-frame.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/package-frame.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/package-summary.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/package-tree.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/package-frame.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/package-summary.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/package-tree.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/constant-values.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/serialized-form.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Call.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/CallAdapter.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/CallAdapter.Factory.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Callback.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Converter.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Converter.Factory.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/HttpException.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Invocation.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Response.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Retrofit.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/class-use/Retrofit.Builder.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Body.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/DELETE.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Field.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/FieldMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/FormUrlEncoded.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/GET.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/HEAD.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/HTTP.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Header.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/HeaderMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Headers.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Multipart.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/OPTIONS.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/PATCH.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/POST.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/PUT.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Part.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/PartMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Path.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Query.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/QueryMap.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/QueryName.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Streaming.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/class-use/Url.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/package-use.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/retrofit2/http/package-use.html...
+Building index for all the packages and classes...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/overview-tree.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/index-all.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/allclasses-frame.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/allclasses-noframe.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/index.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/overview-summary.html...
+Generating /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/apidocs/help-doc.html...
+100 warnings
+[WARNING] Javadoc Warnings
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:42: warning: no @return
+[WARNING] Response<T> execute() throws IOException;
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:48: warning: no @param for callback
+[WARNING] void enqueue(Callback<T> callback);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:54: warning: no @return
+[WARNING] boolean isExecuted();
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:63: warning: no @return
+[WARNING] boolean isCanceled();
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:69: warning: no @return
+[WARNING] Call<T> clone();
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Call.java:72: warning: no @return
+[WARNING] Request request();
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:38: warning: no @return
+[WARNING] Type responseType();
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:57: warning: no @param for call
+[WARNING] T adapt(Call<R> call);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:57: warning: no @return
+[WARNING] T adapt(Call<R> call);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:29: warning - Tag @linkplain: can't find addCallAdapterFactory(Factory) in retrofit2.Retrofit.Builder
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:68: warning: no @param for returnType
+[WARNING] public abstract @Nullable CallAdapter<?, ?> get(Type returnType, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:68: warning: no @param for annotations
+[WARNING] public abstract @Nullable CallAdapter<?, ?> get(Type returnType, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:68: warning: no @param for retrofit
+[WARNING] public abstract @Nullable CallAdapter<?, ?> get(Type returnType, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:68: warning: no @return
+[WARNING] public abstract @Nullable CallAdapter<?, ?> get(Type returnType, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:75: warning: no @param for index
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:75: warning: no @param for type
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:75: warning: no @return
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:83: warning: no @param for type
+[WARNING] protected static Class<?> getRawType(Type type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/CallAdapter.java:83: warning: no @return
+[WARNING] protected static Class<?> getRawType(Type type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Callback.java:38: warning: no @param for call
+[WARNING] void onResponse(Call<T> call, Response<T> response);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Callback.java:38: warning: no @param for response
+[WARNING] void onResponse(Call<T> call, Response<T> response);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Callback.java:44: warning: no @param for call
+[WARNING] void onFailure(Call<T> call, Throwable t);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Callback.java:44: warning: no @param for t
+[WARNING] void onFailure(Call<T> call, Throwable t);
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:41: warning - Tag @linkplain: can't find addConverterFactory(Factory) in retrofit2.Retrofit.Builder
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:52: warning: no @param for type
+[WARNING] public @Nullable Converter<ResponseBody, ?> responseBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:52: warning: no @param for annotations
+[WARNING] public @Nullable Converter<ResponseBody, ?> responseBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:52: warning: no @param for retrofit
+[WARNING] public @Nullable Converter<ResponseBody, ?> responseBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:52: warning: no @return
+[WARNING] public @Nullable Converter<ResponseBody, ?> responseBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:63: warning: no @param for type
+[WARNING] public @Nullable Converter<?, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:63: warning: no @param for parameterAnnotations
+[WARNING] public @Nullable Converter<?, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:63: warning: no @param for methodAnnotations
+[WARNING] public @Nullable Converter<?, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:63: warning: no @param for retrofit
+[WARNING] public @Nullable Converter<?, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:63: warning: no @return
+[WARNING] public @Nullable Converter<?, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:75: warning: no @param for type
+[WARNING] public @Nullable Converter<?, String> stringConverter(Type type, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:75: warning: no @param for annotations
+[WARNING] public @Nullable Converter<?, String> stringConverter(Type type, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:75: warning: no @param for retrofit
+[WARNING] public @Nullable Converter<?, String> stringConverter(Type type, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:75: warning: no @return
+[WARNING] public @Nullable Converter<?, String> stringConverter(Type type, Annotation[] annotations,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:84: warning: no @param for index
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:84: warning: no @param for type
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:84: warning: no @return
+[WARNING] protected static Type getParameterUpperBound(int index, ParameterizedType type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:92: warning: no @param for type
+[WARNING] protected static Class<?> getRawType(Type type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Converter.java:92: warning: no @return
+[WARNING] protected static Class<?> getRawType(Type type) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/HttpException.java:39: warning: no @return
+[WARNING] public int code() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/HttpException.java:44: warning: no @return
+[WARNING] public String message() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/HttpException.java:51: warning: no @return
+[WARNING] public Response<?> response() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:29: warning: no @param for <T>
+[WARNING] public static <T> Response<T> success(@Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:29: warning: no @param for body
+[WARNING] public static <T> Response<T> success(@Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:29: warning: no @return
+[WARNING] public static <T> Response<T> success(@Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:42: warning: no @param for <T>
+[WARNING] public static <T> Response<T> success(int code, @Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:42: warning: no @param for code
+[WARNING] public static <T> Response<T> success(int code, @Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:42: warning: no @param for body
+[WARNING] public static <T> Response<T> success(int code, @Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:42: warning: no @return
+[WARNING] public static <T> Response<T> success(int code, @Nullable T body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:58: warning: no @param for <T>
+[WARNING] public static <T> Response<T> success(@Nullable T body, Headers headers) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:58: warning: no @param for body
+[WARNING] public static <T> Response<T> success(@Nullable T body, Headers headers) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:58: warning: no @param for headers
+[WARNING] public static <T> Response<T> success(@Nullable T body, Headers headers) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:58: warning: no @return
+[WARNING] public static <T> Response<T> success(@Nullable T body, Headers headers) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:73: warning: no @param for <T>
+[WARNING] public static <T> Response<T> success(@Nullable T body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:73: warning: no @param for body
+[WARNING] public static <T> Response<T> success(@Nullable T body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:73: warning: no @param for rawResponse
+[WARNING] public static <T> Response<T> success(@Nullable T body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:73: warning: no @return
+[WARNING] public static <T> Response<T> success(@Nullable T body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:85: warning: no @param for <T>
+[WARNING] public static <T> Response<T> error(int code, ResponseBody body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:85: warning: no @param for code
+[WARNING] public static <T> Response<T> error(int code, ResponseBody body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:85: warning: no @param for body
+[WARNING] public static <T> Response<T> error(int code, ResponseBody body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:85: warning: no @return
+[WARNING] public static <T> Response<T> error(int code, ResponseBody body) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:96: warning: no @param for <T>
+[WARNING] public static <T> Response<T> error(ResponseBody body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:96: warning: no @param for body
+[WARNING] public static <T> Response<T> error(ResponseBody body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:96: warning: no @param for rawResponse
+[WARNING] public static <T> Response<T> error(ResponseBody body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:96: warning: no @return
+[WARNING] public static <T> Response<T> error(ResponseBody body, okhttp3.Response rawResponse) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:117: warning: no @return
+[WARNING] public okhttp3.Response raw() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:122: warning: no @return
+[WARNING] public int code() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:127: warning: no @return
+[WARNING] public String message() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:132: warning: no @return
+[WARNING] public Headers headers() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:137: warning: no @return
+[WARNING] public boolean isSuccessful() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:142: warning: no @return
+[WARNING] public @Nullable T body() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Response.java:147: warning: no @return
+[WARNING] public @Nullable ResponseBody errorBody() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:128: warning: no @param for <T>
+[WARNING] public <T> T create(final Class<T> service) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:128: warning: no @param for service
+[WARNING] public <T> T create(final Class<T> service) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:128: warning: no @return
+[WARNING] public <T> T create(final Class<T> service) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:179: warning: no @return
+[WARNING] public okhttp3.Call.Factory callFactory() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:184: warning: no @return
+[WARNING] public HttpUrl baseUrl() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:192: warning: no @return
+[WARNING] public List<CallAdapter.Factory> callAdapterFactories() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:202: warning: no @param for returnType
+[WARNING] public CallAdapter<?, ?> callAdapter(Type returnType, Annotation[] annotations) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:202: warning: no @param for annotations
+[WARNING] public CallAdapter<?, ?> callAdapter(Type returnType, Annotation[] annotations) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:202: warning: no @return
+[WARNING] public CallAdapter<?, ?> callAdapter(Type returnType, Annotation[] annotations) {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:212: warning: no @param for skipPast
+[WARNING] public CallAdapter<?, ?> nextCallAdapter(@Nullable CallAdapter.Factory skipPast, Type returnType,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:212: warning: no @param for returnType
+[WARNING] public CallAdapter<?, ?> nextCallAdapter(@Nullable CallAdapter.Factory skipPast, Type returnType,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:212: warning: no @param for annotations
+[WARNING] public CallAdapter<?, ?> nextCallAdapter(@Nullable CallAdapter.Factory skipPast, Type returnType,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:212: warning: no @return
+[WARNING] public CallAdapter<?, ?> nextCallAdapter(@Nullable CallAdapter.Factory skipPast, Type returnType,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:248: warning: no @return
+[WARNING] public List<Converter.Factory> converterFactories() {
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:258: warning: no @param for <T>
+[WARNING] public <T> Converter<T, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:258: warning: no @param for type
+[WARNING] public <T> Converter<T, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:258: warning: no @param for parameterAnnotations
+[WARNING] public <T> Converter<T, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:258: warning: no @param for methodAnnotations
+[WARNING] public <T> Converter<T, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:258: warning: no @return
+[WARNING] public <T> Converter<T, RequestBody> requestBodyConverter(Type type,
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @param for <T>
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @param for skipPast
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @param for type
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @param for parameterAnnotations
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @param for methodAnnotations
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[WARNING] /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/src/main/java/retrofit2/Retrofit.java:269: warning: no @return
+[WARNING] public <T> Converter<T, RequestBody> nextRequestBodyConverter(
+[WARNING] ^
+[INFO] Building jar: /tmp/javacve-recovery-9rl1vuxl/tmpwhgik4yg/source/retrofit/target/retrofit-2.4.1-SNAPSHOT-javadoc.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:57 min
+[INFO] Finished at: 2026-11-25T08:50:32Z
+[INFO] ------------------------------------------------------------------------

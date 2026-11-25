@@ -1,82 +1,32 @@
-# JavaCVE v0.2.0
+# JavaCVE — cải thiện CWE-Bench-Java của IRIS
 
-Bộ dữ liệu và công cụ thực nghiệm cho đồ án **Đảm bảo an toàn thông tin**, định hướng nghiên cứu chất lượng dữ liệu lỗ hổng Java. JavaCVE kế thừa **CWE-Bench-Java trong IRIS**, giữ revision `d2059f299a80a68ea4a0b0315eec2f42b8743776`, và bổ sung cặp commit có kiểm chứng, chỉ mục phương thức, nhãn có phạm vi và bằng chứng chạy lại.
+Trên 10 CVE có cùng commit sửa, chọn parent của bản sửa làm mốc trước đã thu hẹp tập đường dẫn Java trong diff từ 62 xuống 35 (giảm 43,55%) và giữ đủ 25/25 tệp Java được IRIS chú thích. Với CVE-2019-10392, tệp GitClientSecurityTest.java rời khỏi diff nhưng vẫn tồn tại ở cả hai snapshot. Tra mã CVE trong data/context-files.jsonl để lấy đường dẫn, commit và mã băm.
 
-Repository: [LeTriCao/JavaCVE](https://github.com/LeTriCao/JavaCVE) · [Phát hành v0.2.0](https://github.com/LeTriCao/JavaCVE/releases/tag/v0.2.0). Repository ban đầu để private theo yêu cầu chủ sở hữu.
+Đồ án chọn một bộ dữ liệu lỗ hổng Java có sẵn và cải thiện cách định danh, ghép phiên bản, trích xuất phương thức và lưu bằng chứng. Nguồn là CWE-Bench-Java/IRIS tại revision `d2059f299a80a68ea4a0b0315eec2f42b8743776`.
 
-## Kết quả đã đo
+**Hiện trạng: 20 CVE, 409 phiên bản phương thức; 14/20 có cặp build; 8/20 đạt C1–C7; 342/409 UNCONFIRMED.** Mục tiêu 12/20 là đề xuất chờ giảng viên xác nhận. Không có rà soát nhãn độc lập hoàn tất.
 
-| Phạm vi | Kết quả | Diễn giải |
-|---|---:|---|
-| Pilot gốc | 10 CVE, 126 callable, 187 phiên bản | 35 tệp Java; callable gồm phương thức/hàm khởi tạo |
-| Nhãn pilot | 44 VULNERABLE, 14 RESOLVED_TARGET, 129 UNCONFIRMED | Nhãn theo cơ chế và điều kiện trong hồ sơ |
-| Build và hành vi pilot | 12/12 snapshot của 6 thư viện | 6/10 CVE pilot có pipeline hành vi; 4 Jenkins/NiFi còn bị chặn |
-| Phép thử bảo mật pilot | 22 assertion: 7 PASS, 15 FAIL | 12 đối chứng đều PASS; 4/6 bản sau còn assertion bảo mật FAIL |
-| Chuẩn hóa phạm vi tệp | 60 → 33, giảm 45% | Đúng 9 CVE giữ cùng SHA sửa; đếm đường dẫn `.java` thay đổi |
-| Ánh xạ sửa hiệu chỉnh | 1/10 | Commons IO; giữ nguyên metadata seed |
-| Toàn vẹn phương thức pilot | 187/187 | Kiểm tra blob Git, khoảng dòng và SHA256 từ source |
-| Batch bổ sung | 10 CVE, 222 phiên bản | 10/10 đã chuẩn hóa nguồn. Build đạt 12/20 snapshot, đủ cả hai bản cho 6/10 CVE. Có 2/10 CVE hoàn tất thực nghiệm. |
-| Nhãn batch bổ sung | 5 VULNERABLE, 4 RESOLVED_TARGET, 213 UNCONFIRMED | Expand và đường gọi external của Spark có bằng chứng; XStream còn thiếu hành vi phân biệt cơ chế CVE |
-| Người đánh giá độc lập | 0 | Lượt rà soát hiện do AI thực hiện |
+| Đối chứng cùng fix | IRIS seed→fix | JavaCVE parent→fix | Giới hạn |
+|---|---:|---:|---|
+| 9 CVE Pilot, mẫu số cũ | 60 path Java | 33 | Giảm 45%; giữ 23/23 anchor IRIS |
+| 10 CVE có đủ Git object | 62 | 35 | Giảm 43,55%; giữ 25/25 anchor IRIS |
 
-Build đối chứng lịch sử trên cùng 6 seed, JDK, Maven và mô-đun đạt **6/6 ở cả IRIS và JavaCVE**. Không có chênh lệch tỷ lệ build trong phép đối chứng đó. Số tệp giảm không chứng minh giảm thời gian lao động hoặc tăng độ chính xác mô hình.
+Đây là phạm vi changed-path tính từ Git, không phải số file gán nhãn của IRIS fix_info; 33 path gồm 23 anchor và 10 ứng viên bổ sung. Không suy ra giảm thời gian hoặc tăng accuracy/precision nhãn. GitClientSecurityTest cùng SECURITY-1534 bị ra khỏi changed-set vẫn được lưu như ngữ cảnh. Bảng đủ 20 CVE ghi lý do loại từng ca; không gọi mọi path bị loại là nhiễu.
 
-Xem [bảng số liệu tính lại](docs/generated/metrics.json), [báo cáo môn học](docs/generated/REPORT.md), [bản Word](docs/generated/COURSE_REPORT.docx), [thử nghiệm bị chặn](docs/EXPERIMENTS.md) và [batch bổ sung](docs/BATCH02.md).
+- [Bảng so sánh và hai ca đọc diff](docs/SO_SANH_IRIS_JAVACVE.md) · [CSV](docs/generated/iris-comparison.csv).
+- [Báo cáo môn học](docs/BAO_CAO_MON_HOC.md) · [Word](docs/BAO_CAO_MON_HOC.docx).
+- [Bảng nghiệm thu 20 CVE](docs/DOI_CHIEU_DU_LIEU.md) · [Phương pháp](docs/METHODOLOGY.md).
+- [Phiếu người rà ẩn baseline](docs/review/HUONG_DAN.md) · [CSV](docs/review/PHIEU_RA_SOAT_NHAN.csv). Chỉ gửi ZIP người rà, không gửi thư mục review_coordinator hoặc nhãn gốc trước khi họ quyết định.
+- [Kịch bản demo 5 phút](docs/DEMO_5_PHUT.md) · [Nguồn/giấy phép](docs/SOURCES.md).
 
-Rà soát Spark/XStream từ `a7e6abd`: [bảng từng tiêu chí và phần thiếu](docs/BATCH02_REVIEW.md), [quyết định từng callable](docs/BATCH02_CALLABLE_REVIEW.md). Spark hoàn tất trong phạm vi external static files đã đo. XStream giữ UNCONFIRMED: 27 upstream test mỗi bản đạt, nhưng fixture chỉ ghi ConversionException và 0 callback ở cả hai bản.
+Tại workspace đang sửa, ba lệnh độc lập sau dùng đích mới:
 
-Hai hồ sơ XStream 2020 và 2021 giữ UNCONFIRMED do còn thiếu đối chứng và hành vi chung trên hai snapshot. Với XStream 2013, log chẩn đoán xác định cả hai bản dừng ở bước tìm converter trong `fromXML`, trước khi caller nhận được proxy. Plexus Archiver đã build được cả hai bản và chạy 27 test ở bản trước, 28 ở bản sau. Tổng cộng có 153 quyết định ở cấp phiên bản callable và 8 quyết định snapshot ghi riêng. [Chẩn đoán XStream](docs/XSTREAM_DIAGNOSIS.md) · [Khôi phục Plexus](docs/BUILD_RECOVERY.md) · [Ưu tiên của cả 10 hồ sơ](docs/BATCH02.md).
-
-## Chạy thử trên Ubuntu/WSL x86_64
-
-Cần Python 3.12+, Git, chứng chỉ CA và Internet ở lần đầu. JDK8u514 và Maven3.9.9 được tải theo URL đã khóa và kiểm tra SHA256. Mở terminal trong thư mục có `run.py`.
-
-```bash
-python3 run.py demo
-python3 run.py list --cwe CWE-22
-python3 run.py all --cve CVE-2021-29425
+```sh
+python3 -m tools.compare_iris --out runs/iris-new
+python3 -m tools.course_demo --out runs/course-demo-new
+python3 -m tools.acceptance --out runs/common-new.json
 ```
 
-`demo` kiểm tra chỉ mục và manifest ngoại tuyến. `all` của v0.2.0 build từ nguồn, chạy API và chạy **fixture bảo mật gốc của JavaCVE_Reproducible**. Assertion bảo mật FAIL được giữ như quan sát; lỗi build, harness hoặc đối chứng làm lệnh thất bại. `PASS` của lệnh không có nghĩa mọi thuộc tính bảo mật đều đạt.
+Lệnh so sánh cần Git cache có seed/parent/fix; trên bản giải nén truyền ba tùy chọn đường dẫn cache theo kịch bản. Demo và tái tính receipt không cần JDK/Maven. Bộ nộp v2 có manifest riêng được tạo lại và kiểm tra từ bản giải nén; workspace giữ manifest gốc và workflow/GitHub helper đang sửa dở ngoài phạm vi. Trong ZIP đã niêm phong, chạy `python3 run.py demo` và `python3 -m unittest discover -s tests -v`. Không ghi đã chạy trên máy khác: diễn tập hiện tại ở cùng máy Ubuntu WSL.
 
-## Các thao tác chính
-
-| Mục đích | Lệnh |
-|---|---|
-| Xem dự án/CWE/trạng thái bằng chứng | `python3 run.py list --json` |
-| Xem riêng batch bổ sung | `python3 run.py list --batch data/batch-02` |
-| Tải commit đã khóa của toàn bộ pilot | `python3 run.py fetch` |
-| Build sáu CVE hỗ trợ, kèm kiểm tra API | `python3 run.py build` |
-| Build và chạy kiểm tra bảo mật | `python3 run.py security --cve CVE-2021-29425` |
-| Build/API/bảo mật toàn bộ tập hỗ trợ | `python3 run.py all` |
-| Kiểm tra nguồn và xuất toàn bộ phương thức | `python3 run.py export --include-tests` |
-| Rà soát toàn vẹn và xuất lý do UNCONFIRMED | `python3 run.py audit` |
-| Tính lại phép so sánh tệp | `python3 run.py measure` |
-| Sinh thống kê/báo cáo từ bằng chứng lịch sử | `python3 run.py report` |
-| Thử bốn hồ sơ Jenkins/NiFi | `python3 run.py investigate --upstream-repositories --timeout 180` |
-| Kiểm tra môi trường và kết nối | `python3 run.py doctor --network` |
-| Tạo phân hoạch pilot theo dự án, chặn trùng token | `python3 run.py split` |
-| Tái tạo bước trích xuất batch bổ sung | `python3 run.py expand` |
-| Build/kiểm tra CVE mới đã có fixture | `python3 run.py batch-build data/batch-02 --cve CVE-2022-4244` |
-
-`export`/`audit` cần chạy `fetch` trước để có đủ cả 10 kho Git. Mặc định export giữ mã nghiệp vụ; `--include-tests` thêm mã kiểm thử. Tệp xuất nằm trong thư mục run mới, kèm nguồn, nhãn và ngữ cảnh; mã nguồn bên thứ ba không được gộp vào giấy phép MIT của công cụ.
-
-Mỗi lệnh tạo `runs/<id>/run.json`; dòng đầu và cuối chỉ vị trí. Các bước tải/build/API/bảo mật ghi thời gian, commit, lệnh, exit code và log. Kết quả lịch sử ở `evidence/`; kết quả công bố của v0.2.0 ở `evidence/v0.2.0/`.
-
-```bash
-# Thay <id> bằng ID vừa in ra; không gõ nguyên dấu < >.
-python3 run.py all --retry-from runs/<id>
-python3 run.py security --from-run runs/<id>
-```
-
-Retry tạo run mới và chỉ chạy các snapshot thất bại của cùng command/dataset. Replay dùng artifact đã build từ source và kiểm tra lại hash JAR/phụ thuộc. `--offline` chỉ dùng cache sẵn có; thiếu commit/phụ thuộc được báo rõ.
-
-Để sinh báo cáo từ lượt chạy của chính bạn, thêm các `--run` trỏ đến run build, run `measure` và run `audit`. Không đưa hai quan sát trùng CVE/phase vào cùng báo cáo. Hướng dẫn cụ thể tại [INSTALL.md](docs/INSTALL.md).
-
-## Dữ liệu và phương pháp
-
-`data/cases.jsonl` → `files.jsonl` → `methods.jsonl` → `versions.jsonl` lưu liên kết CVE → commit → tệp → callable → nhãn. Phía phương thức không tồn tại không được tạo mẫu rỗng. `data/batch-02/` tách riêng đợt mới; không làm đổi mẫu số pilot.
-
-Đọc [từ điển dữ liệu](docs/DATA.md), [quy tắc nhãn](docs/LABELS.md), [phương pháp đo](docs/METHODOLOGY.md), [phép đối chứng lịch sử](docs/BASELINE.md), [nguồn và giấy phép](docs/SOURCES.md), [CHANGELOG](CHANGELOG.md).
-
-Kiểm tra tự động: `python3 -m unittest discover -s tests -v`. GitHub Actions chạy kiểm tra ngoại tuyến khi push/PR; chạy thủ công workflow để build và đo hành vi Commons IO từ source trong runner mới.
+Giữ 6 hồ sơ thiếu cặp build và 6 hồ sơ đã build nhưng chưa đạt chuẩn, liệt kê trong báo cáo. UNCONFIRMED không phải nhãn an toàn. Phiếu trống vẫn PENDING, không tính tỷ lệ đồng thuận khi chưa có người rà. Chưa commit, push, tạo tag hoặc phát hành; gói nộp cũ được giữ nguyên.

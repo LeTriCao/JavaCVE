@@ -1,0 +1,88 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------< org.jenkins-ci.plugins.workflow:workflow-cps-global-lib >-------
+[INFO] Building Pipeline: Shared Groovy Libraries 999999-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:validate-hpi (default-validate-hpi)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:hpi (default-hpi)'
+[INFO] 
+[INFO] --- hpi:3.22:validate (default-validate) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- hpi:3.22:validate-hpi (default-validate-hpi) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- enforcer:3.0.0:display-info (display-info) @ workflow-cps-global-lib ---
+[INFO] Maven Version: 3.9.9
+[INFO] JDK Version: 1.8.0_514 normalized as: 1.8.0-514
+[INFO] Java Vendor: Temurin
+[INFO] OS Info: Arch: amd64 Family: unix Name: linux Version: 6.18.33.1-microsoft-standard-wsl2
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (display-info) @ workflow-cps-global-lib ---
+[WARNING] System artifact: com.sun:tools:jar:1.8.0:system has no file attached
+
+Try downloading the file manually from the project website.
+
+Then, install it using the command: 
+    mvn install:install-file -DgroupId=com.sun -DartifactId=tools -Dversion=1.8.0 -Dpackaging=jar -Dfile=/path/to/file
+
+Alternatively, if you host your own repository you can deploy the file there: 
+    mvn deploy:deploy-file -DgroupId=com.sun -DartifactId=tools -Dversion=1.8.0 -Dpackaging=jar -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
+
+Path to dependency: 
+	1) com.sun:tools:jar:1.8.0
+
+
+  com.sun:tools:jar:1.8.0
+
+
+[INFO] Adding ignore: module-info
+[INFO] Ignoring requireUpperBoundDeps in org.kohsuke:access-modifier-annotation
+[INFO] Ignoring requireUpperBoundDeps in javax.servlet:servlet-api
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (no-snapshots-in-release) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- gplus:1.13.1:addTestSources (test-in-groovy) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- localizer:1.31:generate (default) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ workflow-cps-global-lib ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 31 resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ workflow-cps-global-lib ---
+[INFO] Generating flattened POM of project org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:hpi:999999-SNAPSHOT...
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ workflow-cps-global-lib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to /tmp/javacve-recovery-4p7ej5kp/tmp_47cgpeo/source/target/classes
+[INFO] /tmp/javacve-recovery-4p7ej5kp/tmp_47cgpeo/source/src/main/java/org/jenkinsci/plugins/workflow/libs/ResourceStep.java: Some input files use or override a deprecated API.
+[INFO] /tmp/javacve-recovery-4p7ej5kp/tmp_47cgpeo/source/src/main/java/org/jenkinsci/plugins/workflow/libs/ResourceStep.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- access-modifier-checker:1.27:enforce (default-enforce) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- hpi:3.22:insert-test (default-insert-test) @ workflow-cps-global-lib ---
+[INFO] 
+[INFO] --- gplus:1.13.1:generateTestStubs (test-in-groovy) @ workflow-cps-global-lib ---
+[INFO] Generation of test stubs is skipped.
+[INFO] 
+[INFO] --- antrun:3.0.0:run (createTempDir) @ workflow-cps-global-lib ---
+[INFO] Executing tasks
+[INFO]     [mkdir] Created dir: /tmp/javacve-recovery-4p7ej5kp/tmp_47cgpeo/source/target/tmp
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ workflow-cps-global-lib ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ workflow-cps-global-lib ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- hpi:3.22:test-hpl (default-test-hpl) @ workflow-cps-global-lib ---
+[INFO] Generating /tmp/javacve-recovery-4p7ej5kp/tmp_47cgpeo/source/target/test-classes/the.hpl
+[INFO] webappDirectory does not exist, will use warSourceDirectory
+[INFO] 
+[INFO] --- hpi:3.22:resolve-test-dependencies (default-resolve-test-dependencies) @ workflow-cps-global-lib ---

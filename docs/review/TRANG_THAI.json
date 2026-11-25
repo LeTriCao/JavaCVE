@@ -1,0 +1,8 @@
+{
+  "status": "PENDING",
+  "samples": 40,
+  "cves": 20,
+  "assigned_reviewer": "",
+  "completed_independent_human_reviews": 0,
+  "decisions_blank": true
+}

@@ -1,0 +1,2123 @@
+{
+  "policy_id": "common-scoped-v1",
+  "review_date_local": "2026-11-25",
+  "reviewer": "AI",
+  "independent_human_reviews": 0,
+  "criteria": {
+    "source_identity": "Advisory/repository, pinned commits/trees and selected parent; reconstructed history disclosed",
+    "extraction": "Git blob, line range, SHA-256 and AST identity of every indexed callable version",
+    "advisory_patch_context": "Scoped advisory/patch/caller context recorded",
+    "scoped_ai_method_review": "Scoped review of target callables; unsupported labels remain UNCONFIRMED",
+    "paired_source_builds": "Both pinned source builds have PASS stages, exit 0, logs and artifact hashes",
+    "ordinary_controls": "Same fixture and ordinary control names, all controls PASS in both phases",
+    "paired_security_behavior": "Same input/oracle, target FAIL before and PASS after, with scoped interpretation and residual failures disclosed"
+  },
+  "scope": "Review of recorded source builds, functional tests and existing security evidence. Functional tests never establish target security behavior or general safety.",
+  "proposed_target": {
+    "accepted_cases": 12,
+    "total_cases": 20,
+    "instructor_confirmed": false
+  },
+  "summary": {
+    "cases": 20,
+    "accepted_common": 8,
+    "paired_builds": 14,
+    "by_batch": {
+      "pilot": 6,
+      "batch02": 2
+    },
+    "labels": {
+      "VULNERABLE": 49,
+      "RESOLVED_TARGET": 18,
+      "UNCONFIRMED": 342
+    }
+  },
+  "local_plexus_control_present": true,
+  "input_sha256": {
+    "data/batch-02/advisories/CVE-2013-7285.json": "8fba23c80b3722fc6bba73e9b3a08ded1565dadbe598f59e307d06f79fffcc28",
+    "data/batch-02/advisories/CVE-2016-9177.json": "5773c10d36170bea62abd5e2d34a24fe43d64db40c2c3ef9e83bdbb55a66b9e8",
+    "data/batch-02/advisories/CVE-2018-1000850.json": "0a89c0364b29c1f7b89bacd315b537d81fc157285b20186473621484ec906f80",
+    "data/batch-02/advisories/CVE-2020-26217.json": "fb3f34b39f882cb22a7a3aa576d16fc8dab5494a7f155c3e5479d9cccf37bf87",
+    "data/batch-02/advisories/CVE-2021-21345.json": "2241c52494ae856b2d64b1b24565e6396a9eafebc14f64500f0a4779395e8a08",
+    "data/batch-02/advisories/CVE-2022-25174.json": "65cd553f2635ba937907bc61bad41f74186ca599db3848177e4a2c0ed0b19a82",
+    "data/batch-02/advisories/CVE-2022-25175.json": "c4441eee196fb574c499628f7e93a1ff36576cd673690e0282dea5f371711b71",
+    "data/batch-02/advisories/CVE-2022-25842.json": "0dd31dc94055906a5287a606dceb71c15c00ab90d07a1e4d6c512810bd6678a1",
+    "data/batch-02/advisories/CVE-2022-4244.json": "e2e0565b4bafdf2c05a6b7916aa546e4a186b60738f4f5c16972e107a62830ac",
+    "data/batch-02/advisories/CVE-2023-37460.json": "1f3418dff4b4ef544a83768683e547037cf2e1fac04d6505309b453c4ad337fb",
+    "data/batch-02/build-status.json": "0ddf4c84b6823e224a1db46090575851de8a02beb8a5b7f1d2d85d49d38fb130",
+    "data/batch-02/cases.jsonl": "c4abe238f7d6f0c99efc144151465c591df58b4accdb58f3f7fe93e992923fcc",
+    "data/batch-02/completion-review.json": "1ceec7422c978f876aa3fdad2ce90d86318fd88e4d163b53b84870ee4a4f54d8",
+    "data/batch-02/completion.json": "24a1820f8115195b634f6f64558f2a14355e1280d69dfb662720e33c734e00fc",
+    "data/batch-02/files.jsonl": "dc1bf24eecf96467ae512fc0748b0ea0b4b2254ec21e743f130fad89bdddbf22",
+    "data/batch-02/methods.jsonl": "e6960388cb5230b7f12a14ea2d6c97fb362dfa5b85d022e677b200e4ac2e7e83",
+    "data/batch-02/reviews.jsonl": "727bab255647b10cea1baaef4ac278eb0e36cc9e285332042572823d5606cb23",
+    "data/batch-02/snapshot-reviews.jsonl": "c22a4f44091d6732786ea0d66909f202f5a03b6076a41e307e42fcb72a28bf94",
+    "data/batch-02/versions.jsonl": "a8b7fa0133bceb06b92791d5193951b73a6987603708f3c66766a6edc144f6bc",
+    "data/batch-02/xstream-diagnosis.json": "2dedb0e9e16fca65d41a232959dcb262953301c4c76a62c83582f2d8c6d8f305",
+    "data/cases.jsonl": "d4222f37736d34cd70014aec947170895c2bbc2a08b8cec286c5fbe98550302d",
+    "data/files.jsonl": "d128c429dd2fe5de0a409d2226c160f632f48f0023e5e8842cfe327b9363f5f4",
+    "data/methods.jsonl": "8e312f1a4bdfc83bed90c9689d13f17b0e68345c943ae816a3e3f50e49f74153",
+    "data/ordinary-checks.json": "09364d73af4ee9c8dbf694cc64aee0ed1ac0d47a4310df5ee8c53fd9af79290f",
+    "data/reviews.jsonl": "919ef76da4d0131f32064c5de833e07be7776dbfceb5df704f4991dc54a3e443",
+    "data/versions.jsonl": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+    "evidence/inputs/case_annotations-step2.json": "ebfba8baf093be5c45acfd28b23304fac08dc26fbc5d95ad0b6933c3d017ceee",
+    "evidence/plexus-control/verify.py": "c0b2760e92d406682da78c2bf4f3504b3d6e81ce7c14b68b8e22c9af8ee195ff",
+    "evidence/recovery-20261125/plexus-ordinary.json": "0897055b44f23f5964549fff1d2c5b84c34ddfad078eaf7d7a92526a59728c77",
+    "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/2-build.log": "04abf34af57391ea22b5aaa8164ded52c0abebf6ea7fe9f0c00e69e915b70235",
+    "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/3-build.log": "4017d1f1bf0540aa6eaaad3ec880587744a0a3263b0fed87c61f4bbe01d5929a",
+    "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/run.json": "cc2a4531165ac85dd175cfb2ef8b90b0fe479fcf7327209c2916fa06ee6db0f1",
+    "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/2-build.log": "8582a2bee1d2a10a4fe27d83ac1e0d360e06c22690333eb4b9b27b57fb692eb0",
+    "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/5-security.log": "d5e41c50598cc4128e3c477346ec5d1eef59be489166b29bf4f1a2971cf06b58",
+    "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/6-build.log": "7098fd10b7f4d702c63296ea2c0c7787b59ebb7f343aef25bff8e1e94866ab9f",
+    "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/9-security.log": "df2e397a3c8ad2bc28d098bc1263a247c5c3da4ae0576df47af81b64c72e3690",
+    "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json": "3570a6c911100a90dc44226574b989b03861cc961d0955f7596cf556610c6306",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log": "57a752b403e971fc59673eeae75d4980af4eda32f96f2409b511a8f2c9315724",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log": "3575d44f06b456d1aac63b8d668cd0dc80d6e49d297d59260184903f36036da5",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log": "9aa915a09066150ca3ab0d53521bf763fd89c6b0e348921aa235e6b9ef2b7766",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log": "ad2857c40ba0aed8b983d128d5229b7822efae82eb8b50905f50798a243ddae1",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/26-build.log": "c61975562b88d6a78ba6f17f910eadba55b90414bcb601d6ac86a3fa4d947dfb",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/27-build.log": "56500958d9dafb201dca4209070cc2d370b8c09a913ec722edd7ec1e37da065a",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/7-build.log": "de2ea32af9602ec1bea003524b42a3150d4b787145d0d329d61df4996460a147",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/8-build.log": "ef81e7d52e02e9b2ed6a6eab85361816849f94c78a5a9f5913b394287223d934",
+    "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json": "fe1354e5db10f1786ee885a3206225736df6ceda9ce79015b83c5055c34e8f1e",
+    "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json": "8536154b2046ea4af84caf19fa39b669c31e4250fa4146c3da75c48d976196dd",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log": "daaba367f3e1b081b353d89ae0d16fc3cf881e7ee9bd87b2ee342e76093697a5",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/12-build.log": "a1e79501215bff1d5817e61dc74b0d7232aa27f4d7b54a1c9c87a1cf577e859c",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/17-build.log": "5735171486615003777b59ff4486e4928d6735f1b4de45e980d54e9c696560f8",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/2-build.log": "62c75a4f24b1d8b22742b6a22ecbad5652a56e2586a1e4a889c4a836a65fe059",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log": "da21ddb83dbd12686d9ad2b5e77b02f30baec33f4eb64943ea64b350648477a8",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log": "311808012c22212415e98188eeb54e41081df6b335030a235336d37649a4316b",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/7-build.log": "7a58e940082397fb9e300f4b959e973a17c93905182f422d3553142844be995f",
+    "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json": "baa4ee990d9401a9f06027f85403f340cc09b1588a24701034a16c46e3defd6c",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/10-security.log": "e8ad3656882487c9b3ecc75422d4ba65567a00c1c5a97a1b5a45b120acf5ebee",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/11-build.log": "ff072239d09cd73b6420fd0affb72763c7065e9c46a2640aa6ee2ecf714871f8",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/16-security.log": "e4e76cbd0915258852464f40d02f3fef6a1c82698ccec3ff9c274ad48c69196f",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/20-build.log": "89ff1ee74d9c9be30e8e115a19bad026755789bdde53d9b6c6cd204145e5dbb8",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/26-security.log": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/27-build.log": "49537804a1e5b999cacfa87ba89d3aef748f6c46a910f67681a6ad1619d823bd",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/33-security.log": "d63334844189f3109b7117eb49088f9aa6e4fe8512845e768ca09e8d6414bcff",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/37-build.log": "e28dcdd974a5c3deea96a1c1ad246de78ad10f4a19e3f46006cd903ff91b01d2",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/42-security.log": "01049f6784cb6e9ddade337aa516d4c00c6ad40b7bd5743c9686dd4fca0192b3",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/43-build.log": "fd95fae4e919231e16978d663748a16313aefab2b69f8406b6933902b335e9ac",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/48-security.log": "c56b8bcbf1a9c1612f20347d44bebf3d4ea281f51176085c8f2bd1e0d56589bf",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/5-build.log": "c55985eb2817a2225dffd3f482c133c1d56a7c45482f004f0a1569792c8c5379",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/52-build.log": "9e0a6ff0178e17229c3f2a9efd2cc08a1fa2460227ee2cf153023d3d012029e4",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/57-security.log": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/58-build.log": "d467544a1700c3253bb1a0e0afe71216c6f8dc9bfadd53472f7ab9bd61847498",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/63-security.log": "8abe5533dbd30f13ba34d21f06c58578866d07067ef4dc987611253aad4a14f1",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/67-build.log": "ea2cb8a9a1ac61adf4f548e9c552a2702f954e686c4be190c3205adb8ad648c0",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/72-security.log": "9a9e0002eb495a0010c636b88ecfea84ac6d1c81e3f84a3cf590ef19801ca575",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/73-build.log": "ed9f7023f43a3e38450361278aeb42b771a1757b36a376fee7edb86c7d965f22",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/78-security.log": "49551c653d7dcb1200c681096f42519463abd4bec7769ea11f7d91f7640e9a60",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/82-build.log": "f4c522c8aea978713a96470a60adc06930af6421c57d3249bdd6e029f41919d3",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/87-security.log": "923a73726af438b62b0b03c1098f79ab455b929a8ba58d25e13267e6da03cbec",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/88-build.log": "62cee112196e3cfb9b4539a69905526860d14af3a7e124f647b2697b4dd2de62",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/93-security.log": "a64e8910b17475fa77c2791c480f721726fbd485c4d6be29bb256cfeb1ff79e1",
+    "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json": "59d5f51359a1b91b91a72ce1f9466c5e4cb65c1efaf8d6e2ee3eb90aad40ef37",
+    "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/2-build.log": "47a69a06799807e77392681da96118b1f353cf33aa8d57d62d0486877a3c5362",
+    "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/4-build.log": "6b67dc2aee73f34e0ed5b6f7214595fffb5b0360cb43d3c9d3d40a9de67fbd9b",
+    "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/run.json": "53fc956c979cd97e5c52a20ea7e6b689580f7d556c71c4968a01777b136976ba",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/2-build.log": "9f6b2d3ea5197fdb46ccf1cec3c5f8d6be827ea7a0222690feb8a4cdd1d29bb4",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/3-build.log": "5ae1555e1c6d5d74ecedcdd3ce8f9eb46e4da0669392476dc3c134b7f40583a2",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/4-build.log": "114be2f9cb6e5c33c2824f48ddf5169e969200325eda7d28d12258568b0fb80e",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/5-build.log": "079708030e1725d7b461bea834fc62d5d37b0a21e880cb8bb79d4bad000a6322",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/6-build.log": "4a0243c47375b800125d7ca7ecb6ed946794ce27793822dbfd0ce3f57b7099f6",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/7-build.log": "cfe6ead3921fab8dc0b870d9a737666989d9b1c633ece94cf68398321850bda3",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/8-build.log": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/9-build.log": "5b7def21b0a2bc5361a9188e14993f59e9503a70c240e399680179696fc912d8",
+    "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json": "38c484cab84d7133ca34de53e603c1a252f678fa67823a8ce0a8d6b2662bfd87",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/1-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/10-ordinary-tests.log": "5cb0ffb568b4e1cf99a9b9ef59c2216ed45a57555d877cf9455e08b084cacdf3",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/11-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/12-ordinary-tests.log": "5cb0ffb568b4e1cf99a9b9ef59c2216ed45a57555d877cf9455e08b084cacdf3",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/2-ordinary-tests.log": "bbdf3287e69a0d763c3d619f6488582b15738e490a089271ccb7b37b036def72",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/3-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/4-ordinary-tests.log": "bbdf3287e69a0d763c3d619f6488582b15738e490a089271ccb7b37b036def72",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/5-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/6-ordinary-tests.log": "5cb0ffb568b4e1cf99a9b9ef59c2216ed45a57555d877cf9455e08b084cacdf3",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/7-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/8-ordinary-tests.log": "5cb0ffb568b4e1cf99a9b9ef59c2216ed45a57555d877cf9455e08b084cacdf3",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/logs/9-ordinary-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json": "32d5404845cc16c6659ad624092310f0e05adb5d98713bdf0886a8c2b53eb13b",
+    "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/2-build.log": "af3503cd79cdc04da2a53ea4b19a817eba0d264dd68c4aba4048f010a8e822ee",
+    "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/3-build.log": "665a531b37e1a3382337a0205ad7c281a682d92e526c3cf6584e4857df12bf1c",
+    "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/run.json": "b42a5668c46d0edf3e1fbf296cb6dbd7a4cde9fc3a2e2a148ce7503135bb4643",
+    "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json": "fc3de88bb371d22c078a48adfca44b397766eeea9da9d144f43944355532ba42",
+    "fixtures/ExpandProbe.java": "d297be9ab38fdb299d1a79d46ba75363f268788c0082af93db73a90da6d9553f",
+    "fixtures/OrdinaryXStreamProbe.java": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+    "fixtures/RegressionProbe.java": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+    "fixtures/SparkLocalProbe.java": "f1dfbc01a79391d3fd1f613f31d36d03c16f8a11a67a13f53f760e3b6cfece70",
+    "fixtures/XStreamLocalProbe.java": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88"
+  },
+  "cases": [
+    {
+      "cve_id": "CVE-2017-1000487",
+      "batch": "pilot",
+      "project": "Plexus Utils",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-utils",
+      "advisory_url": "https://github.com/advisories/GHSA-8vhq-qq4p-grq3",
+      "before_commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+      "after_commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "86c37983bb2bd92b1df43fe73f321ffbfa155070",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/5-build.log",
+          "artifact_sha256": "199d9eb7bb70fa9f777899dc3a4b634500e9be4f6b71455b0fb22dd19d98623b",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/10-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "literal_argument",
+                "role": "control",
+                "observed": "$PILOT_ONLY_MARKER",
+                "pass": true
+              },
+              {
+                "name": "literal_executable_path",
+                "role": "security",
+                "observed": "127",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "b38a1b3a4352303e4312b2bb601a0d7ec6e28f41",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/11-build.log",
+          "artifact_sha256": "b6309afc0912fe31f257c8d2c9670c9c8c34d9f24ff543ac57888550f8b54516",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/16-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "literal_argument",
+                "role": "control",
+                "observed": "$PILOT_ONLY_MARKER",
+                "pass": true
+              },
+              {
+                "name": "literal_executable_path",
+                "role": "security",
+                "observed": "0",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": true
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "literal_executable_path"
+      ],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "VULNERABLE": 4,
+        "RESOLVED_TARGET": 3,
+        "UNCONFIRMED": 42
+      },
+      "scope_and_remaining_work": "Chỉ API/đường dẫn executable trong shell đã đo; chưa đo ứng dụng đầu cuối."
+    },
+    {
+      "cve_id": "CVE-2018-1002200",
+      "batch": "pilot",
+      "project": "Plexus Archiver",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-archiver",
+      "advisory_url": "https://github.com/advisories/GHSA-hcxq-x77q-3469",
+      "before_commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+      "after_commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "97c0d97504632a2a80b7d847bccdd9b37d27aea1",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/20-build.log",
+          "artifact_sha256": "bc4d35f60a9714f2b96601f4257f2f5065b6100d9316a71abe0a7632c0ac609d",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/26-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "f8f4233508193b70df33759ae9dc6154d69c2ea8",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/27-build.log",
+          "artifact_sha256": "7d105d03d69a4d77c93800f9ce549f5a5aab1c9843875a1418c625c1694575da",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/33-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => rejected:ArchiverException; written=false; outside_extract=true",
+                "pass": true
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "parent_containment"
+      ],
+      "after_label": "VULNERABLE",
+      "callable_labels": {
+        "VULNERABLE": 2,
+        "UNCONFIRMED": 1
+      },
+      "scope_and_remaining_work": "Chỉ nhánh ZIP; sibling_prefix_containment vẫn FAIL sau vá; dùng cha thứ nhất của merge."
+    },
+    {
+      "cve_id": "CVE-2018-1002201",
+      "batch": "pilot",
+      "project": "ZeroTurnaround zt-zip",
+      "repository_url": "https://github.com/zeroturnaround/zt-zip",
+      "advisory_url": "https://github.com/advisories/GHSA-qcf3-9vmh-xw4r",
+      "before_commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+      "after_commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "d1c40776d2ff18550d95db2609d3d154692dea93",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/37-build.log",
+          "artifact_sha256": "80c97de67905db4c3ef867a0cd1ec77327f0855bfe64da3e65732a200953942b",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/42-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "759b72f33bc8f4d69f84f09fcb7f010ad45d6fff",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/43-build.log",
+          "artifact_sha256": "f67aa85f588dc9824dba591de9805af106d05c806d26a8496aca58f6fd5d1af3",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/48-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => rejected:ZipException; written=false; outside_extract=true",
+                "pass": true
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "parent_containment"
+      ],
+      "after_label": "VULNERABLE",
+      "callable_labels": {
+        "VULNERABLE": 6,
+        "UNCONFIRMED": 2
+      },
+      "scope_and_remaining_work": "Chỉ nhánh giải nén ZIP; sibling_prefix_containment vẫn FAIL sau vá."
+    },
+    {
+      "cve_id": "CVE-2018-1002202",
+      "batch": "pilot",
+      "project": "zip4j",
+      "repository_url": "https://github.com/iris-sast/zip4j",
+      "advisory_url": "https://github.com/advisories/GHSA-2rpm-4x8c-pvqg",
+      "before_commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+      "after_commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+      "provenance": "benchmark_reconstruction",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "d87ffa2d64ffb3a0a1cf0c7a69c7b19d7015bfde",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/52-build.log",
+          "artifact_sha256": "7153ce17c7171c678d145775420b6e95f0371c044f8602a9bb26afd6abb4f47e",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/57-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "59aeea594ff885e06c25751dc6334dfea1bed8c6",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/58-build.log",
+          "artifact_sha256": "b64b588ee41171ed1addcda0c479d55d20e1b56b0701c4d0b48dfc869aca8a6a",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/63-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => rejected:ZipException; written=false; outside_extract=true",
+                "pass": true
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "parent_containment"
+      ],
+      "after_label": "VULNERABLE",
+      "callable_labels": {
+        "VULNERABLE": 2
+      },
+      "scope_and_remaining_work": "Lịch sử benchmark_reconstruction; sibling_prefix_containment vẫn FAIL sau vá."
+    },
+    {
+      "cve_id": "CVE-2018-17297",
+      "batch": "pilot",
+      "project": "Hutool",
+      "repository_url": "https://github.com/dromara/hutool",
+      "advisory_url": "https://github.com/advisories/GHSA-rhq2-2574-78mc",
+      "before_commit": "fd77bb8718648f69a587046b735488a80123cc26",
+      "after_commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "fd77bb8718648f69a587046b735488a80123cc26",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/67-build.log",
+          "artifact_sha256": "bdff8d22d74e3f1ef636fe9be40c34ec673440019a1932d8a9cdc811eb457e76",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/72-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "8d7d0b7fb5ea4f7447b40131bffc1ec506a6528e",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/73-build.log",
+          "artifact_sha256": "b6e03974d3df157fc72d955dd95839a4674bf98e17ef2ec119a86d77a7d2bf00",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/78-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true; outside_extract=false",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => rejected:IllegalArgumentException; written=false; outside_extract=true",
+                "pass": true
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true; outside_extract=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "parent_containment"
+      ],
+      "after_label": "VULNERABLE",
+      "callable_labels": {
+        "UNCONFIRMED": 13,
+        "VULNERABLE": 2
+      },
+      "scope_and_remaining_work": "Chỉ API giải nén đã đo; sibling_prefix_containment vẫn FAIL sau vá."
+    },
+    {
+      "cve_id": "CVE-2021-29425",
+      "batch": "pilot",
+      "project": "Apache Commons IO",
+      "repository_url": "https://github.com/apache/commons-io",
+      "advisory_url": "https://github.com/advisories/GHSA-gwrp-pvrq-jmwv",
+      "before_commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+      "after_commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "7791a851c4a303f47743b156007fb19c6ed8ed81",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/82-build.log",
+          "artifact_sha256": "c74a3a7180a80021af1f873ca2b8633e8b3e3d7b1a8924efa14b83cc8d66a8b2",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/87-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "normalize_invalid_prefix_1",
+                "role": "security",
+                "observed": "//../foo",
+                "pass": false
+              },
+              {
+                "name": "normalize_invalid_prefix_2",
+                "role": "security",
+                "observed": "//../foo",
+                "pass": false
+              },
+              {
+                "name": "benign_normalize",
+                "role": "control",
+                "observed": "dir/file.txt",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "2736b6fe0b3fa22ec8e2b4184897ecadb021fc78",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/88-build.log",
+          "artifact_sha256": "45f675e5319123bf9bdd2e2d406c78af23b5367e5d6065508f2c0b449d1f6ffb",
+          "security_log": "evidence/v0.2.0/5cd2e8809e084ef1bb9530b2f00f8722/logs/93-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "c6e5990cd8b53f0df4735c09a727be192e58107da27dac8c8cfda2b9d4f6eb68",
+            "tests": [
+              {
+                "name": "normalize_invalid_prefix_1",
+                "role": "security",
+                "observed": "null",
+                "pass": true
+              },
+              {
+                "name": "normalize_invalid_prefix_2",
+                "role": "security",
+                "observed": "null",
+                "pass": true
+              },
+              {
+                "name": "benign_normalize",
+                "role": "control",
+                "observed": "dir/file.txt",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": true
+          },
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "normalize_invalid_prefix_1",
+        "normalize_invalid_prefix_2"
+      ],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "VULNERABLE": 1,
+        "RESOLVED_TARGET": 1,
+        "UNCONFIRMED": 8
+      },
+      "scope_and_remaining_work": "Chỉ giá trị trả về của normalize với prefix đã thử; chưa đo mọi caller."
+    },
+    {
+      "cve_id": "CVE-2016-9177",
+      "batch": "batch02",
+      "project": "perwendel/spark",
+      "repository_url": "https://github.com/perwendel/spark",
+      "advisory_url": "https://github.com/advisories/GHSA-89gc-6cw6-4vch",
+      "before_commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+      "after_commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "c57e572f95de5752c5bf8e1e5de764aa50e4a0f6",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/2-build.log",
+          "artifact_sha256": "413a0b7fbf1fd638fb0c462562af0406396c0fb2e9aa77035aa61c2da5bf9e6c",
+          "security_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/6-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "f1dfbc01a79391d3fd1f613f31d36d03c16f8a11a67a13f53f760e3b6cfece70",
+            "tests": [
+              {
+                "name": "ordinary_static_file",
+                "role": "control",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "external_containment_0",
+                "role": "security",
+                "observed": "false",
+                "pass": false
+              },
+              {
+                "name": "external_containment_1",
+                "role": "security",
+                "observed": "false",
+                "pass": false
+              },
+              {
+                "name": "external_containment_2",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "StaticFilesTest",
+              "StaticFilesTestExternal"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 187,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "efcb46c710e3f56805b9257a63d1306882f4faf9",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/7-build.log",
+          "artifact_sha256": "973d2afbe48ed8f710117ce7450381e2202162c6d613d61090fedc036153fba6",
+          "security_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/11-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "f1dfbc01a79391d3fd1f613f31d36d03c16f8a11a67a13f53f760e3b6cfece70",
+            "tests": [
+              {
+                "name": "ordinary_static_file",
+                "role": "control",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "external_containment_0",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "external_containment_1",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "external_containment_2",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": true
+          },
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "StaticFilesTest",
+              "StaticFilesTestExternal"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 186,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "external_containment_0",
+        "external_containment_1"
+      ],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "UNCONFIRMED": 53,
+        "VULNERABLE": 3,
+        "RESOLVED_TARGET": 4
+      },
+      "scope_and_remaining_work": "Chỉ external static files; classpath/JAR, symlink và sibling cùng prefix chưa đo."
+    },
+    {
+      "cve_id": "CVE-2022-4244",
+      "batch": "batch02",
+      "project": "codehaus-plexus/plexus-utils",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-utils",
+      "advisory_url": "https://github.com/advisories/GHSA-g6ph-x5wf-g337",
+      "before_commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+      "after_commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "f933e5e78dc2637e485447ed821fe14904f110de",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/2-build.log",
+          "artifact_sha256": "9bc8d63140bfeb0773ce776ce832a039e0c0b750bbd87a7299faaa83d6fe9c95",
+          "security_log": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/5-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "d297be9ab38fdb299d1a79d46ba75363f268788c0082af93db73a90da6d9553f",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => accepted; written=true",
+                "pass": false
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": {
+            "status": "BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 343,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "33a2853df8185b4519b1b8bfae284f03392618ef",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/6-build.log",
+          "artifact_sha256": "c8f4dfa4da4a932323f3db13621670567538a76c19fb2565a52ad68d8fea9db0",
+          "security_log": "evidence/v0.2.0/20fda5362b864cac988d7560180ebb00/logs/9-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "d297be9ab38fdb299d1a79d46ba75363f268788c0082af93db73a90da6d9553f",
+            "tests": [
+              {
+                "name": "benign_zip",
+                "role": "control",
+                "observed": "good.txt => accepted; written=true",
+                "pass": true
+              },
+              {
+                "name": "parent_containment",
+                "role": "security",
+                "observed": "../outside.txt => rejected:Exception; written=false",
+                "pass": true
+              },
+              {
+                "name": "sibling_prefix_containment",
+                "role": "security",
+                "observed": "../out-sibling.txt => accepted; written=true",
+                "pass": false
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": false
+          },
+          "upstream_tests": {
+            "status": "BLOCKED_NO_CHANGED_TEST_CLASS_IN_MODULE"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 343,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "MET"
+      },
+      "accepted_common": true,
+      "improved_assertions": [
+        "parent_containment"
+      ],
+      "after_label": "VULNERABLE",
+      "callable_labels": {
+        "VULNERABLE": 2
+      },
+      "scope_and_remaining_work": "Chỉ Expand.extractFile; sibling_prefix_containment vẫn FAIL sau vá, giữ VULNERABLE."
+    },
+    {
+      "cve_id": "CVE-2019-10392",
+      "batch": "pilot",
+      "project": "Jenkins Git Client Plugin",
+      "repository_url": "https://github.com/jenkinsci/git-client-plugin",
+      "advisory_url": "https://github.com/advisories/GHSA-hw6x-2qwv-rxr7",
+      "before_commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+      "after_commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "04d2c155d19a37ae28ffe2345e0e2ccd96556b07",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/2-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "899123fa2eb9dd2c37137aae630c47c6be6b4b02",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/3-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "UNCONFIRMED": 5,
+        "VULNERABLE": 5,
+        "RESOLVED_TARGET": 5
+      },
+      "scope_and_remaining_work": "Thiếu build do phụ thuộc/timeout; thiếu đối chứng và hành vi tích hợp Jenkins/caller."
+    },
+    {
+      "cve_id": "CVE-2020-2261",
+      "batch": "pilot",
+      "project": "Jenkins Perfecto Plugin",
+      "repository_url": "https://github.com/jenkinsci/perfecto-plugin",
+      "advisory_url": "https://github.com/advisories/GHSA-jq84-6fmm-6qv6",
+      "before_commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+      "after_commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "60f9da8c6cdf06ef7824c5b35a63e3a21dda3110",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/4-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "52c09ad2e26416211e4009b095c4f16508b27b8a",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/5-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "UNCONFIRMED": 13,
+        "VULNERABLE": 2,
+        "RESOLVED_TARGET": 1
+      },
+      "scope_and_remaining_work": "Thiếu build do phụ thuộc/timeout; thiếu đối chứng và hành vi controller/agent Jenkins."
+    },
+    {
+      "cve_id": "CVE-2022-20617",
+      "batch": "pilot",
+      "project": "Jenkins Docker Commons Plugin",
+      "repository_url": "https://github.com/jenkinsci/docker-commons-plugin",
+      "advisory_url": "https://github.com/advisories/GHSA-jpxj-vgq5-prjc",
+      "before_commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+      "after_commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "7078a70448719715ae2c91b6a7fd718de76cf5a2",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/6-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "c069b79c31c5aa80a01b0c462f0dc6b41751f059",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/7-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 15
+      },
+      "scope_and_remaining_work": "Thiếu build, fixture/control và đường gọi DockerRegistryEndpoint; giữ nhãn sau UNCONFIRMED."
+    },
+    {
+      "cve_id": "CVE-2022-33140",
+      "batch": "pilot",
+      "project": "Apache NiFi và NiFi Registry",
+      "repository_url": "https://github.com/apache/nifi",
+      "advisory_url": "https://github.com/advisories/GHSA-77hf-23pq-2g7c",
+      "before_commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+      "after_commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+      "provenance": "developer_commit",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/ed97b42890524847a80085211e91b217/run.json",
+      "build_receipt": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "fe0ed03d4d5aa5399216c4cf8cede84236fbb4f7",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/8-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "a1306a19f78e11c2d809e9aef24336669461403a",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/aab27812edb14b81912ac90b458e48e5/logs/9-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "RESOLVED_TARGET",
+      "callable_labels": {
+        "VULNERABLE": 20,
+        "UNCONFIRMED": 30,
+        "RESOLVED_TARGET": 4
+      },
+      "scope_and_remaining_work": "Thiếu cặp build và tích hợp cả NiFi/Registry, mock OS command/provider và đối chứng."
+    },
+    {
+      "cve_id": "CVE-2013-7285",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "advisory_url": "https://github.com/advisories/GHSA-f554-x222-wgf7",
+      "before_commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+      "after_commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/12-build.log",
+          "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+          "security_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/16-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+            "tests": [
+              {
+                "name": "string_roundtrip",
+                "role": "control",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "untrusted_event_handler_blocked",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": true
+          },
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "AliasTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 692,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/17-build.log",
+          "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+          "security_log": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/logs/21-security.log",
+          "security": {
+            "status": "EXECUTED",
+            "process_exit_code": 0,
+            "fixture_sha256": "6ff384a0bc26a9de3e67e9f908b294db7fbd3215c24ebac5bbfd1d6d144b0f88",
+            "tests": [
+              {
+                "name": "string_roundtrip",
+                "role": "control",
+                "observed": "true",
+                "pass": true
+              },
+              {
+                "name": "untrusted_event_handler_blocked",
+                "role": "security",
+                "observed": "true",
+                "pass": true
+              }
+            ],
+            "controls_pass": true,
+            "all_security_assertions_pass": true
+          },
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "AliasTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 709,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json",
+      "ordinary_functional_observations": [
+        {
+          "cve_id": "CVE-2013-7285",
+          "phase": "before",
+          "commit": "64533f1fe2ece82398a1478edc2d30478fb7cd11",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+          "artifact_sha256": "a9e7b06f8262ccefaa1e47474f731ee1be2fe30d9ebf56e6eda1290134bd39c8",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        },
+        {
+          "cve_id": "CVE-2013-7285",
+          "phase": "after",
+          "commit": "6344867dce6767af7d0fe34fb393271a6456672d",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/4063ba008c3644f5ad4d015ccd4cbcc4/run.json",
+          "artifact_sha256": "509befb6125642339a27002e9945ec591071bab386fae5736688121f7c2eb258",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 68
+      },
+      "scope_and_remaining_work": "Thiếu hành vi caller: cả hai dừng ở converter lookup trước khi trả proxy; legacy assertion PASS/PASS không chứng minh sửa lỗi."
+    },
+    {
+      "cve_id": "CVE-2018-1000850",
+      "batch": "batch02",
+      "project": "square/retrofit",
+      "repository_url": "https://github.com/square/retrofit",
+      "advisory_url": "https://github.com/advisories/GHSA-8p8g-f9vg-r7xr",
+      "before_commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+      "after_commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "5088b0df6f2c52fcead426dafbb04214225e0cc7",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/2-build.log",
+          "artifact_sha256": "0bb801f63da42309771614989ec8d7da43a13e61dd6f32c10558194ad1bfb23e",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [
+            {
+              "path": "retrofit/pom.xml",
+              "kind": "build_configuration_only",
+              "reason": "Missing plugin version otherwise resolves current metadata, ignoring kotlin.version=1.2.60",
+              "version": "1.2.60",
+              "provenance_path": "pom.xml",
+              "original_sha256": "15071245c266fcda81e4ef8ddd6819175cecefb85ded0cfa6e3f70db554787d9",
+              "configured_sha256": "afc3e14e2cbe6b5191182e3f8525eca2d2d4fc8d9cc88045ab047bae0b204de9",
+              "diff": "--- upstream/retrofit/pom.xml\n+++ configured/retrofit/pom.xml\n@@ -78,6 +78,7 @@\n       <plugin>\n         <groupId>org.jetbrains.kotlin</groupId>\n         <artifactId>kotlin-maven-plugin</artifactId>\n+        <version>${kotlin.version}</version>\n         <executions>\n           <execution>\n             <id>compile</id>\n"
+            }
+          ],
+          "source_integrity": {
+            "baseline": "upstream plus explicitly recorded POM overlay",
+            "checked_original_files": 303,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "b9a7f6ad72073ddd40254c0058710e87a073047d",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/188f8a96a7e1421a97ca9a438faafeef/logs/3-build.log",
+          "artifact_sha256": "79880b864d6d058e9c434363102af8d9f2bdd8981ba8392d6a22e83dae754bba",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [
+            {
+              "path": "retrofit/pom.xml",
+              "kind": "build_configuration_only",
+              "reason": "Missing plugin version otherwise resolves current metadata, ignoring kotlin.version=1.2.60",
+              "version": "1.2.60",
+              "provenance_path": "pom.xml",
+              "original_sha256": "15071245c266fcda81e4ef8ddd6819175cecefb85ded0cfa6e3f70db554787d9",
+              "configured_sha256": "afc3e14e2cbe6b5191182e3f8525eca2d2d4fc8d9cc88045ab047bae0b204de9",
+              "diff": "--- upstream/retrofit/pom.xml\n+++ configured/retrofit/pom.xml\n@@ -78,6 +78,7 @@\n       <plugin>\n         <groupId>org.jetbrains.kotlin</groupId>\n         <artifactId>kotlin-maven-plugin</artifactId>\n+        <version>${kotlin.version}</version>\n         <executions>\n           <execution>\n             <id>compile</id>\n"
+            }
+          ],
+          "source_integrity": {
+            "baseline": "upstream plus explicitly recorded POM overlay",
+            "checked_original_files": 303,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "NOT_MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 9
+      },
+      "scope_and_remaining_work": "Build PASS/PASS với overlay POM tạm khóa Kotlin plugin 1.2.60 theo POM gốc; thiếu rà soát callable, đối chứng và hành vi mục tiêu. Mã Java và nhãn UNCONFIRMED giữ nguyên."
+    },
+    {
+      "cve_id": "CVE-2020-26217",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "advisory_url": "https://github.com/advisories/GHSA-mw36-7c6c-q4q2",
+      "before_commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+      "after_commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/16-build.log",
+          "artifact_sha256": "8d8af2d7faa7d2f146e749424cbab5a531dc2cb2427956e36d34b0edf50b746b",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SecurityVulnerabilityTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 782,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/18-build.log",
+          "artifact_sha256": "19da0de47f371a83bf360a0e8ff38e21190ac9196c392c61bec196c92b4f0672",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SecurityVulnerabilityTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 782,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json",
+      "ordinary_functional_observations": [
+        {
+          "cve_id": "CVE-2020-26217",
+          "phase": "before",
+          "commit": "573fbafb06859ecb3a836bd6fe2afacfc5cdabcc",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+          "artifact_sha256": "8d8af2d7faa7d2f146e749424cbab5a531dc2cb2427956e36d34b0edf50b746b",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        },
+        {
+          "cve_id": "CVE-2020-26217",
+          "phase": "after",
+          "commit": "0fec095d534126931c99fd38e9c6d41f5c685c1a",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+          "artifact_sha256": "19da0de47f371a83bf360a0e8ff38e21190ac9196c392c61bec196c92b4f0672",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 14
+      },
+      "scope_and_remaining_work": "Thiếu fixture hành vi đúng advisory/caller/policy; API round-trip thông thường và upstream 7→9 test không thay thế C7."
+    },
+    {
+      "cve_id": "CVE-2021-21345",
+      "batch": "batch02",
+      "project": "x-stream/xstream",
+      "repository_url": "https://github.com/x-stream/xstream",
+      "advisory_url": "https://github.com/advisories/GHSA-hwpc-8xqv-jvj4",
+      "before_commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+      "after_commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/20-build.log",
+          "artifact_sha256": "e5d96230fe8fde15d144400cc8f654a172cecb2b08a4afe04ae3c9e57315edfc",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SecurityVulnerabilityTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 789,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/22-build.log",
+          "artifact_sha256": "a43530049425900766b660b8b85c8bb94de1607e08040ff269babf7f6f870caa",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SecurityVulnerabilityTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 800,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": "evidence/v0.2.0/aac8bdcef6204ac8891c54117652ef98/run.json",
+      "ordinary_functional_observations": [
+        {
+          "cve_id": "CVE-2021-21345",
+          "phase": "before",
+          "commit": "d3c679a2cca689a0113c3bf011a74ad79b85c4f3",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+          "artifact_sha256": "e5d96230fe8fde15d144400cc8f654a172cecb2b08a4afe04ae3c9e57315edfc",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        },
+        {
+          "cve_id": "CVE-2021-21345",
+          "phase": "after",
+          "commit": "d5e51177634afea7213b9dc2d21f101d2e258db9",
+          "status": "PASS",
+          "fixture_sha256": "25024a9e11a056ae09a1f61e20e4c519acd0071309a3c10f6820a5f519bda3ce",
+          "build_status": "REUSED_VERIFIED",
+          "source_built_in_this_run": false,
+          "source_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+          "artifact_sha256": "a43530049425900766b660b8b85c8bb94de1607e08040ff269babf7f6f870caa",
+          "driver": "DomDriver",
+          "policy": "Pinned default; no allowTypes or policy overrides",
+          "exit_code": 0,
+          "controls": [
+            {
+              "name": "string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "empty_string_roundtrip",
+              "pass": true
+            },
+            {
+              "name": "integer_roundtrip",
+              "pass": true
+            }
+          ]
+        }
+      ],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 9
+      },
+      "scope_and_remaining_work": "Thiếu fixture hành vi cho chuỗi advisory/caller/policy; API round-trip và upstream 11→13 test không chứng minh cơ chế CVE riêng."
+    },
+    {
+      "cve_id": "CVE-2022-25174",
+      "batch": "batch02",
+      "project": "jenkinsci/workflow-cps-global-lib-plugin",
+      "repository_url": "https://github.com/jenkinsci/workflow-cps-global-lib-plugin",
+      "advisory_url": "https://github.com/advisories/GHSA-g9fx-6j5c-grmw",
+      "before_commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "after_commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/2-build.log",
+          "artifact_sha256": "615e1ff370652cf57dff989c74f9b14a2558987dfc045cab992f0948c4ece32e",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [
+            {
+              "path": "pom.xml",
+              "kind": "build_configuration_only",
+              "reason": "maven.test.skip does not disable HPI 3.22 test harness dependency staging; omit this test-only goal for source package",
+              "parent_version": "4.33",
+              "plugin_version": "3.22",
+              "disabled_execution": "default-resolve-test-dependencies",
+              "plugin_descriptor_source_sha256": "bf775baf940aca63d6ee622a6190638b5bab8aad445bcee2f3341b40cbdc50c7",
+              "original_sha256": "b36cd9204e73910541f4c165eaf7325118df63210ea2ec0db8c7d1c189dcef91",
+              "configured_sha256": "b9c3b960579f1a0a6439691c46317dc27eea3139e9ddb4d3f5b4b9fc2f4fa3a7",
+              "diff": "--- upstream/pom.xml\n+++ configured/pom.xml\n@@ -209,4 +209,9 @@\n             <scope>test</scope>\n         </dependency>\n     </dependencies>\n+\n+  <build><plugins><plugin>\n+    <groupId>org.jenkins-ci.tools</groupId><artifactId>maven-hpi-plugin</artifactId>\n+    <executions><execution><id>default-resolve-test-dependencies</id><phase>none</phase></execution></executions>\n+  </plugin></plugins></build>\n </project>\n"
+            }
+          ],
+          "source_integrity": {
+            "baseline": "upstream plus explicitly recorded POM overlay",
+            "checked_original_files": 87,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/d6afe2302eb94c8e8ee75fe92844ec72/logs/3-build.log",
+          "artifact_sha256": "977b9fcac0af9d8cc53e6cf48b5fc73f456bf07db9121a270aa894e11442bd27",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [
+            {
+              "path": "pom.xml",
+              "kind": "build_configuration_only",
+              "reason": "maven.test.skip does not disable HPI 3.22 test harness dependency staging; omit this test-only goal for source package",
+              "parent_version": "4.33",
+              "plugin_version": "3.22",
+              "disabled_execution": "default-resolve-test-dependencies",
+              "plugin_descriptor_source_sha256": "bf775baf940aca63d6ee622a6190638b5bab8aad445bcee2f3341b40cbdc50c7",
+              "original_sha256": "b36cd9204e73910541f4c165eaf7325118df63210ea2ec0db8c7d1c189dcef91",
+              "configured_sha256": "b9c3b960579f1a0a6439691c46317dc27eea3139e9ddb4d3f5b4b9fc2f4fa3a7",
+              "diff": "--- upstream/pom.xml\n+++ configured/pom.xml\n@@ -209,4 +209,9 @@\n             <scope>test</scope>\n         </dependency>\n     </dependencies>\n+\n+  <build><plugins><plugin>\n+    <groupId>org.jenkins-ci.tools</groupId><artifactId>maven-hpi-plugin</artifactId>\n+    <executions><execution><id>default-resolve-test-dependencies</id><phase>none</phase></execution></executions>\n+  </plugin></plugins></build>\n </project>\n"
+            }
+          ],
+          "source_integrity": {
+            "baseline": "upstream plus explicitly recorded POM overlay",
+            "checked_original_files": 88,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "NOT_MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 41
+      },
+      "scope_and_remaining_work": "Build PASS/PASS trong profile package bỏ test harness dependency staging của HPI 3.22; overlay POM và vận chuyển dependency được ghi rõ. Thiếu rà soát callable và đối chứng/hành vi tích hợp Jenkins; giữ UNCONFIRMED."
+    },
+    {
+      "cve_id": "CVE-2022-25175",
+      "batch": "batch02",
+      "project": "jenkinsci/workflow-multibranch-plugin",
+      "repository_url": "https://github.com/jenkinsci/workflow-multibranch-plugin",
+      "advisory_url": "https://github.com/advisories/GHSA-pj84-qjm3-77mg",
+      "before_commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+      "after_commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "d43c65dec013812b084fecbb4a310d856eb6b89a",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/26-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "71c3f0a6ccdb2ba43f43686826b0d62160df85e8",
+          "build_status": "FAIL",
+          "error_category": "TIMEOUT",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/27-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "NOT_MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 11
+      },
+      "scope_and_remaining_work": "Maven dependency resolution TIMEOUT; thiếu build, fixture/control Jenkins và rà soát callable."
+    },
+    {
+      "cve_id": "CVE-2022-25842",
+      "batch": "batch02",
+      "project": "alibaba/one-java-agent",
+      "repository_url": "https://github.com/alibaba/one-java-agent",
+      "advisory_url": "https://github.com/advisories/GHSA-9hr3-j9mc-xmq2",
+      "before_commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+      "after_commit": "359603b63fc6c59d8b57e061c171954bab3433bf",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "29dc527a5d76c14de833ac3f2eae282a27190505",
+          "build_status": "FAIL",
+          "error_category": "DEPENDENCY",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/7-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        },
+        "after": {
+          "commit": "359603b63fc6c59d8b57e061c171954bab3433bf",
+          "build_status": "FAIL",
+          "error_category": "DEPENDENCY",
+          "build_log": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/logs/8-build.log",
+          "artifact_sha256": null,
+          "security_log": null,
+          "security": {},
+          "upstream_tests": null,
+          "build_config_overrides": [],
+          "source_integrity": null
+        }
+      },
+      "additional_ordinary_control_receipt": null,
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "NOT_MET",
+        "paired_source_builds": "NOT_MET",
+        "ordinary_controls": "NOT_MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 1
+      },
+      "scope_and_remaining_work": "Thiếu phụ thuộc bytekit SNAPSHOT có provenance xác minh được; thiếu build, fixture/control và rà soát callable."
+    },
+    {
+      "cve_id": "CVE-2023-37460",
+      "batch": "batch02",
+      "project": "codehaus-plexus/plexus-archiver",
+      "repository_url": "https://github.com/codehaus-plexus/plexus-archiver",
+      "advisory_url": "https://github.com/advisories/GHSA-wh3p-fphp-9h2m",
+      "before_commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+      "after_commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+      "provenance": "seed_fix_selected_parent_verified",
+      "selected_parent_index": 0,
+      "source_receipt": "evidence/v0.2.0/2dc3374df54a4ed5b04e2894f1cb59f6/run.json",
+      "build_receipt": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/run.json",
+      "snapshots": {
+        "before": {
+          "commit": "18a64852036bd6f0ebc880eb16563d8f08b0bc37",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/2-build.log",
+          "artifact_sha256": "e6e5d80e14fb4d7d10407b1993add28fdb912095e9f85fd62ac719a5152f457f",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SymlinkTest",
+              "ZipArchiverTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 552,
+            "changed_files": []
+          }
+        },
+        "after": {
+          "commit": "54759839fbdf85caf8442076f001d5fd64e0dcb2",
+          "build_status": "PASS",
+          "error_category": null,
+          "build_log": "evidence/v0.2.0/9c2a5b8236d34dfbbd96d36ec9df0eb1/logs/4-build.log",
+          "artifact_sha256": "1033235870e9c0ff23444417fc4478c84b6bb38dca79c2eec3b3020911d401e9",
+          "security_log": null,
+          "security": {},
+          "upstream_tests": {
+            "status": "PASS",
+            "selected_classes": [
+              "SymlinkTest",
+              "ZipArchiverTest"
+            ],
+            "scope": "Changed upstream classes; not a validated external paired security fixture"
+          },
+          "build_config_overrides": [],
+          "source_integrity": {
+            "checked_original_files": 553,
+            "changed_files": []
+          }
+        }
+      },
+      "additional_ordinary_control_receipt": "evidence/recovery-20261125/plexus-ordinary.json",
+      "ordinary_functional_observations": [],
+      "criteria": {
+        "source_identity": "MET",
+        "extraction": "MET",
+        "advisory_patch_context": "MET",
+        "scoped_ai_method_review": "NOT_MET",
+        "paired_source_builds": "MET",
+        "ordinary_controls": "MET",
+        "paired_security_behavior": "NOT_MET"
+      },
+      "accepted_common": false,
+      "improved_assertions": [],
+      "after_label": "UNCONFIRMED",
+      "callable_labels": {
+        "UNCONFIRMED": 7
+      },
+      "scope_and_remaining_work": "Thiếu hành vi symlink theo advisory và rà soát callable; đối chứng ZIP cục bộ chưa công bố không đủ để hoàn tất."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "pilot": {
+    "status": "PASS",
+    "result": {
+      "checked_versions": 187,
+      "matched_versions": 187,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    },
+    "seconds": 4.322970562999998
+  },
+  "batch02": {
+    "status": "PASS",
+    "result": {
+      "checked_versions": 222,
+      "matched_versions": 222,
+      "failures": [],
+      "scope": "AST declaration name and exact start/end line boundaries; parameter type resolution and caller semantics remain unverified."
+    },
+    "seconds": 4.661877832000002
+  }
+}

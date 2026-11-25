@@ -1,0 +1,5 @@
+{
+  "run_id": "332ed42e0837447b9156debf5917fd59",
+  "phase": "after",
+  "reason": "Thread dump confirms HPI TestDependencyMojo is downloading test harness plugins after compilation; stop redundant wait and use an explicit package-only staging overlay. No test or security evidence claimed."
+}

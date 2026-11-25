@@ -1,0 +1,56 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/tmp/javacve-45zfatuh/tmpw0o7ukmi/java-tmp/
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.sparkjava:spark-core >----------------------
+[INFO] Building Spark 2.5.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-7
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.5.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-6
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.2.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-6
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.2.0
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-maven) @ spark-core ---
+[INFO] 
+[INFO] --- enforcer:1.4:enforce (enforce-java) @ spark-core ---
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ spark-core ---
+[INFO] skip non existing resourceDirectory /tmp/javacve-45zfatuh/tmpw0o7ukmi/source/src/main/resources
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ spark-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 91 source files to /tmp/javacve-45zfatuh/tmpw0o7ukmi/source/target/classes
+[WARNING] /tmp/javacve-45zfatuh/tmpw0o7ukmi/source/src/main/java/spark/route/RouteOverview.java:[29,19] sun.reflect.ConstantPool is internal proprietary API and may be removed in a future release
+[WARNING] /tmp/javacve-45zfatuh/tmpw0o7ukmi/source/src/main/java/spark/route/RouteOverview.java:[146,13] sun.reflect.ConstantPool is internal proprietary API and may be removed in a future release
+[WARNING] /tmp/javacve-45zfatuh/tmpw0o7ukmi/source/src/main/java/spark/route/RouteOverview.java:[146,42] sun.reflect.ConstantPool is internal proprietary API and may be removed in a future release
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ spark-core ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ spark-core ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ spark-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- bundle:2.5.3:bundle (default-bundle) @ spark-core ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.509 s
+[INFO] Finished at: 2026-11-24T09:03:33Z
+[INFO] ------------------------------------------------------------------------

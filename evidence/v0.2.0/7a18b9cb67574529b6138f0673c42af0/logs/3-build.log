@@ -1,0 +1,42 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------< org.jenkins-ci.plugins.workflow:workflow-cps-global-lib >-------
+[INFO] Building Pipeline: Shared Groovy Libraries 999999-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:validate-hpi (default-validate-hpi)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.22:hpi (default-hpi)'
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:55 min
+[INFO] Finished at: 2026-11-25T09:05:54Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project workflow-cps-global-lib: Could not resolve dependencies for project org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:hpi:999999-SNAPSHOT
+[ERROR] dependency: io.jenkins.plugins:lib-durable-task:jar:25.v6c906af81ee2 (test)
+[ERROR] 	Could not transfer artifact io.jenkins.plugins:lib-durable-task:jar:25.v6c906af81ee2 from/to jenkins-https (http://127.0.0.1:46707/jenkins/): Read timed out
+[ERROR] 	Could not find artifact io.jenkins.plugins:lib-durable-task:jar:25.v6c906af81ee2 in incrementals (http://127.0.0.1:46707/incrementals/)
+[ERROR] 	Could not find artifact io.jenkins.plugins:lib-durable-task:jar:25.v6c906af81ee2 in repro-central-https (http://127.0.0.1:46707/central/)
+[ERROR] dependency: org.jenkins-ci.main:jenkins-core:jar:2.303.1 (provided)
+[ERROR] 	Could not transfer artifact org.jenkins-ci.main:jenkins-core:jar:2.303.1 from/to jenkins-https (http://127.0.0.1:46707/jenkins/): Read timed out
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-core:jar:2.303.1 in incrementals (http://127.0.0.1:46707/incrementals/)
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-core:jar:2.303.1 in repro-central-https (http://127.0.0.1:46707/central/)
+[ERROR] dependency: org.jenkins-ci.main:jenkins-war:war:2.303.1 (test)
+[ERROR] 	Could not transfer artifact org.jenkins-ci.main:jenkins-war:war:2.303.1 from/to jenkins-https (http://127.0.0.1:46707/jenkins/): Read timed out
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-war:war:2.303.1 in incrementals (http://127.0.0.1:46707/incrementals/)
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-war:war:2.303.1 in repro-central-https (http://127.0.0.1:46707/central/)
+[ERROR] dependency: org.jenkins-ci.main:jenkins-test-harness-htmlunit:jar:66.v712ea44bccba (test)
+[ERROR] 	Could not transfer artifact org.jenkins-ci.main:jenkins-test-harness-htmlunit:jar:66.v712ea44bccba from/to jenkins-https (http://127.0.0.1:46707/jenkins/): Read timed out
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-test-harness-htmlunit:jar:66.v712ea44bccba in incrementals (http://127.0.0.1:46707/incrementals/)
+[ERROR] 	Could not find artifact org.jenkins-ci.main:jenkins-test-harness-htmlunit:jar:66.v712ea44bccba in repro-central-https (http://127.0.0.1:46707/central/)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

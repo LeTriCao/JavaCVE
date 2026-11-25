@@ -1,5 +1,7 @@
 # Rà soát tiêu chí Batch02 cho Spark và XStream
 
+Các mục trước phần “Lượt khôi phục build và kiểm thử thông thường” là lịch sử đến a1ea91f. Hiện Batch02 có **8/10 cặp build**; C6 của ba XStream được bổ sung bằng API round-trip, C7 vẫn thiếu. [Kết quả cập nhật](RECOVERY_20261125.md).
+
 **AI** rà soát bốn hồ sơ theo tiêu chí của đợt. Số người đánh giá độc lập là 0. [Định nghĩa hoàn tất](../data/batch-02/completion.json) · [Quyết định và bằng chứng](../data/batch-02/completion-review.json).
 
 | CVE | Điều kiện áp dụng | Before / after | Phạm vi đã chứng minh | Còn thiếu |
@@ -82,3 +84,7 @@ Advisory chính thức mô tả cần caller gọi method trên proxy sau unmars
 Upstream tests là bằng chứng chức năng hỗ trợ, không phải điều kiện thay thế paired security behavior. Đánh giá độc lập còn chờ được theo dõi riêng theo định nghĩa hiện hành. Receipt CI success ghi trong BUILD_RECOVERY.md chỉ xác nhận lệnh/job chạy đạt, không tự chứng minh fixture phân biệt được lỗi. Trạng thái Batch02 hiện là **2/10**, không phải 3/10.
 
 Danh sách đầy đủ từng callable: [BATCH02_CALLABLE_REVIEW.md](BATCH02_CALLABLE_REVIEW.md); [quyết định snapshot](../data/batch-02/snapshot-reviews.jsonl); [quyết định callable](../data/batch-02/reviews.jsonl). Intake summary.json giữ nguyên trạng thái lúc nhập; completion.json là trạng thái sau rà soát.
+
+## Lượt khôi phục build và kiểm thử thông thường (25/11/2026)
+
+Kết quả hiện tại: **14/20 cặp build**, tăng **2**; **8/20 đạt chuẩn chung**, không nâng nhãn phương thức. [Build và kiểm thử chức năng mới](RECOVERY_20261125.md) · [Bảng nghiệm thu](DOI_CHIEU_DU_LIEU.md). Manifest gốc được giữ nguyên, danh sách bàn giao vẫn là dự kiến. Chưa commit/push/tag/release. Các kết quả và tiêu chí theo lô phía trên là lịch sử; C1–C7 cập nhật ở `data/acceptance-review.json`.

@@ -1,0 +1,3213 @@
+{
+  "run_id": "332ed42e0837447b9156debf5917fd59",
+  "release": "0.2.0",
+  "command": "build-recovery",
+  "start_utc": "2026-11-25T09:07:04.712248+00:00",
+  "status": "FAIL",
+  "exit_code": 1,
+  "arguments": "CVE-2022-25174",
+  "project_commit": "a1ea91f12cb78d2828e97c055ff6c18481107759",
+  "working_tree_dirty": true,
+  "dataset_sha256": "bd3156081dd52b0362989167a43d90a87b4b0fc97b52f1727727d9b78d2c6ed8",
+  "environment": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "locale": "C.UTF-8"
+  },
+  "steps": [
+    {
+      "stage": "java-version",
+      "command": [
+        "<workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/bin/java",
+        "-version"
+      ],
+      "start_utc": "2026-11-25T09:07:04.755363+00:00",
+      "status": "PASS",
+      "log": "logs/0-java-version.log",
+      "end_utc": "2026-11-25T09:07:05.587376+00:00",
+      "seconds": 0.820314,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "maven-version",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "--version"
+      ],
+      "start_utc": "2026-11-25T09:07:05.596342+00:00",
+      "status": "PASS",
+      "log": "logs/1-maven-version.log",
+      "end_utc": "2026-11-25T09:07:07.984701+00:00",
+      "seconds": 2.374839,
+      "exit_code": 0,
+      "error_category": null
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-s",
+        "/tmp/javacve-recovery-4p7ej5kp/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.wagon.rto=15000",
+        "-Dmaven.wagon.http.retryHandler.count=1",
+        "-Daether.connector.connectTimeout=15000",
+        "-Daether.connector.requestTimeout=15000",
+        "-U",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-25T09:07:08.139396+00:00",
+      "status": "FAIL",
+      "cve_id": "CVE-2022-25174",
+      "phase": "before",
+      "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "log": "logs/2-build.log",
+      "end_utc": "2026-11-25T09:17:08.786448+00:00",
+      "seconds": 600.633769,
+      "exit_code": 124,
+      "error_category": "TIMEOUT"
+    },
+    {
+      "stage": "build",
+      "command": [
+        "<workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven/bin/mvn",
+        "-B",
+        "-ntp",
+        "-s",
+        "/tmp/javacve-recovery-4p7ej5kp/settings.xml",
+        "-Dmaven.repo.local=<workspace>/.cache/m2",
+        "-Dmaven.wagon.rto=15000",
+        "-Dmaven.wagon.http.retryHandler.count=1",
+        "-Daether.connector.connectTimeout=15000",
+        "-Daether.connector.requestTimeout=15000",
+        "-U",
+        "-Dmaven.test.skip=true",
+        "-Dcheckstyle.skip=true",
+        "-Drat.skip=true",
+        "package"
+      ],
+      "start_utc": "2026-11-25T09:17:09.053796+00:00",
+      "status": "FAIL",
+      "cve_id": "CVE-2022-25174",
+      "phase": "after",
+      "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "log": "logs/3-build.log",
+      "end_utc": "2026-11-25T09:20:12.008383+00:00",
+      "seconds": 182.935524,
+      "exit_code": 143,
+      "error_category": "COMMAND_FAILED"
+    }
+  ],
+  "snapshots": [
+    {
+      "cve_id": "CVE-2022-25174",
+      "phase": "before",
+      "commit": "d1912e98fa56b77ef495beee79e3f27f0c8f4026",
+      "status": "FAIL",
+      "start_utc": "2026-11-25T09:07:07.996733+00:00",
+      "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+      "tree": "4f1e3b15c511f5907419174f2104979783cf0596",
+      "build_config_overrides": [],
+      "source_integrity": {
+        "baseline": "upstream plus explicitly recorded POM overlay",
+        "checked_original_files": 87,
+        "changed_files": []
+      },
+      "upstream_config_changes": [],
+      "exit_code": 124,
+      "error": "build: TIMEOUT; see logs/2-build.log",
+      "error_category": "TIMEOUT",
+      "end_utc": "2026-11-25T09:17:08.826614+00:00",
+      "seconds": 600.829905
+    },
+    {
+      "cve_id": "CVE-2022-25174",
+      "phase": "after",
+      "commit": "ace0de3c2d691662021ea10306eeb407da6b6365",
+      "status": "FAIL",
+      "start_utc": "2026-11-25T09:17:08.843717+00:00",
+      "security_status": "BLOCKED_NO_REVIEWED_PAIRED_FIXTURE",
+      "tree": "adb466b96846317ff357dadde2cf398092a8e659",
+      "build_config_overrides": [],
+      "source_integrity": {
+        "baseline": "upstream plus explicitly recorded POM overlay",
+        "checked_original_files": 88,
+        "changed_files": []
+      },
+      "upstream_config_changes": [],
+      "exit_code": 143,
+      "error": "build: COMMAND_FAILED; see logs/3-build.log",
+      "error_category": "COMMAND_FAILED",
+      "end_utc": "2026-11-25T09:20:12.024797+00:00",
+      "seconds": 183.181111
+    }
+  ],
+  "batch_dataset_sha256": "a8b7fa0133bceb06b92791d5193951b73a6987603708f3c66766a6edc144f6bc",
+  "prior_receipt": "evidence/v0.2.0/2b54f962ab544cb789aaf746c087715e/run.json",
+  "hypothesis": "Historical Kotlin plugin pin for Retrofit; offline repository/cache diagnosis for Jenkins",
+  "selection": [
+    "CVE-2022-25174"
+  ],
+  "offline": false,
+  "timeout_seconds": 600,
+  "scope": "Source package only; tests skipped. No security assertions or label changes.",
+  "transport_downloads": [
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/plugins/lib-durable-task/25.v6c906af81ee2/lib-durable-task-25.v6c906af81ee2.jar",
+      "status": 200,
+      "bytes": 8872175,
+      "method": "GET",
+      "sha256": "6e3468cba13bc3d76ef55981b7ac4b6956b89f6f0ded0e87009e57328b6ca16a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/plugins/lib-durable-task/25.v6c906af81ee2/lib-durable-task-25.v6c906af81ee2.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b37bdb711fc55bd21603fb752ba1fc217d255239ee91732345424855fc5aacdb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-core/2.303.1/jenkins-core-2.303.1.jar",
+      "status": 200,
+      "bytes": 11123495,
+      "method": "GET",
+      "sha256": "f2dae1d7f87f494dad7fab70a7afb2be12dbbbc12865d049b056b675433f6c7e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-core/2.303.1/jenkins-core-2.303.1.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "021a15e36d132b96ae653f573f085b880689d709d4bfcbb3fea9611a4b086e62"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-test-harness-htmlunit/66.v712ea44bccba/jenkins-test-harness-htmlunit-66.v712ea44bccba.jar",
+      "status": 200,
+      "bytes": 10579074,
+      "method": "GET",
+      "sha256": "d4b5f654958b01c7e638a461104b67602f705cd3fc944df914712ac2076b0e14"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-test-harness-htmlunit/66.v712ea44bccba/jenkins-test-harness-htmlunit-66.v712ea44bccba.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "843f5c76653b20e551dc1b67683d628dd32684034c30c61c84c2a57301070eae"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.303.1/jenkins-war-2.303.1.war",
+      "status": 200,
+      "bytes": 72292947,
+      "method": "GET",
+      "sha256": "4aae135cde63e398a1f59d37978d97604cb595314f7041d2d3bac3f0bb32c065"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/2.303.1/jenkins-war-2.303.1.war.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3b1580c98d234a2c7391fde1f0b843ac35167227784870389096285c45561eeb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.pom",
+      "status": 200,
+      "bytes": 8619,
+      "method": "GET",
+      "sha256": "b6777060dafa053a3805f0e29ccfa1fb8011a2e44ce4a045e48549d0a3b141ae"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "9c4258cab46edd53c2a22a0310de4717f8b007ebf93313f96756a50ac4386355"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/mojo/mojo-parent/65/mojo-parent-65.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/mojo/mojo-parent/65/mojo-parent-65.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/65/mojo-parent-65.pom",
+      "status": 200,
+      "bytes": 34693,
+      "method": "GET",
+      "sha256": "c89fb440a597b83eecca108ac598519493688eb033e8542e51a2b0428da8a676"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/65/mojo-parent-65.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5befda79c78ccfe778e234d60ce905706b6475fbd1a05aa718e28e5ae7da54fb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.pom",
+      "status": 200,
+      "bytes": 3033,
+      "method": "GET",
+      "sha256": "17a91aedc7beeac1756e48d97e30d928a3774374a6507ad5399f2cc9cf1930c7"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "45383720a668c9bcf457de43a8337cf5e4258c57e8cdf67d5fe09c3e82a39b79"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-compat/3.1.1/maven-compat-3.1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-compat/3.1.1/maven-compat-3.1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-compat/3.1.1/maven-compat-3.1.1.pom",
+      "status": 200,
+      "bytes": 0,
+      "method": "HEAD"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.pom",
+      "status": 200,
+      "bytes": 0,
+      "method": "HEAD"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/wagon/wagon/2.4/wagon-2.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/wagon/wagon/2.4/wagon-2.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon/2.4/wagon-2.4.pom",
+      "status": 200,
+      "bytes": 0,
+      "method": "HEAD"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.pom",
+      "status": 200,
+      "bytes": 6925,
+      "method": "GET",
+      "sha256": "7a6978786a5a60d04f382356a86987de67e82e603ecd8f0b16dce1257101615b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "995396a8c654e704e8de770e7991e6086f6a6843cf9108dbd939f609dc4e7064"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.pom",
+      "status": 200,
+      "bytes": 2112,
+      "method": "GET",
+      "sha256": "386b937b7cc9e9ff85685cf21184db282731df5073a6112756964a759f9c2797"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7c19f926bc7752af2a6e93d181b8ccef2cd365f2348c570b1a8203f427fc9709"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/aether/aether/1.1.0/aether-1.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/aether/aether/1.1.0/aether-1.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.1.0/aether-1.1.0.pom",
+      "status": 200,
+      "bytes": 25816,
+      "method": "GET",
+      "sha256": "487acb194677ffc094f801334fccc7167193b288753381176242e26ecbd5ac8e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.1.0/aether-1.1.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "1f81163aecc787e7c57c201a56df6d09378480218c5e93caf47b96cda669f215"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.pom",
+      "status": 200,
+      "bytes": 736,
+      "method": "GET",
+      "sha256": "3cf597ae345b773d1c7447cb739c7aea56c6c5938060988130726b8a89d4d203"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "04eabc168dab165c058ccbb27d9e0a89ee4e2a50a037c739d5fc0d69b9f5e3d3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.pom",
+      "status": 200,
+      "bytes": 4666,
+      "method": "GET",
+      "sha256": "40a53a82124c2f1e6f03c2296e833f008f63838386d17ba51db654be0ba8af5b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2c8702897575c8ea1f2bd9317b7a9fbb7a05c601f8c6636f8aea9058e8ee1e3b"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.pom",
+      "status": 200,
+      "bytes": 2809,
+      "method": "GET",
+      "sha256": "a46307c09001d5ad3be3c74ded497577d069b1504e68dffb0f921acd17155201"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d9e92f6744d98e847f58ab93cbc6211894f4ea8641d0ecb14aba8ae28be37a72"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/resolver/maven-resolver/1.6.1/maven-resolver-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/resolver/maven-resolver/1.6.1/maven-resolver-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.6.1/maven-resolver-1.6.1.pom",
+      "status": 200,
+      "bytes": 19024,
+      "method": "GET",
+      "sha256": "5ee28ff564fb0a5871bb85db5c37301b184a7f00a882a8ba5ecec69f8803f3d5"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver/1.6.1/maven-resolver-1.6.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5ad4e72a61eaeb913b82065fad37f7b99020444e660aae6b452b61efd62874c5"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.pom",
+      "status": 200,
+      "bytes": 2630,
+      "method": "GET",
+      "sha256": "28af9cc36f64ac025e9f94d2431d2ee601b188dd5cbb9b08f7f2935e5f568429"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "812579a7363418556364bacff09d1cac81f1e33d1aecdaa8dd45826a30c3c36a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.jar",
+      "status": 200,
+      "bytes": 51017,
+      "method": "GET",
+      "sha256": "aa8d8854b30166c3f93a8ba3c39053b9ec38d4cb7f4ea33f230b105f62ab867a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/mojo/extra-enforcer-rules/1.5.1/extra-enforcer-rules-1.5.1.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "e3baab501ce671eb0a94f627b82fa71e75891e675052eced018b5ae31a96e404"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.jar",
+      "status": 200,
+      "bytes": 3976,
+      "method": "GET",
+      "sha256": "9369e909a5847d859a657140d98dd08f5517d1a49de73b392b16e63d02fb060b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.jar",
+      "status": 200,
+      "bytes": 11616,
+      "method": "GET",
+      "sha256": "3258e5611ebbbf47a3b8f7b65572205f9f6ec24450de420e7e878cd6b40e8b82"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar",
+      "status": 200,
+      "bytes": 0,
+      "method": "HEAD"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.jar",
+      "status": 200,
+      "bytes": 115625,
+      "method": "GET",
+      "sha256": "f6f02a03f8b3034d9bf337040ac140a39b591366fc69ed66edb66f83eae102da"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.jar",
+      "status": 200,
+      "bytes": 103057,
+      "method": "GET",
+      "sha256": "d0e2bd3e0625d5d55226dcac0276fcb6ad59f8d993078a30003d67c7043ae7d9"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-api/3.0.0/enforcer-api-3.0.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "104829ce5baf5bd182596a9bde54ac38bee33da6f9322e0d041704707ebd8beb"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/io/jenkins/tools/incrementals/incrementals-enforcer-rules/1.3/incrementals-enforcer-rules-1.3.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4a9babff8c84b027179dd7737884ecee67ad246954d87bd1bb209ebfd2dea074"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/enforcer/enforcer-rules/3.0.0/enforcer-rules-3.0.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2ed0f5416359d1c38c9c82f50a6a1b9925bb571057fecd95ec3fab1e8f0153f7"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.1.0/maven-dependency-tree-3.1.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3751f529ead717e7deb4caff69d0d1304724f624ccdbc2b01924c882eda62076"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.jar",
+      "status": 200,
+      "bytes": 168478,
+      "method": "GET",
+      "sha256": "76c57724e9889d172da17cb78e2c17f0f194e0209387ffd99a169c90812dca9a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.jar",
+      "status": 200,
+      "bytes": 149089,
+      "method": "GET",
+      "sha256": "ce56f9c499067b13c71e047b8d7b26b4e0f115f3de428f152acde77272f66969"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-api/1.6.1/maven-resolver-api-1.6.1.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "68cc0fb26df7cedff5573b789295fef8963bc513bf64b6b673d26558f2e802cb"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.6.1/maven-resolver-util-1.6.1.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ee53791208efa8fbd3bfe4f096906d2c0e263732d73af4c7e5e6245c19cac7e4"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-cps-global-lib/999999-SNAPSHOT/maven-metadata.xml",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.pom",
+      "status": 200,
+      "bytes": 8370,
+      "method": "GET",
+      "sha256": "f030cbbaa7ee27a1ac430860ede577d541ad72210e51645b9db2f82d57f396c4"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4209f099edf9c2ca103a0f924444c85a39a0e15abb997eb09f860fa3f9c16bd6"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/websocket/javax.websocket-all/1.1/javax.websocket-all-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/websocket/javax.websocket-all/1.1/javax.websocket-all-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/websocket/javax.websocket-all/1.1/javax.websocket-all-1.1.pom",
+      "status": 200,
+      "bytes": 9546,
+      "method": "GET",
+      "sha256": "e5e60097cdb588c05fc4df06d32c5cb8e0e075ff6bbfb3e486d988232280595d"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/websocket/javax.websocket-all/1.1/javax.websocket-all-1.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3e4341f8bb36e7976e4890e050e6253bf4159b59a88b125493069bbccf9dfda7"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/portlet-api/portlet-api/1.0/portlet-api-1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/portlet-api/portlet-api/1.0/portlet-api-1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/portlet-api/portlet-api/1.0/portlet-api-1.0.pom",
+      "status": 200,
+      "bytes": 154,
+      "method": "GET",
+      "sha256": "2e9f116f261616f0d80ae86b5aca05e99af337c04edb78298d96538afb45f27c"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/portlet-api/portlet-api/1.0/portlet-api-1.0.pom.sha1",
+      "status": 200,
+      "bytes": 148,
+      "method": "GET",
+      "sha256": "674f9128cc5aa4997aee1cbbc563eff2a720d3a2c2b63bf3832333f13e0a9f31"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.pom",
+      "status": 200,
+      "bytes": 1110,
+      "method": "GET",
+      "sha256": "42a22743fb32df6543536f78add4fcfd2557c8af5d0bf0aff5ba9d7491cde350"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "43c60de380db12b57aaf0f9397a8c4e4e6903a7e6ed5d466072694f5a9e2e65f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/servlet/jsp/jsp-api/2.2/jsp-api-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/servlet/jsp/jsp-api/2.2/jsp-api-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.2/jsp-api-2.2.pom",
+      "status": 200,
+      "bytes": 5331,
+      "method": "GET",
+      "sha256": "da6889a3adb5bfd691428afed256d3e721f95e676f789945dbd25c4e6fcd9308"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/servlet/jsp/jsp-api/2.2/jsp-api-2.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "511756718326852d863d7bad5bd760e78ca2b8d3df075856f87c31842c0ad149"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/web/jsp/2.2/jsp-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/web/jsp/2.2/jsp-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/web/jsp/2.2/jsp-2.2.pom",
+      "status": 200,
+      "bytes": 6908,
+      "method": "GET",
+      "sha256": "ce735e9587fb3e8144d8fdd8c778764247dfa2d475abd7aa3083e0044d80ffe8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/web/jsp/2.2/jsp-2.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2fde5ae081dd6068b7d5706e0383fd71219f83c823350296181043420193146c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/javax.servlet/3.0-b72/javax.servlet-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/javax.servlet/3.0-b72/javax.servlet-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/javax.servlet/3.0-b72/javax.servlet-3.0-b72.pom",
+      "status": 200,
+      "bytes": 4822,
+      "method": "GET",
+      "sha256": "71eed4e84e8861e2f72a80f173748e056477bc8224df39af1bbe1de79f60d91b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/javax.servlet/3.0-b72/javax.servlet-3.0-b72.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "46f937fcd41ace2fc9922250cca5f66850d02305ff0e8b66c09ec04eeb42d73c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/api-pom/3.0-b72/api-pom-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/api-pom/3.0-b72/api-pom-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/api-pom/3.0-b72/api-pom-3.0-b72.pom",
+      "status": 200,
+      "bytes": 4562,
+      "method": "GET",
+      "sha256": "ef2f9ffe7021a6e89a3fc5cd6f014176bcffbccc8fd7546db6ea15d54f6adf19"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/api-pom/3.0-b72/api-pom-3.0-b72.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7498798c0fcbe17df680de566034c73efeff3a21c086279ea7b3ff2715f71547"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/glassfish-parent/3.0-b72/glassfish-parent-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/glassfish-parent/3.0-b72/glassfish-parent-3.0-b72.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/glassfish-parent/3.0-b72/glassfish-parent-3.0-b72.pom",
+      "status": 200,
+      "bytes": 47822,
+      "method": "GET",
+      "sha256": "9eb0dcbd713ddce0f5c767666bf1708e54b991d163ef50796e675bc12913ac64"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/glassfish-parent/3.0-b72/glassfish-parent-3.0-b72.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2369fc8712502ebcc5821bf4c789c059628b40ccfa5a2d2239fd80c1d43c0d0d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/pom/8/pom-8.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/pom/8/pom-8.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/pom/8/pom-8.pom",
+      "status": 200,
+      "bytes": 10550,
+      "method": "GET",
+      "sha256": "f9f75ee90de70b68bd497267b740df3b41d213bc71ea776de7d370736d894a2c"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/pom/8/pom-8.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "00b726990a54f5d627757dd9e18ad6a82f1aae07d71cfc4662dc05e58b710672"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/el/el-api/2.2/el-api-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/el/el-api/2.2/el-api-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/el/el-api/2.2/el-api-2.2.pom",
+      "status": 200,
+      "bytes": 4202,
+      "method": "GET",
+      "sha256": "0598c6e855eaeeabf1c52ce542f40da97452c7be2fdfe41fb9802b440af4c09e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/el/el-api/2.2/el-api-2.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "e61708798e5a99050afc172cc49ade03bfef696dfd3c83c0b2665324db9fcd1c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/glassfish/web/el/2.2/el-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/glassfish/web/el/2.2/el-2.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/web/el/2.2/el-2.2.pom",
+      "status": 200,
+      "bytes": 3900,
+      "method": "GET",
+      "sha256": "165fcc3d8e29361388d63eb399793fabbd6daa27b253e8e3b726f3db4adfd768"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/glassfish/web/el/2.2/el-2.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "061d051d152c94b0438003308669a82eb8a7e8b121c29baf0b72106c3810f6d8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/google/guava/guava-bootstrap/11.0.1/guava-bootstrap-11.0.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/google/guava/guava-bootstrap/11.0.1/guava-bootstrap-11.0.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/guava-bootstrap/11.0.1/guava-bootstrap-11.0.1.pom",
+      "status": 200,
+      "bytes": 1331,
+      "method": "GET",
+      "sha256": "c78fdab49d95a16edf14d1d7a046ce40724bfac70f3260615b64daaa527a2cbe"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/guava-bootstrap/11.0.1/guava-bootstrap-11.0.1.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "313c1d14e71b118f12faeb985d6e45f219efc1a8d4014f56cb3d823b5c5ca769"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jboss/modules/jboss-modules/1.6.0.Final/jboss-modules-1.6.0.Final.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/jboss/modules/jboss-modules/1.6.0.Final/jboss-modules-1.6.0.Final.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/modules/jboss-modules/1.6.0.Final/jboss-modules-1.6.0.Final.pom",
+      "status": 200,
+      "bytes": 8580,
+      "method": "GET",
+      "sha256": "dcdc259ab58a7ab638c77341284bb5e7e57af15fd7899d944cba7cb960356fd0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/modules/jboss-modules/1.6.0.Final/jboss-modules-1.6.0.Final.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "210603e6057838f1765bc06297dbbf7077a1e426367296f04fde08a42bda08db"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jboss/modules/jboss-modules-jdk9-supplement/1.2.Final/jboss-modules-jdk9-supplement-1.2.Final.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/jboss/modules/jboss-modules-jdk9-supplement/1.2.Final/jboss-modules-jdk9-supplement-1.2.Final.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/modules/jboss-modules-jdk9-supplement/1.2.Final/jboss-modules-jdk9-supplement-1.2.Final.pom",
+      "status": 200,
+      "bytes": 2885,
+      "method": "GET",
+      "sha256": "274744cc3553797b07a63b9ec1463708bda676d1c8afe348f71c8eedc934cb09"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/modules/jboss-modules-jdk9-supplement/1.2.Final/jboss-modules-jdk9-supplement-1.2.Final.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "548e3a5e96e2c6b1b1d44ed94c948077246eeba5a743954c23afb57f43ea129d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jboss/jboss-parent/21/jboss-parent-21.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/jboss/jboss-parent/21/jboss-parent-21.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/jboss-parent/21/jboss-parent-21.pom",
+      "status": 200,
+      "bytes": 36501,
+      "method": "GET",
+      "sha256": "8c9d35b0c63457e29d620d412ba6a16df8f8db3ba94f9294ad4f591f7d482371"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/jboss/jboss-parent/21/jboss-parent-21.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "bb89f9d2d3e70ad33bc2ed81a739e4ea38b3afc25337705f85ef15244ef79a02"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/groovy/groovy/2.4.7/groovy-2.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/groovy/groovy/2.4.7/groovy-2.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy/2.4.7/groovy-2.4.7.pom",
+      "status": 200,
+      "bytes": 16904,
+      "method": "GET",
+      "sha256": "9a76974ff96069d8503f56c5da0661fad202316df0387108ecf180ec5feaf358"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/groovy/groovy/2.4.7/groovy-2.4.7.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ecb65fc34971a9ba83ea23d663976918a3de8295102124cb0b3be9cb87be6a06"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/servlet/servlet-api/0/servlet-api-0.pom",
+      "status": 200,
+      "bytes": 510,
+      "method": "GET",
+      "sha256": "b3a79c22f2b4be30ebcbafc91e9091e89145a09f195aa146b1600352f4cab2f4"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/servlet/servlet-api/0/servlet-api-0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8924bf11e9495cbb21f1ee0d2de57e989c8fc43443b51916091342f995b96e41"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.pom",
+      "status": 200,
+      "bytes": 2581,
+      "method": "GET",
+      "sha256": "deebb38dfc9353f110dc1b72f7f4eb6a7fe7cc757d77f1adf53ef195e4e52bb8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "1b2b940bfcc701571c8d81357204bef2d2b96da9a92ffa2596aa90e5513d79d3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/mail/mail/1.4.7/mail-1.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/mail/mail/1.4.7/mail-1.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/mail/mail/1.4.7/mail-1.4.7.pom",
+      "status": 200,
+      "bytes": 5316,
+      "method": "GET",
+      "sha256": "961099a420f6c31deb733410c0a2462c0669273235fa58c570d61acbdb9d8d8a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/mail/mail/1.4.7/mail-1.4.7.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "c5b6ef128d1471f985bde872459ee6abdfd6f84c3d1a50d6c25157e5d1d0c9cb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/sun/mail/all/1.4.7/all-1.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/sun/mail/all/1.4.7/all-1.4.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/sun/mail/all/1.4.7/all-1.4.7.pom",
+      "status": 200,
+      "bytes": 20431,
+      "method": "GET",
+      "sha256": "59657264154f176f9459cf45c24d07f4e966f2c5e9c510ada12d654c7c5bc54e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/sun/mail/all/1.4.7/all-1.4.7.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "119a912e1e4f5d3d8c688f7874c9088cd16a871099b0ba05fdf0ae6173aabadb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/javax/activation/activation/1.1/activation-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/javax/activation/activation/1.1/activation-1.1.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/activation/activation/1.1/activation-1.1.pom",
+      "status": 200,
+      "bytes": 1058,
+      "method": "GET",
+      "sha256": "d490e540a11504b9d71718b1c85fef7b3de6802361290824539b076d58faa8a0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/javax/activation/activation/1.1/activation-1.1.pom.sha1",
+      "status": 200,
+      "bytes": 44,
+      "method": "GET",
+      "sha256": "f52b6d3f8e9b556534264b981f4b6f872a7639a22f22029e805728580a7d4daa"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/executable-war/1.45/executable-war-1.45.pom",
+      "status": 200,
+      "bytes": 2606,
+      "method": "GET",
+      "sha256": "94fc1274c795db8d1bb81a8930cb99f5ba9c8be946bfe058f8f54bda1bfe21c2"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/executable-war/1.45/executable-war-1.45.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ca36bfb92a038b8811293914481dae7f9da35b8e691eeeba7c7e4b7bfb31ef10"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.pom",
+      "status": 200,
+      "bytes": 4432,
+      "method": "GET",
+      "sha256": "cf93cbaaa29aaa75876463c25e1c6c851d383f942da2fb1e099d06f7f2c7b7b4"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "344e8d9a1c6d92253669892309c0fac38c274272b8da5fec8496b61d44d3c319"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom",
+      "status": 200,
+      "bytes": 4813,
+      "method": "GET",
+      "sha256": "b8d3bd410253724e05583592bf8368d957e0254e8dad86320b99caa6bf335593"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8cf8c9c043ba099a1882a844891f4d832da0774248148c38307ddb984b2f74c8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.pom",
+      "status": 200,
+      "bytes": 13230,
+      "method": "GET",
+      "sha256": "18e87660adf07a1133e5b28e0c5c74ff1957b6122d6ace0dcfc4c3b8b654f74e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "059ee47703b0c1e8b7a381b661a2c604aa1683d029ac6d2e79f788108c8f88c6"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/fusesource/fusesource-pom/1.12/fusesource-pom-1.12.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/fusesource/fusesource-pom/1.12/fusesource-pom-1.12.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.12/fusesource-pom-1.12.pom",
+      "status": 200,
+      "bytes": 14598,
+      "method": "GET",
+      "sha256": "c40d960daadcef7b01c1b1c6657afbac4fffb5e53168f8fcb0b28b84e6fdcca1"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.12/fusesource-pom-1.12.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "cf84a47ea8f43b73dd6fa6c82a9cbf24e7b7636005b40a899ad947d5e84b0520"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant/1.10.11/ant-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant/1.10.11/ant-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.10.11/ant-1.10.11.pom",
+      "status": 200,
+      "bytes": 16517,
+      "method": "GET",
+      "sha256": "c22894d9cb46abf5cebf6eeb2bccfe4d78e18eeea311a0ea6addd59dfb4b1fe3"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.10.11/ant-1.10.11.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "a158bc0c18601337261913f5fa07e7d6af0f2df95b76f57a55bfbadf06a6b7f2"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-parent/1.10.11/ant-parent-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-parent/1.10.11/ant-parent-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-parent/1.10.11/ant-parent-1.10.11.pom",
+      "status": 200,
+      "bytes": 6522,
+      "method": "GET",
+      "sha256": "57a0532682f30fa307416a225929d5710acda72d7b25ee08caf98dc82cd35db6"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-parent/1.10.11/ant-parent-1.10.11.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ac85d3f83e8249d0eb497f2d5c291c992894071cf6b21393d2505d3f0f48365d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.pom",
+      "status": 200,
+      "bytes": 3165,
+      "method": "GET",
+      "sha256": "ed2a0688261beb6e08ec54b38312f1d482ccf1a3b863c47d28d5b90a446d1c1e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "9c94cff295220a5056e9fb4e292a9bd60c8af3ef1dd086a8169bb7032c37c17e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant/1.10.11/ant-1.10.11.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant/1.10.11/ant-1.10.11.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.jar",
+      "status": 200,
+      "bytes": 23870,
+      "method": "GET",
+      "sha256": "eab875623ec1c3422362ba1c20b95af0760da8c010edd3c0a9e40c063b2d34c1"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.3.0/maven-archiver-3.3.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "27596e5cf623ce898b13e6a0a9b9899cf1a0aba6b2ed0b45f62483ae584019fd"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar",
+      "status": 200,
+      "bytes": 191298,
+      "method": "GET",
+      "sha256": "e4d5c60de429a3eb782688218a0513b6d4ad16c50fe787b4c39ff05173eff17c"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ebc9d1255231644dc4684e6d41252ddc717d175e80e0bacae80cdce70ef132f0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.jar",
+      "status": 200,
+      "bytes": 18881,
+      "method": "GET",
+      "sha256": "dab530df7a980b5ac8fd7e8d208243ae0d3ebd6de09b1aa2ce756360cc2ed256"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.10.11/ant-launcher-1.10.11.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8868209a2f727614d8b78b379eeb425bb5ebabc99f0f6cf4c543bf722701d182"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.jar",
+      "status": 200,
+      "bytes": 314857,
+      "method": "GET",
+      "sha256": "d207c1114741e7544a8f17c07b53d91689c0716c54eaf8f3b7149e73b0ec1b09"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/fusesource/jansi/jansi/2.1.0/jansi-2.1.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d69c2814e850b97093f58d8d3c98f53cdf633a7bbe7d9f8b1cc6cc1d1530c262"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.10.11/ant-1.10.11.jar",
+      "status": 200,
+      "bytes": 2280953,
+      "method": "GET",
+      "sha256": "88c0b89bbbaae01e0d9fcae93be792f5abbe3409106f8eee858fdf365dbc0754"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.10.11/ant-1.10.11.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5ecb32c1ae7be546978890b3786701882eb8e771f9106ea7139c4e5cfd02c8ef"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.pom",
+      "status": 200,
+      "bytes": 3038,
+      "method": "GET",
+      "sha256": "44fc59eb0780d3f024064432469bd6c09c907635ea94cd19b8c0390f481eb933"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "eb48831c0b76ee7c64c37c689543cf676ee96ce9e04c3ef5f923e1a380fa114e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven/3.6.3/maven-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven/3.6.3/maven-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.6.3/maven-3.6.3.pom",
+      "status": 200,
+      "bytes": 26435,
+      "method": "GET",
+      "sha256": "d2d86245ea66149bc14d2dd72bbb961f964dd658b809a0573252c06531eeec16"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.6.3/maven-3.6.3.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "6fc373e03e2b2105de556cbb2a3ddc3be86f68cfa1c2c4854bb9cffda7b8da66"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.pom",
+      "status": 200,
+      "bytes": 4084,
+      "method": "GET",
+      "sha256": "7c720e8cb03d285c71cd6e334d9c9e596062bdd310ee0ad15f5c479a993154f0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "799b41866fdaa544377aca52eb9f225d8c4e731be3810ae5c227863774c52f1b"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.pom",
+      "status": 200,
+      "bytes": 2394,
+      "method": "GET",
+      "sha256": "47a615f91a888503a17859cadcbe6e8641976f8c08bf9b7b2ac508910f1a7471"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "a516c360d9e1e31485b35a38a456146f1abfb3cf2accd2957ffd17e3f15f492a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.pom",
+      "status": 200,
+      "bytes": 4459,
+      "method": "GET",
+      "sha256": "3013b3b9e7bf1b47fe42b579db2bc7740949688cac18d48c53158a049dbc8c57"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "06fe8b150eec9669f39d613be1b6d9a54c097473bf8d999cb5ad5be2379778fa"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.pom",
+      "status": 200,
+      "bytes": 4836,
+      "method": "GET",
+      "sha256": "aa6ce1f10002697df86634c5b6645e9d003a73a50b97a4a5eadd91cd9de1ad10"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "65ea726d64fe58d992f83118e73d633a38e020176db1c302d3566c5e6fd3c83f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant/1.9.15/ant-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant/1.9.15/ant-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.15/ant-1.9.15.pom",
+      "status": 200,
+      "bytes": 9976,
+      "method": "GET",
+      "sha256": "d1517c826ad5aa6df65a95eac3a87e66e96ded07ff6224776db84a65beaba53b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.15/ant-1.9.15.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "efa9bc1603e1c9faf5a20dfe688787aa657b691fe23166f76d0d3bddf094c514"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-parent/1.9.15/ant-parent-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-parent/1.9.15/ant-parent-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-parent/1.9.15/ant-parent-1.9.15.pom",
+      "status": 200,
+      "bytes": 5623,
+      "method": "GET",
+      "sha256": "3d2f9673b86bdbb30addb75c59d9cffc12833957d7eadd52499b8ea41316f434"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-parent/1.9.15/ant-parent-1.9.15.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "c0fbe4edebcf9e446e98a0c4f6e19dc15a3792e4ecd4f222cd8239bdddd25c1d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.pom",
+      "status": 200,
+      "bytes": 2337,
+      "method": "GET",
+      "sha256": "836b7b6e14034315af95cc452eb527cf6912e2fa3f84ec51400608737cda053f"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "737f986dee040e871825556d9044316e2a85e59c18cb6a0c7953de0a8ceb80f5"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.pom",
+      "status": 200,
+      "bytes": 855,
+      "method": "GET",
+      "sha256": "e49afa9ccac45ec0e4af70c0d63f156643d59b5886a26910bffd84f9982cd648"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7f83844aa13f773e3b7724c6714fc5c5c2ed48d5d53992970fed93644895ba6d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier/1.4/access-modifier-1.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/kohsuke/access-modifier/1.4/access-modifier-1.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier/1.4/access-modifier-1.4.pom",
+      "status": 200,
+      "bytes": 2754,
+      "method": "GET",
+      "sha256": "db4d6309c93f73ed3bde0169e6955c4dfec22d47f68e4f33d1df06506a4593ef"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier/1.4/access-modifier-1.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "28dd75188fe8c758dea9c8fcfff96e1886bb270c128e432f5b27b957b8c79f35"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.4/org.eclipse.sisu.inject-0.3.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant/1.9.15/ant-1.9.15.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.4/org.eclipse.sisu.plexus-0.3.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.4/annotation-indexer-1.4.jar",
+      "status": 200,
+      "bytes": 16088,
+      "method": "GET",
+      "sha256": "557c06cca58781d6c232a2582cc3840a6381a54c0d830617586029abf79bbadb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.4/annotation-indexer-1.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "38669ea8f6709b91398603ba75d4148b8d5735c11ff824b14cace28306e41abe"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.4/org.eclipse.sisu.plexus-0.3.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.4/org.eclipse.sisu.inject-0.3.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant/1.9.15/ant-1.9.15.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.jar",
+      "status": 200,
+      "bytes": 47035,
+      "method": "GET",
+      "sha256": "61a48effa6d0c68b07ba50df17b270a7f5527212022f250f6d11dbc11efc0e5b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.6.3/maven-plugin-api-3.6.3.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4b4432d9d5694bd0de7b45a4f023b87c65c20d2e823eab43d460a7e6b22ce5f8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.jar",
+      "status": 200,
+      "bytes": 25500,
+      "method": "GET",
+      "sha256": "44da564ea37b05aba884f89da2525fbaaadcd3348547e2c679db0f5f40e43246"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.4/org.eclipse.sisu.plexus-0.3.4.jar",
+      "status": 200,
+      "bytes": 205323,
+      "method": "GET",
+      "sha256": "87e66ffad03aa18129ea0762d2c02f566a9480e6eee8d84e25e1b931f12ea831"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.jar",
+      "status": 200,
+      "bytes": 215412,
+      "method": "GET",
+      "sha256": "17cef1f58e146ef0d7d9e96b3b92d98a1d6fd7d2b3288ba538e8ff1e0d9160cf"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.jar",
+      "status": 200,
+      "bytes": 196402,
+      "method": "GET",
+      "sha256": "2a8143caa8c0eb047b7c0f998aa5bbbd9eb8926a59ec11ca6bc86b37363b26b0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.5.0/maven-archiver-3.5.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b1199ea61298451c1e0696362f14859023116421a1c7a1aef93e9ddf1520dbbc"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.4/org.eclipse.sisu.inject-0.3.4.jar",
+      "status": 200,
+      "bytes": 379197,
+      "method": "GET",
+      "sha256": "8c0e6aa7f35593016f2c5e78b604b57f023cdaca3561fe2fe36f2b5dbbae1d16"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/4.2.0/plexus-archiver-4.2.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d6966af0430e6c07c340e4e3ce873a255ca92d1500f871a86fa61c8343f90ea5"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.4/org.eclipse.sisu.inject-0.3.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "be8eb9d6fcb56522dbb2e2be2d1520fd29cf549fca2e032413bb02e339276373"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.4/org.eclipse.sisu.plexus-0.3.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "f99be88c74ad7899a4ca8ec2c2ead0b2fbcc35f2522481eb255845e923a6bed5"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar",
+      "status": 200,
+      "bytes": 85327,
+      "method": "GET",
+      "sha256": "e003802501574637f7abdc4e83e6d509a31e9ff825d12da6d1e419acf9688705"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar",
+      "status": 200,
+      "bytes": 615064,
+      "method": "GET",
+      "sha256": "ff2d59fad74e867630fbc7daab14c432654712ac624dbee468d220677b124dd5"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.jar",
+      "status": 200,
+      "bytes": 57824,
+      "method": "GET",
+      "sha256": "61b20da4e1e3db837630d0810a6a7a5ac9fb7ea31b0a55638062aad6e479c09c"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5a487ade79b1f8201558756e2a3def8a28b5cc7ea289a04a3b1aeaae8cb75431"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7813baf55de61c2f1735ddbe3af5773a7213d57b52cf8736978aa825c70575ef"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.6.3/maven-artifact-3.6.3.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "adde126aa32b8c60925a0f1d3d7a3cd2bc4fef81646b1512b7be03c353f5c756"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar",
+      "status": 200,
+      "bytes": 6928,
+      "method": "GET",
+      "sha256": "b8e14a0503dafc5fa3dacf310312e6b99439b5bba32c74e24a68cc42394b051e"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.15/ant-1.9.15.jar",
+      "status": 200,
+      "bytes": 2070320,
+      "method": "GET",
+      "sha256": "559878381082474655c740e8373a2c9990fe4a987aa4c26f39c722cef5c42ccc"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d0a4f2bc3b2bb008e5f410bf3cb46e39dc35913601ef3fa9d3fc00b5b4530148"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.15/ant-1.9.15.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8df9f761d58766758d5cdf706436b55c07380b6948b2bb5c58395296c0d634b4"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "45c3969d21e07870f17ae72bd1f38687d7cbde249e30170fcf98a61df4c40d05"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.jar",
+      "status": 200,
+      "bytes": 18425,
+      "method": "GET",
+      "sha256": "3b6c7c0bbc064a6d40039f995f6dc39bc3b79a3b35f3e947ed545c4b661bd94b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.15/ant-launcher-1.9.15.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8e37d1ed43c309cb89f9ec492e65561464b3cd0f26b0490c13b2ad76c7c0f013"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.pom",
+      "status": 200,
+      "bytes": 5894,
+      "method": "GET",
+      "sha256": "215b1dd8b624097f9e4b519031011e8baf74dbb78444640d4a5e660a858c3e54"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2a33fc24ea258fceeebcb8dd0e195192ba095a7a8ffb665573304a2c3e58164f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/sisu-plexus/0.0.0.M2a/sisu-plexus-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/sisu-plexus/0.0.0.M2a/sisu-plexus-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.0.0.M2a/sisu-plexus-0.0.0.M2a.pom",
+      "status": 200,
+      "bytes": 7915,
+      "method": "GET",
+      "sha256": "83769dbe7b5728f6b22061acb243aac887a3cdcd070e140a3fc9e59818b17645"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.0.0.M2a/sisu-plexus-0.0.0.M2a.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "13e7b4387db24c00647700cf03a06388965c5650bf12a94d5aa67b2acc75c007"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.pom",
+      "status": 200,
+      "bytes": 4969,
+      "method": "GET",
+      "sha256": "77df04bd50d231861e65945c4edd889456f093fe6b316f6ee906bd75c45108c4"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "e06a9b110caf52898365a6296c2f9392257a721c78634e7b16a1aa16a1a2b4ee"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/sisu-inject/0.0.0.M2a/sisu-inject-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/sisu-inject/0.0.0.M2a/sisu-inject-0.0.0.M2a.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.0.0.M2a/sisu-inject-0.0.0.M2a.pom",
+      "status": 200,
+      "bytes": 7807,
+      "method": "GET",
+      "sha256": "6ea322bae1e866d7917baf572458ebdb07a620b83b0cb623f9297d7ec91c4718"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.0.0.M2a/sisu-inject-0.0.0.M2a.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "03d0d0ec4a3fa13c44e906bd8b7ed84c875ec9113d795dd0862dde2b2b5834ea"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.pom",
+      "status": 200,
+      "bytes": 6808,
+      "method": "GET",
+      "sha256": "0ec91161657ca8ab6c41c3221b27ce7ccd7370e8e573b02cadcd3449c98890a7"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "1e7a38d671aad1fa72d9da6d6a0c1927f6ac2bba3bbfaa1cf97d57ab85485fbd"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar",
+      "status": 200,
+      "bytes": 163733,
+      "method": "GET",
+      "sha256": "f9f7ad6301942d385fc79ed0615a7d5f06dbda60dee70b709e679624313e642a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ae964dd8e6a933b9a1f0e814c3b9b60e4de0df852f0ae991c2ca14c87481b700"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.jar",
+      "status": 200,
+      "bytes": 51618,
+      "method": "GET",
+      "sha256": "f3d247b564ff1ec2fb7662529e72156f250935dc0f91d0a718e2df1f8bc7a6bb"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar",
+      "status": 200,
+      "bytes": 202339,
+      "method": "GET",
+      "sha256": "03df90434ddf1851924dd9ba4d5f22aff7b134265fe9c7ecdb59d9b1dc3c1987"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar",
+      "status": 200,
+      "bytes": 202137,
+      "method": "GET",
+      "sha256": "3e745c61748a4780839cbc6c0b10854abae3be26f3cf283a00bc002d2ed98bd1"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-filtering/3.2.0/maven-filtering-3.2.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "72acb9c4711382ad9cc81f3b1dfd49c243a7b0246ee8b3c3cb78d4c1bf2704a8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d8014b62ee5850096860037a18b8be8e03c6776a8203c21e6691df5c6e6fc62a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "07d316bd8ab83f85f52105faf252fb5fe400244a0fb788403d7ce5aba8dae915"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.pom",
+      "status": 200,
+      "bytes": 7604,
+      "method": "GET",
+      "sha256": "47c56c1b60111026cd339b9cb382d1190228ba1f11f5b67386ae721222c02382"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4ca79f7067daea2df4ad488b8fc44592d7b0dabe59f99786d9edf514774c324a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-component-annotations/1.7/plexus-component-annotations-1.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-component-annotations/1.7/plexus-component-annotations-1.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7/plexus-component-annotations-1.7.pom",
+      "status": 200,
+      "bytes": 748,
+      "method": "GET",
+      "sha256": "ebd42eb9b9f7d04e2c585c7cfc532944507fdf7f7270f2a79e3e08ebf66d835b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7/plexus-component-annotations-1.7.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "0480aaeb05101a3d3621bb6de49e30a2aa8afdb34f248a39b1ec7ad2d068269b"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-containers/1.7/plexus-containers-1.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-containers/1.7/plexus-containers-1.7.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7/plexus-containers-1.7.pom",
+      "status": 200,
+      "bytes": 4764,
+      "method": "GET",
+      "sha256": "d2c5bbf39e79d1bfada04016a4d4db4ee14c7e861f50a3cdd6a204bf726b2f63"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7/plexus-containers-1.7.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "2e2bd21bb5c043208bf671e6ef629fc9f57f775f689e04cf84b47e509ef324f7"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.jar",
+      "status": 200,
+      "bytes": 123010,
+      "method": "GET",
+      "sha256": "b2d4fd5eb6f6278aff5e75b4ce6ca015408290a51c93e32ac56a06a38b21615d"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.0/maven-artifact-transfer-0.9.0.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "1f8b61ae7529a722a721f0bd1cb6decf2ba4bc140c35652496d54588d62905fd"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.pom",
+      "status": 200,
+      "bytes": 5108,
+      "method": "GET",
+      "sha256": "b0013096156cbb98dba97c2b0b07be194d33208b5bde7ee8866e69355e9ebd86"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "25140002aaf7051e8ead9598cf395bc711c0f08023e78be74b0a6bc380f24b2a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-languages/0.9.10/plexus-languages-0.9.10.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-languages/0.9.10/plexus-languages-0.9.10.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-languages/0.9.10/plexus-languages-0.9.10.pom",
+      "status": 200,
+      "bytes": 4140,
+      "method": "GET",
+      "sha256": "863adcfb4eaec8286de72e606c9cb39d65b0473309c41a2e7d37983291a10ba3"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-languages/0.9.10/plexus-languages-0.9.10.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "9ec99c2e50a1388c988252f9653d33b84cd92ca202a66d4cc446798a4b5e50b7"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/ow2/asm/asm/6.2/asm-6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/ow2/asm/asm/6.2/asm-6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/6.2/asm-6.2.pom",
+      "status": 200,
+      "bytes": 2936,
+      "method": "GET",
+      "sha256": "92ec633f93f9c84dcb087a79df1395cfef07be574076ceaeb3159e096b4d4643"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/6.2/asm-6.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "0e51e11a3ccc399ee4d45c015b78bdfbec701a2a061e9a032ce0783a02aaa8e3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.pom",
+      "status": 200,
+      "bytes": 15843,
+      "method": "GET",
+      "sha256": "8fb39a1e86ee1dca54680df79512ff2939eba17660f62e142b2b9df699b3b6a3"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ad068231cb9a97aae65a59816d86f721e4d76d566d913853c491130a60b7c05c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.pom",
+      "status": 200,
+      "bytes": 867,
+      "method": "GET",
+      "sha256": "822b617cf487e06f520c28e14ade592563b30638a26b40acb4d5402efdf8cd26"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "9915fca7501dece9f8e6dbbc2265504b14155ec9a2a4d03016cf34809b905c25"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler/2.8.4/plexus-compiler-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler/2.8.4/plexus-compiler-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler/2.8.4/plexus-compiler-2.8.4.pom",
+      "status": 200,
+      "bytes": 6028,
+      "method": "GET",
+      "sha256": "90de88821eb50c3238f576eab8b08f36635a1b5d6a66d1ed52b93b10d54730b0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler/2.8.4/plexus-compiler-2.8.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b79a74d92617ad1c914d3a6a54cca99aa773f9eb113f5bf9594fc45db9482c4b"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.pom",
+      "status": 200,
+      "bytes": 692,
+      "method": "GET",
+      "sha256": "4e9353e40fa16ba9384e8667490f0707267b30d75b77b6d588e4aaf8209936e9"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4deef11bcf5f9cf87f718957d5c109e6610d0a02ca808b077033d75a63c60a8f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.pom",
+      "status": 200,
+      "bytes": 771,
+      "method": "GET",
+      "sha256": "1b46ab52843b7446be98623a97f80db01c1ba4672fba1a41beb165436c0c0601"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "6f3d8a664278bc5089ee68d03c2227f281e86772c9562012cebb2d17f65bfb41"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compilers/2.8.4/plexus-compilers-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compilers/2.8.4/plexus-compilers-2.8.4.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compilers/2.8.4/plexus-compilers-2.8.4.pom",
+      "status": 200,
+      "bytes": 1341,
+      "method": "GET",
+      "sha256": "82a8175c836ce32d32077191111ebc256e2cbb7d907909edbb6b9b66e88521a6"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compilers/2.8.4/plexus-compilers-2.8.4.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ca4e37f5160789f86766af82a07c34c6053889ffbe88b23fc9671d3694b98c4c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/ow2/asm/asm/6.2/asm-6.2.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/ow2/asm/asm/6.2/asm-6.2.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.jar",
+      "status": 200,
+      "bytes": 39426,
+      "method": "GET",
+      "sha256": "9f4c82ea85ccad3c8bb6ae8101ed760aabf5b33b529586a8bd5d1e3d3ab67f1b"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-java/0.9.10/plexus-java-0.9.10.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5928b9ff0e613dd064df410f89d7d5f265776f7699f5b96f4643655d0145d11a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.jar",
+      "status": 200,
+      "bytes": 4708,
+      "method": "GET",
+      "sha256": "ec139721f45f8986fbee1cc45f428cd036fe5ed434959048d5d10d3eb73b5731"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.jar",
+      "status": 200,
+      "bytes": 21277,
+      "method": "GET",
+      "sha256": "a37a6d56a32bd0861d53d817c4c81088c87f9e4601caed01eaec4ede7fa4677a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.jar",
+      "status": 200,
+      "bytes": 27080,
+      "method": "GET",
+      "sha256": "ea80e16c7b10200ad7fbc7d6ebb244b30243e299648c7f9d1329720aec6dd3fe"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-manager/2.8.4/plexus-compiler-manager-2.8.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3ac63d3d60004e7443bd86ef6b9fa7e63393a6657ab1d1da935afb4a27d16c11"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-javac/2.8.4/plexus-compiler-javac-2.8.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "55d772cb7c1839b6d40da501e50881c8fcad57e241b0747bc6526ae47b209f7d"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-compiler-api/2.8.4/plexus-compiler-api-2.8.4.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3d47f94474205ff48bc2d231b1853007f5d5f877617625df59c9d38d5e5f6cc3"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.jar",
+      "status": 200,
+      "bytes": 317269,
+      "method": "GET",
+      "sha256": "ee2f7fa60b6ef3151f1bb0a242e0bacb832ff29f3ee8fd3da61d26d8608bc1bc"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/thoughtworks/qdox/qdox/2.0-M9/qdox-2.0-M9.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7f3f4f2847cffeac92b5b992be444db55a16e64765f9a769fec836782626c9e8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/6.2/asm-6.2.jar",
+      "status": 200,
+      "bytes": 111214,
+      "method": "GET",
+      "sha256": "917bda888bc543187325d5fbc1034207eed152574ef78df1734ca0aee40b7fc8"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/6.2/asm-6.2.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4f04097ad61d7456ac16103ad0454f7b0537ef74e93204df3e165a8faa9e742e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.27/access-modifier-annotation-1.27.pom",
+      "status": 200,
+      "bytes": 4721,
+      "method": "GET",
+      "sha256": "3cc67f62bb4208c51e0c2be48689357496cd0d67152e6711115bcd8b83d7bb48"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.27/access-modifier-annotation-1.27.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "01c57ae490d92bdd6ae9447f2aa4adf614b8a410403746dbc09c1adc0511aaaa"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.15/annotation-indexer-1.15.pom",
+      "status": 200,
+      "bytes": 1747,
+      "method": "GET",
+      "sha256": "001424cbaf3d5366052c65ccac627b80aaf49c8a5b5932cedc564e49f60068cb"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.15/annotation-indexer-1.15.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4bba39a9348a795a13cc42a550b9a9f32a46a17f3623ccadefecfbc330b5417c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-suppressions/1.27/access-modifier-suppressions-1.27.pom",
+      "status": 200,
+      "bytes": 5181,
+      "method": "GET",
+      "sha256": "91ae433ef9c411321c719c4ddb5b1fdffbfc34a69b3586a39fce9d20537f04f7"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-suppressions/1.27/access-modifier-suppressions-1.27.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "3c497ec7d1778d8aed25a6f004b1c07649002023e9ce5e42e6b08b0f10ade73e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.pom",
+      "status": 200,
+      "bytes": 1474,
+      "method": "GET",
+      "sha256": "41a3da8e070730271933b62ebba1d63b7ac65e89fd1f0f3c4f7cddf95386e164"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "578b0e0b9c4a8d874d67ef0fd98ddecb382b367bf8f5c09ef76fe202eccb8dc3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.2/maven-plugin-tools-3.6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.2/maven-plugin-tools-3.6.2.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.2/maven-plugin-tools-3.6.2.pom",
+      "status": 200,
+      "bytes": 15264,
+      "method": "GET",
+      "sha256": "26179a06077da7d9a72a59b2ae13c837340889b423d4d191e20bbae6fc96eab6"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-tools/3.6.2/maven-plugin-tools-3.6.2.pom.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b8cd00b611d25b1596b346dc270ddcfc8ce2a0ba528816cbeb7a22bbf39444e6"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.27/access-modifier-annotation-1.27.jar",
+      "status": 200,
+      "bytes": 11843,
+      "method": "GET",
+      "sha256": "e29903ed961f392e43ff1415ffc16e8f4a94fd763c84707d399e49e873140945"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-annotation/1.27/access-modifier-annotation-1.27.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7d10efc386950b38f7b6e368622fcfa3012e263097fa199b09c04f4e27c9e6d3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-suppressions/1.27/access-modifier-suppressions-1.27.jar",
+      "status": 200,
+      "bytes": 3836,
+      "method": "GET",
+      "sha256": "3e67a8cce7dcef8a8d906e847aa6ea27c3b42a9789c384c429661868baef1f3d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.15/annotation-indexer-1.15.jar",
+      "status": 200,
+      "bytes": 17172,
+      "method": "GET",
+      "sha256": "3665f1208f4fd5681650be392fc28820a0b29d573546e433ffd60ca72814ce03"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/kohsuke/access-modifier-suppressions/1.27/access-modifier-suppressions-1.27.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "50b15a9faff26a8455e74ca37d7bd79c7940fbdbf8001647a44268b4669edb99"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/annotation-indexer/1.15/annotation-indexer-1.15.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "85b240fab7fe8962ad954c238c9a75fad9913dac3a7072fe41a2010eedd9cd91"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.jar",
+      "status": 200,
+      "bytes": 7499,
+      "method": "GET",
+      "sha256": "78943183eeffdb02d4f59ab3fc8f86699005ddf835b38eafc2cb72cb84b6ba46"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/kohsuke/metainf-services/metainf-services/1.8/metainf-services-1.8.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "e00de66415e7f7776b4bf00f62c513807276e8410b277830adf4a54dfffb0b00"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.jar",
+      "status": 200,
+      "bytes": 13857,
+      "method": "GET",
+      "sha256": "d326c3f012857be957b7f45840220f2eccfe9c164d1d12f7c224216e81364e6a"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.6.2/maven-plugin-annotations-3.6.2.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ad448e725a895ba0a49ef458f69e165d191ada1ea29e8b6400582e4e96ca7602"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant/1.9.14/ant-1.9.14.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/apache/ant/ant-launcher/1.9.14/ant-launcher-1.9.14.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant/1.9.14/ant-1.9.14.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/org/apache/ant/ant-launcher/1.9.14/ant-launcher-1.9.14.jar",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.14/ant-1.9.14.jar",
+      "status": 200,
+      "bytes": 2069867,
+      "method": "GET",
+      "sha256": "37c10bafb295aef7a8618da2ff82f0dd2d0cbe2bbbb7d5ea994ea615238bd041"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant/1.9.14/ant-1.9.14.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "600e167de4b90e81aada753087e2756cb28de9269b4d6adaf47806dee28700f0"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.14/ant-launcher-1.9.14.jar",
+      "status": 200,
+      "bytes": 18417,
+      "method": "GET",
+      "sha256": "faaf02c32f0649a2ebd146166b96a5c80cfddd3934fa0c260267e9c5be96088d"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/1.9.14/ant-launcher-1.9.14.jar.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "71ae5a313b679a2cc55e624286ef71c4e353e19f4087d0a4b9699c8daa271705"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/plugins/caffeine-api/2.9.2-29.v717aac953ff3/caffeine-api-2.9.2-29.v717aac953ff3.hpi",
+      "status": 200,
+      "bytes": 759395,
+      "method": "GET",
+      "sha256": "f505f5d151faf606f1e5633f741abff86229e88e09bed3dba63a9453698be68a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/io/jenkins/plugins/caffeine-api/2.9.2-29.v717aac953ff3/caffeine-api-2.9.2-29.v717aac953ff3.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "1b7aa9033ce0fbad96665a95b24a6e7ec49ceb55dbe389e021dff4fe11d9810d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/modules/sshd/3.1.0/sshd-3.1.0.hpi",
+      "status": 200,
+      "bytes": 2451503,
+      "method": "GET",
+      "sha256": "984c487264edfb6ad56837c01e9b2721032351318c9d4ff28946cdfe51f58714"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/modules/sshd/3.1.0/sshd-3.1.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "5e700bb1bc2319725ae2f656adeebdc9f566eba19d07f95befab87012dd189b7"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-api/2.47/workflow-api-2.47.hpi",
+      "status": 200,
+      "bytes": 160516,
+      "method": "GET",
+      "sha256": "a583eb07a262e6619f79456075db8616ac6ab9fab8d6ec252c437aab6ee5d14f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-api/2.47/workflow-api-2.47.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "4feef34b17b09d2cab38883a16ed33943620bbd40d066f350a054544cd5e76df"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.24/workflow-basic-steps-2.24.hpi",
+      "status": 200,
+      "bytes": 155419,
+      "method": "GET",
+      "sha256": "3cb39af3c0c8a83be7a6ff987901c04940cdf442e02ee44a15c99e829b510506"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.24/workflow-basic-steps-2.24.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "801e6d1a96c498a86c6ed93e7f3be4aa1cd115ad69637e9bac649066aaf847b8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-cps/2.94/workflow-cps-2.94.hpi",
+      "status": 200,
+      "bytes": 634302,
+      "method": "GET",
+      "sha256": "9ef4276c1da324466d740ec2030f248d26ad6073b3103e1c10cb82a03f7c9c81"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-cps/2.94/workflow-cps-2.94.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "a5cb3015d783a23c3bb97556cb16adcf1c508c50a1c2f8ce349e04cf75e4b08a"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.40/workflow-durable-task-step-2.40.hpi",
+      "status": 200,
+      "bytes": 98521,
+      "method": "GET",
+      "sha256": "9c764107396216791d3c8ed89d7398f8ffe56628e6173ff497d92d9a841c0cca"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.40/workflow-durable-task-step-2.40.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b3362c0c46dbcf0c2b0191b38745ee55baadb1473f1b199e4054a78a44007e31"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-job/2.41/workflow-job-2.41.hpi",
+      "status": 200,
+      "bytes": 136808,
+      "method": "GET",
+      "sha256": "ef78d24ffb6b84bba5a31fb937f5cf22efd57a2a576d41cb61144f70ef6fe3d1"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-job/2.41/workflow-job-2.41.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "ea39fea3e70ad5566b5066609eff64a5c9abf31e238e1d995f5fb465f9140d82"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-multibranch/2.26/workflow-multibranch-2.26.hpi",
+      "status": 200,
+      "bytes": 87330,
+      "method": "GET",
+      "sha256": "c2d67f6902fe8741552b1cd4e8a69262f4b4bc1db8842d57b808310031100410"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-multibranch/2.26/workflow-multibranch-2.26.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "720e7da592b8a403af74f6b1ee77f9cc78d39076614f55f2e432af25d49a6d9e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.13/workflow-scm-step-2.13.hpi",
+      "status": 200,
+      "bytes": 16473,
+      "method": "GET",
+      "sha256": "6a97728795e3a77104760e5fca74d42c3d20755173675f706196ac142209c5e4"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.13/workflow-scm-step-2.13.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "85a2828759ef301cb308a4d917e14c09f4b045ea6eeac30ba529473bbaf793e3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-step-api/2.24/workflow-step-api-2.24.hpi",
+      "status": 200,
+      "bytes": 76489,
+      "method": "GET",
+      "sha256": "e6d629ebdc248d2483069b5c67d1337df5ebc953600fbaed3b4d9e65dde34266"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-step-api/2.24/workflow-step-api-2.24.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7b4cdae3e854584bca6118f7b9a7702a45c47ffc25e5163e18322f6021b2c15b"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-support/3.8/workflow-support-3.8.hpi",
+      "status": 200,
+      "bytes": 384314,
+      "method": "GET",
+      "sha256": "e88769cb88a05277a2df8d8793bba34550f223e27161bfb44194c0918ec93138"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-support/3.8/workflow-support-3.8.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "b9958ee320eed57ccd2880b343d4c2798467762def1fb8ce4b9fcdbec9c08f13"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/apache-httpcomponents-client-4-api/4.5.13-1.0/apache-httpcomponents-client-4-api-4.5.13-1.0.hpi",
+      "status": 200,
+      "bytes": 1769549,
+      "method": "GET",
+      "sha256": "1fa5adafcd043c582a9b6ec44a6a37166db77bb6d5b7d2c4f9902ad263a65636"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/apache-httpcomponents-client-4-api/4.5.13-1.0/apache-httpcomponents-client-4-api-4.5.13-1.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "973f6fddbec7dd55ed0bd1507f4d58eba9babfd7ff9c09435c3068ba47e4a9d4"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/branch-api/2.7.0/branch-api-2.7.0.hpi",
+      "status": 200,
+      "bytes": 307268,
+      "method": "GET",
+      "sha256": "3722ffb8051cec26198428d19559d3356c1532afae5ce0d63b003993effd0802"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/branch-api/2.7.0/branch-api-2.7.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "243f3d221bace84eced88de8d14b1fb5140400d98b2025030bcc78fefe5c8ae9"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/cloudbees-folder/6.16/cloudbees-folder-6.16.hpi",
+      "client_disconnected": true
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/incrementals/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2/com/sun/tools/1.8.0/tools-1.8.0.pom",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/workflow/workflow-cps-global-lib/999999-SNAPSHOT/maven-metadata.xml",
+      "status": 404
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/cloudbees-folder/6.16/cloudbees-folder-6.16.hpi",
+      "status": 200,
+      "bytes": 222335,
+      "method": "GET",
+      "sha256": "5957009e62633cdcce83adac66aca3d7ff8e2039ab8a25e05380f295608b6430"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/cloudbees-folder/6.16/cloudbees-folder-6.16.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "23efcda45347bbc879ceb96700a3a53a4236340fcd7332b412e1270b3ec5c816"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/credentials-binding/1.27/credentials-binding-1.27.hpi",
+      "status": 200,
+      "bytes": 84812,
+      "method": "GET",
+      "sha256": "b909a9a49fb16d7ff9d5c7a5213263b75afeed50b3434266b195a81e47fcd7e3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/credentials-binding/1.27/credentials-binding-1.27.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "cdea5ec724c9e65771aafc155b629c04a5c6d7575e6908e09da6e21a54914379"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/credentials/2.6.1/credentials-2.6.1.hpi",
+      "status": 200,
+      "bytes": 964295,
+      "method": "GET",
+      "sha256": "6baec982cc0419218c0e523ab8e28dcc80c50c09ed84cc1afabf075567ab8d28"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/credentials/2.6.1/credentials-2.6.1.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "c509b92dcba3f1911c6e68a0cdb85da04f58ed75ba1065c58cdd6ef0a380ae86"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/display-url-api/2.3.5/display-url-api-2.3.5.hpi",
+      "status": 200,
+      "bytes": 28517,
+      "method": "GET",
+      "sha256": "4a418820b9faa7f01cfa990b75ddc67f090809d3f9bd8b95707cd7840eb45209"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/display-url-api/2.3.5/display-url-api-2.3.5.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "587259ae2aa968d8dfbfa04a84d9f2d4853f4efbda2a9984989d6e7864cb5693"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/durable-task/1.39/durable-task-1.39.hpi",
+      "status": 200,
+      "bytes": 8923362,
+      "method": "GET",
+      "sha256": "feacd3663df9cdf26e7b376516795f250102b5e3b21d0fc07edecc9f08a5e68c"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/durable-task/1.39/durable-task-1.39.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "7c17849fe1abe80b39501be383a95785b9c5f6cbd062eec8d3dea02be8d68172"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git-client/3.10.0/git-client-3.10.0.hpi",
+      "status": 200,
+      "bytes": 3394334,
+      "method": "GET",
+      "sha256": "1b09062c11a3b80440933873f9ed321950b16decc291395e2ffe0555711a39ef"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git-client/3.10.0/git-client-3.10.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "8ff968bd67ffaa1e73ab5949fc860bc86006622fe2a33cbb1c7ae1a94eef698e"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git-server/1.10/git-server-1.10.hpi",
+      "status": 200,
+      "bytes": 30463,
+      "method": "GET",
+      "sha256": "34095b9ed64e9252dfa7591c8a49ce5e244732b0884325e9258670dae587a8b8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git-server/1.10/git-server-1.10.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "09f8c086d700f2cc393101d12d16597675d9dd0722184c71c79412926e26c77f"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git/4.10.0/git-4.10.0.hpi",
+      "status": 200,
+      "bytes": 581595,
+      "method": "GET",
+      "sha256": "ca01ca69e1d47c69f11ec45a275497e08b6d8df338a134f352ef2fc4dd57cf47"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/git/4.10.0/git-4.10.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "9dcdb6fb4f76b46f8190a98e072327070c859a599bb36933d76e080762ece613"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/jsch/0.1.55.2/jsch-0.1.55.2.hpi",
+      "status": 200,
+      "bytes": 279724,
+      "method": "GET",
+      "sha256": "cdc74bf8e43eb40ae6ad98ba2f866c8891408038699da9b836518a1d8923fc44"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/jsch/0.1.55.2/jsch-0.1.55.2.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "32839674401915ab57c357c7cbada79ebf36efff920fbfb8f90b2298ca8c7b66"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/mailer/1.34/mailer-1.34.hpi",
+      "status": 200,
+      "bytes": 133384,
+      "method": "GET",
+      "sha256": "a38b98400d19155688471f3ff57390353f56e2773f8476e7bb78ed7a6f291d29"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/mailer/1.34/mailer-1.34.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "6bd7c06ca5fff958f1d94bbc479ba0687a41971829ca868c1d713fb1acb330d8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/mapdb-api/1.0.9.0/mapdb-api-1.0.9.0.hpi",
+      "status": 200,
+      "bytes": 396306,
+      "method": "GET",
+      "sha256": "072c11a34cf21f87f9c44bf01b430c5ea77e8096d077e8533de654ef00f3f871"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/mapdb-api/1.0.9.0/mapdb-api-1.0.9.0.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "d405ed98024503cbacf7c9b6778cd6d4459ca140da1541ddec98e636582fbb48"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/plain-credentials/1.7/plain-credentials-1.7.hpi",
+      "status": 200,
+      "bytes": 17509,
+      "method": "GET",
+      "sha256": "5a82ca66b397daccf663695b531fdf7ea993d5c1cb03f1b4692dbe804d163ba8"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/plain-credentials/1.7/plain-credentials-1.7.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "180b6cc7c4d2ad4334f245ee1830096f8f15754f4d12a585881172e1bcae6e7d"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/scm-api/2.6.5/scm-api-2.6.5.hpi",
+      "status": 200,
+      "bytes": 220598,
+      "method": "GET",
+      "sha256": "20adc461e6459098ffc538dace079d76b948f7ee6f86b247703720e803e2c840"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/scm-api/2.6.5/scm-api-2.6.5.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "0843461889e30f72d69c6499e5aec18e892664470c062c1f082b40617c855c49"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/script-security/1.78/script-security-1.78.hpi",
+      "status": 200,
+      "bytes": 191396,
+      "method": "GET",
+      "sha256": "1254a2d2a9c44e76d7855582db458bbfd9e934338a44831eb230e9de4653a2db"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/script-security/1.78/script-security-1.78.hpi.sha1",
+      "status": 200,
+      "bytes": 40,
+      "method": "GET",
+      "sha256": "44c7d8cdc6b2ed77c2d22ea9b80933359621046aeb6411ceb3b10b4faf461eb3"
+    },
+    {
+      "url": "https://repo.jenkins-ci.org/public/org/jenkins-ci/plugins/ssh-credentials/1.19/ssh-credentials-1.19.hpi",
+      "status": 200,
+      "bytes": 61537,
+      "method": "GET",
+      "sha256": "6dc93c4ac8669d3851ea23b15d675b973f0c042658d2e8cbfa868eed8549ed15"
+    }
+  ],
+  "transport": "Python TLS via loopback; official repository URLs only",
+  "repository_policy": "central_and_jenkins_https; existing repository IDs retained",
+  "toolchain": {
+    "java": "openjdk version \"1.8.0_514\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_514-b01)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.514-b01, mixed mode)\n",
+    "maven": "Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)\nMaven home: <workspace>/.cache/7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766/maven\nJava version: 1.8.0_514, vendor: Temurin, runtime: <workspace>/.cache/27eda854481d20806d918b30cdd417c6bed4fd15882e24f3595dc8ae7fb5d095/jdk/jre\nDefault locale: en, platform encoding: UTF-8\nOS name: \"linux\", version: \"6.18.33.1-microsoft-standard-wsl2\", arch: \"amd64\", family: \"unix\"\n"
+  },
+  "end_utc": "2026-11-25T09:20:12.277848+00:00",
+  "seconds": 789.044666,
+  "error": "One or more recovery builds failed",
+  "error_type": "StepError",
+  "error_category": "COMMAND_FAILED",
+  "public_receipt": true,
+  "original_run_sha256": "6e263e4a235c13abdf504f7c76ff288da0febf58c4c0906e0223f63c90731966",
+  "redaction": "Local workspace/home paths and credentials removed. Raw run and artifacts retained locally; rebuild sources for artifact replay on another machine."
+}

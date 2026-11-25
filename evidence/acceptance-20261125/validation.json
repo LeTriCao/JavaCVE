@@ -1,0 +1,83 @@
+{
+  "date_local": "2026-11-25",
+  "timezone": "Asia/Saigon",
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "runner": "Ubuntu WSL"
+  },
+  "assessment": {
+    "cases": 20,
+    "accepted_common": 8,
+    "paired_builds": 12,
+    "by_batch": {
+      "pilot": 6,
+      "batch02": 2
+    },
+    "labels": {
+      "VULNERABLE": 49,
+      "RESOLVED_TARGET": 18,
+      "UNCONFIRMED": 342
+    }
+  },
+  "checks": {
+    "source": {
+      "status": "PASS",
+      "callable_versions": 409,
+      "pilot": 187,
+      "batch02": 222
+    },
+    "ast": {
+      "status": "PASS",
+      "callable_versions": 409,
+      "failures": 0
+    },
+    "commit_tree_parent": {
+      "status": "PASS",
+      "cases": 20
+    },
+    "unit_working_tree": {
+      "tests": 28,
+      "passed": 27,
+      "errors": 1,
+      "exit_code": 1,
+      "blocker": "Existing SHA-256 mismatch: .github/workflows/verify.yml; original manifest retained"
+    },
+    "unit_isolated_copy": {
+      "tests": 28,
+      "passed": 28,
+      "errors": 0,
+      "exit_code": 0,
+      "manifest": "Rehashed only inside validation-copy, existing 415 entries; not a clean clone or release verification"
+    }
+  },
+  "preexisting_files_outside_task_unchanged": {
+    ".github/workflows/verify.yml": true,
+    "docs/DATA.md": true,
+    "docs/INSTALL.md": true,
+    "tools/github.ps1": true,
+    "docs/DOI_CHIEU_CI.md": true,
+    "evidence/diagnostic-logging/JvmLoggingControl.java": true,
+    "evidence/diagnostic-logging/verify.py": true,
+    "evidence/plexus-control/README.md": true,
+    "evidence/plexus-control/run.json": true,
+    "evidence/plexus-control/verify.py": true
+  },
+  "original_manifest_sha256": "1526fcd64f53781f02385d08a37d97f8a1d345b4a6d6d6b4c7d96ec85e06267a",
+  "limitations": [
+    "Saved Java build/behavior evidence only; no new Java probe execution or source builds",
+    "No independent human review",
+    "12/20 acceptance target remains a proposal pending instructor confirmation",
+    "Local Plexus ordinary control has receipt hashes but no archived raw Maven/Surefire log",
+    "Working tree manifest intentionally remains inconsistent with edits; no commit/push/tag/release"
+  ],
+  "artifact_sha256": {
+    "ast-check.json": "16f9efe64d45ae47fa89f3f852360809f7b92e82a08eecc25529dc055d37a221",
+    "source-check.json": "93c49d37b777915ab67583c6c13da23b1ba9ff785f2b669efa484b4ad7300764",
+    "topology-check.json": "196aed6ccbe62faf6cc925b9d74ec2c719138683b3d9bdd9cd6f7bf1369d08ba",
+    "unit-isolated.json": "4f242c5cbf3eb3c61e42e36d4a37da47209eca73d1f01d50bce01ec4afbb52ef",
+    "unit-isolated.log": "48aa221fb6f5cc66ce3044a767fb8f11eeaab839f7ee0945555240ba5c6c5911",
+    "unit-working-tree.json": "d545d8bbfd25fc8823592c0ccce185edaed8dea83ce5adb45c23e3f7e67849a0",
+    "unit-working-tree.log": "7ec8f10c07c9863af6980b1d5289413ff81332e457715a5ad9cfdc8c77cc2968"
+  }
+}
